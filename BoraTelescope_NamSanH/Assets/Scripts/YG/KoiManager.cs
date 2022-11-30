@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
 public class KoiManager : MonoBehaviour
@@ -12,6 +13,9 @@ public class KoiManager : MonoBehaviour
 
     [SerializeField]
     Koi[] Koiarr;
+
+
+
 
     public List<GameObject> EatList = new List<GameObject>();
     // Start is called before the first frame update
@@ -31,7 +35,7 @@ public class KoiManager : MonoBehaviour
             GameObject obj = Instantiate(Eat);
             EatList.Add(obj);
             obj.transform.parent = Koi.transform;
-            obj.transform.position = new Vector3(x, 0.44f, z);
+            obj.transform.localPosition = new Vector3(x, 0.44f, z);
         }
         StartCoroutine("InsEat");
     }

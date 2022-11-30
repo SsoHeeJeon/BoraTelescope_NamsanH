@@ -1,10 +1,13 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
 public class Sparrow : MonoBehaviour
 {
+
+
     public enum State
     {
         Idle,
@@ -21,10 +24,14 @@ public class Sparrow : MonoBehaviour
     private Animator anim;
     public float speed;
     private Vector3 dir;
+    private Vector3 Pos1;
+    private Vector3 Pos2;
 
     private void Start()
     {
         anim = GetComponent<Animator>();
+        Pos1 = transform.position + new Vector3(5 * transform.localScale.x, 5 * transform.localScale.y, 5 * transform.localScale.z);
+        Pos2 = transform.position;
     }
 
     // Update is called once per frame
@@ -65,9 +72,9 @@ public class Sparrow : MonoBehaviour
 
     private void UpdateFly()
     {
-        //transform.LookAt(new Vector3(1.3f, 4, 0));
-        transform.position = Vector3.Lerp(transform.position, new Vector3(1.3f, 4f, 0), Time.deltaTime*0.5f);
-        float dist = Vector3.Distance(transform.position, new Vector3(1.3f, 4f, 0));
+        transform.LookAt(Pos1);
+        transform.position = Vector3.Lerp(transform.position, Pos1, Time.deltaTime*0.5f);
+        float dist = Vector3.Distance(transform.position, Pos1);
         if(dist < 1)
         {
             state = State.Back;
@@ -76,11 +83,12 @@ public class Sparrow : MonoBehaviour
 
     private void UpdateBack()
     {
-        //transform.LookAt(new Vector3(1, 0, 0));
-        transform.position = Vector3.Lerp(transform.position, new Vector3(1f, 0, 0), Time.deltaTime * 0.5f);
-        float dist = Vector3.Distance(transform.position, new Vector3(1f, 0, 0));
+        transform.LookAt(Pos2);
+        transform.position = Vector3.Lerp(transform.position, Pos2, Time.deltaTime * 0.5f);
+        float dist = Vector3.Distance(transform.position, Pos2);
         if(dist<1)
         {
+            transform.rotation = Quaternion.Euler(new Vector3(0, 90, 0));
             anim.CrossFade("IdleEat", 1f);
             Invoke("GoIdle", 10f);
             state = State.Eat;
