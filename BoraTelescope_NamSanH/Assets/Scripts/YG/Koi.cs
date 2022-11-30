@@ -16,6 +16,7 @@ public class Koi : MonoBehaviour
     private float rotspeed;
     private float rot;
     private Vector3 dir;
+    private float defaultspeed;
 
     public GameObject Eat;
 
@@ -33,6 +34,7 @@ public class Koi : MonoBehaviour
 
     private void Start()
     {
+        defaultspeed = speed;
         anim = GetComponent<Animator>();
         StartPos = transform.position;
     }
@@ -119,7 +121,7 @@ public class Koi : MonoBehaviour
         else
         {
             anim.CrossFade("Speed Swim", 0.2f);
-            speed = 0.5f;
+            speed = defaultspeed;
             state = State.Idle;
         }
     }
@@ -129,13 +131,13 @@ public class Koi : MonoBehaviour
         transform.rotation = Quaternion.Euler(10, transform.eulerAngles.y, transform.eulerAngles.z);
         if(Eat!=null)
         {
-            if(Eat.transform.position.y!=0.05f)
+            if(Eat.transform.localPosition.y!=0.05f)
             {
-                Eat.transform.position = new Vector3(Eat.transform.position.x, 0.05f, Eat.transform.position.z);
+                Eat.transform.localPosition = new Vector3(Eat.transform.localPosition.x, 0.05f, Eat.transform.localPosition.z);
             }
             else
             {
-                Eat.transform.position = new Vector3(Eat.transform.position.x, 0, Eat.transform.position.z);
+                Eat.transform.localPosition = new Vector3(Eat.transform.localPosition.x, 0, Eat.transform.localPosition.z);
             }
         }
 
@@ -148,7 +150,7 @@ public class Koi : MonoBehaviour
             if(other.gameObject.name.Contains("eat"))
             {
                 state = State.EatMove;
-                other.gameObject.transform.position = new Vector3(other.gameObject.transform.position.x, transform.position.y, other.gameObject.transform.position.z);
+                other.gameObject.transform.localPosition = new Vector3(other.gameObject.transform.localPosition.x, transform.localPosition.y, other.gameObject.transform.localPosition.z);
                 transform.LookAt(new Vector3(other.gameObject.transform.position.x, transform.position.y, other.gameObject.transform.position.z));
                 Eat = other.gameObject;
             }
@@ -165,7 +167,7 @@ public class Koi : MonoBehaviour
             }
             Destroy(Eat);
             anim.CrossFade("Speed Swim", 0.2f);
-            speed = 0.5f;
+            speed = defaultspeed;
             state = State.Idle;
         }
     }
@@ -177,7 +179,7 @@ public class Koi : MonoBehaviour
 
     void GoIdle()
     {
-        speed = 0.5f;
+        speed = defaultspeed;
         state = State.Idle;
         CancelInvoke("GoIdle");
     }

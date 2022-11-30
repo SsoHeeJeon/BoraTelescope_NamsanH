@@ -1,0 +1,1621 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2705734705478697330
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2705734705479124126}
+  m_Layer: 0
+  m_Name: SPARROW_ Head
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2705734705479124126
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2705734705478697330}
+  m_LocalRotation: {x: -5.5128648e-14, y: -0.00000027828239, z: 0.10033326, w: 0.99495393}
+  m_LocalPosition: {x: -0.020325355, y: -0.000000009536743, z: 0}
+  m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 1}
+  m_Children:
+  - {fileID: 2705734705479137178}
+  m_Father: {fileID: 2705734705479078554}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -0.7291572, y: -2.956986, z: 22.170092}
+--- !u!1 &2705734705478697550
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2705734705479028504}
+  - component: {fileID: 2705734705475569142}
+  m_Layer: 0
+  m_Name: SK_Sparrow
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2705734705479028504
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2705734705478697550}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2705734705479051578}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!137 &2705734705475569142
+SkinnedMeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2705734705478697550}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 3
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 37066342325ead14e8d25a3e60f6e41c, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  serializedVersion: 2
+  m_Quality: 4
+  m_UpdateWhenOffscreen: 0
+  m_SkinnedMotionVectors: 1
+  m_Mesh: {fileID: 4300000, guid: ae583a7dbf7e92e458e08ee15ca33b69, type: 3}
+  m_Bones:
+  - {fileID: 2705734705479124126}
+  - {fileID: 2705734705479039510}
+  - {fileID: 2705734705479047226}
+  - {fileID: 2705734705479027482}
+  - {fileID: 2705734705479036088}
+  - {fileID: 2705734705479055952}
+  - {fileID: 2705734705479077332}
+  - {fileID: 2705734705479087976}
+  - {fileID: 2705734705479067964}
+  - {fileID: 2705734705479044220}
+  - {fileID: 2705734705479069172}
+  - {fileID: 2705734705479097424}
+  - {fileID: 2705734705479059424}
+  - {fileID: 2705734705479078554}
+  - {fileID: 2705734705479072848}
+  - {fileID: 2705734705479086198}
+  - {fileID: 2705734705479031948}
+  - {fileID: 2705734705479137178}
+  - {fileID: 2705734705479080832}
+  - {fileID: 2705734705479131830}
+  - {fileID: 2705734705479132244}
+  - {fileID: 2705734705479137958}
+  - {fileID: 2705734705479147798}
+  - {fileID: 2705734705479133030}
+  - {fileID: 2705734705479032150}
+  - {fileID: 2705734705479148748}
+  - {fileID: 2705734705479131458}
+  - {fileID: 2705734705479027284}
+  - {fileID: 2705734705479038950}
+  - {fileID: 2705734705479139188}
+  - {fileID: 2705734705479129574}
+  - {fileID: 2705734705479133200}
+  - {fileID: 2705734705479049562}
+  - {fileID: 2705734705479126732}
+  - {fileID: 2705734705479029784}
+  - {fileID: 2705734705479152876}
+  - {fileID: 2705734705479048104}
+  - {fileID: 2705734705479138882}
+  - {fileID: 2705734705479136734}
+  - {fileID: 2705734705479075412}
+  - {fileID: 2705734705479141234}
+  - {fileID: 2705734705479092116}
+  - {fileID: 2705734705479043252}
+  - {fileID: 2705734705479147056}
+  m_BlendShapeWeights: []
+  m_RootBone: {fileID: 2705734705479031948}
+  m_AABB:
+    m_Center: {x: -0.006966889, y: -0.10261572, z: 0.0000001937151}
+    m_Extent: {x: 0.12152398, y: 0.18926755, z: 0.15921672}
+  m_DirtyAABB: 0
+--- !u!1 &2705734705478698088
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2705734705479131458}
+  m_Layer: 0
+  m_Name: SPARROW_ L Toe01
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2705734705479131458
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2705734705478698088}
+  m_LocalRotation: {x: 2.842171e-14, y: 1.3128386e-12, z: -3.731312e-26, w: 1}
+  m_LocalPosition: {x: -0.006209382, y: 1.8626451e-11, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 2705734705479038950}
+  m_Father: {fileID: 2705734705479148748}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -4.3368087e-19, y: 1.3669031e-10, z: 0}
+--- !u!1 &2705734705478698492
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2705734705479133030}
+  m_Layer: 0
+  m_Name: SPARROW_ L HorseLink
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2705734705479133030
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2705734705478698492}
+  m_LocalRotation: {x: 0.0000000016156667, y: -9.2685937e-10, z: -0.49760386, w: 0.86740446}
+  m_LocalPosition: {x: -0.021573167, y: 0.0000000047683715, z: -0.0000000023841857}
+  m_LocalScale: {x: 0.9999998, y: 1.0000001, z: 1}
+  m_Children:
+  - {fileID: 2705734705479147798}
+  m_Father: {fileID: 2705734705479132244}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -0.00000039823433, y: -0.00000016278024, z: -60.64228}
+--- !u!1 &2705734705478698604
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2705734705479072848}
+  m_Layer: 0
+  m_Name: SPARROW_ L UpperArm
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2705734705479072848
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2705734705478698604}
+  m_LocalRotation: {x: -0.064189225, y: -0.6678951, z: -0.13116613, w: 0.72978866}
+  m_LocalPosition: {x: -0.02115948, y: -0.0000000047683715, z: 0}
+  m_LocalScale: {x: 0.99999994, y: 1.0000001, z: 1.0000001}
+  m_Children:
+  - {fileID: 2705734705479036088}
+  - {fileID: 2705734705479044220}
+  m_Father: {fileID: 2705734705479137958}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -15.598771, y: -84.064995, z: -6.300658}
+--- !u!1 &2705734705478699072
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2705734705479132244}
+  m_Layer: 0
+  m_Name: SPARROW_ L Calf
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2705734705479132244
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2705734705478699072}
+  m_LocalRotation: {x: 0.0000000033218324, y: 6.767353e-10, z: 0.46113417, w: 0.8873304}
+  m_LocalPosition: {x: -0.028027553, y: -0.0000000011920929, z: 0.0000000011920929}
+  m_LocalScale: {x: 1, y: 1.0000001, z: 1}
+  m_Children:
+  - {fileID: 2705734705479133030}
+  m_Father: {fileID: 2705734705479032150}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -0.0000000026568614, y: -0.00000038478962, z: 55.91412}
+--- !u!1 &2705734705478700552
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2705734705479129574}
+  m_Layer: 0
+  m_Name: SPARROW_ L Toe12
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2705734705479129574
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2705734705478700552}
+  m_LocalRotation: {x: -1.4210855e-14, y: 4.5974335e-13, z: 6.533346e-27, w: 1}
+  m_LocalPosition: {x: -0.0044617164, y: -1.8626451e-11, z: 0.0000000023841857}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2705734705479139188}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 3.2526065e-18, y: -3.5343267e-11, z: 0}
+--- !u!1 &2705734705478701642
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2705734705479036088}
+  m_Layer: 0
+  m_Name: SPARROW_ L Forearm
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2705734705479036088
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2705734705478701642}
+  m_LocalRotation: {x: 0.00000000913336, y: 0.000000058900724, z: 0.9881902, w: 0.15323235}
+  m_LocalPosition: {x: -0.037348054, y: 0.000000009536743, z: 0}
+  m_LocalScale: {x: 1.0000001, y: 1, z: 1.0000001}
+  m_Children:
+  - {fileID: 2705734705479055952}
+  - {fileID: 2705734705479077332}
+  - {fileID: 2705734705479047226}
+  m_Father: {fileID: 2705734705479072848}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -0.0000032547948, y: 0.000001034267, z: 162.3714}
+--- !u!1 &2705734705478702702
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2705734705479075412}
+  m_Layer: 0
+  m_Name: SPARROW_ R Toe0
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2705734705479075412
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2705734705478702702}
+  m_LocalRotation: {x: -0.0000058378964, y: -0.000005244548, z: -0.70710695, w: 0.7071066}
+  m_LocalPosition: {x: -0.0037209596, y: 0.00386177, z: 0.000442214}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 2705734705479029784}
+  m_Father: {fileID: 2705734705479147056}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -0.00087404187, y: 0.00005955057, z: -89.999985}
+--- !u!1 &2705734705478707320
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2705734705479152876}
+  m_Layer: 0
+  m_Name: SPARROW_ TailR
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2705734705479152876
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2705734705478707320}
+  m_LocalRotation: {x: 0.027347753, y: -0.012457297, z: 0.9930802, w: -0.11352834}
+  m_LocalPosition: {x: 0.023118822, y: -0.017443137, z: -0.00999997}
+  m_LocalScale: {x: 1.0000005, y: 0.99999994, z: 0.99999934}
+  m_Children: []
+  m_Father: {fileID: 2705734705479031948}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 1.0619063, y: 3.276546, z: -166.92621}
+--- !u!1 &2705734705478720770
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2705734705479027284}
+  m_Layer: 0
+  m_Name: SPARROW_ L Toe1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2705734705479027284
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2705734705478720770}
+  m_LocalRotation: {x: 0.70710695, y: 0.7071066, z: 0.0000057435764, w: -0.000006308515}
+  m_LocalPosition: {x: -0.0037628405, y: -0.0014251858, z: -0.0001676464}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 2705734705479139188}
+  m_Father: {fileID: 2705734705479147798}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: -0.00096130365, y: -179.99992, z: 89.999985}
+--- !u!1 &2705734705478720928
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2705734705479038138}
+  m_Layer: 0
+  m_Name: root
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2705734705479038138
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2705734705478720928}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 2705734705479129576}
+  m_Father: {fileID: 2705734705479051578}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+--- !u!1 &2705734705478723932
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2705734705479067964}
+  m_Layer: 0
+  m_Name: WingRightFeatherA
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2705734705479067964
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2705734705478723932}
+  m_LocalRotation: {x: 0.98747164, y: -0.1528846, z: -0.038949717, w: 0.003002139}
+  m_LocalPosition: {x: -0.06464255, y: 0.01150675, z: 0.0059792018}
+  m_LocalScale: {x: 1.0000001, y: 0.9999998, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2705734705479069172}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: -0.3426634, y: -175.5354, z: -162.41154}
+--- !u!1 &2705734705478727332
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2705734705479137958}
+  m_Layer: 0
+  m_Name: SPARROW_ L Clavicle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2705734705479137958
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2705734705478727332}
+  m_LocalRotation: {x: 0.7183406, y: 0.08832366, z: -0.6838733, w: -0.092212036}
+  m_LocalPosition: {x: -0.036454845, y: -0.011999535, z: 0.0045841094}
+  m_LocalScale: {x: 0.99999994, y: 1, z: 1}
+  m_Children:
+  - {fileID: 2705734705479072848}
+  m_Father: {fileID: 2705734705479133200}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -0.66892934, y: -92.730125, z: 165.34294}
+--- !u!1 &2705734705478728596
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2705734705479131830}
+  m_Layer: 0
+  m_Name: SPARROW_ R Clavicle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2705734705479131830
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2705734705478728596}
+  m_LocalRotation: {x: 0.7183408, y: 0.08832177, z: 0.68387353, w: 0.09221005}
+  m_LocalPosition: {x: -0.036454845, y: -0.0119995065, z: -0.0045841755}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 2705734705479069172}
+  m_Father: {fileID: 2705734705479133200}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0.6689148, y: 92.730125, z: 165.34326}
+--- !u!1 &2705734705478763564
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2705734705479078554}
+  m_Layer: 0
+  m_Name: SPARROW_ Neck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2705734705479078554
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2705734705478763564}
+  m_LocalRotation: {x: 0, y: 5.684342e-14, z: 0, w: 1}
+  m_LocalPosition: {x: -0.047948383, y: -0.000016169548, z: -4.487447e-11}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 2705734705479124126}
+  m_Father: {fileID: 2705734705479133200}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0.058788933, y: 1.5239869, z: 1.6933868}
+--- !u!1 &2705734705478763886
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2705734705479138882}
+  m_Layer: 0
+  m_Name: SPARROW_ R HorseLink
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2705734705479138882
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2705734705478763886}
+  m_LocalRotation: {x: 9.268814e-10, y: 0.0000000016156545, z: -0.49761555, w: 0.8673977}
+  m_LocalPosition: {x: -0.02157316, y: 0.0000000023841857, z: 0.0000000011920929}
+  m_LocalScale: {x: 0.9999998, y: 1, z: 1}
+  m_Children:
+  - {fileID: 2705734705479147056}
+  m_Father: {fileID: 2705734705479080832}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0.00000010756226, y: 0.00000024416812, z: -60.64466}
+--- !u!1 &2705734705478765392
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2705734705479031948}
+  m_Layer: 0
+  m_Name: SPARROW_ Pelvis
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2705734705479031948
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2705734705478765392}
+  m_LocalRotation: {x: -0.5, y: 0.5, z: 0.4999993, w: 0.5000007}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 1}
+  m_Children:
+  - {fileID: 2705734705479133200}
+  - {fileID: 2705734705479049562}
+  - {fileID: 2705734705479126732}
+  - {fileID: 2705734705479152876}
+  m_Father: {fileID: 2705734705479129576}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -90, y: 89.99992, z: 0}
+--- !u!1 &2705734705478767306
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2705734705479027482}
+  m_Layer: 0
+  m_Name: WingRightFeatherC
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2705734705479027482
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2705734705478767306}
+  m_LocalRotation: {x: -0.10086496, y: 0.99434143, z: 0.028397122, w: 0.017463367}
+  m_LocalPosition: {x: 0.0126164295, y: 0.016489634, z: 0.0062165023}
+  m_LocalScale: {x: 1, y: 0.9999998, z: 1.0000001}
+  m_Children: []
+  m_Father: {fileID: 2705734705479059424}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: -3.439569, y: 178.33514, z: -11.534431}
+--- !u!1 &2705734705478767918
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2705734705479059424}
+  m_Layer: 0
+  m_Name: SPARROW_ R Forearm
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2705734705479059424
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2705734705478767918}
+  m_LocalRotation: {x: -0.000000007667163, y: 0.000000016975257, z: 0.9760583, w: 0.21750914}
+  m_LocalPosition: {x: -0.037348058, y: 0, z: 0}
+  m_LocalScale: {x: 0.99999994, y: 1, z: 0.99999994}
+  m_Children:
+  - {fileID: 2705734705479097424}
+  - {fileID: 2705734705479087976}
+  - {fileID: 2705734705479027482}
+  m_Father: {fileID: 2705734705479069172}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0.0000018179007, y: -0.00000014529508, z: 154.87445}
+--- !u!1 &2705734705478769516
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2705734705479077332}
+  m_Layer: 0
+  m_Name: WingLeftFeatherB
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2705734705479077332
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2705734705478769516}
+  m_LocalRotation: {x: -0.021363553, y: 0.04982646, z: 0.99707437, w: 0.053885028}
+  m_LocalPosition: {x: 0.023083959, y: 0.011013889, z: -0.0053620655}
+  m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 0.99999994}
+  m_Children: []
+  m_Father: {fileID: 2705734705479036088}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: -5.834982, y: -2.144865, z: 173.92245}
+--- !u!1 &2705734705478770576
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2705734705479133200}
+  m_Layer: 0
+  m_Name: SPARROW_ Spine
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2705734705479133200
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2705734705478770576}
+  m_LocalRotation: {x: -0.0000019667777, y: 0.00000059282223, z: 0.13578804, w: 0.9907379}
+  m_LocalPosition: {x: -0.015372472, y: 0.0041269157, z: 0.000000015595333}
+  m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 1}
+  m_Children:
+  - {fileID: 2705734705479137958}
+  - {fileID: 2705734705479032150}
+  - {fileID: 2705734705479078554}
+  - {fileID: 2705734705479131830}
+  - {fileID: 2705734705479048104}
+  m_Father: {fileID: 2705734705479031948}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -0.00023251315, y: 0.0000367, z: 15.6083765}
+--- !u!1 &2705734705478771640
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2705734705479032150}
+  m_Layer: 0
+  m_Name: SPARROW_ L Thigh
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2705734705479032150
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2705734705478771640}
+  m_LocalRotation: {x: -0.6180822, y: 0.7857809, z: 0.021310281, w: 0.008282924}
+  m_LocalPosition: {x: 0.013695187, y: -0.0081108995, z: 0.017274765}
+  m_LocalScale: {x: 1.0000001, y: 0.99999994, z: 1}
+  m_Children:
+  - {fileID: 2705734705479132244}
+  m_Father: {fileID: 2705734705479133200}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: -2.4035172, y: -179.22984, z: -80.22056}
+--- !u!1 &2705734705478773170
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2705734705479097424}
+  m_Layer: 0
+  m_Name: SPARROW_ R Hand
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2705734705479097424
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2705734705478773170}
+  m_LocalRotation: {x: -0.08461127, y: 0.60869545, z: 0.7887172, w: -0.01599823}
+  m_LocalPosition: {x: -0.05600287, y: 0, z: -0.0000000047683715}
+  m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 1}
+  m_Children:
+  - {fileID: 2705734705479086198}
+  m_Father: {fileID: 2705734705479059424}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -73.229836, y: -32.01066, z: -153.61127}
+--- !u!1 &2705734705478773466
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2705734705479147056}
+  m_Layer: 0
+  m_Name: SPARROW_ R Foot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2705734705479147056
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2705734705478773466}
+  m_LocalRotation: {x: -0.015270807, y: -0.017018147, z: 0.2772493, w: 0.96052593}
+  m_LocalPosition: {x: -0.02846507, y: 1.4901161e-10, z: -0.0000000047683715}
+  m_LocalScale: {x: 1, y: 0.9999999, z: 0.9999999}
+  m_Children:
+  - {fileID: 2705734705479075412}
+  - {fileID: 2705734705479092116}
+  m_Father: {fileID: 2705734705479138882}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -0.97848046, y: -2.3268313, z: 32.314117}
+--- !u!1 &2705734705478776606
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2705734705479086198}
+  m_Layer: 0
+  m_Name: WingRightFeatherD
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2705734705479086198
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2705734705478776606}
+  m_LocalRotation: {x: 0.71015334, y: -0.048484303, z: 0.025427865, w: 0.7019152}
+  m_LocalPosition: {x: -0.09691144, y: -0.002646141, z: 0.00443707}
+  m_LocalScale: {x: 0.99999994, y: 1.0000002, z: 1.0000001}
+  m_Children: []
+  m_Father: {fileID: 2705734705479097424}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 88.01603, y: -112.658264, z: -106.66563}
+--- !u!1 &2705734705478780002
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2705734705479137178}
+  m_Layer: 0
+  m_Name: SPARROW_ Queue de cheval 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2705734705479137178
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2705734705478780002}
+  m_LocalRotation: {x: 0.00000009502571, y: 0.0000018360333, z: -0.6366736, w: 0.7711334}
+  m_LocalPosition: {x: -0.0046762275, y: 0.015368315, z: 0.000000023501451}
+  m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2705734705479124126}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0.00014243955, y: 0.00015506588, z: -78.84215}
+--- !u!1 &2705734705478784256
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2705734705479049562}
+  m_Layer: 0
+  m_Name: SPARROW_ Tail
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2705734705479049562
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2705734705478784256}
+  m_LocalRotation: {x: 0.00000089988436, y: -0.00000075986594, z: 0.99489, w: -0.100965075}
+  m_LocalPosition: {x: 0.021084998, y: -0.016628193, z: 0.000000004956255}
+  m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2705734705479031948}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0.00007621783, y: 0.00011138377, z: -168.4105}
+--- !u!1 &2705734705478787908
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2705734705479048104}
+  m_Layer: 0
+  m_Name: SPARROW_ R Thigh
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2705734705479048104
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2705734705478787908}
+  m_LocalRotation: {x: -0.6180877, y: 0.7857766, z: -0.021309862, w: -0.008285183}
+  m_LocalPosition: {x: 0.013695185, y: -0.008110809, z: -0.01727481}
+  m_LocalScale: {x: 1.0000001, y: 1, z: 1.0000001}
+  m_Children:
+  - {fileID: 2705734705479080832}
+  m_Father: {fileID: 2705734705479133200}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 2.4037104, y: 179.23006, z: -80.21993}
+--- !u!1 &2705734705478788088
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2705734705479043252}
+  m_Layer: 0
+  m_Name: SPARROW_ R Toe02
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2705734705479043252
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2705734705478788088}
+  m_LocalRotation: {x: 2.842171e-14, y: 1.2111424e-12, z: -3.4422738e-26, w: 1}
+  m_LocalPosition: {x: -0.0065955007, y: -1.8626451e-11, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2705734705479029784}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -2.1684043e-18, y: -6.581374e-11, z: 0}
+--- !u!1 &2705734705478789716
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2705734705479129576}
+  m_Layer: 0
+  m_Name: SPARROW_
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2705734705479129576
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2705734705478789716}
+  m_LocalRotation: {x: 0.379928, y: -0.3799285, z: 0.5963675, w: 0.5963681}
+  m_LocalPosition: {x: 0, y: 0.019, z: 0.072178885}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 2705734705479031948}
+  m_Father: {fileID: 2705734705479038138}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 68.701355, y: -0.00019744213, z: 89.99979}
+--- !u!1 &2705734705478791544
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2705734705479039510}
+  m_Layer: 0
+  m_Name: WingLeftFeatherD
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2705734705479039510
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2705734705478791544}
+  m_LocalRotation: {x: 0.70074415, y: 0.04783875, z: -0.07114853, w: 0.7082422}
+  m_LocalPosition: {x: -0.09821708, y: -0.0023604056, z: 0.0005923033}
+  m_LocalScale: {x: 0.9999999, y: 1.0000001, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2705734705479055952}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 88.01583, y: -67.34154, z: -76.995705}
+--- !u!1 &2705734705478791660
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2705734705479029784}
+  m_Layer: 0
+  m_Name: SPARROW_ R Toe01
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2705734705479029784
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2705734705478791660}
+  m_LocalRotation: {x: 2.842171e-14, y: 1.2111424e-12, z: -3.4422738e-26, w: 1}
+  m_LocalPosition: {x: -0.0062093805, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 2705734705479043252}
+  m_Father: {fileID: 2705734705479075412}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -2.1684043e-18, y: -6.581374e-11, z: 0}
+--- !u!1 &2705734705478796788
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2705734705479038950}
+  m_Layer: 0
+  m_Name: SPARROW_ L Toe02
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2705734705479038950
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2705734705478796788}
+  m_LocalRotation: {x: 2.842171e-14, y: 1.3128386e-12, z: -3.731312e-26, w: 1}
+  m_LocalPosition: {x: -0.006595498, y: -3.7252902e-11, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2705734705479131458}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -4.3368087e-19, y: 1.3669031e-10, z: 0}
+--- !u!1 &2705734705478797336
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2705734705479080832}
+  m_Layer: 0
+  m_Name: SPARROW_ R Calf
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2705734705479080832
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2705734705478797336}
+  m_LocalRotation: {x: 0.0000000016038932, y: 0.0000000039823314, z: 0.4611522, w: 0.88732105}
+  m_LocalPosition: {x: -0.028027548, y: -0.0000000023841857, z: -0.0000000023841857}
+  m_LocalScale: {x: 1, y: 0.99999994, z: 0.99999994}
+  m_Children:
+  - {fileID: 2705734705479138882}
+  m_Father: {fileID: 2705734705479048104}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -0.00000005981042, y: -0.00000008839055, z: 55.915115}
+--- !u!1 &2705734705478805570
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2705734705479092116}
+  m_Layer: 0
+  m_Name: SPARROW_ R Toe1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2705734705479092116
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2705734705478805570}
+  m_LocalRotation: {x: 0.70710695, y: 0.7071066, z: -0.0000005343076, w: -0.000000030634293}
+  m_LocalPosition: {x: -0.0037628403, y: -0.0014251858, z: 0.0001676464}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 2705734705479141234}
+  m_Father: {fileID: 2705734705479147056}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: -0.000024115325, y: -179.99994, z: 89.999985}
+--- !u!1 &2705734705478807398
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2705734705479141234}
+  m_Layer: 0
+  m_Name: SPARROW_ R Toe11
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2705734705479141234
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2705734705478807398}
+  m_LocalRotation: {x: 0, y: 1.34336994e-14, z: -0, w: 1}
+  m_LocalPosition: {x: -0.003996985, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 2705734705479136734}
+  m_Father: {fileID: 2705734705479092116}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -3.2526065e-19, y: 1.5903182e-12, z: 0}
+--- !u!1 &2705734705478810824
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2705734705479126732}
+  m_Layer: 0
+  m_Name: SPARROW_ TailL
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2705734705479126732
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2705734705478810824}
+  m_LocalRotation: {x: -0.11322042, y: 0.9928734, z: -0.02062701, w: 0.030955449}
+  m_LocalPosition: {x: 0.02311885, y: -0.017443098, z: 0.010000033}
+  m_LocalScale: {x: 0.99999964, y: 0.9999998, z: 0.9999997}
+  m_Children: []
+  m_Father: {fileID: 2705734705479031948}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 1.9455909, y: 176.20546, z: -13.075482}
+--- !u!1 &2705734705478811004
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2705734705479139188}
+  m_Layer: 0
+  m_Name: SPARROW_ L Toe11
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2705734705479139188
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2705734705478811004}
+  m_LocalRotation: {x: -1.4210855e-14, y: 4.5974335e-13, z: 6.533346e-27, w: 1}
+  m_LocalPosition: {x: -0.003996985, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 2705734705479129574}
+  m_Father: {fileID: 2705734705479027284}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 3.2526065e-18, y: -3.5343267e-11, z: 0}
+--- !u!1 &2705734705478814090
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2705734705479044220}
+  m_Layer: 0
+  m_Name: WingLeftFeatherA
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2705734705479044220
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2705734705478814090}
+  m_LocalRotation: {x: 0.004407605, y: -0.03881715, z: -0.18845434, w: 0.98130465}
+  m_LocalPosition: {x: -0.064802185, y: 0.011138394, z: -0.0045723408}
+  m_LocalScale: {x: 0.9999999, y: 1.0000001, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2705734705479072848}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: -0.3426373, y: -4.4647384, z: -21.728632}
+--- !u!1 &2705734705478815722
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2705734705479087976}
+  m_Layer: 0
+  m_Name: WingRightFeatherB
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2705734705479087976
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2705734705478815722}
+  m_LocalRotation: {x: 0.02117144, y: 0.99830496, z: 0.050499115, w: -0.019717665}
+  m_LocalPosition: {x: 0.021489851, y: 0.013758151, z: 0.0058892104}
+  m_LocalScale: {x: 1.0000001, y: 0.9999999, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2705734705479059424}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: -5.8348794, y: -177.85526, z: 2.3205075}
+--- !u!1 &2705734705478816924
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2705734705479051578}
+  - component: {fileID: 2705734705471475982}
+  - component: {fileID: 2705734705478816923}
+  m_Layer: 0
+  m_Name: Sparrow_Legacy
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2705734705479051578
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2705734705478816924}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 2705734705479038138}
+  - {fileID: 2705734705479028504}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!95 &2705734705471475982
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2705734705478816924}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: ae583a7dbf7e92e458e08ee15ca33b69, type: 3}
+  m_Controller: {fileID: 9100000, guid: 10985a42438cad242985190c13fe8668, type: 2}
+  m_CullingMode: 1
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2705734705478816923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2705734705478816924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffcaf97ca98d27c44bd260b56abccb44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  state: 0
+  speed: 0.1
+--- !u!1 &2705734705478819870
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2705734705479055952}
+  m_Layer: 0
+  m_Name: SPARROW_ L Hand
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2705734705479055952
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2705734705478819870}
+  m_LocalRotation: {x: 0.08461126, y: -0.60869545, z: 0.7887172, w: -0.015998239}
+  m_LocalPosition: {x: -0.056002874, y: -0.0000000047683715, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 2705734705479039510}
+  m_Father: {fileID: 2705734705479036088}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 73.229836, y: 32.01066, z: -153.61127}
+--- !u!1 &2705734705478821228
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2705734705479148748}
+  m_Layer: 0
+  m_Name: SPARROW_ L Toe0
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2705734705479148748
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2705734705478821228}
+  m_LocalRotation: {x: -0.000005837241, y: -0.0000052452096, z: -0.70710695, w: 0.7071066}
+  m_LocalPosition: {x: -0.0037209596, y: 0.0038617696, z: -0.00044221638}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 2705734705479131458}
+  m_Father: {fileID: 2705734705479147798}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -0.00084666087, y: 0.00007467831, z: -89.99998}
+--- !u!1 &2705734705478824748
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2705734705479069172}
+  m_Layer: 0
+  m_Name: SPARROW_ R UpperArm
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2705734705479069172
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2705734705478824748}
+  m_LocalRotation: {x: 0.05155651, y: 0.666184, z: -0.11633315, w: 0.73485196}
+  m_LocalPosition: {x: -0.021159478, y: -0.0000000047683715, z: 0}
+  m_LocalScale: {x: 1, y: 1.0000001, z: 1.0000002}
+  m_Children:
+  - {fileID: 2705734705479059424}
+  - {fileID: 2705734705479067964}
+  m_Father: {fileID: 2705734705479131830}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 13.342504, y: 83.68168, z: -6.0340996}
+--- !u!1 &2705734705478826336
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2705734705479047226}
+  m_Layer: 0
+  m_Name: WingLeftFeatherC
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2705734705479047226
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2705734705478826336}
+  m_LocalRotation: {x: 0.014380104, y: 0.030076755, z: 0.9994352, w: 0.0042360453}
+  m_LocalPosition: {x: 0.01465666, y: 0.014602143, z: -0.006344411}
+  m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 0.99999994}
+  m_Children: []
+  m_Father: {fileID: 2705734705479036088}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: -3.439681, y: 1.6647403, z: 179.46431}
+--- !u!1 &2705734705478826418
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2705734705479147798}
+  m_Layer: 0
+  m_Name: SPARROW_ L Foot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2705734705479147798
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2705734705478826418}
+  m_LocalRotation: {x: 0.015271561, y: 0.01701347, z: 0.2772492, w: 0.96052605}
+  m_LocalPosition: {x: -0.028465062, y: 0.0000000040233132, z: 0}
+  m_LocalScale: {x: 1.0000001, y: 1, z: 1}
+  m_Children:
+  - {fileID: 2705734705479148748}
+  - {fileID: 2705734705479027284}
+  m_Father: {fileID: 2705734705479133030}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0.9787395, y: 2.3262491, z: 32.31334}
+--- !u!1 &2705734705478827664
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2705734705479136734}
+  m_Layer: 0
+  m_Name: SPARROW_ R Toe12
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2705734705479136734
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2705734705478827664}
+  m_LocalRotation: {x: 0, y: 1.34336994e-14, z: -0, w: 1}
+  m_LocalPosition: {x: -0.0044617173, y: -1.8626451e-11, z: 0.0000000023841857}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2705734705479141234}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -3.2526065e-19, y: 1.5903182e-12, z: 0}
