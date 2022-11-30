@@ -14,12 +14,14 @@ public class XRModeLabelPosition
     public string LabelName;
     public float Label_X;
     public float Label_Y;
+    public float LabelScale;
 
-    public XRModeLabelPosition(string labelname, float label_x, float label_y)
+    public XRModeLabelPosition(string labelname, float label_x, float label_y, float labelsize)
     {
         LabelName = labelname;
         Label_X = label_x;
         Label_Y = label_y;
+        LabelScale = labelsize;
     }
 }
 
@@ -46,18 +48,20 @@ public class PanTiltRange
     public float Max_Pan;
     public float Min_Tilt;
     public float Max_Tilt;
-    public string StartPosition;
+    public float StartPosition_x;
+    public float StartPosition_y;
     public float ChangeValue_x;
     public float ChangeValue_y;
     public int WaitingTime;
 
-    public PanTiltRange(float minx, float maxx, float miny, float maxy, string startlabel, float valueX, float valueY, int waittime)
+    public PanTiltRange(float minx, float maxx, float miny, float maxy, float startlabel_x, float startlabel_y, float valueX, float valueY, int waittime)
     {
         Min_Pan = minx;
         Max_Pan = maxx;
         Min_Tilt = miny;
         Max_Tilt = maxy;
-        StartPosition = startlabel;
+        StartPosition_x = startlabel_x;
+        StartPosition_y = startlabel_y;
         ChangeValue_x = valueX;
         ChangeValue_y = valueY;
         WaitingTime = waittime;
@@ -89,7 +93,7 @@ public class GameManager : ContentsInfo
     public XRMode xrMode;
     public XRMode_Manager xrMode_manager;
     public NamSanHMode namsanMode;
-    //public Label label;
+    public Label label;
     //public LabelDetail labeldetail;
     public WaitingMode waitingMode;
     public ChangeWaitingMode changewaiting;
@@ -112,11 +116,11 @@ public class GameManager : ContentsInfo
     public GameObject CategoryContent;
     public GameObject Tip_Obj;
     public GameObject ETCBar;
-    public GameObject FilterBtn;
     public GameObject CaptureBtn;
     public GameObject AutoSelectImg;
     public GameObject BackGround;
     public GameObject CaptueObject;
+    public GameObject Homebtn;
 
     public Sprite ZoomIn;
     public Sprite ZoomOut;
@@ -129,7 +133,6 @@ public class GameManager : ContentsInfo
     public string MoveDir;
     public float navi_t;
     public float langnavi_t;
-    public float filternavi_t;
     public float ETCnavi_t;
     private bool touchfinish = false;
     public static float touchCount;
@@ -228,10 +231,34 @@ public class GameManager : ContentsInfo
         switch (btn.name)
         {
             case "LiveMode":
+                if (SceneManager.GetActiveScene().name == "XRMode")
+                {
+
+                }
+                else if (SceneManager.GetActiveScene().name != "XRMode")
+                {
+
+                }
                 break;
             case "XRMode":
+                if (SceneManager.GetActiveScene().name == "XRMode")
+                {
+
+                }
+                else if (SceneManager.GetActiveScene().name != "XRMode")
+                {
+
+                }
                 break;
             case "NamSanHMode":
+                if (SceneManager.GetActiveScene().name == "NamSanHMode")
+                {
+
+                }
+                else if (SceneManager.GetActiveScene().name != "NamSanHMode")
+                {
+
+                }
                 break;
             case "Language":
                 break;

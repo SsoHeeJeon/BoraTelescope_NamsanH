@@ -12,11 +12,19 @@ public class XRMode_Manager : MonoBehaviour
     public GameObject ManagerMode;
     public GameObject CameraWindow;
 
-    public GameObject AllLabel;
+    /// <summary>
+    /// 3D오브젝트 위치정보 XRLabelPosition.json
+    /// </summary>
+    public GameObject AllLabel;     // 3D 오브젝트 상위오브젝트(학, 잉어, 다람쥐, 참새)
+    public GameObject Crane;
+    public GameObject Fish;
+    public GameObject Bird;
+    public GameObject Squirrel;
 
     string LabelName;
     float Label_x;
     float Label_y;
+    float LabelScale;
 
     string Allstr;
     string RangePT;
@@ -25,13 +33,17 @@ public class XRMode_Manager : MonoBehaviour
     public List<string> AllLabelPosition;
     public string[] AllLabelPosition_arr;
 
-
     public GameObject CurrentlabelPosition;
     public Slider ChangeValuePos;
     public GameObject ChangeValuePos_t;
     public GameObject SelectLabel;
     public GameObject SelectLabel_btn;
 
+    /// <summary>
+    /// 팬틸트 정보
+    /// - 최대최소 범위
+    /// - 초기지점
+    /// </summary>
     float Current_x;
     float Current_y;
 
@@ -39,7 +51,8 @@ public class XRMode_Manager : MonoBehaviour
     public static float MaxPan;
     public static float MinTilt;
     public static float MaxTilt;
-    public static string StartPosition;
+    public static float StartPosition_x;
+    public static float StartPosition_y;
     public static float TotalPan;
     public static float TotalTilt;
 
@@ -125,7 +138,7 @@ public class XRMode_Manager : MonoBehaviour
         if (GameManager.MoveCamera == true)
         {
             MoveCamera_Arrow();
-            if (setlabelcamera == true && SelectLabel != null && setPanFreq == false)
+            if (setlabelcamera == true && SelectLabel != null)
             {
                 SelectLabel.transform.localPosition = new Vector3(CameraWindow.transform.localPosition.x, CameraWindow.transform.localPosition.y, 0);
             }
@@ -139,17 +152,18 @@ public class XRMode_Manager : MonoBehaviour
             LabelName = AllLabel.transform.GetChild(index).transform.gameObject.name;
             Label_x = AllLabel.transform.GetChild(index).transform.localPosition.x / TotalPan;
             Label_y = AllLabel.transform.GetChild(index).transform.localPosition.y / TotalTilt;
+            LabelScale = AllLabel.transform.GetChild(index).transform.localScale.x;
             
-            SaveLabelPosition(LabelName, Label_x, Label_y);
+            SaveLabelPosition(LabelName, Label_x, Label_y, LabelScale);
         }
     }
 
-    public void SaveLabelPosition(string labelname, float label_x, float label_y)
+    public void SaveLabelPosition(string labelname, float label_x, float label_y, float labelsize)
     {
-        XRModeLabelPosition labelposition = new XRModeLabelPosition(labelname, label_x, label_y);
+        XRModeLabelPosition labelposition = new XRModeLabelPosition(labelname, label_x, label_y, labelsize);
         //StartPosition = gamemanager.StartLabel;
 
-        PanTiltRange pantilt = new PanTiltRange(MinPan, MaxPan, MinTilt, MaxTilt, StartPosition,TotalPan, TotalTilt, (int)GameManager.waitingTime);
+        PanTiltRange pantilt = new PanTiltRange(MinPan, MaxPan, MinTilt, MaxTilt, StartPosition_x, StartPosition_y, TotalPan, TotalTilt, (int)GameManager.waitingTime);
 
         string str = JsonUtility.ToJson(labelposition);
         string str_1 = JsonUtility.ToJson(pantilt);
@@ -161,16 +175,17 @@ public class XRMode_Manager : MonoBehaviour
 
         Allstr = "";
 
-        if(AllLabelPosition.Count == AllLabel.transform.childCount)
+        if (AllLabelPosition.Count == AllLabel.transform.childCount)
         {
-            for(int index = 0; index<AllLabel.transform.childCount; index++)
+            for (int index = 0; index < AllLabel.transform.childCount; index++)
             {
                 Allstr += AllLabelPosition_arr[index].ToString();
             }
 
-            File.WriteAllText(Application.dataPath + ("/XRModeLabelPosition_" + ContentsInfo.ContentsName + ".json"), Allstr + str_1);
+            File.WriteAllText(Application.dataPath + ("/XRModeLabelPosition.json"), Allstr + str_1);
+
+            GameObject.Find("GameManager").GetComponent<ReadJsonFile>().Readfile();
         }
-        GameObject.Find("GameManager").GetComponent<ReadJsonFile>().Readfile();
     }
 
     public void ReadFile()
@@ -213,77 +228,7 @@ public class XRMode_Manager : MonoBehaviour
     }
 
     // 라벨 버튼이나 네비게이션의 라벨을 눌렀을때 라벨의 위치로 팬틸트이동
-    public void ChangePositionLabel(GameObject label)
-    {
-        if (setPanFreq == false)
-        {
-            SelectLabel_btn.transform.GetChild(0).gameObject.GetComponent<Text>().text = label.name;
-
-            SelectLabel_btn.GetComponent<Image>().color = new Color(0.8632076f, 0.9884475f, 1f);
-            SelectLabel_btn.transform.parent.gameObject.transform.GetChild(0).gameObject.GetComponent<Image>().color = new Color(1f, 1f, 1f);
-
-            GameObject navilabel = gamemanager.NavigationBar.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject;
-            for (int index = 0; index < navilabel.transform.childCount; index++)
-            {
-                navilabel.transform.GetChild(index).gameObject.GetComponent<Button>().enabled = true;
-            }
-
-            for (int index = 0; index < ReadJsonFile.allstr_json.Length - 2; index++)
-            {
-                if (AllLabel.transform.GetChild(index).gameObject.name == label.name)
-                {
-                    SelectLabel = AllLabel.transform.GetChild(index).gameObject;
-                    SelectLabel.transform.localPosition = AllLabel.transform.GetChild(index).gameObject.transform.localPosition;
-                }
-            }
-
-            if (SelectLabel.transform.localPosition.x != PanTiltControl.NowPanPulse / TotalPan || SelectLabel.transform.localPosition.y != PanTiltControl.NowTiltPulse / TotalTilt)
-            {
-                float xpulse = SelectLabel.transform.localPosition.x / TotalPan;
-                float ypulse = SelectLabel.transform.localPosition.y / TotalTilt;
-
-                PanTiltControl.SetPulse((uint)xpulse, (uint)ypulse);
-            }
-        } else if(setPanFreq == true)
-        {
-            GameObject navilabel = gamemanager.NavigationBar.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject;
-            for (int index = 0; index < navilabel.transform.childCount; index++)
-            {
-                navilabel.transform.GetChild(index).gameObject.GetComponent<Button>().enabled = true;
-            }
-
-            for (int index = 0; index < ReadJsonFile.allstr_json.Length - 2; index++)
-            {
-                if (AllLabel.transform.GetChild(index).gameObject.name == label.name)
-                {
-                    SelectLabel = AllLabel.transform.GetChild(index).gameObject;
-                    SelectLabel.transform.localPosition = AllLabel.transform.GetChild(index).gameObject.transform.localPosition;
-
-                }
-            }
-
-
-            if (Mathf.Abs(Current_x - (SelectLabel.transform.localPosition.x / TotalPan)) <= 2000 && XRMode.PanFreq != XRMode.panFreq_Near)
-            {
-                XRMode.PanFreq = XRMode.panFreq_Near;
-                PanTiltControl.SetFreq(PanTiltControl.Motor.Pan, PanTiltControl.Speed.Slow);
-                gamemanager.speed_enum = GameManager.Speed_enum.slow;
-                //PanTiltControl.SetFreq(PanTiltControl.Motor.Tilt, 12);
-                Debug.Log(XRMode.PanFreq);
-            }
-            else if (Mathf.Abs(Current_x - (SelectLabel.transform.localPosition.x / TotalPan)) > 2000 && XRMode.PanFreq != XRMode.panFreq_Far)
-            {
-                XRMode.PanFreq = XRMode.panFreq_Far;
-                PanTiltControl.SetFreq(PanTiltControl.Motor.Pan, PanTiltControl.Speed.Fast);
-                gamemanager.speed_enum = GameManager.Speed_enum.fast;
-                //PanTiltControl.SetFreq(PanTiltControl.Motor.Tilt, 6);
-                Debug.Log(XRMode.PanFreq);
-            }
-            Invoke("waitPanMove", 0.1f);
-        }
-    }
-
-    public void waitPanMove()
+    public void PanTiltMove()
     {
         if (SelectLabel.transform.localPosition.x != PanTiltControl.NowPanPulse / TotalPan || SelectLabel.transform.localPosition.y != PanTiltControl.NowTiltPulse / TotalTilt)
         {
@@ -337,50 +282,57 @@ public class XRMode_Manager : MonoBehaviour
 
     public void AllLabelChange(GameObject btn)
     {
-        if (btn.name == "All")
+        for (int index = 0; index < btn.transform.parent.gameObject.transform.childCount; index++)
         {
-            btn.GetComponent<Image>().color = new Color(0.8632076f, 0.9884475f,1f);
-            btn.transform.parent.gameObject.transform.GetChild(1).gameObject.GetComponent<Image>().color = new Color(1f, 1f, 1f);
-            SelectLabel = null;
-            AllchangeLabel = true;
-        } else if(btn.name == "One")
+            btn.transform.parent.gameObject.transform.GetChild(index).gameObject.GetComponent<Image>().color = new Color(1, 1, 1);
+        }
+        btn.GetComponent<Image>().color = new Color(0.8632076f, 0.9884475f, 1f);
+        switch (btn.name)
         {
-            btn.GetComponent<Image>().color = new Color(0.8632076f, 0.9884475f, 1f);
-            btn.transform.parent.gameObject.transform.GetChild(0).gameObject.GetComponent<Image>().color = new Color(1f, 1f, 1f);
-            AllchangeLabel = false;
-            if(SelectLabel_btn.transform.GetChild(0).gameObject.GetComponent<Text>().text != "LabelName")
-            {
-                for(int index = 0; index<AllLabel.transform.childCount; index++)
-                {
-                    if(AllLabel.transform.GetChild(index).gameObject.name == SelectLabel_btn.transform.GetChild(0).gameObject.GetComponent<Text>().text)
-                    {
-                        SelectLabel = AllLabel.transform.GetChild(index).gameObject;
-                    }
-                }
-            } else if(SelectLabel_btn.transform.GetChild(0).gameObject.GetComponent<Text>().text == "LabelName")
-            {
-                SelectLabel_btn.transform.GetChild(0).gameObject.GetComponent<Text>().text = "LabelName";
+            case "AllLabel":
                 SelectLabel = null;
-            }
+                AllchangeLabel = true;
+                break;
+            case "SelectCrane":
+                SelectLabel = Crane;
+                AllchangeLabel = false;
+                PanTiltMove();
+                break;
+            case "SelectBird":
+                SelectLabel = Bird;
+                AllchangeLabel = false;
+                PanTiltMove();
+                break;
+            case "SelectFish":
+                SelectLabel = Fish;
+                AllchangeLabel = false;
+                PanTiltMove();
+                break;
+            case "SelectSquirrel":
+                SelectLabel = Squirrel;
+                AllchangeLabel = false;
+                PanTiltMove();
+                break;
         }
     }
 
-    public void ChangePositionPulse(GameObject btn)
+    public void ChangePositionScale(GameObject btn)
     {
         float changepos =  float.Parse(ChangeValuePos_t.GetComponent<Text>().text);
         switch (btn.name)
         {
             case "XPlus":
-                if(AllchangeLabel == true)
+                if (AllchangeLabel == true)
                 {
-                    for(int index = 0; index < AllLabel.transform.childCount; index++)
+                    for (int index = 0; index < AllLabel.transform.childCount; index++)
                     {
                         float lab_x = AllLabel.transform.GetChild(index).gameObject.transform.localPosition.x + changepos;
                         float lab_y = AllLabel.transform.GetChild(index).gameObject.transform.localPosition.y;
                         float lab_z = AllLabel.transform.GetChild(index).gameObject.transform.localPosition.z;
                         AllLabel.transform.GetChild(index).gameObject.transform.localPosition = new Vector3(lab_x, lab_y, lab_z);
                     }
-                } else if(AllchangeLabel == false)
+                }
+                else if (AllchangeLabel == false)
                 {
                     if (SelectLabel != null)
                     {
@@ -457,6 +409,14 @@ public class XRMode_Manager : MonoBehaviour
                     }
                 }
                 break;
+            case "PlusScale":
+                float changeplus = SelectLabel.transform.localScale.x + changepos / 100;
+                SelectLabel.transform.localScale = new Vector3(changeplus, changeplus, changeplus);
+                break;
+            case "MinusScale":
+                float changeminus = SelectLabel.transform.localScale.x - changepos / 100;
+                SelectLabel.transform.localScale = new Vector3(changeminus, changeminus, changeminus);
+                break;
         }
     }
 
@@ -469,25 +429,41 @@ public class XRMode_Manager : MonoBehaviour
                 MaxPan = 23600;
                 MinTilt = 0;
                 MaxTilt = 1500;
+                for (int index = 0; index < 6; index++)
+                {
+                    btn.transform.parent.gameObject.transform.GetChild(index).gameObject.transform.GetChild(0).gameObject.GetComponent<Text>().text = btn.name;
+                }
                 break;
             case "MinX":
                 MinPan = Current_x;
+                btn.transform.GetChild(0).gameObject.GetComponent<Text>().text = Current_x.ToString();
                 Debug.Log("MinPan" + MinPan);
                 break;
             case "MaxX":
                 MaxPan = Current_x;
+                btn.transform.GetChild(0).gameObject.GetComponent<Text>().text = Current_x.ToString();
                 Debug.Log("MaxPan" + MaxPan);
                 break;
             case "MinY":
                 MinTilt = Current_y;
+                btn.transform.GetChild(0).gameObject.GetComponent<Text>().text = Current_y.ToString();
                 Debug.Log("MinTilt" + MinTilt);
                 break;
             case "MaxY":
                 MaxTilt = Current_y;
+                btn.transform.GetChild(0).gameObject.GetComponent<Text>().text = Current_y.ToString();
                 Debug.Log("MaxTilt" + MaxTilt);
                 break;
+            case "Start_X":
+                StartPosition_x = Current_x;
+                btn.transform.GetChild(0).gameObject.GetComponent<Text>().text = Current_x.ToString();
+                break;
+            case "Start_y":
+                StartPosition_y = Current_y;
+                btn.transform.GetChild(0).gameObject.GetComponent<Text>().text = Current_y.ToString();
+                break;
         }
-        PTRange.GetComponent<Text>().text = "(" + MinPan + "~" + MaxPan + ", " + MinTilt + "~" + MaxTilt + ")";
+        //PTRange.GetComponent<Text>().text = "(" + MinPan + "~" + MaxPan + ", " + MinTilt + "~" + MaxTilt + ")";
     }
 
     public void SetFinish()
