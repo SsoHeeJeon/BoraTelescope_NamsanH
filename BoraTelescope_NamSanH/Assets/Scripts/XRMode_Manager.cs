@@ -33,7 +33,8 @@ public class XRMode_Manager : MonoBehaviour
     public List<string> AllLabelPosition;
     public string[] AllLabelPosition_arr;
 
-    public GameObject CurrentlabelPosition;
+    public GameObject CurrentlabelPosition_x;
+    public GameObject CurrentlabelPosition_y;
     public Slider ChangeValuePos;
     public GameObject ChangeValuePos_t;
     public GameObject SelectLabel;
@@ -70,10 +71,6 @@ public class XRMode_Manager : MonoBehaviour
     float SetValueX_max;
     float SetValueY_min;
     float SetValueY_max;
-
-    public Slider PanFreq_value;
-    public Text PanFreq_text;
-    bool setPanFreq = false;
 
     // Start is called before the first frame update
     void Start()
@@ -115,19 +112,21 @@ public class XRMode_Manager : MonoBehaviour
         CameraWindow.transform.localPosition = new Vector3(Current_x * TotalPan, Current_y * TotalTilt, CameraWindow.transform.localPosition.z);
 
         ChangeValuePos_t.GetComponent<Text>().text = ((int)(ChangeValuePos.value * 200)).ToString();
-        PanFreq_text.text = ((int)(PanFreq_value.value * 20)).ToString();
 
         if (SelectLabel == null)
         {
-            CurrentlabelPosition.GetComponent<Text>().text = "(" + PanTiltControl.NowPanPulse + ", " + PanTiltControl.NowTiltPulse + ")";
+            CurrentlabelPosition_x.GetComponent<Text>().text = "(" + PanTiltControl.NowPanPulse + ",";
+            CurrentlabelPosition_y.GetComponent<Text>().text = PanTiltControl.NowTiltPulse + ")";
         } else if(SelectLabel != null)
         {
             if (setlabelcamera == true)
             {
-                CurrentlabelPosition.GetComponent<Text>().text = "(" + SelectLabel.transform.localPosition.x/TotalPan + ", " + SelectLabel.transform.localPosition.y/TotalTilt + ")";
+                CurrentlabelPosition_x.GetComponent<Text>().text = "(" + SelectLabel.transform.localPosition.x/TotalPan + ",";
+                CurrentlabelPosition_y.GetComponent<Text>().text = SelectLabel.transform.localPosition.y/TotalTilt + ")";
             }else if(setlabelcamera == false)
             {
-                CurrentlabelPosition.GetComponent<Text>().text = "(" + PanTiltControl.NowPanPulse + ", " + PanTiltControl.NowTiltPulse + ")";
+                CurrentlabelPosition_x.GetComponent<Text>().text = "(" + PanTiltControl.NowPanPulse + ",";
+                CurrentlabelPosition_y.GetComponent<Text>().text = PanTiltControl.NowTiltPulse + ")";
                 if(Mathf.Abs(SelectLabel.transform.localPosition.x/TotalPan - Current_x)<1 && Mathf.Abs(SelectLabel.transform.localPosition.y / TotalTilt - Current_y)<1)
                 {
                     setlabelcamera = true;
@@ -434,22 +433,22 @@ public class XRMode_Manager : MonoBehaviour
                     btn.transform.parent.gameObject.transform.GetChild(index).gameObject.transform.GetChild(0).gameObject.GetComponent<Text>().text = btn.name;
                 }
                 break;
-            case "MinX":
+            case "MinPan":
                 MinPan = Current_x;
                 btn.transform.GetChild(0).gameObject.GetComponent<Text>().text = Current_x.ToString();
                 Debug.Log("MinPan" + MinPan);
                 break;
-            case "MaxX":
+            case "MaxPan":
                 MaxPan = Current_x;
                 btn.transform.GetChild(0).gameObject.GetComponent<Text>().text = Current_x.ToString();
                 Debug.Log("MaxPan" + MaxPan);
                 break;
-            case "MinY":
+            case "MinTilt":
                 MinTilt = Current_y;
                 btn.transform.GetChild(0).gameObject.GetComponent<Text>().text = Current_y.ToString();
                 Debug.Log("MinTilt" + MinTilt);
                 break;
-            case "MaxY":
+            case "MaxTilt":
                 MaxTilt = Current_y;
                 btn.transform.GetChild(0).gameObject.GetComponent<Text>().text = Current_y.ToString();
                 Debug.Log("MaxTilt" + MaxTilt);
@@ -551,43 +550,6 @@ public class XRMode_Manager : MonoBehaviour
                 btn.transform.parent.gameObject.transform.GetChild(5).gameObject.transform.GetChild(0).gameObject.GetComponent<Text>().text = "MaxPan";
                 btn.transform.parent.gameObject.transform.GetChild(6).gameObject.transform.GetChild(0).gameObject.GetComponent<Text>().text = "MinTilt";
                 btn.transform.parent.gameObject.transform.GetChild(7).gameObject.transform.GetChild(0).gameObject.GetComponent<Text>().text = "MaxTilt";
-                break;
-        }
-    }
-
-    public void SetPanFreq(GameObject btn)
-    {
-        setPanFreq = true;
-        switch (btn.name)
-        {
-            case "PanFreq":
-                setPanFreq = true;
-                break;
-            case "Arrow":
-                PanFreq_value.value = (float)XRMode.panFreq_ARR/20;
-                PanFreq_text.text = (XRMode.panFreq_ARR).ToString();
-                Debug.Log((XRMode.panFreq_ARR).ToString());
-                break;
-            case "Near":
-                PanFreq_value.value = (float)XRMode.panFreq_Near/20;
-                PanFreq_text.text = (XRMode.panFreq_Near).ToString();
-                Debug.Log((XRMode.panFreq_ARR).ToString());
-                break;
-            case "Far":
-                PanFreq_value.value = (float)XRMode.panFreq_Far/20;
-                PanFreq_text.text = (XRMode.panFreq_Far).ToString();
-                Debug.Log((XRMode.panFreq_ARR).ToString());
-                break;
-            case "Arrow_set":
-                XRMode.panFreq_ARR = int.Parse(PanFreq_text.text);
-                break;
-            case "Near_set":
-                XRMode.panFreq_Near = int.Parse(PanFreq_text.text);
-                break;
-            case "Far_set":
-                XRMode.panFreq_Far = int.Parse(PanFreq_text.text);
-                break;
-            case "Finish":
                 break;
         }
     }
