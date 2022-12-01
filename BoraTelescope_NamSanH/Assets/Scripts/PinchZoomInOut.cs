@@ -7,12 +7,23 @@ using PanTiltControl_v2;
 
 public class PinchZoomInOut : MonoBehaviour
 {
-    public GameManager gamemanager;
+    private GameManager gamemanager;
     public GameObject butzoom;
     int touchcount_int;
     float m_fOldToucDis = 0f;       // 터치 이전 거리를 저장합니다.
     public static bool ZoomMove = false;
     public static bool ZoomIN = false;
+    GameObject zoomimg;
+
+    private void Start()
+    {
+        gamemanager = GameObject.Find("GameManager").GetComponent<GameManager>();
+
+        if (SceneManager.GetActiveScene().name == "XRMode")
+        {
+            zoomimg = gamemanager.xrMode.CameraWindow.transform.GetChild(0).transform.GetChild(0).gameObject;
+        }
+    }
 
     // Update is called once per frame
     void Update()
@@ -21,11 +32,11 @@ public class PinchZoomInOut : MonoBehaviour
         {
             if (Mathf.Abs(gamemanager.xrMode.CameraWindow.transform.GetChild(0).transform.GetChild(0).gameObject.transform.localPosition.z - 0) <= 0.5f)
             {
-                gamemanager.ZoomBar.transform.parent.gameObject.transform.GetChild(1).gameObject.GetComponent<Image>().sprite = gamemanager.ZoomIn;
+                butzoom.GetComponent<Image>().sprite = gamemanager.ZoomIn;
             }
             else if (Mathf.Abs(gamemanager.xrMode.CameraWindow.transform.GetChild(0).transform.GetChild(0).gameObject.transform.localPosition.z - 0) > 0.5f)
             {
-                gamemanager.ZoomBar.transform.parent.gameObject.transform.GetChild(1).gameObject.GetComponent<Image>().sprite = gamemanager.ZoomOut;
+                butzoom.GetComponent<Image>().sprite = gamemanager.ZoomOut;
             }
 
             float bar_y = -gamemanager.xrMode.CameraWindow.transform.GetChild(0).transform.GetChild(0).gameObject.transform.localPosition.z / 385 * 60 - 30;
@@ -42,8 +53,6 @@ public class PinchZoomInOut : MonoBehaviour
     public void BtnZoom()
     {
         gamemanager.xrMode.zoommove_t = 0;
-
-        GameObject zoomimg = gamemanager.xrMode.CameraWindow.transform.GetChild(0).transform.GetChild(0).gameObject;
 
         gamemanager.WriteLog(LogSendServer.NormalLogCode.AR_Zoom, gamemanager.ZoomBar.transform.localPosition.x.ToString() + " / " + gamemanager.ZoomBar.transform.localPosition.y.ToString(), GetType().ToString());
         if (zoomimg.transform.localPosition.z == 0)
@@ -77,7 +86,6 @@ public class PinchZoomInOut : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().name == "XRMode")
         {
-            GameObject zoomimg = gamemanager.xrMode.CameraWindow.transform.GetChild(0).transform.GetChild(0).gameObject;
             if (ZoomIN == true)
             {
                 if (Mathf.Abs(zoomimg.transform.localPosition.z - -385) > 1f)
@@ -119,7 +127,6 @@ public class PinchZoomInOut : MonoBehaviour
         {
             if (SceneManager.GetActiveScene().name == "XRMode" && gamemanager.xrMode.zoommove_t > 0.5f)
             {
-                GameObject zoomimg = gamemanager.xrMode.CameraWindow.transform.GetChild(0).transform.GetChild(0).gameObject;
                 zoomimg.transform.localPosition = new Vector3(zoomimg.transform.localPosition.x, zoomimg.transform.localPosition.y, zoomimg.transform.localPosition.z);
                 gamemanager.xrMode.zoommove_t = 0;
                 butzoom.GetComponent<Button>().enabled = true;

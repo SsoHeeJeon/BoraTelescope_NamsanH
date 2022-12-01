@@ -57,8 +57,6 @@ public class XRMode_Manager : MonoBehaviour
     public static float TotalPan;
     public static float TotalTilt;
 
-    public GameObject PTRange;
-
     public bool AllchangeLabel = false;
     public bool setlabelcamera = false;
 
@@ -81,7 +79,6 @@ public class XRMode_Manager : MonoBehaviour
 
         AllchangeLabel = false;
         ReadFile();
-        PTRange.GetComponent<Text>().text = "(" + MinPan + "~" + MaxPan + ", " + MinTilt + "~" + MaxTilt + ")";
         XRMode.ValueX = TotalPan;
         XRMode.ValueY = TotalTilt;
         
@@ -189,7 +186,7 @@ public class XRMode_Manager : MonoBehaviour
 
     public void ReadFile()
     {
-        
+        /*
         Allstr = File.ReadAllText(Application.dataPath + ("/XRModeLabelPosition.json"));
 
         if (Allstr.Contains("}"))
@@ -207,7 +204,7 @@ public class XRMode_Manager : MonoBehaviour
                 }
             }
         }
-        
+        */
         PanTiltRange pantilt = JsonUtility.FromJson<PanTiltRange>(ReadJsonFile.RangePT);
         MinPan = pantilt.Min_Pan;
         MaxPan = pantilt.Max_Pan;

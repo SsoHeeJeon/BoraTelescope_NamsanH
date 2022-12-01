@@ -86,7 +86,9 @@ public class ReadJsonFile : MonoBehaviour
             XRMode_Manager.TotalPan = pantilt.ChangeValue_x;
             XRMode_Manager.TotalTilt = pantilt.ChangeValue_y;
             GameManager.waitingTime = pantilt.WaitingTime;
-
+            GameManager.startlabel_x = (uint)pantilt.StartPosition_x;
+            GameManager.startlabel_y = (uint)pantilt.StartPosition_y;
+            /*
             for (int index = 0; index < allstr_json.Length - 2; index++)
             {
                 XRModeLabelPosition labelPosition = JsonUtility.FromJson<XRModeLabelPosition>(allstr_json[index]);
@@ -99,10 +101,7 @@ public class ReadJsonFile : MonoBehaviour
                         gamemanager.label.Label_Scale[sindex] = new Vector3(labelPosition.LabelScale, labelPosition.LabelScale, labelPosition.LabelScale);
                     }
                 }
-
-                GameManager.startlabel_x = (uint)pantilt.StartPosition_x;
-                GameManager.startlabel_y = (uint)pantilt.StartPosition_y;
-            }
+            }*/
         }
         else
         {

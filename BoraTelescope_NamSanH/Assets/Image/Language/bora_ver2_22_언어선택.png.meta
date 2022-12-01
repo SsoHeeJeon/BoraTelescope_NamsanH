@@ -32,6 +32,9 @@ TextureImporter:
   - first:
       213: 5916915843523838959
     second: "bora_ver2_22_\uC5B8\uC5B4\uC120\uD0DD_9"
+  - first:
+      213: -825101627099450212
+    second: "bora_ver2_22_\uC5B8\uC5B4\uC120\uD0DD_10"
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -350,6 +353,27 @@ TextureImporter:
       bones: []
       spriteID: fe38e1b4c9b1d1250800000000000000
       internalID: 5916915843523838959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "bora_ver2_22_\uC5B8\uC5B4\uC120\uD0DD_10"
+      rect:
+        serializedVersion: 2
+        x: 1410
+        y: 404
+        width: 384
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c94f3251176ac84f0800000000000000
+      internalID: -825101627099450212
       vertices: []
       indices: 
       edges: []

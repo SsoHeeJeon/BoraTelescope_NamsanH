@@ -112,7 +112,8 @@ public class ContentsInfo : LogSendServer
     /// 불러온 리소스를 라벨 스크립트에 적용
     /// </summary>
     public void LabelData()
-    {/*
+    {
+        /*
         label = gameemanager.GetComponent<GameManager>().label;
 
         for (int index = 0; index < SetLang.transform.childCount; index++)
@@ -123,9 +124,9 @@ public class ContentsInfo : LogSendServer
         label.Label_Cate_1 = Label_Cate_1;
         label.Label_Cate_2 = Label_Cate_2;
         label.Label_Cate_3 = Label_Cate_3;
-
+        */
         gameemanager.GetComponent<ReadJsonFile>().Readfile();
-
+        /*
         label.NaviLabel_K = NaviLabel_K;
         label.NaviLabel_E = NaviLabel_E;
         label.NaviLabel_C = NaviLabel_C;

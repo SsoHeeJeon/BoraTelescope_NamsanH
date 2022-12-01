@@ -23,7 +23,7 @@ public class SetDragRange : MonoBehaviour
             else if (gamemanager.NaviRect.sizeDelta.x == GameManager.barClose)
             {
                 gamemanager.Arrow.gameObject.SetActive(true);
-                gamemanager.Arrow.transform.position = gamemanager.Arrowpos_normal;
+                gamemanager.Arrow.transform.position = gamemanager.Arrowpos_extend;
             }
         }
         else
