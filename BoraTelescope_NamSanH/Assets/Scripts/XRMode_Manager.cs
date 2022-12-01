@@ -189,8 +189,8 @@ public class XRMode_Manager : MonoBehaviour
 
     public void ReadFile()
     {
-        /*
-        Allstr = File.ReadAllText(Application.dataPath + ("/XRModeLabelPosition_"+ContentsInfo.ContentsName+".json"));
+        
+        Allstr = File.ReadAllText(Application.dataPath + ("/XRModeLabelPosition.json"));
 
         if (Allstr.Contains("}"))
         {
@@ -207,7 +207,7 @@ public class XRMode_Manager : MonoBehaviour
                 }
             }
         }
-        */
+        
         PanTiltRange pantilt = JsonUtility.FromJson<PanTiltRange>(ReadJsonFile.RangePT);
         MinPan = pantilt.Min_Pan;
         MaxPan = pantilt.Max_Pan;

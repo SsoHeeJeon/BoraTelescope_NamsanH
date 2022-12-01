@@ -111,16 +111,14 @@ public class GameManager : ContentsInfo
     public GameObject MiniMap_Camera;
     public GameObject MiniMap_CameraGuide;
     public GameObject ZoomBar;
-    public GameObject PlayTime;
     public GameObject ErrorMessage;
     public GameObject CategoryContent;
     public GameObject Tip_Obj;
-    public GameObject ETCBar;
     public GameObject CaptureBtn;
-    public GameObject AutoSelectImg;
     public GameObject BackGround;
     public GameObject CaptueObject;
     public GameObject Homebtn;
+    public GameObject Tipbtn;
 
     public Sprite ZoomIn;
     public Sprite ZoomOut;
@@ -138,7 +136,6 @@ public class GameManager : ContentsInfo
     public static float touchCount;
 
     public RectTransform NaviRect;
-    public RectTransform ETCRect;
     public RectTransform LangRect;
     public Image LangChildImg;
 
@@ -148,12 +145,8 @@ public class GameManager : ContentsInfo
 
     public bool NaviOn = false;
     public bool langNaviOn = false;
-    public bool filterNaviOn = false;
-    public bool ETCNaviOn = false;
     public bool moveNavi = false;
     public bool movelangNavi = false;
-    public bool movefilterNavi = false;
-    public bool moveETCNavi = false;
     public static bool MoveCamera = false;
     public bool WantNoLabel = false;
     public static bool AnyError = false;
@@ -191,17 +184,91 @@ public class GameManager : ContentsInfo
     bool stoponce = false;
     bool CheckfilterTime = false;
     float checkfilteropen;
+    bool WriteLog = false;
 
     // Start is called before the first frame update
     void Start()
     {
+        GM = GameObject.Find("GameManager");
+        gamemanager = GM.GetComponent<GameManager>();
+        DontDestroyOnLoad(GM);
 
+        UISetting();
+
+        if (ContentsInfo.AwakeOnce == false)
+        {
+            currentLang = Language_enum.Korea;
+        }
+
+        // 시간 초기화
+        touchCount = 0;
+        touchfinish = false;
+        navi_t = 0;
+        langnavi_t = 0;
+
+        count_set = 0;
+        NaviRect = NavigationBar.GetComponent<RectTransform>();
+        LangRect = LanguageBar.GetComponent<RectTransform>();
+        LangChildImg = LanguageBar.transform.GetChild(0).gameObject.GetComponent<Image>();
+        naviscroll = NavigationBar.transform.GetChild(0).transform.GetChild(1).transform.GetComponent<Scrollbar>();
+        NaviLabel = NavigationBar.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject;
+        // 언어선택창 닫아놓기(로딩화면에서 안보임.)
+        LangRect.sizeDelta = new Vector2(barClose, 1080);
+        LangChildImg.fillAmount = 0;
+        LanguageBar.transform.GetChild(0).gameObject.SetActive(false);
+        langNaviOn = false;
+        movelangNavi = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+        // 네비게이션 창, 상세설명창 속도 조절 
+        navi_t += Time.deltaTime * 0.1f;
+        langnavi_t += Time.deltaTime * 0.1f;
+        if (ResetPositionTime < 99)
+        {
+            ResetPositionTime += Time.deltaTime;
+        }
 
+        // 네비게이션 창 라벨선택부 스크롤바 사이즈
+        naviscroll.value = Mathf.Clamp(naviscroll.value, 0, 1);
+        naviscroll.size = 0.0f;
+
+        // 터치 안하는 시간을 측정하여 대기모드로 전환하기 위함
+        if (Input.GetMouseButtonDown(0))        // 마우스 클릭시
+        {
+            touchCount = 0;
+            touchfinish = true;
+            ResetPositionTime = 0;
+        }
+        else if (Input.GetMouseButtonUp(0))     // 마우스 버튼에서 떼면
+        {
+            touchfinish = false;
+        }
+
+        if (SceneManager.GetActiveScene().name == "XRMode")
+        {
+            if (ResetPositionTime > 60 && ResetPositionTime < 61)
+            {
+                if (!Tip_Obj.gameObject.activeSelf)
+                {
+                    if (WriteLog == false)
+                    {
+                        gamemanager.WriteLog(LogSendServer.NormalLogCode.ClickHomeBtn, "Reset All Function", GetType().ToString());
+                        WriteLog = true;
+                    }
+                    if (SceneManager.GetActiveScene().name == "XRMode")
+                    {
+                        StartCoroutine(Home_Btn_XR());
+                    } else if(SceneManager.GetActiveScene().name == "NamSanHMode")
+                    {
+                        Home_Btn_NamSanH();
+                    }
+                    ResetPositionTime = 0;
+                }
+            }
+        }
     }
 
     /// <summary>
@@ -209,6 +276,19 @@ public class GameManager : ContentsInfo
     /// </summary>
     private void OnApplicationQuit()
     {
+        PanTiltControl.DisConnect();
+        WriteLog(NormalLogCode.Connect_Pantilt, "Connect_Pantilt:Off", GetType().ToString());
+
+        var processList = System.Diagnostics.Process.GetProcessesByName("XRTeleSpinCam");
+        if (processList.Length != 0)
+        {
+            processList[0].Kill();
+        }
+        WriteLog(NormalLogCode.Connect_Camera, "Connect_Camera:Off", GetType().ToString());
+        WriteLog(NormalLogCode.EndContents, "EndContents", GetType().ToString());
+        AwakeOnce = false;
+        WriteLog(NormalLogCode.Connect_SystemControl, "Connect_SystemControl_Off", GetType().ToString());
+        Disconnect_Button();
     }
 
     public void UISetting()
@@ -216,8 +296,41 @@ public class GameManager : ContentsInfo
         switch (SceneManager.GetActiveScene().name)
         {
             case "XRMode":
+                xrMode = GameObject.Find("XRMode").GetComponent<XRMode>();
+                xrMode_manager = GameObject.Find("XRMode").GetComponent<XRMode_Manager>();
                 break;
             case "NamSanHMode":
+                namsanMode = GameObject.Find("NamSanH").GetComponent<NamSanHMode>();
+                ZoomBar.SetActive(false);
+                break;
+            case "Loading":
+                loading = GameObject.Find("Loading_UI").GetComponent<Loading>();
+                label = GameObject.Find("GameManager").GetComponent<Label>();
+                UI_All.gameObject.SetActive(false);
+                break;
+            case "WaitingMode":
+                waitingMode = GM.gameObject.GetComponent<WaitingMode>();
+
+                if (AnyError == false)
+                {
+                    UI_All.gameObject.SetActive(false);
+                    MenuBar.gameObject.transform.GetChild(5).gameObject.SetActive(false);
+                }
+                else if (AnyError == true)
+                {
+                    UI_All.gameObject.SetActive(true);
+                    for (int index = 0; index < UI_All.transform.childCount; index++)
+                    {
+                        UI_All.transform.GetChild(index).gameObject.SetActive(false);
+                    }
+                    MenuBar.gameObject.SetActive(true);
+                    MenuBar.gameObject.GetComponent<Image>().enabled = false;
+                    for (int index = 0; index < MenuBar.gameObject.transform.childCount; index++)
+                    {
+                        MenuBar.transform.GetChild(index).gameObject.SetActive(false);
+                    }
+                    MenuBar.transform.GetChild(5).gameObject.SetActive(true);
+                }
                 break;
         }
     }
@@ -233,21 +346,138 @@ public class GameManager : ContentsInfo
             case "LiveMode":
                 if (SceneManager.GetActiveScene().name == "XRMode")
                 {
+                    // 메뉴바의 모드아이콘에서 Live모드 비활성화, AR모드 활성화
+                    MenuBar.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject.SetActive(true);
+                    MenuBar.transform.GetChild(0).gameObject.transform.GetChild(1).gameObject.transform.GetChild(0).gameObject.SetActive(false);
 
+                    if (xrMode.AllMapLabels.gameObject.activeSelf)
+                    {
+                        xrMode.AllMapLabels.gameObject.SetActive(false);
+                    }
+
+                    WantNoLabel = true;
                 }
                 else if (SceneManager.GetActiveScene().name != "XRMode")
                 {
+                    // 네비게이션 창 비활성화(역사모드에서는 네비게이션창 사용하지 않음)
+                    if (NaviRect.sizeDelta.x > barClose)
+                    {
+                        navi_t = 0;
+                        NaviOn = true;
+                        moveNavi = true;
+                    }
 
+                    // 언어선택창 비활성화
+                    if (LangRect.sizeDelta.x > barClose)
+                    {
+                        langnavi_t = 0;
+                        langNaviOn = true;
+                        movelangNavi = true;
+                    }
+
+                    // 나레이션 음성 멈춤
+                    //gamemanager.label.Narration.Stop();
+
+                    // 메뉴바의 모드아이콘에서 Live모드 비활성화, AR모드 활성화
+                    for (int index = 0; index < MenuBar.transform.GetChild(0).transform.childCount; index++)
+                    {
+                        MenuBar.transform.GetChild(0).gameObject.transform.GetChild(index).gameObject.transform.GetChild(0).gameObject.SetActive(false);
+                    }
+                    MenuBar.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject.SetActive(true);
+
+                    if (xrMode.AllMapLabels.gameObject.activeSelf)
+                    {
+                        xrMode.AllMapLabels.gameObject.SetActive(false);
+                    }
+
+                    WantNoLabel = true;
                 }
                 break;
             case "XRMode":
                 if (SceneManager.GetActiveScene().name == "XRMode")
                 {
+                    if (!Tip_Obj.activeSelf)        // Tip이 비활성화상태라면
+                    {
+                        if (ModeActive[1] == true)      // AR모드가 활성화되어있다면
+                        {
+                            // 네비게이션 창 비활성화(역사모드에서는 네비게이션창 사용하지 않음)
+                            if (NaviRect.sizeDelta.x > barClose)
+                            {
+                                navi_t = 0;
+                                NaviOn = true;
+                                moveNavi = true;
+                            }
 
+                            // 언어선택창 비활성화
+                            if (LangRect.sizeDelta.x > barClose)
+                            {
+                                langnavi_t = 0;
+                                langNaviOn = true;
+                                movelangNavi = true;
+                            }
+
+                            // 메뉴바의 모드아이콘에서 Live모드 비활성화, AR모드 활성화
+                            MenuBar.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject.SetActive(false);
+                            MenuBar.transform.GetChild(0).gameObject.transform.GetChild(1).gameObject.transform.GetChild(0).gameObject.SetActive(true);
+
+
+                            // AR모드 라벨이 비활성화되어있다면 라벨 활성화
+                            if (!xrMode.AllMapLabels.gameObject.activeSelf)
+                            {
+                                xrMode.AllMapLabels.gameObject.SetActive(true);
+                            }
+                            //NaviArr_set();
+                            WantNoLabel = false;
+                        }
+                        else if (ModeActive[1] == false)        //AR모드가 비활성화 되어있다면 에러메세지 활성화하고 현재 모드는 Live 모드로하기
+                        {
+                            ErrorMessage.gameObject.SetActive(true);
+                            if (PrevMode == "LiveMode")
+                            {
+                                WantNoLabel = true;
+                            }
+                        }
+                    }
+                    else if (Tip_Obj.activeSelf)       // Tip 이미지가 활성화 되어있다면 비활성화
+                    {
+                        Tip_Obj.SetActive(false);
+                        TipClose();
+                    }
                 }
                 else if (SceneManager.GetActiveScene().name != "XRMode")
                 {
+                    // 네비게이션 창 비활성화(역사모드에서는 네비게이션창 사용하지 않음)
+                    if (NaviRect.sizeDelta.x > barClose)
+                    {
+                        navi_t = 0;
+                        NaviOn = true;
+                        moveNavi = true;
+                    }
 
+                    // 언어선택창 비활성화
+                    if (LangRect.sizeDelta.x > barClose)
+                    {
+                        langnavi_t = 0;
+                        langNaviOn = true;
+                        movelangNavi = true;
+                    }
+
+                    // 나레이션 음성 멈춤
+                    //gamemanager.label.Narration.Stop();
+
+                    // 메뉴바의 모드아이콘에서 Live모드 비활성화, AR모드 활성화
+                    for (int index = 0; index < MenuBar.transform.GetChild(0).transform.childCount; index++)
+                    {
+                        MenuBar.transform.GetChild(0).gameObject.transform.GetChild(index).gameObject.transform.GetChild(0).gameObject.SetActive(false);
+                    }
+                    MenuBar.transform.GetChild(0).gameObject.transform.GetChild(1).gameObject.transform.GetChild(0).gameObject.SetActive(true);
+
+                    if (!xrMode.AllMapLabels.gameObject.activeSelf)
+                    {
+                        xrMode.AllMapLabels.gameObject.SetActive(true);
+                    }
+
+                    WantNoLabel = false;
                 }
                 break;
             case "NamSanHMode":
@@ -257,16 +487,75 @@ public class GameManager : ContentsInfo
                 }
                 else if (SceneManager.GetActiveScene().name != "NamSanHMode")
                 {
+                    // 메뉴바의 모드아이콘에서 Live모드 비활성화, AR모드 활성화
+                    for (int index = 0; index < MenuBar.transform.GetChild(0).transform.childCount; index++)
+                    {
+                        MenuBar.transform.GetChild(0).gameObject.transform.GetChild(index).gameObject.transform.GetChild(0).gameObject.SetActive(false);
+                    }
+                    MenuBar.transform.GetChild(0).gameObject.transform.GetChild(2).gameObject.transform.GetChild(0).gameObject.SetActive(true);
+
+                    // 네비게이션창 활성화
+                    if (NaviRect.sizeDelta.x < barOpen)
+                    {
+                        navi_t = 0;
+                        moveNavi = true;
+                        NaviOn = false;
+                    }
+
+                    // 언어선택 창 비활성화
+                    if (LangRect.sizeDelta.x > barClose)
+                    {
+                        langnavi_t = 0;
+                        langNaviOn = true;
+                        movelangNavi = true;
+                    }
 
                 }
                 break;
             case "Language":
+                langnavi_t = 0;
+                if (LangRect.sizeDelta.x > barClose)        // 언어선택 비활성화
+                {
+                    MenuBar.transform.GetChild(3).gameObject.transform.GetChild(0).gameObject.SetActive(false);
+                    //langnavi_t = 0;
+                    langNaviOn = true;
+                    movelangNavi = true;
+                }
+                else if (LangRect.sizeDelta.x < barOpen)      // 언어선택 활성화
+                {
+                    MenuBar.transform.GetChild(3).gameObject.transform.GetChild(0).gameObject.SetActive(true);
+                    //langnavi_t = 0;
+                    movelangNavi = true;
+                    langNaviOn = false;
+                }
                 break;
             case "Tip":
+                if (!Tip_Obj.activeSelf)        // Tip 이미지가 비활성화상태면 활성화
+                {
+                    Tipbtn.transform.GetChild(0).gameObject.SetActive(true);
+                    Tip_Obj.SetActive(true);
+                    TipOpen();
+                }
+                else if (Tip_Obj.activeSelf)      // Tip 이미지가 활성화 상태면 비활성화
+                {
+                    Tipbtn.transform.GetChild(0).gameObject.SetActive(false);
+                    Tip_Obj.SetActive(false);
+                    TipClose();
+                }
                 break;
             case "Capture":
+                CaptureCamera();
                 break;
             case "Setting":
+                break;
+            case "Navi_Close":      // 네비게이션 창에 x 버튼 선택하면 네비게이션창 비활성화
+                navi_t = 0;
+                moveNavi = true;
+                break;
+            case "LangNavi_Close":      // 언어선택 창에 x 버튼 선택하면 언어선택 비활성화
+                langnavi_t = 0;
+                movelangNavi = true;
+                MenuBar.transform.GetChild(3).gameObject.transform.GetChild(0).gameObject.SetActive(false);
                 break;
         }
     }
@@ -536,7 +825,7 @@ public class GameManager : ContentsInfo
 
                                 if (alreadyarrowLog == false)
                                 {
-                                    WriteLog(NormalLogCode.AR_FinishArrow, "AR_FinishArrow (" + PanTiltControl.NowPanPulse + ", " + PanTiltControl.NowTiltPulse + ")", GetType().ToString());
+                                    WriteLog(NormalLogCode.AR_DragFinish, "AR_DragFinish (" + PanTiltControl.NowPanPulse + ", " + PanTiltControl.NowTiltPulse + ")", GetType().ToString());
                                     alreadyarrowLog = true;
                                 }
                             }
@@ -576,7 +865,7 @@ public class GameManager : ContentsInfo
                                 Debug.Log(XRMode.PanFreq);
                             }
 
-                            WriteLog(NormalLogCode.AR_StartArrow, "AR_StartArrow(" + MoveDir + ")_(" + PanTiltControl.NowPanPulse + ", " + PanTiltControl.NowTiltPulse + ")", GetType().ToString());
+                            WriteLog(NormalLogCode.AR_DragStart, "AR_DragStart(" + MoveDir + ")_(" + PanTiltControl.NowPanPulse + ", " + PanTiltControl.NowTiltPulse + ")", GetType().ToString());
                             alreadyarrowLog = true;
                         }
                     }
@@ -641,7 +930,7 @@ public class GameManager : ContentsInfo
                             PanTiltControl.Stop();
                             if (alreadyarrowLog == false)
                             {
-                                WriteLog(NormalLogCode.AR_FinishArrow, "AR_FinishArrow (" + PanTiltControl.NowPanPulse + ", " + PanTiltControl.NowTiltPulse + ")", GetType().ToString());
+                                WriteLog(NormalLogCode.AR_DragFinish, "AR_DragFinish (" + PanTiltControl.NowPanPulse + ", " + PanTiltControl.NowTiltPulse + ")", GetType().ToString());
                                 alreadyarrowLog = true;
                             }
                         }
@@ -664,7 +953,7 @@ public class GameManager : ContentsInfo
 
                             if (alreadyarrowLog == false)
                             {
-                                WriteLog(NormalLogCode.AR_FinishArrow, "AR_FinishArrow (" + PanTiltControl.NowPanPulse + ", " + PanTiltControl.NowTiltPulse + ")", GetType().ToString());
+                                WriteLog(NormalLogCode.AR_DragFinish, "AR_DragFinish (" + PanTiltControl.NowPanPulse + ", " + PanTiltControl.NowTiltPulse + ")", GetType().ToString());
                             }
                         }
                     }
@@ -680,7 +969,7 @@ public class GameManager : ContentsInfo
                             Debug.Log(XRMode.PanFreq);
                         }
 
-                        WriteLog(NormalLogCode.AR_StartArrow, "AR_StartArrow(" + MoveDir + ")_(" + PanTiltControl.NowPanPulse + ", " + PanTiltControl.NowTiltPulse + ")", GetType().ToString());
+                        WriteLog(NormalLogCode.AR_DragStart, "AR_DragStart(" + MoveDir + ")_(" + PanTiltControl.NowPanPulse + ", " + PanTiltControl.NowTiltPulse + ")", GetType().ToString());
                         alreadyarrowLog = true;
                     }
                 }
@@ -702,5 +991,114 @@ public class GameManager : ContentsInfo
                 }
                 break;
         }
+    }
+
+    public void TipOpen()
+    {
+        Tipbtn.transform.GetChild(0).gameObject.SetActive(true);
+        for (int index = 0; index < 2; index++)
+        {
+            Tip_Obj.transform.GetChild(1).gameObject.transform.GetChild(index).gameObject.SetActive(false);
+        }
+
+        if (currentLang == Language_enum.Korea)
+        {
+            Tip_Obj.transform.GetChild(1).gameObject.transform.GetChild(0).gameObject.SetActive(true);
+        }
+        else if (currentLang == Language_enum.English)
+        {
+            Tip_Obj.transform.GetChild(1).gameObject.transform.GetChild(1).gameObject.SetActive(true);
+        }
+
+        if (!Tip_Obj.activeSelf)
+        {
+            Tip_Obj.SetActive(true);
+        }
+
+        NavigationBar.gameObject.SetActive(false);
+        Arrow.gameObject.SetActive(false);
+        MiniMap_Background.transform.parent.gameObject.SetActive(false);
+
+        if (SceneManager.GetActiveScene().name == "XRMode")
+        {
+            xrMode.AllMapLabels.gameObject.SetActive(false);
+        } else if(SceneManager.GetActiveScene().name == "NamSanH")
+        {
+
+        }
+    }
+
+    public void TipClose()
+    {
+        Tipbtn.transform.GetChild(0).gameObject.SetActive(false);
+        if (SceneManager.GetActiveScene().name == "XRMode")
+        {
+            NavigationBar.gameObject.SetActive(false);
+            MiniMap_Background.transform.parent.gameObject.SetActive(true);
+            Arrow.SetActive(true);
+            Arrow.transform.position = Arrowpos_normal;
+            if (WantNoLabel == false)
+            {
+                xrMode.AllMapLabels.gameObject.SetActive(true);
+            }
+            else if (WantNoLabel == true)
+            {
+                xrMode.AllMapLabels.gameObject.SetActive(false);
+            }
+        }
+        else if (SceneManager.GetActiveScene().name == "NamSanHMode")
+        {
+            NavigationBar.gameObject.SetActive(true);
+
+            //namsanMode.AllMapLabels.gameObject.SetActive(true);
+        }
+
+        Tip_Obj.SetActive(false);       // Tip 비활성화
+    }
+
+    public void ResetPosition()
+    {
+        gamemanager.WriteLog(LogSendServer.NormalLogCode.ClickHomeBtn, "HomeButton Click", GetType().ToString());
+
+        if (SceneManager.GetActiveScene().name == "XRMode")
+        {
+            StartCoroutine(Home_Btn_XR());
+        } else if(SceneManager.GetActiveScene().name == "NamSanHMode")
+        {
+            Home_Btn_NamSanH();
+        }
+    }
+
+    IEnumerator Home_Btn_XR()
+    {
+        PanTiltControl.Stop();
+        yield return new WaitForSeconds(0.1f);
+
+        PanTiltControl.SetFreq(PanTiltControl.Motor.Pan, PanTiltControl.Speed.Fast);
+        gamemanager.speed_enum = GameManager.Speed_enum.fast;
+        PanTiltControl.SetPulse((uint)startlabel_x, (uint)startlabel_y);
+
+        if (!Tip_Obj.activeSelf)        // Tip 이미지가 비활성화상태면 활성화
+        {
+            TipOpen();
+        }
+
+        PinchZoomInOut.ZoomMove = true;
+        PinchZoomInOut.ZoomIN = false;
+        MiniMap_CameraGuide.gameObject.SetActive(false);
+
+        navi_t = 0;
+        moveNavi = true;
+        NaviOn = false;
+        langnavi_t = 0;
+        langNaviOn = true;
+        movelangNavi = true;
+
+        WriteLog = false;
+    }
+
+    public void Home_Btn_NamSanH()
+    {
+
     }
 }

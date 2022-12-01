@@ -255,6 +255,10 @@ public class Loading : MonoBehaviour
                     {
                         MoveLoading();
                     }
+                    else if (GameManager.ModeActive[0] == true && GameManager.ModeActive[1] == true && GameManager.ModeActive[2] == true)
+                    {
+                        MoveLoading();
+                    }
                 }
                 else if (GameManager.AnyError == true)
                 {
@@ -764,7 +768,7 @@ public class Loading : MonoBehaviour
 
     public void ReadFile()
     {
-        if (File.Exists(Application.dataPath + ("/ARModeLabelPosition_" + ContentsInfo.ContentsName + ".json")))
+        if (File.Exists(Application.dataPath + ("/XRModeLabelPosition.json")))
         {
             //Allstr = File.ReadAllText(Application.dataPath + ("/ARModeLabelPosition_" + ContentsInfo.ContentsName + ".json"));
 
@@ -932,7 +936,7 @@ public class Loading : MonoBehaviour
                         MoveClearMode_Change();
                     }
 
-                    if (nextScene.Contains("ARMode") || nextScene == "TelescopeMode")
+                    if (nextScene == "XRMode")
                     {
                         if (SetmotorFreq == true)
                         {
@@ -981,7 +985,7 @@ public class Loading : MonoBehaviour
             }
             if (GameManager.Readpulse == false && PanTiltControl.OriginEndFlag == true)
             {
-                if (nextScene.Contains("ARMode") || nextScene == "TelescopeMode")
+                if (nextScene == "XRMode")
                 {
                     if (SetmotorFreq_1 == false)
                     {
@@ -1002,7 +1006,7 @@ public class Loading : MonoBehaviour
         setMotor = true;
         SetmotorFreq = true;
         PanTiltControl.Origin();
-        nextScene = "ARMode_" + ContentsInfo.ContentsName;
+        nextScene = "XRMode";
     }
     
     public void MoveLoading_Basic()
@@ -1033,7 +1037,7 @@ public class Loading : MonoBehaviour
     public void MoveLoading_Demo()
     {
         setMotor = false;
-        nextScene = "ClearMode_" + ContentsInfo.ContentsName;
+        nextScene = "NamSanHMode";
         StartCoroutine(LoadScene());
     }
 
@@ -1042,7 +1046,7 @@ public class Loading : MonoBehaviour
         setMotor = false;
         SetmotorFreq = true;
         noOrigin = true;
-        nextScene = "TelescopeMode";
+        nextScene = "XRMode";
         StartCoroutine(LoadScene());
     }
 
@@ -1059,7 +1063,7 @@ public class Loading : MonoBehaviour
         setMotor = false;
         SetmotorFreq = true;
         //GameManager.Readpulse = true;
-        nextScene = "ARMode_" + ContentsInfo.ContentsName;
+        nextScene = "XRMode";
         if (GameManager.PrevMode != "WaitingMode")
         {
             StartCoroutine(LoadScene());
@@ -1113,7 +1117,7 @@ public class Loading : MonoBehaviour
         setMotor = false;
         SetmotorFreq = true;
         gamemanager.WantNoLabel = true;
-        nextScene = "ARMode_" + ContentsInfo.ContentsName;
+        nextScene = "XRMode";
         gamemanager.WriteErrorLog(LogSendServer.ErrorLogCode.Fail_EnterMode, "ChangeMode : Change(" + GameManager.PrevMode + " - " + "LiveMode)", GetType().ToString());
         GameManager.PrevMode = "LiveMode";
         StartCoroutine(LoadScene());
@@ -1123,7 +1127,7 @@ public class Loading : MonoBehaviour
         gamemanager.WantNoLabel = false;
         setMotor = false;
         SetmotorFreq = true;
-        nextScene = "ARMode_" + ContentsInfo.ContentsName;
+        nextScene = "XRMode";
         gamemanager.WriteErrorLog(LogSendServer.ErrorLogCode.Fail_EnterMode, "ChangeMode : Change(" + GameManager.PrevMode + " - " + "ARMode)", GetType().ToString());
         GameManager.PrevMode = "ARMode";
         StartCoroutine(LoadScene());
@@ -1131,17 +1135,9 @@ public class Loading : MonoBehaviour
     public void MoveClearMode_Change()
     {
         setMotor = false;
-        nextScene = "ClearMode_" + ContentsInfo.ContentsName;
+        nextScene = "NamSanHMode";
         gamemanager.WriteErrorLog(LogSendServer.ErrorLogCode.Fail_EnterMode, "ChangeMode : Change(" + GameManager.PrevMode + " - " + "ClearMode)", GetType().ToString());
         GameManager.PrevMode = "ClearMode";
-        StartCoroutine(LoadScene());
-    }
-    public void MoveCultureMode_Change()
-    {
-        setMotor = false;
-        nextScene = "CultureMode_" + ContentsInfo.ContentsName;
-        gamemanager.WriteErrorLog(LogSendServer.ErrorLogCode.Fail_EnterMode, "ChangeMode : Change(" + GameManager.PrevMode + " - " + "CultureMode)", GetType().ToString());
-        GameManager.PrevMode = "CultureMode";
         StartCoroutine(LoadScene());
     }
 }

@@ -26,11 +26,11 @@ public class ScreenCapture : UploadImage
     // Use this for initialization
     public void ReadyToCapture()
     {
-        if (SceneManager.GetActiveScene().name.Contains("ARMode") || SceneManager.GetActiveScene().name == "TelescopeMode")
+        if (SceneManager.GetActiveScene().name == "XRMode")
         {
             camera = GameObject.Find("Main Camera").GetComponent<Camera>();
         }
-        else if (SceneManager.GetActiveScene().name.Contains("ClearMode"))
+        else if (SceneManager.GetActiveScene().name == "NamSanHMode")
         {
             camera = GameObject.Find("CameraZoom").transform.GetChild(0).gameObject.GetComponent<Camera>();
         }
@@ -85,13 +85,13 @@ public class ScreenCapture : UploadImage
         //startflasheffect = false;
         Debug.Log(bytes);
         File.WriteAllBytes(name, bytes);
-        if (SceneManager.GetActiveScene().name.Contains("ARMode") || SceneManager.GetActiveScene().name == "TelescopeMode")
+        if (SceneManager.GetActiveScene().name == "XRMode")
         {
             gamemanager.WriteLog(LogSendServer.NormalLogCode.AR_Capture, "AR_Capture", GetType().ToString());
         }
-        else if (SceneManager.GetActiveScene().name.Contains("ClearMode"))
+        else if (SceneManager.GetActiveScene().name == "NamSanHMode")
         {
-            gamemanager.WriteLog(LogSendServer.NormalLogCode.Clear_Capture, "Clear_Capture", GetType().ToString());
+            gamemanager.WriteLog(LogSendServer.NormalLogCode.NamSanH_Capture, "NamSanH_Capture", GetType().ToString());
         }
         PutImageObject(name, filename);
         camera.targetTexture = null;

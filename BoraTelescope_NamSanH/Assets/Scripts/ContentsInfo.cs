@@ -18,7 +18,6 @@ public class ContentsInfo : LogSendServer
     public static string ContentsName;
     public GameObject gameemanager;
     //private Label label;
-    public GameObject SetLang;
 
     List<string> Label_Cate_1;
     List<string> Label_Cate_2;
@@ -27,21 +26,13 @@ public class ContentsInfo : LogSendServer
     public Sprite[] NaviLabel;
     public Sprite[] NaviLabel_K;
     public Sprite[] NaviLabel_E;
-    public Sprite[] NaviLabel_C;
-    public Sprite[] NaviLabel_J;
     public Sprite[] DetailImage_K;
     public Sprite[] DetailImage_E;
-    public Sprite[] DetailImage_C;
-    public Sprite[] DetailImage_J;
     public Sprite[] DetailText_K;
     public Sprite[] DetailText_E;
-    public Sprite[] DetailText_C;
-    public Sprite[] DetailText_J;
 
     public AudioClip[] Narration_K;
     public AudioClip[] Narration_E;
-    public AudioClip[] Narration_C;
-    public AudioClip[] Narration_J;
 
     public VideoClip[] WaitingVideo;
     public string[] WaitingVideo_path;
