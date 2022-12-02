@@ -60,21 +60,21 @@ public class QRMaker : MonoBehaviour
     public void waitQRcode() {
         QRCodeImage.transform.parent.gameObject.SetActive(true);
         QRCodeImage.gameObject.SetActive(true);
-        if(SceneManager.GetActiveScene().name.Contains("ARMode") || SceneManager.GetActiveScene().name == "TelescopeMode")
+        if(SceneManager.GetActiveScene().name == "XRMode")
         {
             gamemanager.WriteLog(LogSendServer.NormalLogCode.AR_QRCode, "AR_QRCode:On", GetType().ToString());
-        } else if (SceneManager.GetActiveScene().name.Contains("ClearMode"))
+        } else if (SceneManager.GetActiveScene().name == "NamSanHMode")
         {
-            gamemanager.WriteLog(LogSendServer.NormalLogCode.Clear_QRCode, "Clear_QRCode:On", GetType().ToString());
+            gamemanager.WriteLog(LogSendServer.NormalLogCode.NamSanH_QRCode, "NamSanH_QRCode:On", GetType().ToString());
         }
         ScreenCapture.counttime = false;
         QRCodeImage.transform.parent.gameObject.transform.GetChild(1).gameObject.transform.GetChild(0).GetComponent<Image>().fillAmount = 0;
         QRCodeImage.transform.parent.gameObject.transform.GetChild(1).gameObject.SetActive(false);
 
-        if (SceneManager.GetActiveScene().name.Contains("ARMode") || SceneManager.GetActiveScene().name == "TelescopeMode")
+        if (SceneManager.GetActiveScene().name == "XRMode")
         {
             gamemanager.CaptueObject.gameObject.GetComponent<ScreenCapture>().customMark.transform.parent = gamemanager.CaptueObject.gameObject.GetComponent<ScreenCapture>().flasheffect.transform.parent.gameObject.transform;
-        } else if (SceneManager.GetActiveScene().name.Contains("ClearMode"))
+        } else if (SceneManager.GetActiveScene().name.Contains("NamSanHMode"))
         {
             gamemanager.CaptueObject.gameObject.GetComponent<ScreenCapture>().customMark.transform.parent = gamemanager.CaptueObject.gameObject.GetComponent<ScreenCapture>().flasheffect.transform.parent.gameObject.transform;
         }
@@ -93,12 +93,12 @@ public class QRMaker : MonoBehaviour
 
     public void CloseQRCode()
     {
-        if (SceneManager.GetActiveScene().name.Contains("ARMode") || SceneManager.GetActiveScene().name == "TelescopeMode")
+        if (SceneManager.GetActiveScene().name == "XRMode")
         {
             gamemanager.WriteLog(LogSendServer.NormalLogCode.AR_QRCode, "AR_QRCode:Off", GetType().ToString());
-        } else if (SceneManager.GetActiveScene().name.Contains("ClearMode"))
+        } else if (SceneManager.GetActiveScene().name.Contains("NamSanHMode"))
         {
-            gamemanager.WriteLog(LogSendServer.NormalLogCode.Clear_QRCode, "Clear_QRCode:Off", GetType().ToString());
+            gamemanager.WriteLog(LogSendServer.NormalLogCode.NamSanH_QRCode, "NamSanH_QRCode:Off", GetType().ToString());
         }
         QRCodeImage.gameObject.transform.GetChild(0).gameObject.SetActive(false);
         QRCodeImage.gameObject.SetActive(false);
@@ -108,12 +108,12 @@ public class QRMaker : MonoBehaviour
 
     public void QRCloseLog()
     {
-        if (SceneManager.GetActiveScene().name.Contains("ARMode") || SceneManager.GetActiveScene().name == "TelescopeMode")
+        if (SceneManager.GetActiveScene().name == "XRMode")
         {
             gamemanager.WriteLog(LogSendServer.NormalLogCode.AR_QRCode, "AR_QRCode:Off", GetType().ToString());
-        } else if (SceneManager.GetActiveScene().name.Contains("ClearMode"))
+        } else if (SceneManager.GetActiveScene().name == "NamSanHMode")
         {
-            gamemanager.WriteLog(LogSendServer.NormalLogCode.Clear_QRCode, "Clear_QRCode:Off", GetType().ToString());
+            gamemanager.WriteLog(LogSendServer.NormalLogCode.NamSanH_QRCode, "NamSanH_QRCode:Off", GetType().ToString());
         }
     }
 

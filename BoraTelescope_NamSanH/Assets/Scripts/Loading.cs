@@ -255,6 +255,10 @@ public class Loading : MonoBehaviour
                     {
                         MoveLoading();
                     }
+                    else if (GameManager.ModeActive[0] == true && GameManager.ModeActive[1] == true && GameManager.ModeActive[2] == true)
+                    {
+                        MoveLoading();
+                    }
                 }
                 else if (GameManager.AnyError == true)
                 {
@@ -319,44 +323,47 @@ public class Loading : MonoBehaviour
                 nextScene = "XRMode";
                 break;
             case "XRMode":
-                break;
-            case "NamSanHMode":
-                break;
-        }
-
-        if (nextScene.Contains("XRMode"))
-        {
-            if (GameManager.ModeActive[1] == true)
-            {
-                if (GameManager.AnyError == false)
-                {
-                    //PanTiltControl.SetFreq(PanTiltControl.Motor.Pan, 4);
-                    setMotor = false;
-                    SetmotorFreq = true;
-                    //PanTiltControl.Origin();
-                    if (GameManager.PrevMode != "WaitingMode")
-                    {
-                        StartCoroutine(LoadScene());
-                    }
-                }
-                else if (GameManager.AnyError == true)
-                {
-                    gamemanager.ErrorMessage.gameObject.SetActive(true);
-                    MoveClearMode_Change();
-                }
-                //Invoke("WaitMotor", 10f);
-            }
-            else if (GameManager.ModeActive[1] == false)
-            {
-                gamemanager.ErrorMessage.gameObject.SetActive(true);
-
-                if (GameManager.PrevMode == "LiveMode" && GameManager.ModeActive[0] == true)
+                if (GameManager.ModeActive[1] == true)
                 {
                     if (GameManager.AnyError == false)
                     {
-                        MoveLiveMode();
+                        setMotor = false;
+                        SetmotorFreq = true;
+                        if (GameManager.PrevMode != "WaitingMode")
+                        {
+                            StartCoroutine(LoadScene());
+                        }
                     }
                     else if (GameManager.AnyError == true)
+                    {
+                        gamemanager.ErrorMessage.gameObject.SetActive(true);
+                        MoveClearMode_Change();
+                    }
+                    //Invoke("WaitMotor", 10f);
+                }
+                else if (GameManager.ModeActive[1] == false)
+                {
+                    gamemanager.ErrorMessage.gameObject.SetActive(true);
+
+                    if (GameManager.PrevMode == "LiveMode" && GameManager.ModeActive[0] == true)
+                    {
+                        if (GameManager.AnyError == false)
+                        {
+                            MoveLiveMode();
+                        }
+                        else if (GameManager.AnyError == true)
+                        {
+                            if (GameManager.ModeActive[2] == true)
+                            {
+                                MoveClearMode();
+                            }
+                            else if (GameManager.ModeActive[2] == false)
+                            {
+                                MoveEtcMode();
+                            }
+                        }
+                    }
+                    else if (GameManager.PrevMode == "LiveMode" && GameManager.ModeActive[0] == false)
                     {
                         if (GameManager.ModeActive[2] == true)
                         {
@@ -367,25 +374,45 @@ public class Loading : MonoBehaviour
                             MoveEtcMode();
                         }
                     }
-                }
-                else if (GameManager.PrevMode == "LiveMode" && GameManager.ModeActive[0] == false)
-                {
-                    if (GameManager.ModeActive[2] == true)
+                    else if (GameManager.PrevMode == "NamSanHMode" && GameManager.ModeActive[2] == true)
                     {
                         MoveClearMode();
                     }
-                    else if (GameManager.ModeActive[2] == false)
+                    else if (GameManager.PrevMode == "NamSanHMode" && GameManager.ModeActive[2] == false)
+                    {
+                        if (GameManager.ModeActive[0] == true)
+                        {
+                            if (GameManager.AnyError == false)
+                            {
+                                MoveLiveMode();
+                            }
+                            else if (GameManager.AnyError == true)
+                            {
+                                MoveEtcMode();
+                            }
+                        }
+                        else if (GameManager.ModeActive[0] == false)
+                        {
+                            MoveEtcMode();
+                        }
+                    }
+                    else
                     {
                         MoveEtcMode();
                     }
                 }
-                else if (GameManager.PrevMode == "NamSanHMode" && GameManager.ModeActive[2] == true)
+                break;
+            case "NamSanHMode":
+                if (GameManager.ModeActive[2] == true)
                 {
-                    MoveClearMode();
+                    setMotor = false;
+                    StartCoroutine(LoadScene());
                 }
-                else if (GameManager.PrevMode == "NamSanHMode" && GameManager.ModeActive[2] == false)
+                else if (GameManager.ModeActive[2] == false)
                 {
-                    if (GameManager.ModeActive[0] == true)
+                    gamemanager.ErrorMessage.gameObject.SetActive(true);
+
+                    if (GameManager.PrevMode == "LiveMode" && GameManager.ModeActive[0] == true)
                     {
                         if (GameManager.AnyError == false)
                         {
@@ -396,304 +423,47 @@ public class Loading : MonoBehaviour
                             MoveEtcMode();
                         }
                     }
-                    else if (GameManager.ModeActive[0] == false)
-                    {
-                        MoveEtcMode();
-                    }
-                }
-                else
-                {
-                    MoveEtcMode();
-                }
-            }
-        }
-        else if (nextScene.Contains("NamSanHMode"))
-        {
-            if (GameManager.ModeActive[2] == true)
-            {
-                setMotor = false;
-                StartCoroutine(LoadScene());
-            }
-            else if (GameManager.ModeActive[2] == false)
-            {
-                gamemanager.ErrorMessage.gameObject.SetActive(true);
-
-                if (GameManager.PrevMode == "LiveMode" && GameManager.ModeActive[0] == true)
-                {
-                    if (GameManager.AnyError == false)
-                    {
-                        MoveLiveMode();
-                    }
-                    else if (GameManager.AnyError == true)
-                    {
-                        MoveEtcMode();
-                    }
-                }
-                else if (GameManager.PrevMode == "LiveMode" && GameManager.ModeActive[0] == false)
-                {
-                    if (GameManager.ModeActive[1] == true)
-                    {
-                        if (GameManager.AnyError == false)
-                        {
-                            MoveARMode();
-                        }
-                        else if (GameManager.AnyError == true)
-                        {
-                            MoveEtcMode();
-                        }
-                    }
-                    else if (GameManager.ModeActive[1] == false)
-                    {
-                        MoveEtcMode();
-                    }
-                }
-                else if (GameManager.PrevMode == "XRMode" && GameManager.ModeActive[1] == true)
-                {
-                    MoveARMode();
-                }
-                else if (GameManager.PrevMode == "XRMode" && GameManager.ModeActive[1] == false)
-                {
-                    if (GameManager.ModeActive[0] == true)
-                    {
-                        MoveLiveMode();
-                    }
-                    else if (GameManager.ModeActive[0] == false)
-                    {
-                        MoveEtcMode();
-                    }
-                }
-                else
-                {
-                    MoveEtcMode();
-                }
-            }
-        }
-        else
-        {
-            if (nextScene == "Loading")
-            {
-                if (GameManager.AnyError == false)
-                {
-                    if (GameManager.ModeActive[0] == false && GameManager.ModeActive[1] == false && GameManager.ModeActive[2] == false)
-                    {
-                        gamemanager.ErrorMessage.gameObject.SetActive(true);
-                        MoveEtcMode();
-                    }
-                    else
+                    else if (GameManager.PrevMode == "LiveMode" && GameManager.ModeActive[0] == false)
                     {
                         if (GameManager.ModeActive[1] == true)
                         {
-                            MoveLoading();
-                            //PanTiltControl.SetFreq(PanTiltControl.Motor.Pan, 4);
-                            //PanTiltControl.SetFreq(PanTiltControl.Motor.Tilt, 5);
-                            //setMotor = true;
-                            //SetmotorFreq = true;
-                            //PanTiltControl.Origin();
-                            //nextScene = "ARMode_" + ContentsInfo.ContentsName;
-                        }
-                        else if (GameManager.ModeActive[1] == false)
-                        {
-                            if (GameManager.ModeActive[0] == true)
-                            {
-                                gamemanager.WantNoLabel = true;
-                                MoveLoading();
-                            }
-                            else if (GameManager.ModeActive[0] == false)
-                            {
-                                if (GameManager.ModeActive[2] == true)
-                                {
-                                    MoveLoading_Demo();
-                                }
-                            }
-                        }
-                    }
-                }
-                else if (GameManager.AnyError == true)
-                {
-                    if (GameManager.ModeActive[2] == true)
-                    {
-                        MoveClearMode_Change();
-                    }
-                    else if (GameManager.ModeActive[2] == false)
-                    {
-                        gamemanager.ErrorMessage.gameObject.SetActive(true);
-                        MoveEtcMode();
-                    }
-                }
-                //StartCoroutine(LoadScene());
-            }
-            else if (nextScene == "LiveMode")
-            {
-                if (GameManager.AnyError == false)
-                {
-                    if (GameManager.ModeActive[0] == true)
-                    {
-                        //PanTiltControl.SetFreq(PanTiltControl.Motor.Pan, 4);
-                        //PanTiltControl.SetFreq(PanTiltControl.Motor.Tilt, 5);
-                        //setMotor = true;
-                        //SetmotorFreq = true;
-                        //PanTiltControl.Origin();
-                        MoveLiveMode();
-                        nextScene = "XRMode_" + ContentsInfo.ContentsName;
-                    }
-                    else if (GameManager.ModeActive[0] == false)
-                    {
-                        gamemanager.ErrorMessage.gameObject.SetActive(true);
-
-                        if (GameManager.PrevMode == "XRMode" && GameManager.ModeActive[1] == true)
-                        {
-                            MoveARMode();
-                        }
-                        else if (GameManager.PrevMode == "XRMode" && GameManager.ModeActive[1] == false)
-                        {
-                            if (GameManager.ModeActive[2] == true)
-                            {
-                                MoveClearMode_Change();
-                            }
-                            else if (GameManager.ModeActive[2] == false)
-                            {
-                                MoveEtcMode();
-                            }
-                        }
-                        else if (GameManager.PrevMode == "NamSanHMode" && GameManager.ModeActive[2] == true)
-                        {
-                            MoveClearMode_Change();
-                        }
-                        else if (GameManager.PrevMode == "NamSanHMode" && GameManager.ModeActive[2] == false)
-                        {
-                            if (GameManager.ModeActive[1] == true)
+                            if (GameManager.AnyError == false)
                             {
                                 MoveARMode();
                             }
-                            else if (GameManager.ModeActive[1] == false)
+                            else if (GameManager.AnyError == true)
                             {
                                 MoveEtcMode();
                             }
                         }
-                        else
+                        else if (GameManager.ModeActive[1] == false)
                         {
-                            
+                            MoveEtcMode();
                         }
                     }
-                }
-                else if (GameManager.AnyError == true)
-                {
-                    gamemanager.ErrorMessage.gameObject.SetActive(true);
-
-                    if (GameManager.PrevMode == "NamSanHMode" && GameManager.ModeActive[2] == true)
+                    else if (GameManager.PrevMode == "XRMode" && GameManager.ModeActive[1] == true)
                     {
-                        MoveClearMode_Change();
+                        MoveARMode();
                     }
-                    else if (GameManager.PrevMode == "NamSanHMode" && GameManager.ModeActive[2] == false)
+                    else if (GameManager.PrevMode == "XRMode" && GameManager.ModeActive[1] == false)
                     {
-                        MoveEtcMode();
+                        if (GameManager.ModeActive[0] == true)
+                        {
+                            MoveLiveMode();
+                        }
+                        else if (GameManager.ModeActive[0] == false)
+                        {
+                            MoveEtcMode();
+                        }
                     }
                     else
                     {
                         MoveEtcMode();
                     }
                 }
-            }
-            else
-            {
-                if (GameManager.ModeActive[3] == true)
-                {
-                    setMotor = false;
-                    StartCoroutine(LoadScene());
-                }
-                else if (GameManager.ModeActive[3] == false)
-                {
-                    if (GameManager.AnyError == false)
-                    {
-                        gamemanager.ErrorMessage.gameObject.SetActive(true);
-                        if (GameManager.PrevMode == "LiveMode" && GameManager.ModeActive[0] == true)
-                        {
-                            MoveLiveMode_Change();
-                        }
-                        else if (GameManager.PrevMode == "LiveMode" && GameManager.ModeActive[0] == false)
-                        {
-                            if (GameManager.ModeActive[1] == true)
-                            {
-                                MoveARMode_Change();
-                            }
-                            else if (GameManager.ModeActive[1] == false)
-                            {
-                                if (GameManager.ModeActive[2] == true)
-                                {
-                                    MoveClearMode_Change();
-                                }
-                                else if (GameManager.ModeActive[2] == false)
-                                {
-                                    MoveEtcMode();
-                                }
-                            }
-                        }
-                        else if (GameManager.PrevMode == "XRMode" && GameManager.ModeActive[1] == true)
-                        {
-                            MoveARMode_Change();
-                        }
-                        else if (GameManager.PrevMode == "XRMode" && GameManager.ModeActive[1] == false)
-                        {
-                            if (GameManager.ModeActive[0] == true)
-                            {
-                                MoveLiveMode_Change();
-                            }
-                            else if (GameManager.ModeActive[0] == false)
-                            {
-                                if (GameManager.ModeActive[2] == true)
-                                {
-                                    MoveClearMode_Change();
-                                }
-                                else if (GameManager.ModeActive[2] == false)
-                                {
-                                    MoveEtcMode();
-                                }
-                            }
-                        }
-                        else if (GameManager.PrevMode == "NamSanHMode" && GameManager.ModeActive[2] == true)
-                        {
-                            MoveClearMode_Change();
-                        }
-                        else if (GameManager.PrevMode == "NamSanHMode" && GameManager.ModeActive[2] == false)
-                        {
-                            if (GameManager.ModeActive[1] == true)
-                            {
-                                MoveARMode_Change();
-                            }
-                            else if (GameManager.ModeActive[1] == false)
-                            {
-                                if (GameManager.ModeActive[0] == true)
-                                {
-                                    MoveLiveMode_Change();
-                                }
-                                else if (GameManager.ModeActive[0] == false)
-                                {
-                                    MoveEtcMode();
-                                }
-                            }
-                        }
-                        else
-                        {
-                            MoveEtcMode();
-                        }
-                    }
-                    else if (GameManager.AnyError == true)
-                    {
-                        if (GameManager.PrevMode == "NamSanHMode" && GameManager.ModeActive[2] == true)
-                        {
-                            MoveClearMode_Change();
-                        }
-                        else if (GameManager.PrevMode == "NamSanHMode" && GameManager.ModeActive[2] == false)
-                        {
-                            MoveEtcMode();
-                        }
-                        else
-                        {
-                            MoveEtcMode();
-                        }
-                    }
-                }
-            }
+                break;
+            case "WaitingMode":
+                break;
         }
     }
 
@@ -764,7 +534,7 @@ public class Loading : MonoBehaviour
 
     public void ReadFile()
     {
-        if (File.Exists(Application.dataPath + ("/ARModeLabelPosition_" + ContentsInfo.ContentsName + ".json")))
+        if (File.Exists(Application.dataPath + ("/XRModeLabelPosition.json")))
         {
             //Allstr = File.ReadAllText(Application.dataPath + ("/ARModeLabelPosition_" + ContentsInfo.ContentsName + ".json"));
 
@@ -932,7 +702,7 @@ public class Loading : MonoBehaviour
                         MoveClearMode_Change();
                     }
 
-                    if (nextScene.Contains("ARMode") || nextScene == "TelescopeMode")
+                    if (nextScene == "XRMode")
                     {
                         if (SetmotorFreq == true)
                         {
@@ -981,7 +751,7 @@ public class Loading : MonoBehaviour
             }
             if (GameManager.Readpulse == false && PanTiltControl.OriginEndFlag == true)
             {
-                if (nextScene.Contains("ARMode") || nextScene == "TelescopeMode")
+                if (nextScene == "XRMode")
                 {
                     if (SetmotorFreq_1 == false)
                     {
@@ -1002,7 +772,7 @@ public class Loading : MonoBehaviour
         setMotor = true;
         SetmotorFreq = true;
         PanTiltControl.Origin();
-        nextScene = "ARMode_" + ContentsInfo.ContentsName;
+        nextScene = "XRMode";
     }
     
     public void MoveLoading_Basic()
@@ -1033,7 +803,7 @@ public class Loading : MonoBehaviour
     public void MoveLoading_Demo()
     {
         setMotor = false;
-        nextScene = "ClearMode_" + ContentsInfo.ContentsName;
+        nextScene = "NamSanHMode";
         StartCoroutine(LoadScene());
     }
 
@@ -1042,7 +812,7 @@ public class Loading : MonoBehaviour
         setMotor = false;
         SetmotorFreq = true;
         noOrigin = true;
-        nextScene = "TelescopeMode";
+        nextScene = "XRMode";
         StartCoroutine(LoadScene());
     }
 
@@ -1059,7 +829,7 @@ public class Loading : MonoBehaviour
         setMotor = false;
         SetmotorFreq = true;
         //GameManager.Readpulse = true;
-        nextScene = "ARMode_" + ContentsInfo.ContentsName;
+        nextScene = "XRMode";
         if (GameManager.PrevMode != "WaitingMode")
         {
             StartCoroutine(LoadScene());
@@ -1113,7 +883,7 @@ public class Loading : MonoBehaviour
         setMotor = false;
         SetmotorFreq = true;
         gamemanager.WantNoLabel = true;
-        nextScene = "ARMode_" + ContentsInfo.ContentsName;
+        nextScene = "XRMode";
         gamemanager.WriteErrorLog(LogSendServer.ErrorLogCode.Fail_EnterMode, "ChangeMode : Change(" + GameManager.PrevMode + " - " + "LiveMode)", GetType().ToString());
         GameManager.PrevMode = "LiveMode";
         StartCoroutine(LoadScene());
@@ -1123,25 +893,17 @@ public class Loading : MonoBehaviour
         gamemanager.WantNoLabel = false;
         setMotor = false;
         SetmotorFreq = true;
-        nextScene = "ARMode_" + ContentsInfo.ContentsName;
+        nextScene = "XRMode";
         gamemanager.WriteErrorLog(LogSendServer.ErrorLogCode.Fail_EnterMode, "ChangeMode : Change(" + GameManager.PrevMode + " - " + "ARMode)", GetType().ToString());
-        GameManager.PrevMode = "ARMode";
+        GameManager.PrevMode = "XRMode";
         StartCoroutine(LoadScene());
     }
     public void MoveClearMode_Change()
     {
         setMotor = false;
-        nextScene = "ClearMode_" + ContentsInfo.ContentsName;
+        nextScene = "NamSanHMode";
         gamemanager.WriteErrorLog(LogSendServer.ErrorLogCode.Fail_EnterMode, "ChangeMode : Change(" + GameManager.PrevMode + " - " + "ClearMode)", GetType().ToString());
-        GameManager.PrevMode = "ClearMode";
-        StartCoroutine(LoadScene());
-    }
-    public void MoveCultureMode_Change()
-    {
-        setMotor = false;
-        nextScene = "CultureMode_" + ContentsInfo.ContentsName;
-        gamemanager.WriteErrorLog(LogSendServer.ErrorLogCode.Fail_EnterMode, "ChangeMode : Change(" + GameManager.PrevMode + " - " + "CultureMode)", GetType().ToString());
-        GameManager.PrevMode = "CultureMode";
+        GameManager.PrevMode = "NamSanHMode";
         StartCoroutine(LoadScene());
     }
 }

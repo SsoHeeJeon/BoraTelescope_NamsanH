@@ -36,7 +36,7 @@ public class VariableJoystick : Joystick
 
     public override void OnPointerDown(PointerEventData eventData)
     {
-        if (joystick.GM.MiniMap_Background.transform.parent.GetChild(2).GetChild(0).GetComponent<RectTransform>().anchoredPosition.x == 30)
+        if (joystick.GM.ZoomBar.GetComponent<RectTransform>().anchoredPosition.x == 30)
         {
             PanTiltControl.SetFreq(PanTiltControl.Motor.Pan, PanTiltControl.Speed.Slow);
             joystick.GM.speed_enum = GameManager.Speed_enum.slow;
