@@ -4795,11 +4795,11 @@ MonoBehaviour:
   gamemanager: {fileID: 0}
   ManagerMode: {fileID: 1952284141}
   CameraWindow: {fileID: 1173284877}
-  AllLabel: {fileID: 0}
-  Crane: {fileID: 0}
-  Fish: {fileID: 0}
-  Bird: {fileID: 0}
-  Squirrel: {fileID: 0}
+  AllLabel: {fileID: 7210032991551910901}
+  Crane: {fileID: 6377200227025799243}
+  Fish: {fileID: 8333679007164358354}
+  Bird: {fileID: 6761282627003326623}
+  Squirrel: {fileID: 1172971176523668487}
   AllLabelPosition: []
   AllLabelPosition_arr: []
   CurrentlabelPosition_x: {fileID: 0}
