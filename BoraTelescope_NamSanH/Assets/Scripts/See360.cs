@@ -27,86 +27,13 @@ public class See360 : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(Input.GetTouch(0).position.y);
-        if (Input.GetTouch(0).position.y > 300 || Input.mousePosition.y > 300)
+        if (Input.touchCount == 1)
         {
-            SeeAllRound();
+            if (Input.GetTouch(0).position.y > 300 || Input.mousePosition.y > 300)
+            {
+                SeeAllRound();
+            }
         }
-    }
-
-    public void ReadyTo360(string type)
-    {
-        obj360.gameObject.SetActive(true);
-        Debug.Log(type);
-        switch (type)
-        {
-            case "1":
-                mat360.SetTexture("_MainTex",first.texture);
-                //obj360.GetComponent<VideoPlayer>().clip = JeJuClip;
-                //gamemanager.WriteLog(GameManager.NormalLogCode.ETC_Movie360, "See : Jeju360", GetType().ToString());
-                break;
-            case "2":
-                mat360.SetTexture("_MainTex", second.texture);
-                //obj360.GetComponent<VideoPlayer>().clip = TowerClip;
-                //gamemanager.WriteLog(GameManager.NormalLogCode.ETC_Movie360, "See : Lotte360", GetType().ToString());
-                break;
-            case "3":
-                mat360.SetTexture("_MainTex", third.texture);
-                /*
-                obj360.GetComponent<VideoPlayer>().source = VideoSource.Url;
-                if (Application.platform == RuntimePlatform.WindowsEditor)
-                {
-                    obj360.GetComponent<VideoPlayer>().url = Application.dataPath + "/Resources/LotteEBC/Lotte360/LotteDay.mp4";
-                }
-                else if (Application.platform == RuntimePlatform.WindowsPlayer)
-                {
-                    obj360.GetComponent<VideoPlayer>().url = Application.dataPath + "/Resources/Lotte360/LotteDay.mp4";
-                }
-                */
-                //gamemanager.WriteLog(GameManager.NormalLogCode.ETC_Movie360, "See : LotteDay360", GetType().ToString());
-                break;
-            case "4":
-                obj360.GetComponent<VideoPlayer>().source = VideoSource.Url;
-                if (Application.platform == RuntimePlatform.WindowsEditor)
-                {
-                    obj360.GetComponent<VideoPlayer>().url = Application.dataPath + "/Resources/LotteEBC/Lotte360/LotteNight.mp4";
-                }
-                else if (Application.platform == RuntimePlatform.WindowsPlayer)
-                {
-                    obj360.GetComponent<VideoPlayer>().url = Application.dataPath + "/Resources/Lotte360/LotteNight.mp4";
-                }
-                //gamemanager.WriteLog(GameManager.NormalLogCode.ETC_Movie360, "See : LotteNight360", GetType().ToString());
-                break;
-            case "5":
-                obj360.GetComponent<VideoPlayer>().source = VideoSource.Url;
-                if (Application.platform == RuntimePlatform.WindowsEditor)
-                {
-                    obj360.GetComponent<VideoPlayer>().url = Application.dataPath + "/Resources/LotteEBC/Lotte360/LottePast70.mp4";
-                }
-                else if (Application.platform == RuntimePlatform.WindowsPlayer)
-                {
-                    obj360.GetComponent<VideoPlayer>().url = Application.dataPath + "/Resources/Lotte360/LottePast70.mp4";
-                }
-                //gamemanager.WriteLog(GameManager.NormalLogCode.ETC_Movie360, "See : LottePast70360", GetType().ToString());
-                break;
-            case "6":
-                obj360.GetComponent<VideoPlayer>().source = VideoSource.Url;
-                if (Application.platform == RuntimePlatform.WindowsEditor)
-                {
-                    obj360.GetComponent<VideoPlayer>().url = Application.dataPath + "/Resources/LotteEBC/Lotte360/LottePast80.mp4";
-                }
-                else if (Application.platform == RuntimePlatform.WindowsPlayer)
-                {
-                    obj360.GetComponent<VideoPlayer>().url = Application.dataPath + "/Resources/Lotte360/LottePast80.mp4";
-                }
-                //gamemanager.WriteLog(GameManager.NormalLogCode.ETC_Movie360, "See : LottePast360", GetType().ToString());
-                break;
-        }
-
-        //gamemanager.UI_All.gameObject.SetActive(true);
-        //CameraFilterImage.gameObject.SetActive(true);
-        //Lotte360Image.gameObject.SetActive(false);
-        //CameraFilterImage.transform.parent.gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(CameraFilterImage.transform.GetComponent<RectTransform>().sizeDelta.x, CameraFilterImage.transform.parent.gameObject.GetComponent<RectTransform>().sizeDelta.y);
     }
 
     float bx;

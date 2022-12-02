@@ -32,7 +32,7 @@ public class ScreenCapture : UploadImage
         }
         else if (SceneManager.GetActiveScene().name == "NamSanHMode")
         {
-            camera = GameObject.Find("CameraZoom").transform.GetChild(0).gameObject.GetComponent<Camera>();
+            camera = GameObject.Find("Nam_MainCamera").GetComponent<Camera>();
         }
 
         resWidth = Screen.width;

@@ -19,9 +19,9 @@ public class ContentsInfo : LogSendServer
     public GameObject gameemanager;
     //private Label label;
 
-    List<string> Label_Cate_1;
-    List<string> Label_Cate_2;
-    List<string> Label_Cate_3;
+    public List<string> Label_Cate_1;
+    public List<string> Label_Cate_2;
+    public List<string> Label_Cate_3;
 
     public Sprite[] NaviLabel;
     public Sprite[] NaviLabel_K;
@@ -31,8 +31,19 @@ public class ContentsInfo : LogSendServer
     public Sprite[] DetailText_K;
     public Sprite[] DetailText_E;
 
-    public AudioClip[] Narration_K;
-    public AudioClip[] Narration_E;
+    public Sprite[] Tip;
+    public Sprite Tip_XR_K;
+    public Sprite Tip_XR_E;
+    public Sprite Tip_Nam_K;
+    public Sprite Tip_Nam_E;
+
+    public AudioClip[] Narration_Docent_K;
+    public AudioClip[] Narration_Wisdom_K;
+    public AudioClip[] Narration_Flow_K;
+
+    public AudioClip[] Narration_Docent_E;
+    public AudioClip[] Narration_Wisdom_E;
+    public AudioClip[] Narration_Flow_E;
 
     public VideoClip[] WaitingVideo;
     public string[] WaitingVideo_path;
@@ -78,24 +89,35 @@ public class ContentsInfo : LogSendServer
     /// </summary>
     public void LoadLabelInfo()
     {
-        Label_Cate_1 = new List<string> {"JoR", "Saeholligi", "Crane", "Pep", "Weasel", "Gary", "Solnari", "Goose", "Otter", "Duksu",
-                                         "Goshawk", "Dokminari", "Songak", "Yuni", "GunJang", "Eagle", "Wcrane", "ImjinR", "SacheonR", "Joleum"};
-        Label_Cate_2 = new List<string> {"Aegibong", "TurtleShip", "Ganghaw", "Seoglyupo", "HanR", "NorthGP", "Gwansan", "Thresher", "Historic", "Center",
-                                         "School", "Imhan", "House", "Manwol", "Broadcast", "Gijeong", "Panmoon", "Daeseoung", "Dora"};
-        Label_Cate_3 = new List<string> {"Aegibong", "TurtleShip", "Ganghaw", "Seoglyupo", "HanR", "NorthGP", "Gwansan", "Thresher", "Historic", "Center",
-                                         "School", "Imhan", "House", "Manwol", "Broadcast", "Gijeong", "Panmoon", "Daeseoung", "Dora"};
+        Label_Cate_1 = new List<string> {"1991", "1996", "1998", "2003", "2013"};
+        Label_Cate_2 = new List<string> {"House1", "House2", "House3", "House4", "House5", "House6", "House7", "House8", "House9", "House10"};
+        Label_Cate_3 = new List<string> {"Aegibong", "TurtleShip", "Ganghaw"};
 
-        NaviLabel_K = new Sprite[Resources.LoadAll<Sprite>("Odu/Sprite/NavigationLabel_K").Length];
-        NaviLabel_E = new Sprite[Resources.LoadAll<Sprite>("Odu/Sprite/NavigationLabel_E").Length];
-        DetailImage_K = new Sprite[Resources.LoadAll<Sprite>("Odu/Sprite/DetailImage_K").Length];
-        Narration_K = new AudioClip[Resources.LoadAll<AudioClip>("Odu/Narration/Korea").Length];
-        Narration_E = new AudioClip[Resources.LoadAll<AudioClip>("Odu/Narration/English").Length];
+        NaviLabel_K = new Sprite[Resources.LoadAll<Sprite>("Sprite/NavigationLabel_K").Length];
+        NaviLabel_E = new Sprite[Resources.LoadAll<Sprite>("Sprite/NavigationLabel_E").Length];
+        DetailImage_K = new Sprite[Resources.LoadAll<Sprite>("Sprite/DetailImage_K").Length];
+        
+        Narration_Docent_K = new AudioClip[Resources.LoadAll<AudioClip>("Narration/Korea/Docent").Length];
+        Narration_Wisdom_K = new AudioClip[Resources.LoadAll<AudioClip>("Narration/Korea/Wisdom").Length];
+        Narration_Flow_K = new AudioClip[Resources.LoadAll<AudioClip>("Narration/Korea/Flow").Length];
+        Narration_Docent_E = new AudioClip[Resources.LoadAll<AudioClip>("Narration/English/Docent").Length];
+        Narration_Wisdom_E = new AudioClip[Resources.LoadAll<AudioClip>("Narration/English/Wisdom").Length];
+        Narration_Flow_E = new AudioClip[Resources.LoadAll<AudioClip>("Narration/English/FLow").Length];
 
-        NaviLabel_K = Resources.LoadAll<Sprite>("Odu/Sprite/NavigationLabel_K");
-        NaviLabel_E = Resources.LoadAll<Sprite>("Odu/Sprite/NavigationLabel_E");
-        DetailImage_K = Resources.LoadAll<Sprite>("Odu/Sprite/DetailImage_K");
-        Narration_K = Resources.LoadAll<AudioClip>("Odu/Narration/Korea");
-        Narration_E = Resources.LoadAll<AudioClip>("Odu/Narration/English");
+        NaviLabel_K = Resources.LoadAll<Sprite>("Sprite/NavigationLabel_K");
+        NaviLabel_E = Resources.LoadAll<Sprite>("Sprite/NavigationLabel_E");
+        DetailImage_K = Resources.LoadAll<Sprite>("Sprite/DetailImage_K");
+        Narration_Docent_K = Resources.LoadAll<AudioClip>("Narration/Korea/Docent");
+        Narration_Wisdom_K = Resources.LoadAll<AudioClip>("Narration/Korea/Wisdom");
+        Narration_Flow_K = Resources.LoadAll<AudioClip>("Narration/Korea/Flow");
+        Narration_Docent_E = Resources.LoadAll<AudioClip>("Narration/English/Docent");
+        Narration_Wisdom_E = Resources.LoadAll<AudioClip>("Narration/English/Wisdom");
+        Narration_Flow_E = Resources.LoadAll<AudioClip>("Narration/English/FLow");
+
+        Tip_XR_K = Resources.Load<Sprite>("Sprite/Tip_XR_K");
+        Tip_XR_E = Resources.Load<Sprite>("Sprite/Tip_XR_E");
+        Tip_Nam_K = Resources.Load<Sprite>("Sprite/Tip_Nam_K");
+        Tip_Nam_E = Resources.Load<Sprite>("Sprite/Tip_Nam_E");
 
         WaitingVideo_path = Directory.GetFiles(Application.dataPath + "/Resources/Video", "*.mp4");
 

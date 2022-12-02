@@ -137,7 +137,7 @@ public class Loading : MonoBehaviour
                     countstart = false;
                     GameManager.AnyError = true;
                     gamemanager.WriteErrorLog(LogSendServer.ErrorLogCode.Fail_EtcPantilt, "PantiltOrigin : Error(PanEndSensor)", GetType().ToString());
-                    MoveClearMode_Change();
+                    MoveNamSanHMode_Change();
                 }
             }
             else if (PanTiltControl.OriginEndFlag == true)
@@ -164,7 +164,7 @@ public class Loading : MonoBehaviour
                     {
                         GameManager.AnyError = true;
                         gamemanager.WriteErrorLog(LogSendServer.ErrorLogCode.Fail_EtcPantilt, "PantiltOrigin : Error(PanEndSensor)", GetType().ToString());
-                        MoveClearMode_Change();
+                        MoveNamSanHMode_Change();
                     }
 
                     if (nextScene == "XRMode" || nextScene == "LiveMode")
@@ -189,7 +189,7 @@ public class Loading : MonoBehaviour
             {
                 GameManager.AnyError = true;
                 gamemanager.WriteErrorLog(LogSendServer.ErrorLogCode.Fail_EtcPantilt, "PantiltOrigin : Error(PanEndSensor)", GetType().ToString());
-                MoveClearMode_Change();
+                MoveNamSanHMode_Change();
             }
             countstart = false;
         }
@@ -264,7 +264,7 @@ public class Loading : MonoBehaviour
                 {
                     if(GameManager.ModeActive[2] == true)
                     {
-                        MoveClearMode_Change();
+                        MoveNamSanHMode_Change();
                     } else if(GameManager.ModeActive[2] == false)
                     {
                         gamemanager.ErrorMessage.gameObject.SetActive(true);
@@ -311,7 +311,7 @@ public class Loading : MonoBehaviour
                 {
                     if (GameManager.ModeActive[2] == true)
                     {
-                        MoveClearMode_Change();
+                        MoveNamSanHMode_Change();
                     }
                     else if (GameManager.ModeActive[2] == false)
                     {
@@ -337,7 +337,7 @@ public class Loading : MonoBehaviour
                     else if (GameManager.AnyError == true)
                     {
                         gamemanager.ErrorMessage.gameObject.SetActive(true);
-                        MoveClearMode_Change();
+                        MoveNamSanHMode_Change();
                     }
                     //Invoke("WaitMotor", 10f);
                 }
@@ -674,7 +674,7 @@ public class Loading : MonoBehaviour
                     countstart = false;
                     GameManager.AnyError = true;
                     gamemanager.WriteErrorLog(LogSendServer.ErrorLogCode.Fail_EtcPantilt, "PantiltOrigin : Error(PanEndSensor)", GetType().ToString());
-                    MoveClearMode_Change();
+                    MoveNamSanHMode_Change();
                 }
             }
             else if (PanTiltControl.OriginEndFlag == true)
@@ -699,7 +699,7 @@ public class Loading : MonoBehaviour
                     {
                         GameManager.AnyError = true;
                         gamemanager.WriteErrorLog(LogSendServer.ErrorLogCode.Fail_EtcPantilt, "PantiltOrigin : Error(PanEndSensor)", GetType().ToString());
-                        MoveClearMode_Change();
+                        MoveNamSanHMode_Change();
                     }
 
                     if (nextScene == "XRMode")
@@ -720,7 +720,7 @@ public class Loading : MonoBehaviour
             {
                 GameManager.AnyError = true;
                 gamemanager.WriteErrorLog(LogSendServer.ErrorLogCode.Fail_EtcPantilt, "PantiltOrigin : Error(PanEndSensor)", GetType().ToString());
-                MoveClearMode_Change();
+                MoveNamSanHMode_Change();
             }
             countstart = false;
         }
@@ -898,7 +898,7 @@ public class Loading : MonoBehaviour
         GameManager.PrevMode = "XRMode";
         StartCoroutine(LoadScene());
     }
-    public void MoveClearMode_Change()
+    public void MoveNamSanHMode_Change()
     {
         setMotor = false;
         nextScene = "NamSanHMode";

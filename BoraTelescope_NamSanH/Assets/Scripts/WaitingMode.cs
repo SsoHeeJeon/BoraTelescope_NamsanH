@@ -120,7 +120,6 @@ public class WaitingMode : MonoBehaviour
         else if (GameManager.ModeActive[2])
         {
             Loading.nextScene = "NamSanHMode";
-            gamemanager.WantNoLabel = false;
         }
         SceneManager.LoadScene("Loading");
     }
