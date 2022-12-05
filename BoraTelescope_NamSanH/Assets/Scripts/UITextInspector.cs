@@ -1,13 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEditor;
-//using UnityEditor.UI;
-using UnityEngine;
+using UnityEditor.UI;
 
-//[CustomEditor(typeof(UIText))]
-public class UITextInspector : MonoBehaviour
-//public class UITextInspector : TextEditor
-{/*
+[CustomEditor(typeof(UIText))]
+public class UITextInspector : TextEditor
+{
     private SerializedProperty m_DisableWordWrap;
 
     protected override void OnEnable()
@@ -26,5 +22,5 @@ public class UITextInspector : MonoBehaviour
 
         serializedObject.ApplyModifiedProperties();
     }
-    */
+
 }

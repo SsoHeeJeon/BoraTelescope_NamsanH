@@ -2,10 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Label : MonoBehaviour
+public class Docent_Avatar : MonoBehaviour
 {
-    public Vector3[] Label_Position;
-    public Vector3[] Label_Scale;
+    public Animator DocentAvatar;
 
     // Start is called before the first frame update
     void Start()

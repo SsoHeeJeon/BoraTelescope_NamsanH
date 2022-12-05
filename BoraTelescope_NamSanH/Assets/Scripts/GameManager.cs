@@ -93,7 +93,6 @@ public class GameManager : ContentsInfo
     public XRMode xrMode;
     public XRMode_Manager xrMode_manager;
     public NamSanHMode namsanMode;
-    public Label label;
     //public LabelDetail labeldetail;
     public WaitingMode waitingMode;
     public ChangeWaitingMode changewaiting;
@@ -178,7 +177,7 @@ public class GameManager : ContentsInfo
     public static string MainMode = "XRMode";
     float arrowval = 40f;
     int modeNum = 6;
-    GameObject NaviLabel;
+    public GameObject NaviLabel;
 
     public float touchtime;
     int count_set;
@@ -211,7 +210,6 @@ public class GameManager : ContentsInfo
         NaviRect = NavigationBar.GetComponent<RectTransform>();
         LangRect = LanguageBar.GetComponent<RectTransform>();
         LangChildImg = LanguageBar.transform.GetChild(0).gameObject.GetComponent<Image>();
-        NaviLabel = NavigationBar.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject;
         // 언어선택창 닫아놓기(로딩화면에서 안보임.)
         LangRect.sizeDelta = new Vector2(barClose, 1080);
         LangChildImg.fillAmount = 0;
@@ -515,7 +513,6 @@ public class GameManager : ContentsInfo
                 break;
             case "Loading":
                 loading = GameObject.Find("Loading_UI").GetComponent<Loading>();
-                label = GameObject.Find("GameManager").GetComponent<Label>();
                 UI_All.gameObject.SetActive(false);
                 break;
             case "WaitingMode":
@@ -595,7 +592,7 @@ public class GameManager : ContentsInfo
                     }
 
                     // 나레이션 음성 멈춤
-                    //gamemanager.label.Narration.Stop();
+                    namsanMode.Narration.Stop();
 
                     // 메뉴바의 모드아이콘에서 Live모드 비활성화, AR모드 활성화
                     for (int index = 0; index < MenuBar.transform.GetChild(0).transform.childCount; index++)
@@ -672,7 +669,7 @@ public class GameManager : ContentsInfo
                     }
 
                     // 나레이션 음성 멈춤
-                    //gamemanager.label.Narration.Stop();
+                    namsanMode.Narration.Stop();
 
                     // 메뉴바의 모드아이콘에서 Live모드 비활성화, AR모드 활성화
                     for (int index = 0; index < MenuBar.transform.GetChild(0).transform.childCount; index++)
@@ -884,6 +881,18 @@ public class GameManager : ContentsInfo
                 moveNavi = false;
                 alreadynaviLog = false;
             }
+        }
+    }
+
+    /// <summary>
+    /// 네비게이션창에서 라벨 선택하면 모드에 따라 선택한 라벨 적용
+    /// </summary>
+    /// <param name="label"></param>
+    public void Navigation(GameObject label)
+    {
+        if (SceneManager.GetActiveScene().name == "NamSanHMode")
+        {
+            namsanMode.NaviLabel(label);
         }
     }
 
@@ -1492,6 +1501,12 @@ public class GameManager : ContentsInfo
             gamemanager.WriteLog(LogSendServer.NormalLogCode.ChangeMode, "ChangeMode : Start(" + GameManager.PrevMode + " - " + "WaitingMode)", GetType().ToString());
             alreadywaitingLog = true;
         }
+
+        if (SceneManager.GetActiveScene().name == "NamSanHMode")
+        {
+            namsanMode.Narration.Stop();
+        }
+
         //CameraSpincam.EndThread = true;
         SceneManager.LoadScene("WaitingMode");
     }
