@@ -3,9 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Video;
 using TMPro;
+using UnityEngine.UI;
+using Emgu.CV.Flann;
 
 public class scroll : MonoBehaviour
 {
+    public enum State
+    {
+        Kor,
+        Eng,
+    }
+    public State state = 0;
+
     // Start is called before the first frame update
     [SerializeField]
     VideoClip FINAL;
@@ -16,8 +25,10 @@ public class scroll : MonoBehaviour
     [SerializeField]
     VideoClip Unfold;
 
+
+    public GameObject TitleText;
     [SerializeField]
-    GameObject TitleText;
+    GameObject Title;
     [SerializeField]
     GameObject SubText;
     [SerializeField]
@@ -28,8 +39,8 @@ public class scroll : MonoBehaviour
     Intelligentinfo info;
     AudioSource ad;
 
-    string ContentName;
-
+    public string ContentName;
+    bool DisText;
 
     void Start()
     {
@@ -37,15 +48,21 @@ public class scroll : MonoBehaviour
         info = GetComponent<Intelligentinfo>();
         Video = GetComponent<VideoPlayer>();
         Video.clip= FINAL;
-        ContentName = "ÀÌ½Â¾÷°¡¿Á";
         Video.Pause();
-        Invoke("Intelligence", 2f);
+    }
 
+    private void Update()
+    {
+        if(DisText)
+        {
+            Title.transform.parent.GetComponent<Image>().fillAmount -= Time.deltaTime * 0.3f;
+        }
     }
 
     public void Intelligence()
     {
         Video.Play();
+        Title.transform.parent.GetComponent<Image>().fillAmount = 1;
         Invoke("VideoStop", 3f);
 
         int index = -1;
@@ -76,18 +93,37 @@ public class scroll : MonoBehaviour
         }
         else if (rand == 1)
         {
-            index = index2;
+            if(index2 == -1)
+            {
+                index = index1;
+            }
+            else
+            {
+                index = index2;
+            }
         }
 
-        TitleText.GetComponent<TMP_Text>().text = info.intellititle[index] + "(" + info.intellicontent[index] + ")";
-        SubText.GetComponent<TMP_Text>().text = info.intellitext[index];
-        ad.clip = info.Narration[index];
+        if(state ==State.Kor)
+        {
+            TitleText.GetComponent<TMP_Text>().text = info.intellicontent[index];
+            Title.GetComponent<TMP_Text>().text = info.intellititle[index] + "(" + info.ganzi[index]+")";
+            SubText.GetComponent<TMP_Text>().text = info.intellitext[index];
+            ad.clip = info.Narration[index];
+        }
+        else if(state==State.Eng)
+        {
+            TitleText.GetComponent<TMP_Text>().text = info.intellicontent_E[index];
+            Title.GetComponent<TMP_Text>().text = info.intellititle_E[index] + "(" + info.ganzi[index] + ")";
+            SubText.GetComponent<TMP_Text>().text = info.intellitext_E[index];
+            ad.clip = info.Narration_E[index];
+        }
     }
 
 
     // Update is called once per frame
     void VideoStop()
     {
+        Title.SetActive(true);
         TitleText.SetActive(true);
         SubText.SetActive(true);
         Exit.SetActive(true);
@@ -99,15 +135,21 @@ public class scroll : MonoBehaviour
     {
         Video.Play();
         Exit.SetActive(false);
-        TitleText.GetComponent<TMP_Text>().text = "<fade>" + TitleText.GetComponent<TMP_Text>().text + "</fade>";
-        SubText.GetComponent<TMP_Text>().text = "<fade>" + SubText.GetComponent<TMP_Text>().text + "</fade>";
+        DisText = true;
         Invoke("DisObject", 3.5f);
         ad.Stop();
     }
     
     void DisObject()
     {
-        TitleText.transform.parent.gameObject.SetActive(false);
+        TitleText.GetComponent<TMP_Text>().text = "";
+        Title.GetComponent<TMP_Text>().text = "";
+        SubText.GetComponent<TMP_Text>().text = "";
+        Title.SetActive(false);
+        TitleText.SetActive(false);
+        SubText.SetActive(false);
+        DisText = false;
+        TitleText.transform.parent.parent.gameObject.SetActive(false);
     }
 
 

@@ -28,6 +28,9 @@ public class NamSanHMode : MonoBehaviour
 
     public bool PlayNarr = false;
 
+    [SerializeField]
+    scroll scroll;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -174,6 +177,47 @@ public class NamSanHMode : MonoBehaviour
     // Close360¿¡¼­µµ ¼±Á¶µéÀÇ ÁöÇý°¡ ²¨Á³´ÂÁö È®ÀÎÇÏ°í ¾È²¨Á³À¸¸é ²ø ¼ö ÀÖ°Ô ÇØÁÖ¼¼¿ä.
     public void Wisdom()
     {
+        string name = SelectLabel.name;
+        name = name.Replace("House", "");
+        float num = int.Parse(name);
+        switch(num)
+        {
+            case 1:
+                scroll.ContentName = "¸ÞÀÎ±¤Àå";
+                break;
+            case 2:
+                scroll.ContentName = "Ãµ¿ì°¢";
+                break;
+            case 3:
+                scroll.ContentName = "Ã»ÇÐÁö";
+                break;
+            case 4:
+                scroll.ContentName = "³²»ê±¹¾Ç´ç";
+                break;
+            case 5:
+                scroll.ContentName = "ÀÌ½Â¾÷°¡¿Á";
+                break;
+            case 6:
+                scroll.ContentName = "À±¾¾°¡¿Á";
+                break;
+            case 7:
+                scroll.ContentName = "±èÃá¿µ°¡¿Á";
+                break;
+            case 8:
+                scroll.ContentName = "¹Î¾¾°¡¿Á";
+                break;
+            case 9:
+                scroll.ContentName = "À±ÅÃ¿µÀç½Ç";
+                break;
+            case 10:
+                scroll.ContentName = "Àü¸Á´ë";
+                break;
+        }
+
+        scroll.TitleText.transform.parent.parent.gameObject.SetActive(true);
+        scroll.Intelligence();
+
         Narration.Stop();
+
     }
 }

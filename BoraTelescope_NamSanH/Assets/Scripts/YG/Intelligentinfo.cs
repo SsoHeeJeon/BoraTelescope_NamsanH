@@ -15,6 +15,8 @@ public class Intelligentinfo : MonoBehaviour
     public List<string> intellititle_E = new List<string>();
     public List<string> intellitext_E = new List<string>();
     public List<AudioClip> Narration_E = new List<AudioClip>();
+
+    public List<string> ganzi = new List<string>();
     private void Start()
     {
         intelliname.Add("메인광장");
@@ -176,5 +178,25 @@ public class Intelligentinfo : MonoBehaviour
         intellitext_E.Add("Bemoaning the lack of rewarding work and the wasted years");
         intellitext_E.Add("Be careful with what you say, do your actions right");
         intellitext_E.Add("They walk around in etiquette and customs, helping each other in difficulties");
+
+        ganzi.Add("#接人春風");
+        ganzi.Add("敎學相長");
+        ganzi.Add("先行其言 而後從之");
+        ganzi.Add("其身不正 雖令不從");
+        ganzi.Add("事必歸正");
+        ganzi.Add("無愧我心");
+        ganzi.Add("心淸事達");
+        ganzi.Add("公平無私");
+        ganzi.Add("非禮不動");
+        ganzi.Add("一笑萬事空");
+        ganzi.Add("和順齊家之本");
+        ganzi.Add("富潤屋德潤身");
+        ganzi.Add("百論不如一行");
+        ganzi.Add("積善之家必有餘慶");
+        ganzi.Add("忍一時之忿 免百日之憂");
+        ganzi.Add("他山之石");
+        ganzi.Add("");
+        ganzi.Add("訥言敏行");
+        ganzi.Add("禮俗相交 患難相恤");
     }
 }
