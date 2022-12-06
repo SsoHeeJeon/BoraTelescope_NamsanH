@@ -50,8 +50,8 @@ public class LabelDetail : MonoBehaviour
         timescale = 0;
         timescale_window = 0;
         detailscroll = Detail_Scrollbar.GetComponent<Scrollbar>();
-        detailscroll.size = 0;
-
+        //detailscroll.size = 0;
+        Detail_Viewport.GetComponent<RectTransform>().anchorMax = new Vector2(1,1);
         detailsoundbut.sprite = namsanH.Narr_Off;
         detailbackground_rect = Detail_Background.GetComponent<RectTransform>();
 
@@ -61,6 +61,7 @@ public class LabelDetail : MonoBehaviour
 
         Detail_Background.transform.localPosition = new Vector3(Detail_Close_x, Detail_y, 0);
     }
+
 
     // Update is called once per frame
     void Update()
@@ -201,10 +202,10 @@ public class LabelDetail : MonoBehaviour
 
                 DetailClose_but.enabled = true;
 
-                if (namsanH.PlayNarr == true)
-                {
-                    namsanH.Narration.Play();
-                }
+                //if (namsanH.PlayNarr == true)
+                //{
+                //    namsanH.Narration.Play();
+                //}
             }
         } else if (Mathf.Abs(Detail_Background.transform.localPosition.x - Detail_Open_x) <= 0.5f)
         {
@@ -216,10 +217,10 @@ public class LabelDetail : MonoBehaviour
 
             DetailClose_but.enabled = true;
 
-            if (namsanH.PlayNarr == true)
-            {
-                namsanH.Narration.Play();
-            }
+            //if (namsanH.PlayNarr == true)
+            //{
+            //    namsanH.Narration.Play();
+            //}
         }
     }
     

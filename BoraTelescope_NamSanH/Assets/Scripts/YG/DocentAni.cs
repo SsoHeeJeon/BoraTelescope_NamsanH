@@ -18,12 +18,13 @@ public class DocentAni : MonoBehaviour
         {
             Anim = GetComponent<Animator>();
         }
+        CancelInvoke("InvokeAnimation");
         Anim.CrossFade("Ani_Emotion_Hi_02", 0f);
     }
 
     public void HitoTalk()
     {
-        namsan.Narration.enabled=true;
+        namsan.Narration.Play();
         Anim.CrossFade("Ani_Talk_01", 0);
         Invoke("InvokeAnimation", NarrtionLen-0.5f);
     }
