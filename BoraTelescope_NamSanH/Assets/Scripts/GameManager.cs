@@ -75,7 +75,7 @@ public class GameManager : ContentsInfo
         Korea, English
     }
     public static Language_enum currentLang;
-    public Language_enum curlang;
+    //public Language_enum curlang;
 
     public enum Speed_enum
     {
@@ -93,7 +93,6 @@ public class GameManager : ContentsInfo
     public XRMode xrMode;
     public XRMode_Manager xrMode_manager;
     public NamSanHMode namsanMode;
-    public Label label;
     //public LabelDetail labeldetail;
     public WaitingMode waitingMode;
     public ChangeWaitingMode changewaiting;
@@ -101,6 +100,7 @@ public class GameManager : ContentsInfo
     public SetRecord setrecord;
     public BoraJoyStick joystick;
     public UILanguage uilang;
+    public CategoryContents category;
 
     //공통 UI
     public GameObject UI_All;
@@ -177,8 +177,7 @@ public class GameManager : ContentsInfo
     public static string MainMode = "XRMode";
     float arrowval = 40f;
     int modeNum = 6;
-    Scrollbar naviscroll;
-    GameObject NaviLabel;
+    public GameObject NaviLabel;
 
     public float touchtime;
     int count_set;
@@ -211,8 +210,6 @@ public class GameManager : ContentsInfo
         NaviRect = NavigationBar.GetComponent<RectTransform>();
         LangRect = LanguageBar.GetComponent<RectTransform>();
         LangChildImg = LanguageBar.transform.GetChild(0).gameObject.GetComponent<Image>();
-        naviscroll = NavigationBar.transform.GetChild(0).transform.GetChild(1).transform.GetComponent<Scrollbar>();
-        NaviLabel = NavigationBar.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject;
         // 언어선택창 닫아놓기(로딩화면에서 안보임.)
         LangRect.sizeDelta = new Vector2(barClose, 1080);
         LangChildImg.fillAmount = 0;
@@ -231,10 +228,6 @@ public class GameManager : ContentsInfo
         {
             ResetPositionTime += Time.deltaTime;
         }
-
-        // 네비게이션 창 라벨선택부 스크롤바 사이즈
-        naviscroll.value = Mathf.Clamp(naviscroll.value, 0, 1);
-        naviscroll.size = 0.0f;
 
         // 터치 안하는 시간을 측정하여 대기모드로 전환하기 위함
         if (Input.GetMouseButtonDown(0))        // 마우스 클릭시
@@ -256,6 +249,84 @@ public class GameManager : ContentsInfo
             if ((int)touchCount >= waitingTime)
             {
                 CallWaitingMode();
+            }
+        }
+
+        // 관리자모드로 들어가기
+        // 10초이상 로고를 터치하고 있으면 가상키보드 활성화
+        // 비밀번호 맞으면 관리자모드로 변경
+        if (entermode == true)
+        {
+            if (MenuBar.transform.GetChild(6).gameObject.transform.GetChild(0).gameObject.GetComponent<Text>().text == ManagerModePassword)
+            {
+                password = "";
+                MenuBar.transform.GetChild(6).gameObject.transform.GetChild(0).gameObject.GetComponent<Text>().text = "";
+                SettingLabel();
+            }
+            else
+            {
+                if (Input.anyKeyDown)
+                {
+                    if (Input.GetKeyDown(KeyCode.Alpha0))
+                    {
+                        password += "0";
+                    }
+                    else if (Input.GetKeyDown(KeyCode.Alpha1))
+                    {
+                        password += "1";
+                    }
+                    else if (Input.GetKeyDown(KeyCode.Alpha2))
+                    {
+                        password += "2";
+                    }
+                    else if (Input.GetKeyDown(KeyCode.Alpha3))
+                    {
+                        password += "3";
+                    }
+                    else if (Input.GetKeyDown(KeyCode.Alpha4))
+                    {
+                        password += "4";
+                    }
+                    else if (Input.GetKeyDown(KeyCode.Alpha5))
+                    {
+                        password += "5";
+                    }
+                    else if (Input.GetKeyDown(KeyCode.Alpha6))
+                    {
+                        password += "6";
+                    }
+                    else if (Input.GetKeyDown(KeyCode.Alpha7))
+                    {
+                        password += "7";
+                    }
+                    else if (Input.GetKeyDown(KeyCode.Alpha8))
+                    {
+                        password += "8";
+                    }
+                    else if (Input.GetKeyDown(KeyCode.Alpha9))
+                    {
+                        password += "9";
+                    }
+                    MenuBar.transform.GetChild(6).gameObject.transform.GetChild(0).gameObject.GetComponent<Text>().text = password;
+                }
+            }
+        }
+        if (startcount == true)
+        {
+            if (entermode == false)
+            {
+                if (SettingLabelPosition == false)
+                {
+                    if ((int)count >= 10)
+                    {
+                        SetManagerPage();
+                        entermode = true;
+                    }
+                    else if ((int)count < 10)
+                    {
+                        count += Time.deltaTime;
+                    }
+                }
             }
         }
 
@@ -283,12 +354,61 @@ public class GameManager : ContentsInfo
                     if (SceneManager.GetActiveScene().name == "XRMode")
                     {
                         StartCoroutine(Home_Btn_XR());
-                    } else if(SceneManager.GetActiveScene().name == "NamSanHMode")
+                    }
+                    else if (SceneManager.GetActiveScene().name == "NamSanHMode")
                     {
                         Home_Btn_NamSanH();
                     }
                     ResetPositionTime = 0;
                 }
+            }
+        }
+
+        if (SceneManager.GetActiveScene().name == "XRMode")
+        {
+            if (Input.touchCount == 1)
+            {
+                if (joystick.enabled == false)
+                {
+                    if (touchtime > 0.15f)
+                    {
+                        if (ZoomBar.GetComponent<RectTransform>().anchoredPosition.x == 30)
+                        {
+                            if (speed_enum != GameManager.Speed_enum.slow)
+                            {
+                                print("slow");
+                                PanTiltControl.SetFreq(PanTiltControl.Motor.Pan, PanTiltControl.Speed.Slow);
+                                gamemanager.speed_enum = GameManager.Speed_enum.slow;
+                            }
+                        }
+                        else
+                        {
+                            if (speed_enum != GameManager.Speed_enum.middle)
+                            {
+                                print("middle");
+                                PanTiltControl.SetFreq(PanTiltControl.Motor.Pan, PanTiltControl.Speed.Middle);
+                                speed_enum = Speed_enum.middle;
+                            }
+                        }
+
+                        setdragrange.ALLFuncDragRange();
+                    }
+                }
+                stoponce = true;
+            }
+            else if (Input.touchCount > 1 || Input.touchCount == 0)
+            {
+                touchtime = 0;
+                //Arrow.transform.GetChild(0).gameObject.transform.localPosition = new Vector3(-3.6f, 0);
+
+                if (stoponce == true)
+                {
+                    Arrow_pointerUp();
+                    stoponce = false;
+                }
+
+                Arrow.gameObject.SetActive(true);
+                Arrow.transform.position = Arrowpos_extend;
             }
         }
     }
@@ -382,6 +502,7 @@ public class GameManager : ContentsInfo
                 }
                 MenuBar.transform.GetChild(0).gameObject.transform.GetChild(2).gameObject.transform.GetChild(0).gameObject.SetActive(true);
                 NavigationBar.SetActive(true);
+                BackGround.transform.parent.gameObject.SetActive(true);
                 LanguageBar.gameObject.SetActive(true);
                 //NaviRect.sizeDelta = new Vector2(barOpen, 1080);
                 //NavigationBar.transform.GetChild(0).gameObject.GetComponent<Image>().fillAmount = 0;
@@ -392,11 +513,10 @@ public class GameManager : ContentsInfo
                 break;
             case "Loading":
                 loading = GameObject.Find("Loading_UI").GetComponent<Loading>();
-                label = GameObject.Find("GameManager").GetComponent<Label>();
                 UI_All.gameObject.SetActive(false);
                 break;
             case "WaitingMode":
-                waitingMode = GM.gameObject.GetComponent<WaitingMode>();
+                //waitingMode = GM.gameObject.GetComponent<WaitingMode>();
 
                 if (AnyError == false)
                 {
@@ -472,7 +592,7 @@ public class GameManager : ContentsInfo
                     }
 
                     // 나레이션 음성 멈춤
-                    //gamemanager.label.Narration.Stop();
+                    namsanMode.Narration.Stop();
 
                     // 메뉴바의 모드아이콘에서 Live모드 비활성화, AR모드 활성화
                     for (int index = 0; index < MenuBar.transform.GetChild(0).transform.childCount; index++)
@@ -549,7 +669,7 @@ public class GameManager : ContentsInfo
                     }
 
                     // 나레이션 음성 멈춤
-                    //gamemanager.label.Narration.Stop();
+                    namsanMode.Narration.Stop();
 
                     // 메뉴바의 모드아이콘에서 Live모드 비활성화, AR모드 활성화
                     for (int index = 0; index < MenuBar.transform.GetChild(0).transform.childCount; index++)
@@ -648,6 +768,7 @@ public class GameManager : ContentsInfo
                 {
                     Tipbtn.transform.GetChild(0).gameObject.SetActive(true);
                     Tip_Obj.SetActive(true);
+
                     TipOpen();
                 }
                 else if (Tip_Obj.activeSelf)      // Tip 이미지가 활성화 상태면 비활성화
@@ -670,6 +791,12 @@ public class GameManager : ContentsInfo
                 langnavi_t = 0;
                 movelangNavi = true;
                 MenuBar.transform.GetChild(3).gameObject.transform.GetChild(0).gameObject.SetActive(false);
+                break;
+            case "Flow":
+                category.SelectCategory_Flow();
+                break;
+            case "Docent":
+                category.SelectCategory_Docent();
                 break;
         }
     }
@@ -754,6 +881,18 @@ public class GameManager : ContentsInfo
                 moveNavi = false;
                 alreadynaviLog = false;
             }
+        }
+    }
+
+    /// <summary>
+    /// 네비게이션창에서 라벨 선택하면 모드에 따라 선택한 라벨 적용
+    /// </summary>
+    /// <param name="label"></param>
+    public void Navigation(GameObject label)
+    {
+        if (SceneManager.GetActiveScene().name == "NamSanHMode")
+        {
+            namsanMode.NaviLabel(label);
         }
     }
 
@@ -937,7 +1076,7 @@ public class GameManager : ContentsInfo
         }
         else if (SceneManager.GetActiveScene().name == "NamSanHMode")
         {
-            markcustom.transform.parent = namsanMode.CameraWindow.transform.GetChild(7).gameObject.transform;
+            markcustom.transform.parent = namsanMode.CameraWindow.transform.GetChild(0).gameObject.transform;
             markcustom.transform.localPosition = Vector3.zero;
             markcustom.transform.localScale = new Vector3(1, 1, 1);
         }
@@ -1269,6 +1408,11 @@ public class GameManager : ContentsInfo
                 uilang.NotSelectKorea();
                 break;
         }
+        if (SceneManager.GetActiveScene().name == "NamSanHMode")
+        {
+            category.ChangeCategory_lang(btn.name);
+        }
+
         WriteLog(NormalLogCode.ChangeLanguage, "ChangeLanguage : " + currentLang, GetType().ToString());
 
         //label.SelectLanguageButton();
@@ -1284,6 +1428,69 @@ public class GameManager : ContentsInfo
         }
     }
 
+    /// <summary>
+    /// 매니저모드로 들어가기 위해 로고 10초 터치하면 키보드 활성화
+    /// </summary>
+    public void SetManagerPage()
+    {
+        System.Diagnostics.Process ps = new System.Diagnostics.Process();
+        ps.StartInfo.FileName = "osk.exe";
+        password = "";
+        MenuBar.transform.GetChild(6).gameObject.transform.GetChild(0).gameObject.GetComponent<Text>().text = "";
+        ps.Start();
+    }
+
+    float count;
+    bool entermode = false;
+    bool startcount = false;
+
+    /// <summary>
+    /// 현재 모드가 AR모드 일 경우에만 매니저모드 실행
+    /// </summary>
+    public void CountEnterManager()
+    {
+        if (SceneManager.GetActiveScene().name == "XRMode")
+        {
+            startcount = true;
+            entermode = false;
+        }
+    }
+
+    /// <summary>
+    /// 매니저모드 종료
+    /// </summary>
+    public void CountFinishManager()
+    {
+        count = 0;
+        startcount = false;
+    }
+
+    /// <summary>
+    /// 매니저모드에 들어간 경우, 안들어간 경우에 따라 스크립트 활성화/비활성화
+    /// </summary>
+    public void SettingLabel()
+    {
+        if (SceneManager.GetActiveScene().name.Contains("ARMode") && SettingLabelPosition == false)
+        {
+            count = 0;
+            entermode = false;
+        }
+        SettingLabelPosition = true;
+        if (SettingLabelPosition == true)       // 매니저모드로 들어간 경우
+        {
+            xrMode.enabled = false;
+            xrMode_manager.enabled = true;
+            xrMode_manager.ManagerMode.gameObject.SetActive(true);
+        }
+        else if (SettingLabelPosition == false)     // 매니저모드가 아닌 경우
+        {
+            gamemanager.xrMode.enabled = true;
+            xrMode_manager.ManagerMode.gameObject.SetActive(false);
+            gamemanager.xrMode_manager.enabled = false;
+        }
+        //SceneManager.LoadScene("ARMode_" + ContentsName);
+    }
+
     public void CallWaitingMode()
     {
         Loading.nextScene = "WaitingMode";
@@ -1294,6 +1501,12 @@ public class GameManager : ContentsInfo
             gamemanager.WriteLog(LogSendServer.NormalLogCode.ChangeMode, "ChangeMode : Start(" + GameManager.PrevMode + " - " + "WaitingMode)", GetType().ToString());
             alreadywaitingLog = true;
         }
+
+        if (SceneManager.GetActiveScene().name == "NamSanHMode")
+        {
+            namsanMode.Narration.Stop();
+        }
+
         //CameraSpincam.EndThread = true;
         SceneManager.LoadScene("WaitingMode");
     }
@@ -1301,24 +1514,33 @@ public class GameManager : ContentsInfo
     public void TipOpen()
     {
         Tipbtn.transform.GetChild(0).gameObject.SetActive(true);
-        /*
-        for (int index = 0; index < 2; index++)
-        {
-            Tip_Obj.transform.GetChild(1).gameObject.transform.GetChild(index).gameObject.SetActive(false);
-        }
-
-        if (currentLang == Language_enum.Korea)
-        {
-            Tip_Obj.transform.GetChild(1).gameObject.transform.GetChild(0).gameObject.SetActive(true);
-        }
-        else if (currentLang == Language_enum.English)
-        {
-            Tip_Obj.transform.GetChild(1).gameObject.transform.GetChild(1).gameObject.SetActive(true);
-        }*/
 
         if (!Tip_Obj.activeSelf)
         {
             Tip_Obj.SetActive(true);
+        }
+
+        if (SceneManager.GetActiveScene().name != "NamSanHMode")
+        {
+            if (currentLang == Language_enum.Korea)
+            {
+                Tip_Obj.GetComponent<Image>().sprite = Tip_XR_K;
+            }
+            else if (currentLang == Language_enum.English)
+            {
+                Tip_Obj.GetComponent<Image>().sprite = Tip_XR_E;
+            }
+        }
+        else if (SceneManager.GetActiveScene().name == "NamSanHMode")
+        {
+            if (currentLang == Language_enum.Korea)
+            {
+                Tip_Obj.GetComponent<Image>().sprite = Tip_Nam_K;
+            }
+            else if (currentLang == Language_enum.English)
+            {
+                Tip_Obj.GetComponent<Image>().sprite = Tip_Nam_E;
+            }
         }
 
         NavigationBar.gameObject.SetActive(false);
@@ -1412,5 +1634,10 @@ public class GameManager : ContentsInfo
         langnavi_t = 0;
         langNaviOn = true;
         movelangNavi = true;
+
+        if (namsanMode.obj360.activeSelf)
+        {
+            namsanMode.Close360();
+        }
     }
 }
