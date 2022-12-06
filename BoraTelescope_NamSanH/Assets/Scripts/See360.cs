@@ -8,22 +8,7 @@ using UnityEngine.Video;
 
 public class See360 : MonoBehaviour
 {
-    //public GameManager gamemanager;
-    //public GameObject CameraFilterImage;
-    //public GameObject Lotte360Image;
-
-    // µ¥¸ð 360
-    //public VideoClip JeJuClip;
-    //public VideoClip TowerClip;
-
-    public Sprite first;
-    public Sprite second;
-    public Sprite third;
-
     public GameObject obj360;
-    public Material mat360;
-    //public GameObject moviebut;
-
 
     private void Update()
     {

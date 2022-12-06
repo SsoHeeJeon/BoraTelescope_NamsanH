@@ -161,7 +161,7 @@ public class NamSanHMode : MonoBehaviour
 
     public void Docent_Finish()     // 상세설명 없어지기
     {
-        labeldetail.SelectCloseButton();
+        labeldetail.CloseDetailWindow();
 
         avatar.enabled = false;
         Docent_avartar.SetActive(false);

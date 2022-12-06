@@ -249,10 +249,10 @@ public class LabelDetail : MonoBehaviour
 
     public void WaitOpenButton()
     {
-        for (int index = 0; index < namsanH.Docent_AllUI.transform.childCount; index++)
-        {
-            namsanH.Docent_AllUI.transform.GetChild(index).gameObject.GetComponent<Button>().enabled = true;
-        }
+        //for (int index = 0; index < namsanH.Docent_AllUI.transform.childCount; index++)
+        //{
+        //    namsanH.Docent_AllUI.transform.GetChild(index).gameObject.GetComponent<Button>().enabled = true;
+        //}
 
         GameObject NaviLabel = namsanH.gamemanager.NavigationBar.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject;
         for (int index = 0; index < NaviLabel.transform.childCount; index++)
@@ -393,10 +393,10 @@ public class LabelDetail : MonoBehaviour
         DetailMore_but.gameObject.SetActive(true);
         namsanH.Narration.Stop();
         
-        for (int index = 0; index < namsanH.Docent_AllUI.transform.childCount; index++)
-        {
-            namsanH.Docent_AllUI.transform.GetChild(index).gameObject.GetComponent<Button>().enabled = true;
-        }
+        //for (int index = 0; index < namsanH.Docent_AllUI.transform.childCount; index++)
+        //{
+        //    namsanH.Docent_AllUI.transform.GetChild(index).gameObject.GetComponent<Button>().enabled = true;
+        //}
 
         namsanH.gamemanager.WriteLog(LogSendServer.NormalLogCode.NamSanH_DetailClose, "NamSanH_Detail:Close", GetType().ToString());
     }
