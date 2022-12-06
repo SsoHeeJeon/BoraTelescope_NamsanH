@@ -28,10 +28,7 @@ public class ContentsInfo : LogSendServer
     public Sprite[] NaviLabel_E;
     public Sprite[] DetailImage_K;
     public Sprite[] DetailImage_E;
-    public Sprite[] DetailText_K;
-    public Sprite[] DetailText_E;
 
-    public Sprite[] Tip;
     public Sprite Tip_XR_K;
     public Sprite Tip_XR_E;
     public Sprite Tip_Nam_K;

@@ -17,8 +17,8 @@ public class TimeFlow : MonoBehaviour
     public Sprite Y2003;
     public Sprite Y2013;
 
-    Vector3 zoomIn = new Vector3(5,5,5);
-    Vector3 zoomOut = new Vector3(1,1,1);
+    Vector3 zoomIn = new Vector3(3.15f, 3.15f, 3.15f);
+    Vector3 zoomOut = new Vector3(2.05f, 2.05f, 2.05f);
 
     bool ChangeZoom = false;
     bool ZoomInOut = false;
@@ -29,11 +29,11 @@ public class TimeFlow : MonoBehaviour
         {
             if (ZoomInOut == false)
             {
-                if ((TFImage.transform.localScale.x - 1) < 0.1f)
+                if ((TFImage.transform.localScale.x - zoomIn.x) < 0.1f)
                 {
                     TFImage.transform.localScale = Vector3.Lerp(zoomIn, zoomOut, Time.deltaTime);
                 }
-                else if ((TFImage.transform.localScale.x - 5) < 0.1f)
+                else if ((TFImage.transform.localScale.x - zoomOut.x) < 0.1f)
                 {
                     TFImage.transform.localScale = zoomIn;
                     ChangeZoom = false;
@@ -41,11 +41,11 @@ public class TimeFlow : MonoBehaviour
             }
             else if (ZoomInOut == true)
             {
-                if ((TFImage.transform.localScale.x - 5) < 0.1f)
+                if ((TFImage.transform.localScale.x - zoomOut.x) < 0.1f)
                 {
                     TFImage.transform.localScale = Vector3.Lerp(zoomOut, zoomIn, Time.deltaTime);
                 }
-                else if ((TFImage.transform.localScale.x - 1) < 0.1f)
+                else if ((TFImage.transform.localScale.x - zoomIn.x) < 0.1f)
                 {
                     TFImage.transform.localScale = zoomOut;
                     ChangeZoom = false;
@@ -139,10 +139,10 @@ public class TimeFlow : MonoBehaviour
     public void TFZoom()
     {
         ChangeZoom = true;
-        if(TFImage.transform.localScale.x == 1)
+        if(TFImage.transform.localScale.x == zoomIn.x)
         {
             ZoomInOut = false; // ÁÜÀÎ(È®´ëµÊ)
-        } else if(TFImage.transform.localScale.x == 5)
+        } else if(TFImage.transform.localScale.x == zoomOut.x)
         {
             ZoomInOut = true;  // ÁÜ¾Æ¿ô(Ãà¼ÒµÊ)
         }

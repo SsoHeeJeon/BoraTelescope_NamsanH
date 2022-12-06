@@ -25,6 +25,8 @@ public class CategoryContents : MonoBehaviour
     float Flow_val = 1;
     float Docent_val = 0.03f;
 
+    bool clickbtn = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -40,30 +42,42 @@ public class CategoryContents : MonoBehaviour
         naviscroll.value = Mathf.Clamp(naviscroll.value, 0, 1);
         naviscroll.size = 0.0f;
 
-        if (naviscroll.value > Docent_val)
+        if (clickbtn == false)
         {
-            Flow_btn_Sel.gameObject.SetActive(true);
-            Docent_btn_Sel.gameObject.SetActive(false);
-        }
-        else if (naviscroll.value <= Docent_val)
-        {
-            Flow_btn_Sel.gameObject.SetActive(false);
-            Docent_btn_Sel.gameObject.SetActive(true);
+            if (Mathf.Abs(naviscroll.value - Docent_val) > 0.1f)
+            {
+                Flow_btn_Sel.gameObject.SetActive(true);
+                Docent_btn_Sel.gameObject.SetActive(false);
+            }
+            else if (Mathf.Abs(naviscroll.value - Docent_val) <= 0.1f)
+            {
+                Flow_btn_Sel.gameObject.SetActive(false);
+                Docent_btn_Sel.gameObject.SetActive(true);
+            }
         }
     }
 
     public void SelectCategory_Flow()
     {
+        clickbtn = true;
         naviscroll.value = Flow_val;
         Flow_btn_Sel.gameObject.SetActive(true);
         Docent_btn_Sel.gameObject.SetActive(false);
+        Invoke("Returnbool", 0.2f);
     }
     
     public void SelectCategory_Docent()
     {
+        clickbtn = true;
         naviscroll.value = Docent_val;
         Flow_btn_Sel.gameObject.SetActive(false);
         Docent_btn_Sel.gameObject.SetActive(true);
+        Invoke("Returnbool", 0.2f);
+    }
+
+    public void Returnbool()
+    {
+        clickbtn = false;
     }
 
     public void ChangeCategory_lang(string lang)

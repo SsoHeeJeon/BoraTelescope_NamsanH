@@ -5130,7 +5130,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1783292333381163328, guid: dd743e2029f1cfe4c88d79775fd966f7, type: 3}
+  m_Sprite: {fileID: -760763116078379112, guid: 652f852bf893d78438230b24ccff8418, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -8388,7 +8388,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 1ec42dbfe134fb446aabbac12a266427, type: 3}
+  m_Sprite: {fileID: 2500372510747704828, guid: 652f852bf893d78438230b24ccff8418, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -8801,9 +8801,6 @@ MonoBehaviour:
   NaviLabel_E: []
   DetailImage_K: []
   DetailImage_E: []
-  DetailText_K: []
-  DetailText_E: []
-  Tip: []
   Tip_XR_K: {fileID: 0}
   Tip_XR_E: {fileID: 0}
   Tip_Nam_K: {fileID: 0}
@@ -10298,12 +10295,12 @@ MonoBehaviour:
   Tip_Btn: {fileID: 152963811}
   Tip_Btn_1: {fileID: 37180281}
   Home_idle_K: {fileID: 21300000, guid: 0929ee1a36828f84a9aad71e4f88777f, type: 3}
-  Live_idle_K: {fileID: 21300000, guid: b4baae3bb5a5d8347a5ab2ca117481c5, type: 3}
-  Live_Select_K: {fileID: 21300000, guid: 245ece64a10395a42b217beb2f5d597f, type: 3}
-  XR_idle_K: {fileID: 21300000, guid: 1ec42dbfe134fb446aabbac12a266427, type: 3}
-  XR_Select_K: {fileID: 21300000, guid: 847cc03209bfe564480f9234e3fefdb6, type: 3}
-  NamSanH_idle_K: {fileID: -1783292333381163328, guid: dd743e2029f1cfe4c88d79775fd966f7, type: 3}
-  NamSanH_Select_K: {fileID: -938076727282599898, guid: dd743e2029f1cfe4c88d79775fd966f7, type: 3}
+  Live_idle_K: {fileID: -3945177051312194399, guid: 652f852bf893d78438230b24ccff8418, type: 3}
+  Live_Select_K: {fileID: 8613273907984387857, guid: 652f852bf893d78438230b24ccff8418, type: 3}
+  XR_idle_K: {fileID: 2500372510747704828, guid: 652f852bf893d78438230b24ccff8418, type: 3}
+  XR_Select_K: {fileID: -2899802521413815864, guid: 652f852bf893d78438230b24ccff8418, type: 3}
+  NamSanH_idle_K: {fileID: -760763116078379112, guid: 652f852bf893d78438230b24ccff8418, type: 3}
+  NamSanH_Select_K: {fileID: 2516469675897696446, guid: 652f852bf893d78438230b24ccff8418, type: 3}
   Language_idle_K: {fileID: 21300000, guid: 80eb8a3ab70f7284ab449d1a3b32aa6d, type: 3}
   Language_Select_K: {fileID: 21300000, guid: ddaa5108a45c34848b526123f2d8c8eb, type: 3}
   Capture_idle_K: {fileID: 21300000, guid: 70eb7e3bb1391554c92691b4fc95c7fb, type: 3}
@@ -10451,7 +10448,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b4baae3bb5a5d8347a5ab2ca117481c5, type: 3}
+  m_Sprite: {fileID: -3945177051312194399, guid: 652f852bf893d78438230b24ccff8418, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
