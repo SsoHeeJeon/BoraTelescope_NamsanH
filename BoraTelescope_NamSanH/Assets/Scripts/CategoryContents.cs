@@ -23,7 +23,7 @@ public class CategoryContents : MonoBehaviour
     public Sprite Docent_E_sel;
 
     float Flow_val = 1;
-    float Docent_val = 0.5f;
+    float Docent_val = 0.03f;
 
     // Start is called before the first frame update
     void Start()
