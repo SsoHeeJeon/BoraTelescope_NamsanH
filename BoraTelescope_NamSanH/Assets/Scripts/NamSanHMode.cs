@@ -69,16 +69,19 @@ public class NamSanHMode : MonoBehaviour
         if (GameManager.currentLang == GameManager.Language_enum.Korea)
         {
             Narration.clip = gamemanager.Narration_Flow_K[num - 1];
+            Docent_avartar.transform.GetChild(0).GetComponent<DocentAni>().NarrtionLen = Narration.clip.length;
         }
         else if (GameManager.currentLang == GameManager.Language_enum.English)
         {
             Narration.clip = gamemanager.Narration_Flow_E[num - 1];
+            Docent_avartar.transform.GetChild(0).GetComponent<DocentAni>().NarrtionLen = Narration.clip.length;
         }
         Narration.Play();
     }
 
     public void ReadyTo360(GameObject type)
     {
+        scroll.GetComponent<scroll>().ScrollHome();
         SelectLabel = type;
         obj360.gameObject.SetActive(true);
         see360.enabled = true;
@@ -94,12 +97,15 @@ public class NamSanHMode : MonoBehaviour
         {
             labeldetail.InfoHeight.GetComponent<UIText>().text = ReadJsonFile.DetailText_K[num + 4];
             Narration.clip = gamemanager.Narration_Docent_K[num - 1];
+            Docent_avartar.transform.GetChild(0).GetComponent<DocentAni>().NarrtionLen = Narration.clip.length;
         } else if(GameManager.currentLang == GameManager.Language_enum.English)
         {
             labeldetail.InfoHeight.GetComponent<UIText>().text = ReadJsonFile.DetailText_E[num + 4];
             Narration.clip = gamemanager.Narration_Docent_E[num - 1];
+            Docent_avartar.transform.GetChild(0).GetComponent<DocentAni>().NarrtionLen = Narration.clip.length;
         }
         //Narration.Play();
+        Narration.enabled=false;
 
         if (gamemanager.NaviRect.sizeDelta.x > GameManager.barClose)
         {
@@ -111,6 +117,7 @@ public class NamSanHMode : MonoBehaviour
         AllUI.SetActive(false);
 
         labeldetail.ChangeDetailLanguage();
+        Docent_avartar.transform.GetChild(0).GetComponent<DocentAni>().AniHi();
         // 아바타 생성
     }
 

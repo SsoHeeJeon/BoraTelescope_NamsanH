@@ -179,7 +179,7 @@ public class Intelligentinfo : MonoBehaviour
         intellitext_E.Add("Be careful with what you say, do your actions right");
         intellitext_E.Add("They walk around in etiquette and customs, helping each other in difficulties");
 
-        ganzi.Add("#接人春風");
+        ganzi.Add("接人春風");
         ganzi.Add("敎學相長");
         ganzi.Add("先行其言 而後從之");
         ganzi.Add("其身不正 雖令不從");

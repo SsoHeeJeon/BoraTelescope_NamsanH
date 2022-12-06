@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.Video;
 using TMPro;
 using UnityEngine.UI;
-using Emgu.CV.Flann;
 
 public class scroll : MonoBehaviour
 {
@@ -61,6 +60,7 @@ public class scroll : MonoBehaviour
 
     public void Intelligence()
     {
+        Video.clip = FINAL;
         Video.Play();
         Title.transform.parent.GetComponent<Image>().fillAmount = 1;
         Invoke("VideoStop", 3f);
@@ -142,6 +142,22 @@ public class scroll : MonoBehaviour
     
     void DisObject()
     {
+        TitleText.GetComponent<TMP_Text>().text = "";
+        Title.GetComponent<TMP_Text>().text = "";
+        SubText.GetComponent<TMP_Text>().text = "";
+        Title.SetActive(false);
+        TitleText.SetActive(false);
+        SubText.SetActive(false);
+        DisText = false;
+        TitleText.transform.parent.parent.gameObject.SetActive(false);
+    }
+
+    public void ScrollHome()
+    {
+        Video.clip = null;
+        Exit.SetActive(false);
+        DisText = true;
+        ad.Stop();
         TitleText.GetComponent<TMP_Text>().text = "";
         Title.GetComponent<TMP_Text>().text = "";
         SubText.GetComponent<TMP_Text>().text = "";
