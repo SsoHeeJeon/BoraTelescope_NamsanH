@@ -1,3 +1,4 @@
+using UnityEngine.UI;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -11,6 +12,8 @@ public class Crane : MonoBehaviour
     private Animator anim;
 
     public float speed;
+    public float Min_Pan;
+    public float Max_Pan;
     public enum State
     {
         Seat,
@@ -27,8 +30,8 @@ public class Crane : MonoBehaviour
     }
     public State state = 0;
 
-    Vector3 StartPos;
-
+    public Vector3 StartPos;
+    [SerializeField] Button btnl;
     // Start is called before the first frame update
     private void Start()
     {
@@ -105,8 +108,8 @@ public class Crane : MonoBehaviour
     private void UpdateGlideDown()
     {
         speed -= Time.deltaTime;
-        Vector3 dir = new Vector3(0, -1, 1);
-        transform.position += dir * speed * Time.deltaTime;
+        transform.position = Vector3.Lerp(transform.position, StartPos, speed*Time.deltaTime);
+        transform.position = new Vector3(transform.position.x, transform.position.y, 500);
     }
 
     private void UpdateWalk()
@@ -119,33 +122,34 @@ public class Crane : MonoBehaviour
         speed += Time.deltaTime;
         Vector3 dir = new Vector3(0, 1, 1);
         transform.position += dir * speed * Time.deltaTime;
+        transform.position = new Vector3(transform.position.x, transform.position.y, 500);
     }
 
     bool LeftCheck;
     bool RightCheck;
     private void UpdateGlideForward()
     {
-        speed = 3;
         float dist = Vector3.Distance(transform.position, StartPos);
         Vector3 dir = transform.forward;
-        if(transform.position.z>30)
+        if(transform.position.x<Min_Pan)
         {
-            transform.rotation = Quaternion.Euler(0, 180, 0);
+            transform.rotation = Quaternion.Euler(0, 90, 0);
             LeftCheck = true;
         }
-        else if(transform.position.z < -30)
+        else if(transform.position.x > Max_Pan)
         {
-            transform.rotation = Quaternion.Euler(0, 0, 0);
+            transform.rotation = Quaternion.Euler(0, -90, 0);
             RightCheck = true;
         }
-        if(LeftCheck && RightCheck && dist<5)
+        print(dist);
+        if(LeftCheck && RightCheck && dist<350)
         {
             LeftCheck = false;
             RightCheck = false;
-            speed = 2f;
             GlideDown();
         }
         transform.position += dir *speed* Time.deltaTime;
+        transform.position = new Vector3(transform.position.x, transform.position.y, 500);
     }
 
     private void UpdateWalkReady()
@@ -193,12 +197,12 @@ public class Crane : MonoBehaviour
     private void GlideUp()
     {
         anim.CrossFade("Flap1Up", 1f);
-        speed = 0.5f;
         state = State.GlideUp;
     }
 
     private void GlideFoward()
     {
+        speed *= 3;
         anim.CrossFade("Flap1Left", 1f);
         state = State.GlideForward;
     }
@@ -211,13 +215,13 @@ public class Crane : MonoBehaviour
 
     private void GlideDown()
     {
+        speed /= 3;
         anim.CrossFade("Flap1Down", 0.5f);
         state = State.GlideDown;
     }
 
     private void Land()
     {
-        speed = 0;
         anim.CrossFade("Landing", 1f);
         state = State.Land;
     }
@@ -226,10 +230,12 @@ public class Crane : MonoBehaviour
     {
         anim.CrossFade("SitDown", 1f);
         state = State.Seat;
+        btnl.enabled = true;
     }
 
     public void OnClickBtn()
     {
+        btnl.enabled = false;
         anim.CrossFade("Rebirth", 1f);
     }
 

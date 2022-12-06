@@ -11,8 +11,7 @@ public class KoiManager : MonoBehaviour
     [SerializeField]
     GameObject Eat;
 
-    [SerializeField]
-    Koi[] Koiarr;
+    public Koi[] Koiarr;
 
 
 

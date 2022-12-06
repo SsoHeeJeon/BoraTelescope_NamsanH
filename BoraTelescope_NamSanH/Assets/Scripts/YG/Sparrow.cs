@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Sparrow : MonoBehaviour
 {
@@ -24,9 +25,11 @@ public class Sparrow : MonoBehaviour
     private Animator anim;
     public float speed;
     private Vector3 dir;
-    private Vector3 Pos1;
-    private Vector3 Pos2;
+    public Vector3 Pos1;
+    public Vector3 Pos2;
 
+    [SerializeField]
+    private Button btn;
     private void Start()
     {
         anim = GetComponent<Animator>();
@@ -75,7 +78,8 @@ public class Sparrow : MonoBehaviour
         transform.LookAt(Pos1);
         transform.position = Vector3.Lerp(transform.position, Pos1, Time.deltaTime*0.5f);
         float dist = Vector3.Distance(transform.position, Pos1);
-        if(dist < 1)
+        transform.position = new Vector3(transform.position.x, transform.position.y, 500);
+        if(dist < 1500)
         {
             state = State.Back;
         }
@@ -86,7 +90,8 @@ public class Sparrow : MonoBehaviour
         transform.LookAt(Pos2);
         transform.position = Vector3.Lerp(transform.position, Pos2, Time.deltaTime * 0.5f);
         float dist = Vector3.Distance(transform.position, Pos2);
-        if(dist<1)
+        transform.position = new Vector3(transform.position.x, transform.position.y, 500);
+        if (dist<100)
         {
             transform.rotation = Quaternion.Euler(new Vector3(0, 90, 0));
             anim.CrossFade("IdleEat", 1f);
@@ -124,6 +129,7 @@ public class Sparrow : MonoBehaviour
 
     public void OnClickBtn()
     {
+        btn.enabled = false;
         anim.CrossFade("IdlePickWing", 1f);
         state = State.PickWing;
     }
@@ -155,6 +161,7 @@ public class Sparrow : MonoBehaviour
     private void GoIdle()
     {
         anim.CrossFade("IdleLookAround", 0.2f);
+        btn.enabled = true;
         state = State.Idle;
 
     }

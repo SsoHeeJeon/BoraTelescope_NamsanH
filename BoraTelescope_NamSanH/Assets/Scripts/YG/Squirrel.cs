@@ -1,3 +1,4 @@
+using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -17,9 +18,9 @@ public class Squirrel : MonoBehaviour
 
     Animator anim;
     // Start is called before the first frame update
+    [SerializeField] Button btn;
     void Start()
     {
-        print(11);
         anim = GetComponent<Animator>();
         Invoke("PauseAnimator", 1f);
     }
@@ -33,11 +34,13 @@ public class Squirrel : MonoBehaviour
     private void PauseAnimator()
     {
         anim.enabled = false;
+        btn.enabled = true;
     }
 
     public void OnClickBtn()
     {
         anim.enabled = true;
+        btn.enabled= false;
     }
 
     private void Idle()

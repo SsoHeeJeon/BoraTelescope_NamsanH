@@ -10,17 +10,16 @@ public class Koi : MonoBehaviour
     [SerializeField]
     KoiManager koimanager;
 
-    [SerializeField]
-    private float speed;
+    public float speed;
     [SerializeField]
     private float rotspeed;
     private float rot;
     private Vector3 dir;
-    private float defaultspeed;
+    public float defaultspeed;
 
     public GameObject Eat;
 
-    Vector3 StartPos;
+    public Vector3 StartPos;
 
     public enum State
     {
@@ -34,9 +33,9 @@ public class Koi : MonoBehaviour
 
     private void Start()
     {
-        defaultspeed = speed;
+        //defaultspeed = speed;
         anim = GetComponent<Animator>();
-        StartPos = transform.position;
+        //StartPos = transform.position;
     }
 
     // Update is called once per frame
@@ -65,12 +64,12 @@ public class Koi : MonoBehaviour
 
     private void UpdateClick()
     {
-        transform.LookAt(new Vector3(1, transform.position.y, 1));
-        float dist = Vector3.Distance(transform.position, new Vector3(1, transform.position.y, 1));
+        transform.LookAt(new Vector3(1, transform.localPosition.y, 1));
+        float dist = Vector3.Distance(transform.localPosition, new Vector3(1, transform.localPosition.y, 1));
 
         if(dist>0.2f)
         {
-            transform.position = Vector3.Lerp(transform.position, new Vector3(1, transform.position.y, 1), Time.deltaTime*0.5f);
+            transform.localPosition = Vector3.Lerp(transform.localPosition, new Vector3(1, transform.localPosition.y, 1), Time.deltaTime*0.5f);
         }
         else
         {
@@ -109,7 +108,7 @@ public class Koi : MonoBehaviour
             transform.LookAt(Eat.transform.position);
             dir = transform.forward;
             transform.position += dir * speed * Time.deltaTime;
-            float dist = Vector3.Distance(transform.position, Eat.transform.position);
+            float dist = Vector3.Distance(transform.localPosition, Eat.transform.localPosition);
             if (dist < 0.2f)
             {
                 anim.CrossFade("Slow Swim", 0.2f);
@@ -128,18 +127,18 @@ public class Koi : MonoBehaviour
 
     void UpdateEat()
     {
-        transform.rotation = Quaternion.Euler(10, transform.eulerAngles.y, transform.eulerAngles.z);
-        if(Eat!=null)
-        {
-            if(Eat.transform.localPosition.y!=0.05f)
-            {
-                Eat.transform.localPosition = new Vector3(Eat.transform.localPosition.x, 0.05f, Eat.transform.localPosition.z);
-            }
-            else
-            {
-                Eat.transform.localPosition = new Vector3(Eat.transform.localPosition.x, 0, Eat.transform.localPosition.z);
-            }
-        }
+        //transform.rotation = Quaternion.Euler(10, transform.eulerAngles.y, transform.eulerAngles.z);
+        //if(Eat!=null)
+        //{
+        //    if(Eat.transform.localPosition.y!=0.05f)
+        //    {
+        //        Eat.transform.localPosition = new Vector3(Eat.transform.localPosition.x, 0.05f, Eat.transform.localPosition.z);
+        //    }
+        //    else
+        //    {
+        //        Eat.transform.localPosition = new Vector3(Eat.transform.localPosition.x, 0, Eat.transform.localPosition.z);
+        //    }
+        //}
 
     }
 
@@ -151,7 +150,7 @@ public class Koi : MonoBehaviour
             {
                 state = State.EatMove;
                 other.gameObject.transform.localPosition = new Vector3(other.gameObject.transform.localPosition.x, transform.localPosition.y, other.gameObject.transform.localPosition.z);
-                transform.LookAt(new Vector3(other.gameObject.transform.position.x, transform.position.y, other.gameObject.transform.position.z));
+                transform.LookAt(new Vector3(other.gameObject.transform.localPosition.x, transform.localPosition.y, other.gameObject.transform.localPosition.z));
                 Eat = other.gameObject;
             }
         }
