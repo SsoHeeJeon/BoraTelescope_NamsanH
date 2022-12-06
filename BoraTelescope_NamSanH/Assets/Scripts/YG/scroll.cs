@@ -32,11 +32,12 @@ public class scroll : MonoBehaviour
     GameObject SubText;
     [SerializeField]
     GameObject Exit;
-
+    [SerializeField]
+    NamSanHMode namsan;
 
     VideoPlayer Video;
     Intelligentinfo info;
-    AudioSource ad;
+    public AudioSource ad;
 
     public string ContentName;
     bool DisText;
@@ -54,12 +55,14 @@ public class scroll : MonoBehaviour
     {
         if(DisText)
         {
-            Title.transform.parent.GetComponent<Image>().fillAmount -= Time.deltaTime * 0.3f;
+            Title.transform.parent.GetComponent<Image>().fillAmount -= Time.deltaTime * 0.5f;
         }
     }
 
     public void Intelligence()
     {
+        ad.enabled = true;
+        namsan.Narration.clip = null;
         Video.clip = FINAL;
         Video.Play();
         Title.transform.parent.GetComponent<Image>().fillAmount = 1;
@@ -123,6 +126,7 @@ public class scroll : MonoBehaviour
     // Update is called once per frame
     void VideoStop()
     {
+        print("Cancel");
         Title.SetActive(true);
         TitleText.SetActive(true);
         SubText.SetActive(true);
@@ -135,9 +139,14 @@ public class scroll : MonoBehaviour
     {
         Video.Play();
         Exit.SetActive(false);
-        DisText = true;
         Invoke("DisObject", 3.5f);
+        Invoke("Distrue", 0.6f);
         ad.Stop();
+    }
+
+    void Distrue()
+    {
+        DisText = true;
     }
     
     void DisObject()
@@ -154,6 +163,7 @@ public class scroll : MonoBehaviour
 
     public void ScrollHome()
     {
+        CancelInvoke("DisObject");
         Video.clip = null;
         Exit.SetActive(false);
         DisText = true;
@@ -168,5 +178,9 @@ public class scroll : MonoBehaviour
         TitleText.transform.parent.parent.gameObject.SetActive(false);
     }
 
+    public void InvokeCancel()
+    {
+        CancelInvoke("VideoStop");
+    }
 
 }

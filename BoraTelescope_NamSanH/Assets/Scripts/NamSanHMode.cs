@@ -92,9 +92,10 @@ public class NamSanHMode : MonoBehaviour
         mat360.SetTexture("_MainTex", House[num - 1].texture);
 
         Docent_AllUI.SetActive(true);
-
+        print(1);
         if (GameManager.currentLang == GameManager.Language_enum.Korea)
         {
+            print(2);
             labeldetail.InfoHeight.GetComponent<UIText>().text = ReadJsonFile.DetailText_K[num + 4];
             Narration.clip = gamemanager.Narration_Docent_K[num - 1];
             Docent_avartar.transform.GetChild(0).GetComponent<DocentAni>().NarrtionLen = Narration.clip.length;
@@ -105,7 +106,7 @@ public class NamSanHMode : MonoBehaviour
             Docent_avartar.transform.GetChild(0).GetComponent<DocentAni>().NarrtionLen = Narration.clip.length;
         }
         //Narration.Play();
-        Narration.enabled=false;
+        Narration.Pause();
 
         if (gamemanager.NaviRect.sizeDelta.x > GameManager.barClose)
         {
@@ -129,7 +130,10 @@ public class NamSanHMode : MonoBehaviour
         obj360.SetActive(false);
 
         Narration.Stop();
-
+        if(scroll.ad!=null)
+        {
+            scroll.ad.Stop();
+        }
         if (gamemanager.NaviRect.sizeDelta.x < GameManager.barOpen)
         {
             gamemanager.navi_t = 0;
@@ -137,9 +141,9 @@ public class NamSanHMode : MonoBehaviour
             gamemanager.NaviOn = false;
         }
 
-        Docent_AllUI.SetActive(false);
+        //Docent_AllUI.SetActive(false);
         AllUI.SetActive(true);
-
+        scroll.CancelInvoke();
         Docent_Finish();        // 상세설명, 아바타 없어지기
     }
 
@@ -173,7 +177,7 @@ public class NamSanHMode : MonoBehaviour
         avatar.enabled = false;
         Docent_avartar.SetActive(false);
 
-        labeldetail.enabled = false;
+        //labeldetail.enabled = false;
         Docent_Detail.SetActive(false);
 
         Narration.Stop();
