@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class NamSanHMode : MonoBehaviour
 {
@@ -42,23 +43,46 @@ public class NamSanHMode : MonoBehaviour
         }
         Close360();
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    
     public void NaviLabel(GameObject Label)
     {
         if (gamemanager.Label_Cate_1.Contains(Label.name))      // 시대별변천
         {
-            timeflow.ReadytoStart(Label);
-        } else if (gamemanager.Label_Cate_2.Contains(Label.name))       // 도슨트
-        {
             if (obj360.activeSelf)
             {
                 Close360();
+            }
+
+            if (timeflow.TFBackground.activeSelf)
+            {
+                if(SelectLabel == Label)
+                {
+                    timeflow.CloseTF();
+                } else if(SelectLabel != Label)
+                {
+                    timeflow.ReadytoStart(Label);
+                }
+            }
+            else if (!timeflow.TFBackground.activeSelf)
+            {
+                timeflow.ReadytoStart(Label);
+            }
+        } else if (gamemanager.Label_Cate_2.Contains(Label.name))       // 도슨트
+        {
+            if (timeflow.TFBackground.activeSelf)
+            {
+                timeflow.CloseTF();
+            }
+
+            if (obj360.activeSelf)
+            {
+                if (SelectLabel == Label)
+                {
+                    Close360();
+                } else if(SelectLabel != Label)
+                {
+                    ReadyTo360(Label);
+                }
             } else if (!obj360.activeSelf)
             {
                 ReadyTo360(Label);
@@ -112,6 +136,7 @@ public class NamSanHMode : MonoBehaviour
     public void Close360()
     {
         SelectLabel = null;
+        Narration.clip = null;
 
         see360.enabled = false;
         obj360.SetActive(false);
@@ -128,7 +153,7 @@ public class NamSanHMode : MonoBehaviour
             gamemanager.NaviOn = false;
         }
 
-        //Docent_AllUI.SetActive(false);
+        Docent_AllUI.SetActive(false);
         AllUI.SetActive(true);
         scroll.CancelInvoke();
         Docent_Finish();        // 상세설명, 아바타 없어지기
@@ -164,7 +189,7 @@ public class NamSanHMode : MonoBehaviour
         avatar.enabled = false;
         Docent_avartar.SetActive(false);
 
-        //labeldetail.enabled = false;
+        labeldetail.enabled = false;
         Docent_Detail.SetActive(false);
 
         Narration.Stop();
@@ -175,6 +200,14 @@ public class NamSanHMode : MonoBehaviour
     // Close360에서도 선조들의 지혜가 꺼졌는지 확인하고 안꺼졌으면 끌 수 있게 해주세요.
     public void Wisdom()
     {
+        // 네비게이션 창 비활성화(역사모드에서는 네비게이션창 사용하지 않음)
+        if (gamemanager.NaviRect.sizeDelta.x > GameManager.barClose)
+        {
+            gamemanager.navi_t = 0;
+            gamemanager.NaviOn = true;
+            gamemanager.moveNavi = true;
+        }
+
         string name = SelectLabel.name;
         name = name.Replace("House", "");
         float num = int.Parse(name);
@@ -217,5 +250,37 @@ public class NamSanHMode : MonoBehaviour
 
         Narration.Stop();
 
+    }
+
+    public void NarrStopPlay()
+    {
+        if (PlayNarr == true)
+        {
+            Narration.Stop();
+            //Invoke("WaitStopPlay", 0.5f);
+        }
+        else if (PlayNarr == false)
+        {
+            Narration.Play();
+        }
+        Invoke("WaitStopPlay", 0.5f);
+    }
+
+    public void WaitStopPlay()
+    {
+        if (PlayNarr == true)
+        {
+            //gamemanager.label.Narration.Stop();
+            labeldetail.detailsoundbut.GetComponent<Image>().sprite = Narr_On;
+            PlayNarr = false;
+            gamemanager.WriteLog(LogSendServer.NormalLogCode.NamSanH_DetailSound, "NamSanH_Detail:SoundOff", GetType().ToString());
+        }
+        else if (PlayNarr == false)
+        {
+            //gamemanager.label.Narration.Play();
+            labeldetail.detailsoundbut.GetComponent<Image>().sprite = Narr_Off;
+            PlayNarr = true;
+            gamemanager.WriteLog(LogSendServer.NormalLogCode.NamSanH_DetailSound, "NamSanH_Detail:SoundOn", GetType().ToString());
+        }
     }
 }

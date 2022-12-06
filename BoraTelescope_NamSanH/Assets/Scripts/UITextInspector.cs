@@ -1,9 +1,11 @@
-using UnityEditor;
-using UnityEditor.UI;
+//using UnityEditor;
+//using UnityEditor.UI;
+using UnityEngine;
 
-[CustomEditor(typeof(UIText))]
-public class UITextInspector : TextEditor
-{
+//[CustomEditor(typeof(UIText))]
+//public class UITextInspector : TextEditor
+public class UITextInspector : MonoBehaviour
+{/*
     private SerializedProperty m_DisableWordWrap;
 
     protected override void OnEnable()
@@ -22,5 +24,5 @@ public class UITextInspector : TextEditor
 
         serializedObject.ApplyModifiedProperties();
     }
-
+    */
 }

@@ -34,7 +34,7 @@ public class HighSpeedPostProcessing : MonoBehaviour
     public Material material;
 
     Camera Cam;
-     SceneView SceneView;
+     //SceneView SceneView;
      Camera SceneCamera;
 
     private void Start()
@@ -56,18 +56,18 @@ public class HighSpeedPostProcessing : MonoBehaviour
         Cam = GetComponent<Camera>();
         Set();
 
-        SceneCamera = GetCamera();
+        //SceneCamera = GetCamera();
       //  UpdateComponents();
 
     }
 
-
+    /*
     private Camera GetCamera()
     {
         SceneView = EditorWindow.GetWindow<SceneView>();
         return SceneView.camera;
     }
-
+    */
     void Set()
     {
         //    if (GetComponent<Camera>().depthTextureMode == DepthTextureMode.None)
@@ -147,7 +147,7 @@ public class HighSpeedPostProcessing : MonoBehaviour
     public void UpdateComponents()
     {
         if (SceneCamera == null)
-            SceneCamera = GetCamera();
+            //SceneCamera = GetCamera();
 
         if (SceneCamera == null) // This shouldn't happen, but it does
             return;
@@ -158,7 +158,7 @@ public class HighSpeedPostProcessing : MonoBehaviour
         var cType = this.GetType();
 
         var existing = cameraGo.GetComponent(cType) ?? cameraGo.AddComponent(cType);
-        EditorUtility.CopySerialized(this, existing);
+        //EditorUtility.CopySerialized(this, existing);
 
 
     }

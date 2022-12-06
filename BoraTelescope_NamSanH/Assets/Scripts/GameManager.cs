@@ -1639,5 +1639,10 @@ public class GameManager : ContentsInfo
         {
             namsanMode.Close360();
         }
+
+        if (namsanMode.timeflow.TFBackground.activeSelf)
+        {
+            namsanMode.timeflow.CloseTF();
+        }
     }
 }

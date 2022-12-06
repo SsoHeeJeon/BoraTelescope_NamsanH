@@ -56,6 +56,7 @@ public class TimeFlow : MonoBehaviour
 
     public void ReadytoStart(GameObject Label)
     {
+        namsanH.SelectLabel = Label;
         TFBackground.SetActive(true);
 
         switch (Label.name)
@@ -150,6 +151,8 @@ public class TimeFlow : MonoBehaviour
 
     public void CloseTF()
     {
+        namsanH.SelectLabel = null;
+        namsanH.Narration.clip = null;
         namsanH.Narration.Stop();
         TFBackground.SetActive(false);
     }
