@@ -23,7 +23,6 @@ public class ContentsInfo : LogSendServer
     public List<string> Label_Cate_2;
     public List<string> Label_Cate_3;
 
-    public Sprite[] NaviLabel;
     public Sprite[] NaviLabel_K;
     public Sprite[] NaviLabel_E;
     public Sprite[] DetailImage_K;
