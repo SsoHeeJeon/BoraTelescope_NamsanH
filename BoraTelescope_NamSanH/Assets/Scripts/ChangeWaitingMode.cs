@@ -32,12 +32,14 @@ public class ChangeWaitingMode : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log("today " + GameManager.AnyError + " / " + GameManager.Readpulse);
         if (GameManager.AnyError == false)
         {
             if (GameManager.Readpulse == true)
             {
                 currentPan = (uint)PanTiltControl.NowPanPulse;
                 currentTilt = (uint)PanTiltControl.NowTiltPulse;
+                Debug.Log("today " + currentPan + " / " + currentTilt);
             }
             if (MotorOrigin == true)
             {
@@ -56,8 +58,8 @@ public class ChangeWaitingMode : MonoBehaviour
         PanTiltControl.Origin();
         sendLog_1 = true;
         //sendLog_2 = true;
-        currentPan = 0;
-        currentTilt = 0;
+        //currentPan = 0;
+        //currentTilt = 0;
         gamemanager.WriteLog(LogSendServer.NormalLogCode.Etc_PantiltOrigin, "PantiltOrigin : Start", GetType().ToString());
     }
 
@@ -98,7 +100,7 @@ public class ChangeWaitingMode : MonoBehaviour
                     sendLog_2 = false;
                 }
 
-                //Debug.Log("today " + (Mathf.Abs(currentPan - GameManager.startlabel_x) < 1 && Mathf.Abs(currentTilt - GameManager.startlabel_y) < 1));
+                //Debug.Log("today " + currentPan + " / " + GameManager.startlabel_x + (Mathf.Abs(currentPan - GameManager.startlabel_x) < 1 && Mathf.Abs(currentTilt - GameManager.startlabel_y) < 1));
                 if (Mathf.Abs(currentPan - GameManager.startlabel_x) < 1 && Mathf.Abs(currentTilt - GameManager.startlabel_y) < 1)
                 {
                     gamemanager.WriteLog(LogSendServer.NormalLogCode.Etc_PantiltStartPosition, "Finish : (" + currentPan + " / " + currentTilt + ")", GetType().ToString());
@@ -117,10 +119,11 @@ public class ChangeWaitingMode : MonoBehaviour
                         //팬틸트 모터가 계속 동작중 중단시킬 함수 필요
                         gamemanager.WriteErrorLog(LogSendServer.ErrorLogCode.Fail_EtcPantilt, "PantiltOrigin : Error(StartPosition)", GetType().ToString());
                     }
-
+                    Debug.Log("today today");
                     if (SetmotorFreq == true)
                     {
-                        Invoke("setpantiltFreq", 1f);
+                        Debug.Log("today today");
+                        Invoke("setpantiltFreq", 0.5f);
                         SetmotorFreq = false;
                     }
                 }
@@ -144,7 +147,7 @@ public class ChangeWaitingMode : MonoBehaviour
     {
         PanTiltControl.SetFreq(PanTiltControl.Motor.Pan, PanTiltControl.Speed.Fast);
         gamemanager.speed_enum = GameManager.Speed_enum.fast;
-
+        Debug.Log("today today");
         Invoke("setpantiltpulse", 0.5f);
     }
     public void setpantiltpulse()
@@ -153,7 +156,7 @@ public class ChangeWaitingMode : MonoBehaviour
 
         float tiltYposition = GameManager.startlabel_y;
         PanTiltControl.SetPulse(GameManager.startlabel_x, (uint)tiltYposition);
-
+        Debug.Log("today today");
         GameManager.Readpulse = true;
     }
 }
