@@ -10,6 +10,7 @@ public class TimeFlow : MonoBehaviour
     public GameObject TFBackground;
     public GameObject TFImage;
     public Text TFText;
+    [SerializeField] Text YearText;
 
     public Sprite Y1991;
     public Sprite Y1996;
@@ -56,9 +57,10 @@ public class TimeFlow : MonoBehaviour
 
     public void ReadytoStart(GameObject Label)
     {
+
         namsanH.SelectLabel = Label;
         TFBackground.SetActive(true);
-
+        YearText.text = Label.name + "³â";
         switch (Label.name)
         {
             case "1991":

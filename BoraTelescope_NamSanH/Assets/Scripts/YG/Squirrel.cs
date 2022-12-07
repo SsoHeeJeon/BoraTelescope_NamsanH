@@ -11,14 +11,17 @@ public class Squirrel : MonoBehaviour
         Sleep,
         Idle,
         Jump,
+        Catch,
         Eat,
         Sit,
+        Idle2,
     }
     State state = 0;
 
     Animator anim;
     // Start is called before the first frame update
     [SerializeField] Button btn;
+    [SerializeField] GameObject Peanut;
     void Start()
     {
         anim = GetComponent<Animator>();
@@ -49,18 +52,34 @@ public class Squirrel : MonoBehaviour
         state = State.Idle;
     }
 
+    private void Catch()
+    {
+        anim.CrossFade("Armature_squirrel_Attack2", 0.2f);
+        state = State.Catch;
+    }
+
     private void Eat()
     {
+        Peanut.SetActive(true);
         anim.CrossFade("Armature_squirrel_Eat", 1f);
-        Invoke("Jump", 5f);
+        Invoke("Jump", 3f);
         state = State.Eat;
     }
 
+
     private void Jump()
     {
+        Peanut.SetActive(false);
         anim.CrossFade("Armature_squirrel_Jump", 0.2f);
-        Invoke("Sleep", 5f);
+        Invoke("Idle2", 5f);
         state = State.Jump;
+    }
+
+    private void Idle2()
+    {
+        anim.CrossFade("Armature_squirrel_Idle_2", 0.2f);
+        state=State.Idle2;
+        Invoke("Sleep", 3f);
     }
 
     private void Sleep()

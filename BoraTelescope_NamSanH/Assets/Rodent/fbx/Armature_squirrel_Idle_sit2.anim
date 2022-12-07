@@ -9352,7 +9352,7 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 2.4583333
-    functionName: Eat
+    functionName: Catch
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
