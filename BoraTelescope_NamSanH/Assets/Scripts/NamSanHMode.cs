@@ -31,6 +31,8 @@ public class NamSanHMode : MonoBehaviour
 
     [SerializeField]
     scroll scroll;
+    [SerializeField]
+    GameObject Notice360;
 
     // Start is called before the first frame update
     void Start()
@@ -92,6 +94,7 @@ public class NamSanHMode : MonoBehaviour
 
     public void ReadyTo360(GameObject type)
     {
+        Notice360.SetActive(true);
         scroll.GetComponent<scroll>().ScrollHome();
         SelectLabel = type;
         obj360.gameObject.SetActive(true);
@@ -135,6 +138,7 @@ public class NamSanHMode : MonoBehaviour
 
     public void Close360()
     {
+        Notice360.SetActive(false);
         SelectLabel = null;
         Narration.clip = null;
 
