@@ -1549,7 +1549,7 @@ public class GameManager : ContentsInfo
 
         if (SceneManager.GetActiveScene().name == "XRMode")
         {
-            xrMode.AllMapLabels.gameObject.SetActive(false);
+            //xrMode.AllMapLabels.gameObject.SetActive(false);
         } else if(SceneManager.GetActiveScene().name == "NamSanH")
         {
 

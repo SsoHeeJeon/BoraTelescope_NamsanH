@@ -1,3 +1,4 @@
+using Amazon.IoTSiteWise.Model;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -91,8 +92,10 @@ public class Sparrow : MonoBehaviour
         transform.position = Vector3.Lerp(transform.position, Pos2, Time.deltaTime * 0.5f);
         float dist = Vector3.Distance(transform.position, Pos2);
         transform.position = new Vector3(transform.position.x, transform.position.y, 500);
-        if (dist<100)
+        print(dist);
+        if (dist<50)
         {
+            transform.position = Pos2;
             transform.rotation = Quaternion.Euler(new Vector3(0, 90, 0));
             anim.CrossFade("IdleEat", 1f);
             Invoke("GoIdle", 10f);

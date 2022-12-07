@@ -257,11 +257,13 @@ public class NamSanHMode : MonoBehaviour
         if (PlayNarr == true)
         {
             Narration.Stop();
+            Docent_avartar.transform.GetChild(0).GetComponent<DocentAni>().CancelTalk();
             //Invoke("WaitStopPlay", 0.5f);
         }
         else if (PlayNarr == false)
         {
             Narration.Play();
+            Docent_avartar.transform.GetChild(0).GetComponent<DocentAni>().Talk();
         }
         Invoke("WaitStopPlay", 0.5f);
     }

@@ -91,7 +91,8 @@ public class LabelDetail : MonoBehaviour
                 if (SceneManager.GetActiveScene().name.Contains("NamSanHMode"))
                 {
                     namsanH.SelectLabel = null;
-                    CloseDetailWindow();
+                    namsanH.gamemanager.Home_Btn_NamSanH();
+                    //CloseDetailWindow();
                 }
                 CheckDetailTime = false;
             }

@@ -33,4 +33,16 @@ public class DocentAni : MonoBehaviour
     {
         Anim.CrossFade("Ani_Idle_01", 0.2f);
     }
+
+    public void CancelTalk()
+    {
+        CancelInvoke("InvokeAnimation");
+        InvokeAnimation();
+    }
+
+    public void Talk()
+    {
+        Anim.CrossFade("Ani_Talk_01", 0);
+        Invoke("InvokeAnimation", NarrtionLen - 0.5f);
+    }
 }
