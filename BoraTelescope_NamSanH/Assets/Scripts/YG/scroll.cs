@@ -109,14 +109,28 @@ public class scroll : MonoBehaviour
         if(state ==State.Kor)
         {
             TitleText.GetComponent<TMP_Text>().text = info.intellicontent[index];
-            Title.GetComponent<TMP_Text>().text = info.intellititle[index] + "(" + info.ganzi[index]+")";
+            if (info.ganzi[index]!="")
+            {
+                Title.GetComponent<TMP_Text>().text = info.intellititle[index] + "(" + info.ganzi[index]+")";
+            }
+            else
+            {
+                Title.GetComponent<TMP_Text>().text = info.intellititle[index];
+            }
             SubText.GetComponent<TMP_Text>().text = info.intellitext[index];
             ad.clip = info.Narration[index];
         }
         else if(state==State.Eng)
         {
             TitleText.GetComponent<TMP_Text>().text = info.intellicontent_E[index];
-            Title.GetComponent<TMP_Text>().text = info.intellititle_E[index] + "(" + info.ganzi[index] + ")";
+            if (info.ganzi[index]!="")
+            {
+                Title.GetComponent<TMP_Text>().text = info.intellititle_E[index] + "(" + info.ganzi[index] + ")";
+            }
+            else
+            {
+                Title.GetComponent<TMP_Text>().text = info.intellititle_E[index];
+            }
             SubText.GetComponent<TMP_Text>().text = info.intellitext_E[index];
             ad.clip = info.Narration_E[index];
         }

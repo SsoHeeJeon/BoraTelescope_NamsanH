@@ -197,6 +197,6 @@ public class Intelligentinfo : MonoBehaviour
         ganzi.Add("他山之石");
         ganzi.Add("");
         ganzi.Add("訥言敏行");
-        ganzi.Add("禮俗相交 患難相恤");
+        ganzi.Add("禮俗相交 患難相恤");
     }
 }

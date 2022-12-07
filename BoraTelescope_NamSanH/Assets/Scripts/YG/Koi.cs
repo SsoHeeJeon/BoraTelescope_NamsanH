@@ -67,7 +67,7 @@ public class Koi : MonoBehaviour
         transform.LookAt(new Vector3(1, transform.localPosition.y, 1));
         float dist = Vector3.Distance(transform.localPosition, new Vector3(1, transform.localPosition.y, 1));
 
-        if(dist>0.2f)
+        if(dist>0.5f)
         {
             transform.localPosition = Vector3.Lerp(transform.localPosition, new Vector3(1, transform.localPosition.y, 1), Time.deltaTime*0.5f);
         }
@@ -83,8 +83,9 @@ public class Koi : MonoBehaviour
         float dist = Vector3.Distance(transform.position, StartPos);
         transform.LookAt(StartPos);
         dir = transform.forward;
-        transform.position += dir * speed * Time.deltaTime;
-        if (dist<0.2f)
+        transform.position = Vector3.Lerp(transform.position, StartPos, Time.deltaTime);
+        //transform.position += dir * speed * Time.deltaTime;
+        if (dist<0.5f)
         {
             state = State.Move;
         }
@@ -109,7 +110,7 @@ public class Koi : MonoBehaviour
             dir = transform.forward;
             transform.position += dir * speed * Time.deltaTime;
             float dist = Vector3.Distance(transform.localPosition, Eat.transform.localPosition);
-            if (dist < 0.2f)
+            if (dist < 0.5f)
             {
                 anim.CrossFade("Slow Swim", 0.2f);
                 speed = 0;
