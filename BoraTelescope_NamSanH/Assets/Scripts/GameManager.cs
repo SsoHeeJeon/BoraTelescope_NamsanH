@@ -184,7 +184,7 @@ public class GameManager : ContentsInfo
     bool stoponce = false;
     bool CheckfilterTime = false;
     float checkfilteropen;
-    bool WriteLog = false;
+    bool WriteLogOnce = false;
 
     // Start is called before the first frame update
     void Start()
@@ -346,10 +346,10 @@ public class GameManager : ContentsInfo
             {
                 if (!Tip_Obj.gameObject.activeSelf)
                 {
-                    if (WriteLog == false)
+                    if (WriteLogOnce == false)
                     {
                         gamemanager.WriteLog(LogSendServer.NormalLogCode.ClickHomeBtn, "Reset All Function", GetType().ToString());
-                        WriteLog = true;
+                        WriteLogOnce = true;
                     }
                     if (SceneManager.GetActiveScene().name == "XRMode")
                     {
@@ -1623,7 +1623,7 @@ public class GameManager : ContentsInfo
         langNaviOn = true;
         movelangNavi = true;
 
-        WriteLog = false;
+        WriteLogOnce = false;
     }
 
     public void Home_Btn_NamSanH()
