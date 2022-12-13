@@ -14,10 +14,7 @@ public class See360 : MonoBehaviour
     {
         if (Input.touchCount == 1)
         {
-            if (Input.GetTouch(0).position.y > 300 || Input.mousePosition.y > 300)
-            {
-                SeeAllRound();
-            }
+            SeeAllRound();
         }
     }
 

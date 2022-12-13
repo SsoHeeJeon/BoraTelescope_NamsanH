@@ -216,6 +216,8 @@ public class GameManager : ContentsInfo
         LanguageBar.transform.GetChild(0).gameObject.SetActive(false);
         langNaviOn = false;
         movelangNavi = false;
+
+        ChangeLanguage(LanguageBar.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject);
     }
 
     // Update is called once per frame
@@ -1402,15 +1404,27 @@ public class GameManager : ContentsInfo
             case "Korea":
                 currentLang = Language_enum.Korea;
                 uilang.SelectKorea();
+                for (int index = 0; index < NaviLabel.transform.childCount; index++)
+                {
+                    NaviLabel.transform.GetChild(index).gameObject.GetComponent<Image>().sprite = NaviLabel_K[index];
+                }
                 break;
             case "English":
                 currentLang = Language_enum.English;
                 uilang.NotSelectKorea();
+                for (int index = 0; index < NaviLabel.transform.childCount; index++)
+                {
+                    NaviLabel.transform.GetChild(index).gameObject.GetComponent<Image>().sprite = NaviLabel_E[index];
+                }
                 break;
         }
         if (SceneManager.GetActiveScene().name == "NamSanHMode")
         {
             category.ChangeCategory_lang(btn.name);
+            if (namsanMode.obj360.activeSelf)
+            {
+                namsanMode.ReadyTo360(namsanMode.SelectLabel);
+            }
         }
 
         WriteLog(NormalLogCode.ChangeLanguage, "ChangeLanguage : " + currentLang, GetType().ToString());

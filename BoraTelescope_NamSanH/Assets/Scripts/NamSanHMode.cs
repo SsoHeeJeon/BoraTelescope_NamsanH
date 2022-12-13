@@ -23,9 +23,12 @@ public class NamSanHMode : MonoBehaviour
     public Material mat360;
     public Sprite Narr_Off;
     public Sprite Narr_On;
+    public Scrollbar DetailImage_Scroll;
+    public RectTransform DetailImage_Content;
 
     public AudioSource Narration;
     public Sprite[] House = new Sprite[10];
+    public GameObject[] DetailImage = new GameObject[10];
 
     public bool PlayNarr = false;
 
@@ -106,6 +109,30 @@ public class NamSanHMode : MonoBehaviour
         mat360.SetTexture("_MainTex", House[num - 1].texture);
 
         Docent_AllUI.SetActive(true);
+
+        DetailImage_Scroll.value = 0;
+        for(int index = 0; index < DetailImage.Length; index++)
+        {
+            DetailImage[index].SetActive(false);
+        }
+        DetailImage[num-1].SetActive(true);
+
+        switch (DetailImage[num - 1].transform.childCount)
+        {
+            case 1:
+                DetailImage_Content.sizeDelta = new Vector2(484, 300);
+                break;
+            case 2:
+                DetailImage_Content.sizeDelta = new Vector2(956, 300);
+                break;
+            case 3:
+                DetailImage_Content.sizeDelta = new Vector2(1430, 300);
+                break;
+            case 4:
+                DetailImage_Content.sizeDelta = new Vector2(1901, 300);
+                break;
+        }
+
         print(1);
         if (GameManager.currentLang == GameManager.Language_enum.Korea)
         {
@@ -113,11 +140,13 @@ public class NamSanHMode : MonoBehaviour
             labeldetail.InfoHeight.GetComponent<UIText>().text = ReadJsonFile.DetailText_K[num + 4];
             Narration.clip = gamemanager.Narration_Docent_K[num - 1];
             Docent_avartar.transform.GetChild(0).GetComponent<DocentAni>().NarrtionLen = Narration.clip.length;
+            labeldetail.Detail_Background.GetComponent<Image>().sprite = gamemanager.DetailImage_K[num - 1];
         } else if(GameManager.currentLang == GameManager.Language_enum.English)
         {
             labeldetail.InfoHeight.GetComponent<UIText>().text = ReadJsonFile.DetailText_E[num + 4];
             Narration.clip = gamemanager.Narration_Docent_E[num - 1];
             Docent_avartar.transform.GetChild(0).GetComponent<DocentAni>().NarrtionLen = Narration.clip.length;
+            labeldetail.Detail_Background.GetComponent<Image>().sprite = gamemanager.DetailImage_E[num - 1];
         }
         //Narration.Play();
         Narration.Pause();
