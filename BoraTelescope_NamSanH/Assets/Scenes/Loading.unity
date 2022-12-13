@@ -1089,6 +1089,7 @@ GameObject:
   - component: {fileID: 191841067}
   - component: {fileID: 191841066}
   - component: {fileID: 191841068}
+  - component: {fileID: 191841069}
   m_Layer: 5
   m_Name: ErrorMessage
   m_TagString: Untagged
@@ -1209,6 +1210,22 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &191841069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 191841064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86ba33345e3d2c247a19c0f908f95ba2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisObject: {fileID: 191841064}
+  Lang_s:
+  - {fileID: 8488705948552370082, guid: 3140b983160ec8c469e1e6a935bef258, type: 3}
+  - {fileID: 5509941683393019233, guid: 3140b983160ec8c469e1e6a935bef258, type: 3}
 --- !u!1 &194278936
 GameObject:
   m_ObjectHideFlags: 0
@@ -7424,7 +7441,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 954414437}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.64393646
+  m_Size: 0.00000008791483
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
