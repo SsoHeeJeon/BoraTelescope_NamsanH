@@ -8250,6 +8250,7 @@ MonoBehaviour:
   moredetail: 0
   moredetail_scroll: 0
   CheckDetailTime: 0
+  checkdetail: 0
 --- !u!1 &1418425437
 GameObject:
   m_ObjectHideFlags: 0
@@ -16318,7 +16319,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a30fb6eb1c0bcb4392502fa136de9c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  state: 0
   FINAL: {fileID: 32900000, guid: 2d209bae13d674f49a865756c8ab081b, type: 3}
   Fold: {fileID: 32900000, guid: ab074498a96f87148b7fd97d7302e8e5, type: 3}
   Unfoldimg: {fileID: 32900000, guid: 97a32579b848be4449b580236e2e0e06, type: 3}
@@ -16328,6 +16328,7 @@ MonoBehaviour:
   SubText: {fileID: 8253037066645435757}
   Exit: {fileID: 162442049}
   namsan: {fileID: 1029615906}
+  Coment: {fileID: 1590345194}
   ad: {fileID: 0}
   ContentName: 
 --- !u!224 &8054092054000197319
