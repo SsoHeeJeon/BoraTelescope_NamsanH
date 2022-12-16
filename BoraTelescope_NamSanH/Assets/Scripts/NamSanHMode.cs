@@ -15,6 +15,9 @@ public class NamSanHMode : MonoBehaviour
     public GameObject AllUI;
     public GameObject Docent_AllUI;
     public GameObject Docent_Detail;
+    public Text Detail_Name;
+    public GameObject Docent_guide;
+    public GameObject OnOff_Btn;
 
     public GameObject SelectLabel;
 
@@ -97,6 +100,7 @@ public class NamSanHMode : MonoBehaviour
 
     public void ReadyTo360(GameObject type)
     {
+        OnOff_Btn.SetActive(false);
         Notice360.SetActive(true);
         scroll.GetComponent<scroll>().ScrollHome();
         SelectLabel = type;
@@ -123,16 +127,16 @@ public class NamSanHMode : MonoBehaviour
                 DetailImage_Content.sizeDelta = new Vector2(484, 300);
                 break;
             case 2:
-                DetailImage_Content.sizeDelta = new Vector2(956, 300);
+                DetailImage_Content.sizeDelta = new Vector2(945, 300);
                 break;
             case 3:
-                DetailImage_Content.sizeDelta = new Vector2(1430, 300);
+                DetailImage_Content.sizeDelta = new Vector2(1410, 300);
                 break;
             case 4:
-                DetailImage_Content.sizeDelta = new Vector2(1901, 300);
+                DetailImage_Content.sizeDelta = new Vector2(1875, 300);
                 break;
         }
-
+        Detailname(num - 1);
         print(1);
         if (GameManager.currentLang == GameManager.Language_enum.Korea)
         {
@@ -140,13 +144,13 @@ public class NamSanHMode : MonoBehaviour
             labeldetail.InfoHeight.GetComponent<UIText>().text = ReadJsonFile.DetailText_K[num + 4];
             Narration.clip = gamemanager.Narration_Docent_K[num - 1];
             Docent_avartar.transform.GetChild(0).GetComponent<DocentAni>().NarrtionLen = Narration.clip.length;
-            labeldetail.Detail_Background.GetComponent<Image>().sprite = gamemanager.DetailImage_K[num - 1];
+            //labeldetail.Detail_Background.GetComponent<Image>().sprite = gamemanager.DetailImage_K[num - 1];
         } else if(GameManager.currentLang == GameManager.Language_enum.English)
         {
             labeldetail.InfoHeight.GetComponent<UIText>().text = ReadJsonFile.DetailText_E[num + 4];
             Narration.clip = gamemanager.Narration_Docent_E[num - 1];
             Docent_avartar.transform.GetChild(0).GetComponent<DocentAni>().NarrtionLen = Narration.clip.length;
-            labeldetail.Detail_Background.GetComponent<Image>().sprite = gamemanager.DetailImage_E[num - 1];
+            //labeldetail.Detail_Background.GetComponent<Image>().sprite = gamemanager.DetailImage_E[num - 1];
         }
         //Narration.Play();
         Narration.Pause();
@@ -162,7 +166,81 @@ public class NamSanHMode : MonoBehaviour
 
         labeldetail.ChangeDetailLanguage();
         Docent_avartar.transform.GetChild(0).GetComponent<DocentAni>().AniHi();
-        // ¾Æ¹ÙÅ¸ »ý¼º
+    }
+
+    public void Detailname(int num)
+    {
+        if(GameManager.currentLang == GameManager.Language_enum.Korea)
+        {
+            switch (num)
+            {
+                case 0:
+                    Detail_Name.text = "¸¶´ç";
+                    break;
+                case 1:
+                    Detail_Name.text = "Ãµ¿ì°¢";
+                    break;
+                case 2:
+                    Detail_Name.text = "Ã»ÇÐÁö";
+                    break;
+                case 3:
+                    Detail_Name.text = "¼­¿ï³²»ê±¹¾Ç´ç";
+                    break;
+                case 4:
+                    Detail_Name.text = "»ï°¢µ¿ µµÆí¼ö\r\nÀÌ½Â¾÷ °¡¿Á";
+                    break;
+                case 5:
+                    Detail_Name.text = "¿ÁÀÎµ¿ À±¾¾ °¡¿Á";
+                    break;
+                case 6:
+                    Detail_Name.text = "»ïÃ»µ¿ ¿ÀÀ§Àå\r\n±èÃá¿µ °¡¿Á";
+                    break;
+                case 7:
+                    Detail_Name.text = "°üÈÆµ¿ ¹Î¾¾ °¡¿Á";
+                    break;
+                case 8:
+                    Detail_Name.text = "Á¦±âµ¿ ÇØÇ³ºÎ¿ø±º\r\nÀ±ÅÃ¿µ Àç½Ç";
+                    break;
+                case 9:
+                    Detail_Name.text = "Àü¸Á´ë";
+                    break;
+            }
+        } else if(GameManager.currentLang == GameManager.Language_enum.English)
+        {
+            switch (num)
+            {
+                case 0:
+                    Detail_Name.text = "Madang";
+                    break;
+                case 1:
+                    Detail_Name.text = "Cheonwu Pavilion";
+                    break;
+                case 2:
+                    Detail_Name.text = "Cheonghakji Pond";
+                    break;
+                case 3:
+                    Detail_Name.text = "Seoul Namsan\r\nGukakdang";
+                    break;
+                case 4:
+                    Detail_Name.text = "Carpenter Lee Seung-\r\neop' House";
+                    break;
+                case 5:
+                    Detail_Name.text = "Yun Family's House in\r\nOgin-dong";
+                    break;
+                case 6:
+                    Detail_Name.text = "General Kim Choon-\r\nyeong's House";
+                    break;
+                case 7:
+                    Detail_Name.text = "Min Family's House in\r\nGwanhun-dong";
+                    break;
+                case 8:
+                    Detail_Name.text = "Yun Taek-yeong's\r\nJaesil in Jegi-dong";
+                    break;
+                case 9:
+                    Detail_Name.text = "Observatory";
+                    break;
+            }
+        }
     }
 
     public void Close360()
@@ -196,16 +274,19 @@ public class NamSanHMode : MonoBehaviour
     {
         if (!Docent_avartar.activeSelf)
         {
+            OnOff_Btn.SetActive(false);
             Docent_Start();
         }
         else if (Docent_avartar.activeSelf)
         {
+            OnOff_Btn.SetActive(true);
             Docent_Finish();
         }
     }
 
     public void Docent_Start()
     {
+        Docent_guide.SetActive(true);
         Docent_Detail.SetActive(true);
         labeldetail.enabled = true;
 
@@ -217,6 +298,7 @@ public class NamSanHMode : MonoBehaviour
 
     public void Docent_Finish()     // »ó¼¼¼³¸í ¾ø¾îÁö±â
     {
+        Docent_guide.SetActive(false);
         labeldetail.CloseDetailWindow();
 
         avatar.enabled = false;

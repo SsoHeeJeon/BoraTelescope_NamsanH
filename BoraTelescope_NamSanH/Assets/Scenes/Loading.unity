@@ -2771,7 +2771,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 411561546}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -2784,7 +2784,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -2337303585045904893, guid: 7de90f35b9eb9d640aaf2ed53f2b18d3, type: 3}
+  m_Sprite: {fileID: -1563071381638614665, guid: dd743e2029f1cfe4c88d79775fd966f7, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5591,7 +5591,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -7554435360038307279, guid: 7de90f35b9eb9d640aaf2ed53f2b18d3, type: 3}
+  m_Sprite: {fileID: 3128318246193172691, guid: dd743e2029f1cfe4c88d79775fd966f7, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -7459,7 +7459,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -7984,7 +7984,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -102.6, y: 463.65448}
+  m_AnchoredPosition: {x: -120.8, y: 463.65448}
   m_SizeDelta: {x: 110, y: 24}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1308649429
@@ -8365,7 +8365,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 194.8, y: 495.5}
+  m_AnchoredPosition: {x: 195.1, y: 503.8}
   m_SizeDelta: {x: 78, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1364619079
@@ -8387,7 +8387,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 2
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -8456,7 +8456,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -4362137124735018289, guid: 7de90f35b9eb9d640aaf2ed53f2b18d3, type: 3}
+  m_Sprite: {fileID: -1563071381638614665, guid: dd743e2029f1cfe4c88d79775fd966f7, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -8837,7 +8837,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 1794, y: -24}
+  m_AnchoredPosition: {x: 1787, y: -24}
   m_SizeDelta: {x: 100, y: 90}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &1459997615
@@ -10537,7 +10537,7 @@ MonoBehaviour:
   Capture_Btn_1: {fileID: 1193788027}
   Tip_Btn: {fileID: 152963811}
   Tip_Btn_1: {fileID: 37180281}
-  Home_idle_K: {fileID: 21300000, guid: 0929ee1a36828f84a9aad71e4f88777f, type: 3}
+  Home_idle_K: {fileID: -4332218289846803579, guid: dd743e2029f1cfe4c88d79775fd966f7, type: 3}
   Live_idle_K: {fileID: 9011926113298530857, guid: dd743e2029f1cfe4c88d79775fd966f7, type: 3}
   Live_Select_K: {fileID: -1043723006423862761, guid: dd743e2029f1cfe4c88d79775fd966f7, type: 3}
   XR_idle_K: {fileID: 5577762535440897070, guid: dd743e2029f1cfe4c88d79775fd966f7, type: 3}
@@ -10550,7 +10550,7 @@ MonoBehaviour:
   Capture_Select_K: {fileID: 21300000, guid: d278ab4d753770847907c7944d657eca, type: 3}
   Tip_idle_K: {fileID: 21300000, guid: 4acd251b8f9cf5e42812585dd7428322, type: 3}
   Tip_Select_K: {fileID: 21300000, guid: 485bf38bbd0198345897f1fab28423fe, type: 3}
-  Home_idle_E: {fileID: 21300000, guid: aa43b18a847ffee46b43ba5a059d9a38, type: 3}
+  Home_idle_E: {fileID: 3307638566759052520, guid: dd743e2029f1cfe4c88d79775fd966f7, type: 3}
   Live_idle_E: {fileID: 21300000, guid: 0bcc248f560d70c41860a9b8fc542a08, type: 3}
   Live_Select_E: {fileID: 21300000, guid: 9246eaef17d25034f90710e24d9f6d70, type: 3}
   XR_idle_E: {fileID: 21300000, guid: ab2e968dcca89e4449b5519f6088f0e5, type: 3}

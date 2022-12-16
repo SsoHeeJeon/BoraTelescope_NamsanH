@@ -511,6 +511,7 @@ public class GameManager : ContentsInfo
                 Tip_Obj.SetActive(true);
                 NavigationBar.transform.GetChild(0).gameObject.SetActive(true);
                 //label.SelectCategortButton(CategoryContent.transform.GetChild(0).gameObject);
+                TipOpen();
                 Invoke("SeeNavibar", 0.3f);
                 break;
             case "Loading":
@@ -1621,10 +1622,7 @@ public class GameManager : ContentsInfo
         gamemanager.speed_enum = GameManager.Speed_enum.fast;
         PanTiltControl.SetPulse((uint)startlabel_x, (uint)startlabel_y);
 
-        if (!Tip_Obj.activeSelf)        // Tip 이미지가 비활성화상태면 활성화
-        {
-            TipOpen();
-        }
+        TipOpen();
 
         PinchZoomInOut.ZoomMove = true;
         PinchZoomInOut.ZoomIN = false;
