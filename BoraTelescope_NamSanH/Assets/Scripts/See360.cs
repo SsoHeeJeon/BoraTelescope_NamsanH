@@ -8,13 +8,14 @@ using UnityEngine.Video;
 
 public class See360 : MonoBehaviour
 {
+    public NamSanHMode namsanHMode;
     public GameObject obj360;
 
     private void Update()
     {
         if (Input.touchCount == 1)
         {
-            SeeAllRound();
+            namsanHMode.gamemanager.setdragrange.ClearModeNofilterRange();
         }
     }
 

@@ -7,12 +7,7 @@ using UnityEngine.UI;
 
 public class scroll : MonoBehaviour
 {
-    public enum State
-    {
-        Eng,
-        Kor,
-    }
-    public State state = 0;
+    //public State state = 0;
 
     // Start is called before the first frame update
     [SerializeField]
@@ -106,7 +101,7 @@ public class scroll : MonoBehaviour
             }
         }
 
-        if(state ==State.Kor)
+        if(GameManager.currentLang == GameManager.Language_enum.Korea)
         {
             TitleText.GetComponent<TMP_Text>().text = info.intellicontent[index];
             if (info.ganzi[index]!="")
@@ -120,7 +115,7 @@ public class scroll : MonoBehaviour
             SubText.GetComponent<TMP_Text>().text = info.intellitext[index];
             ad.clip = info.Narration[index];
         }
-        else if(state==State.Eng)
+        else if(GameManager.currentLang == GameManager.Language_enum.English)
         {
             TitleText.GetComponent<TMP_Text>().text = info.intellicontent_E[index];
             if (info.ganzi[index]!="")

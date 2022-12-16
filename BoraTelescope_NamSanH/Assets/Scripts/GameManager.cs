@@ -216,6 +216,8 @@ public class GameManager : ContentsInfo
         LanguageBar.transform.GetChild(0).gameObject.SetActive(false);
         langNaviOn = false;
         movelangNavi = false;
+
+        ChangeLanguage(LanguageBar.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject);
     }
 
     // Update is called once per frame
@@ -509,6 +511,7 @@ public class GameManager : ContentsInfo
                 Tip_Obj.SetActive(true);
                 NavigationBar.transform.GetChild(0).gameObject.SetActive(true);
                 //label.SelectCategortButton(CategoryContent.transform.GetChild(0).gameObject);
+                TipOpen();
                 Invoke("SeeNavibar", 0.3f);
                 break;
             case "Loading":
@@ -1402,15 +1405,27 @@ public class GameManager : ContentsInfo
             case "Korea":
                 currentLang = Language_enum.Korea;
                 uilang.SelectKorea();
+                for (int index = 0; index < NaviLabel.transform.childCount; index++)
+                {
+                    NaviLabel.transform.GetChild(index).gameObject.GetComponent<Image>().sprite = NaviLabel_K[index];
+                }
                 break;
             case "English":
                 currentLang = Language_enum.English;
                 uilang.NotSelectKorea();
+                for (int index = 0; index < NaviLabel.transform.childCount; index++)
+                {
+                    NaviLabel.transform.GetChild(index).gameObject.GetComponent<Image>().sprite = NaviLabel_E[index];
+                }
                 break;
         }
         if (SceneManager.GetActiveScene().name == "NamSanHMode")
         {
             category.ChangeCategory_lang(btn.name);
+            if (namsanMode.obj360.activeSelf)
+            {
+                namsanMode.ReadyTo360(namsanMode.SelectLabel);
+            }
         }
 
         WriteLog(NormalLogCode.ChangeLanguage, "ChangeLanguage : " + currentLang, GetType().ToString());
@@ -1607,10 +1622,7 @@ public class GameManager : ContentsInfo
         gamemanager.speed_enum = GameManager.Speed_enum.fast;
         PanTiltControl.SetPulse((uint)startlabel_x, (uint)startlabel_y);
 
-        if (!Tip_Obj.activeSelf)        // Tip 이미지가 비활성화상태면 활성화
-        {
-            TipOpen();
-        }
+        TipOpen();
 
         PinchZoomInOut.ZoomMove = true;
         PinchZoomInOut.ZoomIN = false;

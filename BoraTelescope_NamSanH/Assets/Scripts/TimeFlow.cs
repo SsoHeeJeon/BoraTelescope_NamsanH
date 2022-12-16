@@ -9,7 +9,8 @@ public class TimeFlow : MonoBehaviour
 
     public GameObject TFBackground;
     public GameObject TFImage;
-    public Text TFText;
+    public GameObject TFText_k;
+    public GameObject TFText_e;
     [SerializeField] Text YearText;
 
     public Sprite Y1991;
@@ -18,8 +19,10 @@ public class TimeFlow : MonoBehaviour
     public Sprite Y2003;
     public Sprite Y2013;
 
-    Vector3 zoomIn = new Vector3(3.15f, 3.15f, 3.15f);
-    Vector3 zoomOut = new Vector3(2.05f, 2.05f, 2.05f);
+    Vector3 zoomIn = new Vector3(3f, 3f, 3f);
+    Vector3 zoomOut = new Vector3(2f, 2f, 2f);
+    Vector3 Pos = new Vector3(-2,39);
+    Vector3 Pos_1 = new Vector3(0,0);
 
     bool ChangeZoom = false;
     bool ZoomInOut = false;
@@ -30,26 +33,64 @@ public class TimeFlow : MonoBehaviour
         {
             if (ZoomInOut == false)
             {
-                if ((TFImage.transform.localScale.x - zoomIn.x) < 0.1f)
+                if (Mathf.Abs(TFImage.transform.localScale.x - zoomOut.x) > 0.005f)
                 {
-                    TFImage.transform.localScale = Vector3.Lerp(zoomIn, zoomOut, Time.deltaTime);
+                    TFImage.transform.localScale = Vector3.Lerp(TFImage.transform.localScale, zoomOut, Time.deltaTime * 1.8f);
+                    if (Pos_1 != Vector3.zero)
+                    {
+                        if (Mathf.Abs(TFImage.transform.localPosition.x - Pos.x) > 0.005f)
+                        {
+                            TFImage.transform.localPosition = Vector3.Lerp(TFImage.transform.localPosition, Pos, Time.deltaTime * 1.8f);
+                        }
+                    }
                 }
-                else if ((TFImage.transform.localScale.x - zoomOut.x) < 0.1f)
+                else if (Mathf.Abs(TFImage.transform.localScale.x - zoomOut.x) <= 0.005f)
                 {
-                    TFImage.transform.localScale = zoomIn;
-                    ChangeZoom = false;
+                    TFImage.transform.localScale = zoomOut;
+
+                    if (Pos_1 != Vector3.zero)
+                    {
+                        if (Mathf.Abs(TFImage.transform.localPosition.x - Pos.x) <= 0.005f)
+                        {
+                            TFImage.transform.localPosition = Pos;
+                            ChangeZoom = false;
+                        }
+                    }
+                    else if (Pos_1 == Vector3.zero)
+                    {
+                        ChangeZoom = false;
+                    }
                 }
             }
             else if (ZoomInOut == true)
             {
-                if ((TFImage.transform.localScale.x - zoomOut.x) < 0.1f)
+                if (Mathf.Abs(TFImage.transform.localScale.x - zoomIn.x) > 0.005f)
                 {
-                    TFImage.transform.localScale = Vector3.Lerp(zoomOut, zoomIn, Time.deltaTime);
+                    TFImage.transform.localScale = Vector3.Lerp(TFImage.transform.localScale, zoomIn, Time.deltaTime * 1.8f);
+                    if (Pos_1 != Vector3.zero)
+                    {
+                        if (Mathf.Abs(TFImage.transform.localPosition.x - Pos_1.x) > 0.005f)
+                        {
+                            TFImage.transform.localPosition = Vector3.Lerp(TFImage.transform.localPosition, Pos_1, Time.deltaTime * 1.8f);
+                        }
+                    }
                 }
-                else if ((TFImage.transform.localScale.x - zoomIn.x) < 0.1f)
+                else if (Mathf.Abs(TFImage.transform.localScale.x - zoomIn.x) <= 0.005f)
                 {
-                    TFImage.transform.localScale = zoomOut;
-                    ChangeZoom = false;
+                    TFImage.transform.localScale = zoomIn;
+
+                    if (Pos_1 != Vector3.zero)
+                    {
+                        if (Mathf.Abs(TFImage.transform.localPosition.x - Pos_1.x) <= 0.005f)
+                        {
+                            TFImage.transform.localPosition = Pos_1;
+                            ChangeZoom = false;
+                        }
+                    }
+                    else if (Pos_1 == Vector3.zero)
+                    {
+                        ChangeZoom = false;
+                    }
                 }
             }
         }
@@ -60,82 +101,61 @@ public class TimeFlow : MonoBehaviour
 
         namsanH.SelectLabel = Label;
         TFBackground.SetActive(true);
-        YearText.text = Label.name + "³â";
+        if (GameManager.currentLang == GameManager.Language_enum.Korea)
+        {
+            YearText.text = Label.name + "³â";
+            TFText_k.SetActive(true);
+            TFText_e.SetActive(false);
+        }
+        else if(GameManager.currentLang == GameManager.Language_enum.English)
+        {
+            YearText.text = Label.name;
+            TFText_k.SetActive(false);
+            TFText_e.SetActive(true);
+        }
+        
         switch (Label.name)
         {
             case "1991":
                 TFImage.GetComponent<Image>().sprite = Y1991;
-                TFText.text = ReadJsonFile.DetailText_K[0];
-
-                if (GameManager.currentLang == GameManager.Language_enum.Korea)
-                {
-                    TFText.text = ReadJsonFile.DetailText_K[0];
-                    namsanH.Narration.clip = namsanH.gamemanager.Narration_Flow_K[0];
-                }
-                else if (GameManager.currentLang == GameManager.Language_enum.English)
-                {
-                    TFText.text = ReadJsonFile.DetailText_E[0];
-                    namsanH.Narration.clip = namsanH.gamemanager.Narration_Flow_E[0];
-                }
+                zoomIn = new Vector3(4.2f, 4.2f, 4.2f);
+                zoomOut = new Vector3(2.18f, 2.18f, 2.18f);
+                Pos = new Vector3(-2, 65);
+                Pos_1 = Vector3.zero;
                 break;
             case "1996":
                 TFImage.GetComponent<Image>().sprite = Y1996;
-
-                if (GameManager.currentLang == GameManager.Language_enum.Korea)
-                {
-                    TFText.text = ReadJsonFile.DetailText_K[1];
-                    namsanH.Narration.clip = namsanH.gamemanager.Narration_Flow_K[1];
-                }
-                else if (GameManager.currentLang == GameManager.Language_enum.English)
-                {
-                    TFText.text = ReadJsonFile.DetailText_E[1];
-                    namsanH.Narration.clip = namsanH.gamemanager.Narration_Flow_E[1];
-                }
+                zoomIn = new Vector3(3.8f, 3.8f, 3.8f);
+                zoomOut = new Vector3(2f, 2f, 2f);
+                Pos = new Vector3(-2, 23);
+                Pos_1 = Vector3.zero;
                 break;
             case "1998":
                 TFImage.GetComponent<Image>().sprite = Y1998;
-
-                if (GameManager.currentLang == GameManager.Language_enum.Korea)
-                {
-                    TFText.text = ReadJsonFile.DetailText_K[2];
-                    namsanH.Narration.clip = namsanH.gamemanager.Narration_Flow_K[2];
-                }
-                else if (GameManager.currentLang == GameManager.Language_enum.English)
-                {
-                    TFText.text = ReadJsonFile.DetailText_E[2];
-                    namsanH.Narration.clip = namsanH.gamemanager.Narration_Flow_E[2];
-                }
+                zoomIn = new Vector3(3.8f, 3.8f, 3.8f);
+                zoomOut = new Vector3(2f, 2f, 2f);
+                Pos = new Vector3(-2, -163);
+                Pos_1 = Vector3.zero;
                 break;
             case "2003":
                 TFImage.GetComponent<Image>().sprite = Y2003;
-
-                if (GameManager.currentLang == GameManager.Language_enum.Korea)
-                {
-                    TFText.text = ReadJsonFile.DetailText_K[3];
-                    namsanH.Narration.clip = namsanH.gamemanager.Narration_Flow_K[3];
-                }
-                else if (GameManager.currentLang == GameManager.Language_enum.English)
-                {
-                    TFText.text = ReadJsonFile.DetailText_E[3];
-                    namsanH.Narration.clip = namsanH.gamemanager.Narration_Flow_E[3];
-                }
+                zoomIn = new Vector3(4.3f, 4.3f, 4.3f);
+                zoomOut = new Vector3(2.23f, 2.23f, 2.23f);
+                Pos = new Vector3(-2, -26);
+                Pos_1 = new Vector3(86, -26);
                 break;
             case "2013":
                 TFImage.GetComponent<Image>().sprite = Y2013;
-
-                if (GameManager.currentLang == GameManager.Language_enum.Korea)
-                {
-                    TFText.text = ReadJsonFile.DetailText_K[4];
-                    namsanH.Narration.clip = namsanH.gamemanager.Narration_Flow_K[4];
-                }
-                else if (GameManager.currentLang == GameManager.Language_enum.English)
-                {
-                    TFText.text = ReadJsonFile.DetailText_E[4];
-                    namsanH.Narration.clip = namsanH.gamemanager.Narration_Flow_E[4];
-                }
+                zoomIn = new Vector3(3.18f, 3.18f, 3.18f);
+                zoomOut = new Vector3(1.84f, 1.84f, 1.84f);
+                Pos = new Vector3(-2, -103);
+                Pos_1 = new Vector3(58, -103);
                 break;
         }
 
+        TFImage.transform.localPosition = Pos;
+        TFImage.transform.localScale = zoomOut;
+        TFImage.GetComponent<Image>().SetNativeSize();
         namsanH.Narration.Play();
     }
 

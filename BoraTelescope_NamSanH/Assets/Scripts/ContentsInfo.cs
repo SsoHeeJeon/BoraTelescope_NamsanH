@@ -23,8 +23,8 @@ public class ContentsInfo : LogSendServer
     public List<string> Label_Cate_2;
     public List<string> Label_Cate_3;
 
-    public Sprite[] NaviLabel_K;
-    public Sprite[] NaviLabel_E;
+    public Sprite[] NaviLabel_K = new Sprite[15];
+    public Sprite[] NaviLabel_E = new Sprite[15];
     public Sprite[] DetailImage_K;
     public Sprite[] DetailImage_E;
 
@@ -89,9 +89,10 @@ public class ContentsInfo : LogSendServer
         Label_Cate_2 = new List<string> {"House1", "House2", "House3", "House4", "House5", "House6", "House7", "House8", "House9", "House10"};
         Label_Cate_3 = new List<string> {"Aegibong", "TurtleShip", "Ganghaw"};
 
-        NaviLabel_K = new Sprite[Resources.LoadAll<Sprite>("Sprite/NavigationLabel_K").Length];
-        NaviLabel_E = new Sprite[Resources.LoadAll<Sprite>("Sprite/NavigationLabel_E").Length];
+        //NaviLabel_K = new Sprite[Resources.LoadAll<Sprite>("Sprite/NavigationLabel_K").Length];
+        //NaviLabel_E = new Sprite[Resources.LoadAll<Sprite>("Sprite/NavigationLabel_E").Length];
         DetailImage_K = new Sprite[Resources.LoadAll<Sprite>("Sprite/DetailImage_K").Length];
+        DetailImage_E = new Sprite[Resources.LoadAll<Sprite>("Sprite/DetailImage_E").Length];
         
         Narration_Docent_K = new AudioClip[Resources.LoadAll<AudioClip>("Narration/Korea/Docent").Length];
         Narration_Wisdom_K = new AudioClip[Resources.LoadAll<AudioClip>("Narration/Korea/Wisdom").Length];
@@ -100,9 +101,10 @@ public class ContentsInfo : LogSendServer
         Narration_Wisdom_E = new AudioClip[Resources.LoadAll<AudioClip>("Narration/English/Wisdom").Length];
         Narration_Flow_E = new AudioClip[Resources.LoadAll<AudioClip>("Narration/English/FLow").Length];
 
-        NaviLabel_K = Resources.LoadAll<Sprite>("Sprite/NavigationLabel_K");
-        NaviLabel_E = Resources.LoadAll<Sprite>("Sprite/NavigationLabel_E");
+        //NaviLabel_K = Resources.LoadAll<Sprite>("Sprite/NavigationLabel_K");
+        //NaviLabel_E = Resources.LoadAll<Sprite>("Sprite/NavigationLabel_E");
         DetailImage_K = Resources.LoadAll<Sprite>("Sprite/DetailImage_K");
+        DetailImage_E = Resources.LoadAll<Sprite>("Sprite/DetailImage_E");
         Narration_Docent_K = Resources.LoadAll<AudioClip>("Narration/Korea/Docent");
         Narration_Wisdom_K = Resources.LoadAll<AudioClip>("Narration/Korea/Wisdom");
         Narration_Flow_K = Resources.LoadAll<AudioClip>("Narration/Korea/Flow");
