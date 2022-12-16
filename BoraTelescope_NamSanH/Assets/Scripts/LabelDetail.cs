@@ -32,7 +32,7 @@ public class LabelDetail : MonoBehaviour
     public bool moredetail = false;
     public bool moredetail_scroll = false;
     public bool CheckDetailTime = false;
-    float checkdetail;
+    public float checkdetail;
     float scrollview_y = 203;
     //float scrollview_y = 179;
 
@@ -90,9 +90,9 @@ public class LabelDetail : MonoBehaviour
             {
                 if (SceneManager.GetActiveScene().name.Contains("NamSanHMode"))
                 {
-                    namsanH.SelectLabel = null;
-                    namsanH.gamemanager.Home_Btn_NamSanH();
-                    //CloseDetailWindow();
+                    //namsanH.SelectLabel = null;
+                    //namsanH.gamemanager.Home_Btn_NamSanH();
+                    CloseDetailWindow();
                 }
                 CheckDetailTime = false;
             }

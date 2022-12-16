@@ -9,8 +9,8 @@ public class scroll : MonoBehaviour
 {
     public enum State
     {
-        Kor,
         Eng,
+        Kor,
     }
     public State state = 0;
 
@@ -82,7 +82,7 @@ public class scroll : MonoBehaviour
 
         for (int i = 0; i < info.intelliname.Count; i++)
         {
-            if (info.intelliname[i] == ContentName && i != index1)
+            if (info.intelliname[i] == ContentName&& i != index1)
             {
                 index2 = i;
                 break;
