@@ -32,8 +32,8 @@ public class LabelDetail : MonoBehaviour
     public bool moredetail = false;
     public bool moredetail_scroll = false;
     public bool CheckDetailTime = false;
-    public float checkdetail;
-    float scrollview_y = 203;
+    float checkdetail;
+    float scrollview_y = 198;
     //float scrollview_y = 179;
 
     // Start is called before the first frame update
