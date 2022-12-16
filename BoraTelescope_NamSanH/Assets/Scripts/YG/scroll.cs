@@ -20,6 +20,7 @@ public class scroll : MonoBehaviour
     VideoClip Unfold;
 
 
+
     public GameObject TitleText;
     [SerializeField]
     GameObject Title;
@@ -29,6 +30,8 @@ public class scroll : MonoBehaviour
     GameObject Exit;
     [SerializeField]
     NamSanHMode namsan;
+    [SerializeField]
+    Button Coment;
 
     VideoPlayer Video;
     Intelligentinfo info;
@@ -56,6 +59,7 @@ public class scroll : MonoBehaviour
 
     public void Intelligence()
     {
+        Coment.enabled = false;
         ad.enabled = true;
         namsan.Narration.clip = null;
         Video.clip = FINAL;
@@ -77,7 +81,7 @@ public class scroll : MonoBehaviour
 
         for (int i = 0; i < info.intelliname.Count; i++)
         {
-            if (info.intelliname[i] == ContentName && i != index1)
+            if (info.intelliname[i] == ContentName&& i != index1)
             {
                 index2 = i;
                 break;
@@ -140,12 +144,14 @@ public class scroll : MonoBehaviour
         TitleText.SetActive(true);
         SubText.SetActive(true);
         Exit.SetActive(true);
+        Exit.GetComponent<Button>().enabled = true;
         Video.Pause();
         ad.Play();
     }
 
     public void VideoPlay()
     {
+        Exit.GetComponent<Button>().enabled = false;
         Video.Play();
         Exit.SetActive(false);
         Invoke("DisObject", 3.5f);
@@ -158,8 +164,9 @@ public class scroll : MonoBehaviour
         DisText = true;
     }
     
-    void DisObject()
+    public void DisObject()
     {
+        Coment.enabled = true;
         TitleText.GetComponent<TMP_Text>().text = "";
         Title.GetComponent<TMP_Text>().text = "";
         SubText.GetComponent<TMP_Text>().text = "";

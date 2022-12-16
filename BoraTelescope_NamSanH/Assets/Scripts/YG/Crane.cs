@@ -108,7 +108,7 @@ public class Crane : MonoBehaviour
     private void UpdateGlideDown()
     {
         speed -= Time.deltaTime;
-        transform.position = Vector3.Lerp(transform.position, StartPos, speed*Time.deltaTime);
+        transform.position = Vector3.Lerp(transform.position, StartPos, Time.deltaTime);
         transform.position = new Vector3(transform.position.x, transform.position.y, 500);
     }
 
@@ -131,12 +131,12 @@ public class Crane : MonoBehaviour
     {
         float dist = Vector3.Distance(transform.position, StartPos);
         Vector3 dir = transform.forward;
-        if(transform.position.x<Min_Pan)
+        if(transform.position.x<StartPos.x-10000)
         {
             transform.rotation = Quaternion.Euler(0, 90, 0);
             LeftCheck = true;
         }
-        else if(transform.position.x > Max_Pan)
+        else if(transform.position.x > StartPos.x + 10000)
         {
             transform.rotation = Quaternion.Euler(0, -90, 0);
             RightCheck = true;
@@ -196,13 +196,14 @@ public class Crane : MonoBehaviour
 
     private void GlideUp()
     {
+        speed = 150;
         anim.CrossFade("Flap1Up", 1f);
         state = State.GlideUp;
     }
 
     private void GlideFoward()
     {
-        speed *= 3;
+        speed =1000;
         anim.CrossFade("Flap1Left", 1f);
         state = State.GlideForward;
     }
@@ -215,8 +216,8 @@ public class Crane : MonoBehaviour
 
     private void GlideDown()
     {
-        speed /= 3;
-        anim.CrossFade("Flap1Down", 0.5f);
+        speed =300;
+        anim.CrossFade("Flap1Down", 2f);
         state = State.GlideDown;
     }
 

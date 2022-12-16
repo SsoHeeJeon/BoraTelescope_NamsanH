@@ -60,7 +60,7 @@ public class NamSanHMode : MonoBehaviour
             {
                 Close360();
             }
-
+            scroll.VideoPlay();
             if (timeflow.TFBackground.activeSelf)
             {
                 if(SelectLabel == Label)
@@ -166,6 +166,7 @@ public class NamSanHMode : MonoBehaviour
 
         labeldetail.ChangeDetailLanguage();
         Docent_avartar.transform.GetChild(0).GetComponent<DocentAni>().AniHi();
+        scroll.DisObject();
     }
 
     public void Detailname(int num)

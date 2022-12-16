@@ -8250,6 +8250,7 @@ MonoBehaviour:
   moredetail: 0
   moredetail_scroll: 0
   CheckDetailTime: 0
+  checkdetail: 0
 --- !u!1 &1418425437
 GameObject:
   m_ObjectHideFlags: 0
@@ -16310,6 +16311,7 @@ MonoBehaviour:
   SubText: {fileID: 8253037066645435757}
   Exit: {fileID: 162442049}
   namsan: {fileID: 1029615906}
+  Coment: {fileID: 1590345194}
   ad: {fileID: 0}
   ContentName: 
 --- !u!224 &8054092054000197319
@@ -17489,8 +17491,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 558.2906, y: -392.2}
-  m_SizeDelta: {x: 1073.4188, y: 60}
+  m_AnchoredPosition: {x: 595, y: -425}
+  m_SizeDelta: {x: 1000, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &8253037066645435759
 MonoBehaviour:
