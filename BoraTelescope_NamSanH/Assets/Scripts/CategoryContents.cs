@@ -33,9 +33,11 @@ public class CategoryContents : MonoBehaviour
         gamemanager = GameObject.Find("GameManager").GetComponent<GameManager>();
         if (GameManager.currentLang == GameManager.Language_enum.Korea)
         {
+            GameManager.currentLang = GameManager.Language_enum.Korea;
             ChangeCategory_lang("Korea");
         } else if(GameManager.currentLang == GameManager.Language_enum.English)
         {
+            GameManager.currentLang = GameManager.Language_enum.English;
             ChangeCategory_lang("English");
         }
         SelectCategory_Flow();

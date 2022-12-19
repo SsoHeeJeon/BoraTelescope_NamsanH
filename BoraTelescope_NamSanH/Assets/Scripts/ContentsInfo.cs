@@ -65,6 +65,7 @@ public class ContentsInfo : LogSendServer
             Connect_Button();       // 시스템 컨트롤러 프로그램에 접속하여 모드상태플래그 불러오기
             WriteLog(NormalLogCode.Connect_SystemControl, "Connect_SystemControl_On", GetType().ToString());        // 불러온 모드상태 플래그 로그로 표현
             gameemanager.GetComponent<GameManager>().UISetting();       // UI 셋팅
+            gameemanager.GetComponent<GameManager>().ChangeLanguage(gameemanager.GetComponent<GameManager>().LanguageBar.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject);
             LabelData();        // 라벨 정보 불러오기
             AwakeOnce = true;
         }

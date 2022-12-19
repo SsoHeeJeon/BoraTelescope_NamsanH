@@ -212,7 +212,7 @@ public class GameManager : ContentsInfo
         langNaviOn = false;
         movelangNavi = false;
 
-        ChangeLanguage(LanguageBar.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject);
+        //ChangeLanguage(LanguageBar.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject);
     }
 
     // Update is called once per frame
@@ -1397,6 +1397,7 @@ public class GameManager : ContentsInfo
     /// <param name="btn"></param>
     public void ChangeLanguage(GameObject btn)
     {
+        Debug.LogError(btn.name + "today");
         switch (btn.name)
         {
             case "Korea":
