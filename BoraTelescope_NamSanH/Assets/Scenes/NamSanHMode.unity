@@ -19140,8 +19140,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: -1.91}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 920, y: -165}
-  m_SizeDelta: {x: 350, y: 60}
+  m_AnchoredPosition: {x: 614.4159, y: -165}
+  m_SizeDelta: {x: 950, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &8594374015335990087
 GameObject:
@@ -19422,7 +19422,7 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: 29
+  m_lineSpacing: 10
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0

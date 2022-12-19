@@ -75,7 +75,7 @@ public class GameManager : ContentsInfo
         Korea, English
     }
     public static Language_enum currentLang;
-    //public Language_enum curlang;
+    public Language_enum curlang;
 
     public enum Speed_enum
     {
@@ -195,11 +195,6 @@ public class GameManager : ContentsInfo
 
         UISetting();
 
-        if (ContentsInfo.AwakeOnce == false)
-        {
-            currentLang = Language_enum.Korea;
-        }
-
         // 시간 초기화
         touchCount = 0;
         touchfinish = false;
@@ -223,6 +218,7 @@ public class GameManager : ContentsInfo
     // Update is called once per frame
     void Update()
     {
+        curlang = currentLang;
         // 네비게이션 창, 상세설명창 속도 조절 
         navi_t += Time.deltaTime * 0.1f;
         langnavi_t += Time.deltaTime * 0.1f;
@@ -682,6 +678,7 @@ public class GameManager : ContentsInfo
                     MenuBar.transform.GetChild(0).gameObject.transform.GetChild(1).gameObject.transform.GetChild(0).gameObject.SetActive(true);
 
                     WantNoLabel = false;
+                    MenuBar.GetComponent<UILanguage>().SceneChagneSetOrigin();
 
                     Loading.nextScene = "XRMode";
                     SceneManager.LoadScene("Loading");

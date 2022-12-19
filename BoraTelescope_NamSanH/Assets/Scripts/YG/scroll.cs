@@ -107,10 +107,10 @@ public class scroll : MonoBehaviour
 
         if(GameManager.currentLang == GameManager.Language_enum.Korea)
         {
-            TitleText.GetComponent<TMP_Text>().text = info.intellicontent[index];
+            TitleText.GetComponent<TMP_Text>().text = "<" + info.intellicontent[index] + ">";
             if (info.ganzi[index]!="")
             {
-                Title.GetComponent<TMP_Text>().text = info.intellititle[index] + "(" + info.ganzi[index]+")";
+                Title.GetComponent<TMP_Text>().text = info.intellititle[index] + " (" + info.ganzi[index]+")";
             }
             else
             {
@@ -121,7 +121,7 @@ public class scroll : MonoBehaviour
         }
         else if(GameManager.currentLang == GameManager.Language_enum.English)
         {
-            TitleText.GetComponent<TMP_Text>().text = info.intellicontent_E[index];
+            TitleText.GetComponent<TMP_Text>().text = "<" + info.intellicontent_E[index] + ">";
             if (info.ganzi[index]!="")
             {
                 if(index == 2)

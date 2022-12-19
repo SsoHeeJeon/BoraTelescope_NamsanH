@@ -253,10 +253,12 @@ public class UILanguage : MonoBehaviour
     {
         if (GameManager.currentLang == GameManager.Language_enum.Korea)
         {
+            GameManager.currentLang = GameManager.Language_enum.Korea;
             SelectKorea();
         }
         else if (GameManager.currentLang != GameManager.Language_enum.Korea)
         {
+            GameManager.currentLang = GameManager.Language_enum.English;
             NotSelectKorea();
         }
     }
