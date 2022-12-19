@@ -83,11 +83,11 @@ public class XRManager : MonoBehaviour
         }
 
         XR koixr = JsonUtility.FromJson<XR>(XRarr[2].ToString());
-        for (int i=0; i < XRobject[2].GetComponentInChildren<KoiManager>().Koiarr.Length; i++)
+        for (int i=0; i < XRobject[2].transform.GetChild(0).GetComponentInChildren<KoiManager>().Koiarr.Length; i++)
         {
-            XRobject[2].GetComponentInChildren<KoiManager>().Koiarr[i].GetComponent<Koi>().speed = koixr.LabelScale * 0.5f;
-            XRobject[2].GetComponentInChildren<KoiManager>().Koiarr[i].GetComponent<Koi>().defaultspeed = koixr.LabelScale * 0.5f;
-            XRobject[2].GetComponentInChildren<KoiManager>().Koiarr[i].GetComponent<Koi>().StartPos = XRobject[2].GetComponentInChildren<KoiManager>().Koiarr[i].transform.position;
+            XRobject[2].transform.GetChild(0).GetComponentInChildren<KoiManager>().Koiarr[i].GetComponent<Koi>().speed = koixr.LabelScale * 0.5f;
+            XRobject[2].transform.GetChild(0).GetComponentInChildren<KoiManager>().Koiarr[i].GetComponent<Koi>().defaultspeed = koixr.LabelScale * 0.5f;
+            XRobject[2].transform.GetChild(0).GetComponentInChildren<KoiManager>().Koiarr[i].GetComponent<Koi>().StartPos = XRobject[2].transform.GetChild(0).GetComponentInChildren<KoiManager>().Koiarr[i].transform.position;
         }
     }
 }

@@ -55,7 +55,7 @@ public class LabelDetail : MonoBehaviour
         detailsoundbut.sprite = namsanH.Narr_Off;
         detailbackground_rect = Detail_Background.GetComponent<RectTransform>();
 
-        namsanH.Narration.clip = null;
+        //namsanH.Narration.clip = null;
         namsanH.PlayNarr = true;
         namsanH.Narration.Stop();
 
