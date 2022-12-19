@@ -143,6 +143,7 @@ public class NamSanHMode : MonoBehaviour
             print(2);
             labeldetail.InfoHeight.GetComponent<UIText>().text = ReadJsonFile.DetailText_K[num + 4];
             Narration.clip = gamemanager.Narration_Docent_K[num - 1];
+            print("Nar");
             Docent_avartar.transform.GetChild(0).GetComponent<DocentAni>().NarrtionLen = Narration.clip.length;
             //labeldetail.Detail_Background.GetComponent<Image>().sprite = gamemanager.DetailImage_K[num - 1];
         } else if(GameManager.currentLang == GameManager.Language_enum.English)
