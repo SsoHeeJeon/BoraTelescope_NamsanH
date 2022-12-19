@@ -96,6 +96,28 @@ public class TimeFlow : MonoBehaviour
         }
     }
 
+    public void ChangeLang()
+    {
+        if (GameManager.currentLang == GameManager.Language_enum.Korea)
+        {
+            if (!YearText.text.Contains("³â"))
+            {
+                YearText.text = namsanH.SelectLabel.name + "³â";
+            }
+            TFText_k.SetActive(true);
+            TFText_e.SetActive(false);
+        }
+        else if (GameManager.currentLang == GameManager.Language_enum.English)
+        {
+            if (YearText.text.Contains("³â"))
+            {
+                YearText.text = namsanH.SelectLabel.name;
+            }
+            TFText_k.SetActive(false);
+            TFText_e.SetActive(true);
+        }
+    }
+
     public void ReadytoStart(GameObject Label)
     {
 

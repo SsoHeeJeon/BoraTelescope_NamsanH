@@ -1422,6 +1422,10 @@ public class GameManager : ContentsInfo
         if (SceneManager.GetActiveScene().name == "NamSanHMode")
         {
             category.ChangeCategory_lang(btn.name);
+            if (namsanMode.timeflow.TFBackground.activeSelf)
+            {
+                namsanMode.timeflow.ChangeLang();
+            }
             if (namsanMode.obj360.activeSelf)
             {
                 namsanMode.ReadyTo360(namsanMode.SelectLabel);
