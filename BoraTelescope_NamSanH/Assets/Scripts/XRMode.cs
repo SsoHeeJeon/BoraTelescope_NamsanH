@@ -91,11 +91,11 @@ public class XRMode : MonoBehaviour
 
         currentMotor_x = PanTiltControl.NowPanPulse;
         currentMotor_y = PanTiltControl.NowTiltPulse;
-        Debug.Log("today " + currentMotor_x + " / " + currentMotor_y);
+        //Debug.Log("today " + currentMotor_x + " / " + currentMotor_y);
 
         AllMapLabels.transform.localPosition = new Vector3(AllMapLabels.transform.localPosition.x, AllMapLabels.transform.localPosition.y, CameraWindow.transform.GetChild(0).gameObject.transform.GetChild(0).transform.localPosition.z);
 
-        //UICam.orthographicSize = (385 - (-AllMapLabels.transform.localPosition.z)) / 385 * 358 + 182;
+        UICam.orthographicSize = (385 - (-AllMapLabels.transform.localPosition.z)) / 385 * 358 + 182;
 
         touchcount_int = Input.touchCount;
 
