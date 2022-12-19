@@ -124,7 +124,30 @@ public class scroll : MonoBehaviour
             TitleText.GetComponent<TMP_Text>().text = info.intellicontent_E[index];
             if (info.ganzi[index]!="")
             {
-                Title.GetComponent<TMP_Text>().text = info.intellititle_E[index] + "(" + info.ganzi[index] + ")";
+                if(index == 2)
+                {
+                    Title.GetComponent<TMP_Text>().text = "Seon-Haeng-Ki-Eon (à»ú¼Ğìåë)\nYi-Hu-Zhong-Ji (ì»ı­ğôñı)";
+                }
+                else if(index ==3)
+                {
+                    Title.GetComponent<TMP_Text>().text = "Ki-Shin-Bu-Jeong (ĞìãóİÕïá)\nSu-Ryeong-Bu-Jong (âÌÖµİÕğô)";
+                }
+                else if(index ==13)
+                {
+                    Title.GetComponent<TMP_Text>().text = "Jeok-Seon-Ji-Ka (îİà¼ñıÊ«)\nPil-You-Yeo-Kyoung (ù±êóæ®ÌÔ)";
+                }
+                else if(index ==14)
+                {
+                    Title.GetComponent<TMP_Text>().text = "Myeon-Il-Si-Ji-Bun (ìÛìéãÁñıİÈ)\nMyeon-Paek-Il-Ji-Woo (ØóÛİìíñıéØ)";
+                }
+                else if(index ==18)
+                {
+                    Title.GetComponent<TMP_Text>().text = "Ye-Sok-Sang-Kyo (ÖÉáÔßÓÎß)\nHwan-Nan-Sang-Hyul (ü´ÑñßÓıÑ)";
+                }
+                else
+                {
+                    Title.GetComponent<TMP_Text>().text = info.intellititle_E[index] + "\n(" + info.ganzi[index] + ")";
+                }
             }
             else
             {
