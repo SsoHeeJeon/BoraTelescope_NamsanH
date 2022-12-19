@@ -402,4 +402,9 @@ public class NamSanHMode : MonoBehaviour
             gamemanager.WriteLog(LogSendServer.NormalLogCode.NamSanH_DetailSound, "NamSanH_Detail:SoundOn", GetType().ToString());
         }
     }
+
+    public void ButtonClick()
+    {
+        gamemanager.ButtonClickSound();
+    }
 }

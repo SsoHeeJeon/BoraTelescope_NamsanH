@@ -310,6 +310,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1029615906}
+        m_TargetAssemblyTypeName: NamSanHMode, Assembly-CSharp
+        m_MethodName: ButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &33681324
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -702,6 +714,18 @@ MonoBehaviour:
           m_StringArgument: 2
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1029615906}
+        m_TargetAssemblyTypeName: NamSanHMode, Assembly-CSharp
+        m_MethodName: ButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &162442051
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -849,6 +873,18 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 171741408}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1029615906}
+        m_TargetAssemblyTypeName: NamSanHMode, Assembly-CSharp
+        m_MethodName: ButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1167,6 +1203,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1739719461}
         m_TargetAssemblyTypeName: TimeFlow, Assembly-CSharp
         m_MethodName: CloseTF
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1029615906}
+        m_TargetAssemblyTypeName: NamSanHMode, Assembly-CSharp
+        m_MethodName: ButtonClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1880,6 +1928,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1029615906}
+        m_TargetAssemblyTypeName: NamSanHMode, Assembly-CSharp
+        m_MethodName: ButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &313360289
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2411,6 +2471,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1029615906}
+        m_TargetAssemblyTypeName: NamSanHMode, Assembly-CSharp
+        m_MethodName: ButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &365422276
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2539,6 +2611,18 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 367807105}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1029615906}
+        m_TargetAssemblyTypeName: NamSanHMode, Assembly-CSharp
+        m_MethodName: ButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2920,6 +3004,18 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 381597568}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1029615906}
+        m_TargetAssemblyTypeName: NamSanHMode, Assembly-CSharp
+        m_MethodName: ButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -4223,6 +4319,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1029615906}
+        m_TargetAssemblyTypeName: NamSanHMode, Assembly-CSharp
+        m_MethodName: ButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &678615911
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4719,6 +4827,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1029615906}
+        m_TargetAssemblyTypeName: NamSanHMode, Assembly-CSharp
+        m_MethodName: ButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &712428351
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5021,6 +5141,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1029615906}
         m_TargetAssemblyTypeName: NamSanHMode, Assembly-CSharp
         m_MethodName: Docent_OnOff
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1029615906}
+        m_TargetAssemblyTypeName: NamSanHMode, Assembly-CSharp
+        m_MethodName: ButtonClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5899,6 +6031,7 @@ GameObject:
   - component: {fileID: 936919381}
   - component: {fileID: 936919380}
   - component: {fileID: 936919379}
+  - component: {fileID: 936919382}
   m_Layer: 5
   m_Name: 360Notice
   m_TagString: Untagged
@@ -5981,6 +6114,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1029615906}
+        m_TargetAssemblyTypeName: NamSanHMode, Assembly-CSharp
+        m_MethodName: ButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &936919380
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6019,6 +6164,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 936919377}
   m_CullTransparentMesh: 1
+--- !u!114 &936919382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 936919377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86ba33345e3d2c247a19c0f908f95ba2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisObject: {fileID: 936919377}
+  Lang_s:
+  - {fileID: -5313714010302620532, guid: b2f21dd0284fe0e4b8136be3e3c77773, type: 3}
+  - {fileID: 9143961467209210548, guid: dd743e2029f1cfe4c88d79775fd966f7, type: 3}
 --- !u!1 &1016414656
 GameObject:
   m_ObjectHideFlags: 0
@@ -7147,6 +7308,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 2
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1029615906}
+        m_TargetAssemblyTypeName: NamSanHMode, Assembly-CSharp
+        m_MethodName: ButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1184714297
@@ -8434,6 +8607,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1029615906}
+        m_TargetAssemblyTypeName: NamSanHMode, Assembly-CSharp
+        m_MethodName: ButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1429175846
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8637,6 +8822,18 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 1441139116}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1029615906}
+        m_TargetAssemblyTypeName: NamSanHMode, Assembly-CSharp
+        m_MethodName: ButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -9167,6 +9364,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 970635764442489362, guid: d757e5ad3f9d2ac4f8b6c0c1c9d8fcab, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 975196792796407742, guid: d757e5ad3f9d2ac4f8b6c0c1c9d8fcab, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0.00000042688674
@@ -9230,6 +9431,10 @@ PrefabInstance:
     - target: {fileID: 1093916833931280374, guid: d757e5ad3f9d2ac4f8b6c0c1c9d8fcab, type: 3}
       propertyPath: m_Layer
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1093916833931280374, guid: d757e5ad3f9d2ac4f8b6c0c1c9d8fcab, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1095711813863940155, guid: d757e5ad3f9d2ac4f8b6c0c1c9d8fcab, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -9371,6 +9576,14 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 1455113185410074606, guid: d757e5ad3f9d2ac4f8b6c0c1c9d8fcab, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1461097010422460702, guid: d757e5ad3f9d2ac4f8b6c0c1c9d8fcab, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 531c1c305a880ef4d829e29b1a02bd7a, type: 2}
     - target: {fileID: 1471766473710504457, guid: d757e5ad3f9d2ac4f8b6c0c1c9d8fcab, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: -12.332052
@@ -9403,6 +9616,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 1538422889246063897, guid: d757e5ad3f9d2ac4f8b6c0c1c9d8fcab, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1579236434153903930, guid: d757e5ad3f9d2ac4f8b6c0c1c9d8fcab, type: 3}
       propertyPath: m_Layer
       value: 7
@@ -9431,6 +9648,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 3.0894985
       objectReference: {fileID: 0}
+    - target: {fileID: 1602629768941726281, guid: d757e5ad3f9d2ac4f8b6c0c1c9d8fcab, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d2a20b31cd417c34988b1c50a52f1337, type: 2}
     - target: {fileID: 1615928470572508176, guid: d757e5ad3f9d2ac4f8b6c0c1c9d8fcab, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: -0.000012558527
@@ -9467,9 +9688,17 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 1643346075952353799, guid: d757e5ad3f9d2ac4f8b6c0c1c9d8fcab, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1656138305152001605, guid: d757e5ad3f9d2ac4f8b6c0c1c9d8fcab, type: 3}
       propertyPath: m_Layer
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1656138305152001605, guid: d757e5ad3f9d2ac4f8b6c0c1c9d8fcab, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1673949055080747096, guid: d757e5ad3f9d2ac4f8b6c0c1c9d8fcab, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -9627,13 +9856,25 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 1941890987792785460, guid: d757e5ad3f9d2ac4f8b6c0c1c9d8fcab, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1972404215045835200, guid: d757e5ad3f9d2ac4f8b6c0c1c9d8fcab, type: 3}
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1987287930200586704, guid: d757e5ad3f9d2ac4f8b6c0c1c9d8fcab, type: 3}
+      propertyPath: m_Name
+      value: shoes_running_002
+      objectReference: {fileID: 0}
+    - target: {fileID: 1987287930200586704, guid: d757e5ad3f9d2ac4f8b6c0c1c9d8fcab, type: 3}
       propertyPath: m_Layer
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1987287930200586704, guid: d757e5ad3f9d2ac4f8b6c0c1c9d8fcab, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1995321481423410831, guid: d757e5ad3f9d2ac4f8b6c0c1c9d8fcab, type: 3}
       propertyPath: m_Layer
@@ -10215,6 +10456,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 3292994778850455365, guid: d757e5ad3f9d2ac4f8b6c0c1c9d8fcab, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3296032970000589303, guid: d757e5ad3f9d2ac4f8b6c0c1c9d8fcab, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: -1.5411751
@@ -10503,6 +10748,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 3949042806320136637, guid: d757e5ad3f9d2ac4f8b6c0c1c9d8fcab, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3974648811531344489, guid: d757e5ad3f9d2ac4f8b6c0c1c9d8fcab, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0.000011042108
@@ -10771,6 +11020,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 4526438679887243785, guid: d757e5ad3f9d2ac4f8b6c0c1c9d8fcab, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4545509606730608219, guid: d757e5ad3f9d2ac4f8b6c0c1c9d8fcab, type: 3}
       propertyPath: m_Layer
       value: 7
@@ -10831,6 +11084,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 4726031530295490348, guid: d757e5ad3f9d2ac4f8b6c0c1c9d8fcab, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4775253118532250283, guid: d757e5ad3f9d2ac4f8b6c0c1c9d8fcab, type: 3}
       propertyPath: m_Layer
       value: 7
@@ -10883,6 +11140,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 4846971133311485343, guid: d757e5ad3f9d2ac4f8b6c0c1c9d8fcab, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4857704607862811046, guid: d757e5ad3f9d2ac4f8b6c0c1c9d8fcab, type: 3}
       propertyPath: m_Layer
       value: 7
@@ -10902,6 +11163,10 @@ PrefabInstance:
     - target: {fileID: 4924904397591481364, guid: d757e5ad3f9d2ac4f8b6c0c1c9d8fcab, type: 3}
       propertyPath: m_Layer
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4924904397591481364, guid: d757e5ad3f9d2ac4f8b6c0c1c9d8fcab, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4937863256085665770, guid: d757e5ad3f9d2ac4f8b6c0c1c9d8fcab, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -11203,6 +11468,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 5667405939570899363, guid: d757e5ad3f9d2ac4f8b6c0c1c9d8fcab, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5668320092940397592, guid: d757e5ad3f9d2ac4f8b6c0c1c9d8fcab, type: 3}
       propertyPath: m_Layer
       value: 7
@@ -11282,6 +11551,10 @@ PrefabInstance:
     - target: {fileID: 5823397101446368391, guid: d757e5ad3f9d2ac4f8b6c0c1c9d8fcab, type: 3}
       propertyPath: m_Layer
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5823397101446368391, guid: d757e5ad3f9d2ac4f8b6c0c1c9d8fcab, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5884674358923070816, guid: d757e5ad3f9d2ac4f8b6c0c1c9d8fcab, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -11639,6 +11912,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 6793241374284214487, guid: d757e5ad3f9d2ac4f8b6c0c1c9d8fcab, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8e694334b434b2f409ba51ce15b17190, type: 2}
     - target: {fileID: 6830507925528018993, guid: d757e5ad3f9d2ac4f8b6c0c1c9d8fcab, type: 3}
       propertyPath: m_Layer
       value: 7
@@ -11667,9 +11944,17 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 6903563796109533869, guid: d757e5ad3f9d2ac4f8b6c0c1c9d8fcab, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d24676b338956f9478d17cd6df6104fb, type: 2}
     - target: {fileID: 6937267451156361124, guid: d757e5ad3f9d2ac4f8b6c0c1c9d8fcab, type: 3}
       propertyPath: m_Layer
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6937267451156361124, guid: d757e5ad3f9d2ac4f8b6c0c1c9d8fcab, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6967589093521537722, guid: d757e5ad3f9d2ac4f8b6c0c1c9d8fcab, type: 3}
       propertyPath: m_Layer
@@ -11683,6 +11968,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 7002290347670872559, guid: d757e5ad3f9d2ac4f8b6c0c1c9d8fcab, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d54ee1a88f8f12147adffb179cb0775b, type: 2}
     - target: {fileID: 7003850759311975299, guid: d757e5ad3f9d2ac4f8b6c0c1c9d8fcab, type: 3}
       propertyPath: m_Layer
       value: 7
@@ -11730,6 +12019,10 @@ PrefabInstance:
     - target: {fileID: 7135775322159464762, guid: d757e5ad3f9d2ac4f8b6c0c1c9d8fcab, type: 3}
       propertyPath: m_Layer
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7135775322159464762, guid: d757e5ad3f9d2ac4f8b6c0c1c9d8fcab, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7138317995597682663, guid: d757e5ad3f9d2ac4f8b6c0c1c9d8fcab, type: 3}
       propertyPath: m_Layer
@@ -11814,6 +12107,10 @@ PrefabInstance:
     - target: {fileID: 7191571533957268720, guid: d757e5ad3f9d2ac4f8b6c0c1c9d8fcab, type: 3}
       propertyPath: m_Layer
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7191571533957268720, guid: d757e5ad3f9d2ac4f8b6c0c1c9d8fcab, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7214117075143791248, guid: d757e5ad3f9d2ac4f8b6c0c1c9d8fcab, type: 3}
       propertyPath: m_Layer
@@ -12135,6 +12432,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 7833628517990801057, guid: d757e5ad3f9d2ac4f8b6c0c1c9d8fcab, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7836506349278523375, guid: d757e5ad3f9d2ac4f8b6c0c1c9d8fcab, type: 3}
       propertyPath: m_Layer
       value: 7
@@ -12242,6 +12543,10 @@ PrefabInstance:
     - target: {fileID: 8047439535600144595, guid: d757e5ad3f9d2ac4f8b6c0c1c9d8fcab, type: 3}
       propertyPath: m_Layer
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8047439535600144595, guid: d757e5ad3f9d2ac4f8b6c0c1c9d8fcab, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8060126323602831289, guid: d757e5ad3f9d2ac4f8b6c0c1c9d8fcab, type: 3}
       propertyPath: m_Layer
@@ -12435,6 +12740,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 8533275093354855109, guid: d757e5ad3f9d2ac4f8b6c0c1c9d8fcab, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8555348101670140198, guid: d757e5ad3f9d2ac4f8b6c0c1c9d8fcab, type: 3}
       propertyPath: m_Layer
       value: 7
@@ -12450,6 +12759,10 @@ PrefabInstance:
     - target: {fileID: 8592092696678486356, guid: d757e5ad3f9d2ac4f8b6c0c1c9d8fcab, type: 3}
       propertyPath: m_Layer
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8592092696678486356, guid: d757e5ad3f9d2ac4f8b6c0c1c9d8fcab, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8595384188050086405, guid: d757e5ad3f9d2ac4f8b6c0c1c9d8fcab, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -12615,6 +12928,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 9115668826742828275, guid: d757e5ad3f9d2ac4f8b6c0c1c9d8fcab, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e92430f7b66a37d449a0a515aee64c4f, type: 2}
     - target: {fileID: 9115968255001495587, guid: d757e5ad3f9d2ac4f8b6c0c1c9d8fcab, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: -0.0000920188
@@ -13355,6 +13672,18 @@ MonoBehaviour:
           m_StringArgument: 2
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1029615906}
+        m_TargetAssemblyTypeName: NamSanHMode, Assembly-CSharp
+        m_MethodName: ButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1590345195
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13483,6 +13812,18 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 1602196149}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1029615906}
+        m_TargetAssemblyTypeName: NamSanHMode, Assembly-CSharp
+        m_MethodName: ButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -14696,6 +15037,18 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 1864245703}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1029615906}
+        m_TargetAssemblyTypeName: NamSanHMode, Assembly-CSharp
+        m_MethodName: ButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 

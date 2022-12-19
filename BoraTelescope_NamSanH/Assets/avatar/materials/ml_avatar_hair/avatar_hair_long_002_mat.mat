@@ -21,13 +21,14 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: avatar_hair_long_002_mat
-  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: _GLOSSYREFLECTIONS_OFF _NORMALMAP _OCCLUSIONMAP _RECEIVE_SHADOWS_OFF
+  m_Shader: {fileID: 4800000, guid: 120f3700f0523454ba3559f6088085ae, type: 3}
+  m_ShaderKeywords: _NORMALMAP _OCCLUSIONMAP _RECEIVE_SHADOWS_OFF
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
+  m_CustomRenderQueue: 2000
+  stringTagMap:
+    RenderType: Opaque
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
@@ -118,7 +119,6 @@ Material:
     - _MedThreshold: 1
     - _MetalReflProbeIntensity: 1
     - _Metallic: 0
-    - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.005
     - _QueueOffset: 0
@@ -138,7 +138,6 @@ Material:
     - _SpecularThreshold: 0.5
     - _SrcBlend: 1
     - _Surface: 0
-    - _UVSec: 0
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
