@@ -80,7 +80,8 @@ public class Sparrow : MonoBehaviour
         transform.position = Vector3.Lerp(transform.position, Pos1, Time.deltaTime*0.5f);
         float dist = Vector3.Distance(transform.position, Pos1);
         transform.position = new Vector3(transform.position.x, transform.position.y, 500);
-        if(dist < 1500)
+        print(dist);
+        if(dist < 1600)
         {
             state = State.Back;
         }
@@ -93,7 +94,7 @@ public class Sparrow : MonoBehaviour
         float dist = Vector3.Distance(transform.position, Pos2);
         transform.position = new Vector3(transform.position.x, transform.position.y, 500);
         print(dist);
-        if (dist<50)
+        if (dist<90)
         {
             transform.position = Pos2;
             transform.rotation = Quaternion.Euler(new Vector3(0, 90, 0));
