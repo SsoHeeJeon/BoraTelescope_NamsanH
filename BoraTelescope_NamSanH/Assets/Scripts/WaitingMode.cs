@@ -107,7 +107,11 @@ public class WaitingMode : MonoBehaviour
         gamemanager.WriteLog(LogSendServer.NormalLogCode.ChangeMode, "ChangeMode : Start(" + GameManager.PrevMode + " - " + "XRMode)", GetType().ToString());
         // DB에서 받은 콘텐츠 정보를 이용해서 어디에 설치되어있는지 확인하여
         // 해당 ClearMode에 연결
-        if (GameManager.ModeActive[1])
+        if (GameManager.ModeActive[2])
+        {
+            Loading.nextScene = "NamSanHMode";
+        }
+        else if (GameManager.ModeActive[1])
         {
             Loading.nextScene = "XRMode";
             gamemanager.WantNoLabel = false;
@@ -116,10 +120,6 @@ public class WaitingMode : MonoBehaviour
         {
             Loading.nextScene = "XRMode";
             gamemanager.WatingtoLive();
-        }
-        else if (GameManager.ModeActive[2])
-        {
-            Loading.nextScene = "NamSanHMode";
         }
         SceneManager.LoadScene("Loading");
     }
