@@ -241,6 +241,7 @@ public class Loading : MonoBehaviour
                     else if (GameManager.ModeActive[0] == false && GameManager.ModeActive[1] == false && GameManager.ModeActive[2] == true)
                     {
                         //남산골로연결
+                        MoveNamSanHMode_Change();
                     }
                     else if (GameManager.ModeActive[0] == true && GameManager.ModeActive[1] == true && GameManager.ModeActive[2] == false)
                     {

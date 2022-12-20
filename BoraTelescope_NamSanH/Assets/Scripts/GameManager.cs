@@ -174,7 +174,7 @@ public class GameManager : ContentsInfo
     public static float barClose = 60f;
     public static uint startlabel_x;
     public static uint startlabel_y;
-    public static string MainMode = "XRMode";
+    public static string MainMode = "NamSanHMode";
     float arrowval = 40f;
     int modeNum = 6;
     public GameObject NaviLabel;
@@ -1397,7 +1397,6 @@ public class GameManager : ContentsInfo
     /// <param name="btn"></param>
     public void ChangeLanguage(GameObject btn)
     {
-        Debug.LogError(btn.name + "today");
         switch (btn.name)
         {
             case "Korea":

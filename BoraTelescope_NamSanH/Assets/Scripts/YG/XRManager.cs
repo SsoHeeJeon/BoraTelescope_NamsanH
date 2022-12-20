@@ -49,7 +49,7 @@ public class XRManager : MonoBehaviour
             {
                 XR myxr = JsonUtility.FromJson<XR>(XRarr[i].ToString());
 
-                XRobject[i].transform.position = new Vector3(myxr.Label_X * XRMode.ValueX, myxr.Label_Y * XRMode.ValueY, 500);
+                XRobject[i].transform.position = new Vector3(myxr.Label_X * XRMode.ValueX, myxr.Label_Y * XRMode.ValueY, 585);
 
 
 

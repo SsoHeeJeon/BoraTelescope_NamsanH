@@ -136,7 +136,7 @@ public class XRMode_Manager : MonoBehaviour
             MoveCamera_Arrow();
             if (setlabelcamera == true && SelectLabel != null)
             {
-                SelectLabel.transform.localPosition = new Vector3(CameraWindow.transform.localPosition.x, CameraWindow.transform.localPosition.y, 0);
+                SelectLabel.transform.localPosition = new Vector3(CameraWindow.transform.localPosition.x, CameraWindow.transform.localPosition.y, SelectLabel.transform.localPosition.z);
             }
         }
     }
