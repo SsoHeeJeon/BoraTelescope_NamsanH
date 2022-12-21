@@ -155,6 +155,7 @@ public class Loading : MonoBehaviour
                     progressBar.value = 1;
                     setMotor = false;
                     GameManager.Readpulse = false;
+                    gamemanager.changewaiting.enabled = true;
                     WaitMotor();
                 }
                 else

@@ -159,7 +159,7 @@ public class XRMode_Manager : MonoBehaviour
         XRModeLabelPosition labelposition = new XRModeLabelPosition(labelname, label_x, label_y, labelsize);
         //StartPosition = gamemanager.StartLabel;
 
-        PanTiltRange pantilt = new PanTiltRange(MinPan, MaxPan, MinTilt, MaxTilt, StartPosition_x, StartPosition_y, TotalPan, TotalTilt, (int)GameManager.waitingTime);
+        PanTiltRange pantilt = new PanTiltRange(MinPan, MaxPan, MinTilt, MaxTilt, GameManager.startlabel_x, GameManager.startlabel_y, TotalPan, TotalTilt, (int)GameManager.waitingTime);
 
         string str = JsonUtility.ToJson(labelposition);
         string str_1 = JsonUtility.ToJson(pantilt);

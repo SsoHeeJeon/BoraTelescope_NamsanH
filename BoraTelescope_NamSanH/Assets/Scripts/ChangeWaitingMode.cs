@@ -32,17 +32,18 @@ public class ChangeWaitingMode : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("today " + GameManager.AnyError + " / " + GameManager.Readpulse);
+        //Debug.Log("today " + GameManager.AnyError + " / " + GameManager.Readpulse);
         if (GameManager.AnyError == false)
         {
             if (GameManager.Readpulse == true)
             {
                 currentPan = (uint)PanTiltControl.NowPanPulse;
                 currentTilt = (uint)PanTiltControl.NowTiltPulse;
-                Debug.Log("today " + currentPan + " / " + currentTilt);
+                //Debug.Log("today " + currentPan + " / " + currentTilt);
             }
             if (MotorOrigin == true)
             {
+                //Debug.Log("today MotorOrigin " + MotorOrigin);
                 CheckOriginState();
             }
         }
@@ -53,14 +54,20 @@ public class ChangeWaitingMode : MonoBehaviour
     /// </summary>
     public void SetPantiltOrigin()
     {
+        //Debug.Log("today SetPantiltOrigin start ");
+        PanTiltControl.OriginMidFlag = false;
+        PanTiltControl.OriginEndFlag = false;
+
         MotorOrigin = true;
         SetmotorFreq = true;
         PanTiltControl.Origin();
+
         sendLog_1 = true;
         //sendLog_2 = true;
-        //currentPan = 0;
-        //currentTilt = 0;
+        currentPan = 0;
+        currentTilt = 0;
         gamemanager.WriteLog(LogSendServer.NormalLogCode.Etc_PantiltOrigin, "PantiltOrigin : Start", GetType().ToString());
+        //Debug.Log("today SetPantiltOrigin finish");
     }
 
     /// <summary>
@@ -68,6 +75,7 @@ public class ChangeWaitingMode : MonoBehaviour
     /// </summary>
     public void CheckOriginState()
     {
+        //Debug.Log("today " + PanTiltControl.OriginMidFlag + " / " + PanTiltControl.OriginEndFlag);
         if (PanTiltControl.OriginMidFlag == true)
         {
             if (sendLog_1 == true)
@@ -119,10 +127,10 @@ public class ChangeWaitingMode : MonoBehaviour
                         //팬틸트 모터가 계속 동작중 중단시킬 함수 필요
                         gamemanager.WriteErrorLog(LogSendServer.ErrorLogCode.Fail_EtcPantilt, "PantiltOrigin : Error(StartPosition)", GetType().ToString());
                     }
-                    Debug.Log("today today");
+                    //Debug.Log("today today");
                     if (SetmotorFreq == true)
                     {
-                        Debug.Log("today today");
+                        //Debug.Log("today today");
                         Invoke("setpantiltFreq", 0.5f);
                         SetmotorFreq = false;
                     }
@@ -147,7 +155,7 @@ public class ChangeWaitingMode : MonoBehaviour
     {
         PanTiltControl.SetFreq(PanTiltControl.Motor.Pan, PanTiltControl.Speed.Fast);
         gamemanager.speed_enum = GameManager.Speed_enum.fast;
-        Debug.Log("today today");
+        //Debug.Log("today today");
         Invoke("setpantiltpulse", 0.5f);
     }
     public void setpantiltpulse()
@@ -156,7 +164,7 @@ public class ChangeWaitingMode : MonoBehaviour
 
         float tiltYposition = GameManager.startlabel_y;
         PanTiltControl.SetPulse(GameManager.startlabel_x, (uint)tiltYposition);
-        Debug.Log("today today");
+
         GameManager.Readpulse = true;
     }
 }

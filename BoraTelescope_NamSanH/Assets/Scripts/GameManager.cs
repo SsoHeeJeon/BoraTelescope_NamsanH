@@ -246,6 +246,7 @@ public class GameManager : ContentsInfo
             touchCount += Time.deltaTime;
             if ((int)touchCount >= waitingTime)
             {
+                Readpulse = false;
                 CallWaitingMode();
             }
         }
@@ -1512,8 +1513,6 @@ public class GameManager : ContentsInfo
         Loading.nextScene = "WaitingMode";
         if (alreadywaitingLog == false)     // 로그를 한번만 보내기 위해서 & 카메라 연결 끊기
         {
-            changewaiting.SetPantiltOrigin();
-
             gamemanager.WriteLog(LogSendServer.NormalLogCode.ChangeMode, "ChangeMode : Start(" + GameManager.PrevMode + " - " + "WaitingMode)", GetType().ToString());
             alreadywaitingLog = true;
         }
@@ -1522,7 +1521,8 @@ public class GameManager : ContentsInfo
         {
             namsanMode.Narration.Stop();
         }
-
+        changewaiting.SetPantiltOrigin();
+        //Debug.Log("today CallWaitingMode");
         //CameraSpincam.EndThread = true;
         SceneManager.LoadScene("WaitingMode");
     }
