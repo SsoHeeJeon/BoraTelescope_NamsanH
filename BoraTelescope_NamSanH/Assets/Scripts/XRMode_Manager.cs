@@ -143,12 +143,13 @@ public class XRMode_Manager : MonoBehaviour
 
     public void SettingLabel()
     {
-        for(int index = 0; index < AllLabel.transform.childCount; index++)
+        Fish.transform.GetChild(0).gameObject.SetActive(false);
+        for (int index = 0; index < AllLabel.transform.childCount; index++)
         {
             LabelName = AllLabel.transform.GetChild(index).transform.gameObject.name;
             Label_x = AllLabel.transform.GetChild(index).transform.localPosition.x / TotalPan;
             Label_y = AllLabel.transform.GetChild(index).transform.localPosition.y / TotalTilt;
-            LabelScale = AllLabel.transform.GetChild(index).transform.localScale.x;
+            LabelScale = AllLabel.transform.GetChild(0).transform.GetChild(index).transform.localScale.x;
             
             SaveLabelPosition(LabelName, Label_x, Label_y, LabelScale);
         }
@@ -302,6 +303,7 @@ public class XRMode_Manager : MonoBehaviour
             case "SelectFish":
                 SelectLabel = Fish;
                 AllchangeLabel = false;
+                Fish.transform.GetChild(0).gameObject.SetActive(true);
                 PanTiltMove();
                 break;
             case "SelectSquirrel":
@@ -406,12 +408,26 @@ public class XRMode_Manager : MonoBehaviour
                 }
                 break;
             case "PlusScale":
-                float changeplus = SelectLabel.transform.localScale.x + changepos / 100;
-                SelectLabel.transform.localScale = new Vector3(changeplus, changeplus, changeplus);
+                if (SelectLabel != Fish)
+                {
+                    float changeplus = SelectLabel.transform.localScale.x + changepos / 100;
+                    SelectLabel.transform.localScale = new Vector3(changeplus, changeplus, changeplus);
+                } else if(SelectLabel == Fish)
+                {
+                    float changeplus = SelectLabel.transform.GetChild(0).transform.localScale.x + changepos / 100;
+                    SelectLabel.transform.GetChild(0).transform.localScale = new Vector3(changeplus, changeplus, changeplus);
+                }
                 break;
             case "MinusScale":
-                float changeminus = SelectLabel.transform.localScale.x - changepos / 100;
-                SelectLabel.transform.localScale = new Vector3(changeminus, changeminus, changeminus);
+                if (SelectLabel != Fish)
+                {
+                    float changeminus = SelectLabel.transform.localScale.x - changepos / 100;
+                    SelectLabel.transform.localScale = new Vector3(changeminus, changeminus, changeminus);
+                } else if(SelectLabel == Fish)
+                {
+                    float changeminus = SelectLabel.transform.GetChild(0).transform.localScale.x - changepos / 100;
+                    SelectLabel.transform.GetChild(0).transform.localScale = new Vector3(changeminus, changeminus, changeminus);
+                }
                 break;
         }
     }
