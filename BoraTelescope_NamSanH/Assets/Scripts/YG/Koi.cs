@@ -1,3 +1,4 @@
+using Amazon.IoTThingsGraph.Model;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -60,6 +61,7 @@ public class Koi : MonoBehaviour
                 break;
 
         }
+        //transform.rotation = Quaternion.Euler(transform.eulerAngles.x, -75, 90);
     }
 
     private void UpdateClick()
@@ -83,7 +85,7 @@ public class Koi : MonoBehaviour
         float dist = Vector3.Distance(transform.position, StartPos);
         transform.LookAt(StartPos);
         dir = transform.forward;
-        transform.position = Vector3.Lerp(transform.position, StartPos, Time.deltaTime);
+        transform.position = Vector3.Lerp(transform.position, StartPos, Time.deltaTime/2);
         //transform.position += dir * speed * Time.deltaTime;
         if (dist<0.5f)
         {
@@ -98,7 +100,12 @@ public class Koi : MonoBehaviour
         rot += rotspeed * Time.deltaTime;
         if (state == State.Move)
         {
-            transform.rotation = Quaternion.Euler(0, rot, 0);
+            transform.rotation = Quaternion.Euler(rot, -75, 90);
+            //float dist = Vector3.Distance(StartPos, transform.position);
+            //if(dist>300)
+            //{
+            //    state = State.Idle;
+            //}
         }
     }
 
@@ -108,7 +115,8 @@ public class Koi : MonoBehaviour
         {
             transform.LookAt(Eat.transform.position);
             dir = transform.forward;
-            transform.position += dir * speed * Time.deltaTime;
+            //transform.position += dir * speed * Time.deltaTime;
+            transform.position = Vector3.Lerp(transform.position, Eat.transform.position, Time.deltaTime);
             float dist = Vector3.Distance(transform.localPosition, Eat.transform.localPosition);
             if (dist < 0.5f)
             {
@@ -145,16 +153,16 @@ public class Koi : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(state!=State.Click)
-        {
-            if(other.gameObject.name.Contains("eat"))
-            {
-                state = State.EatMove;
-                other.gameObject.transform.localPosition = new Vector3(other.gameObject.transform.localPosition.x, transform.localPosition.y, other.gameObject.transform.localPosition.z);
-                transform.LookAt(new Vector3(other.gameObject.transform.localPosition.x, transform.localPosition.y, other.gameObject.transform.localPosition.z));
-                Eat = other.gameObject;
-            }
-        }
+        //if(state!=State.Click)
+        //{
+        //    if(other.gameObject.name.Contains("eat"))
+        //    {
+        //        state = State.EatMove;
+        //        other.gameObject.transform.localPosition = new Vector3(other.gameObject.transform.localPosition.x, transform.localPosition.y, other.gameObject.transform.localPosition.z);
+        //        transform.LookAt(new Vector3(other.gameObject.transform.localPosition.x, transform.localPosition.y, other.gameObject.transform.localPosition.z));
+        //        Eat = other.gameObject;
+        //    }
+        //}
     }
 
     void DestroyEat()

@@ -33,7 +33,7 @@ public class KoiManager : MonoBehaviour
         {
             GameObject obj = Instantiate(Eat);
             EatList.Add(obj);
-            obj.transform.parent = Koi.transform;
+            obj.transform.parent = Koi.transform.GetChild(0).transform;
             obj.transform.localPosition = new Vector3(x, 0.44f, z);
         }
         StartCoroutine("InsEat");
