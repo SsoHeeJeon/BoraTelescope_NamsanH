@@ -98,7 +98,7 @@ public class Koi : MonoBehaviour
         rot += rotspeed * Time.deltaTime;
         if (state == State.Move)
         {
-            transform.rotation = Quaternion.Euler(0, rot, 0);
+            transform.rotation = Quaternion.Euler(-45, rot, 0);
         }
     }
 
