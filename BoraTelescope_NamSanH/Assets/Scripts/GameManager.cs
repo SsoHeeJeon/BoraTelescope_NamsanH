@@ -1036,15 +1036,18 @@ public class GameManager : ContentsInfo
 
     public void CaptureCamera()
     {
-        CaptueObject.gameObject.SetActive(true);
-        CaptueObject.gameObject.GetComponent<ScreenCapture>().customMark.gameObject.SetActive(true);
+        if (Application.internetReachability != NetworkReachability.NotReachable)
+        {
+            CaptueObject.gameObject.SetActive(true);
+            CaptueObject.gameObject.GetComponent<ScreenCapture>().customMark.gameObject.SetActive(true);
 
-        SetMark();
+            SetMark();
 
-        ScreenCapture.startflasheffect = true;
-        CaptueObject.gameObject.GetComponent<ScreenCapture>().flasheffect.SetActive(true);
-        CaptueObject.gameObject.GetComponent<ScreenCapture>().flasheffect.GetComponent<Image>().color = CaptueObject.gameObject.GetComponent<ScreenCapture>().flashColor;
-        BackGround.SetActive(true);
+            ScreenCapture.startflasheffect = true;
+            CaptueObject.gameObject.GetComponent<ScreenCapture>().flasheffect.SetActive(true);
+            CaptueObject.gameObject.GetComponent<ScreenCapture>().flasheffect.GetComponent<Image>().color = CaptueObject.gameObject.GetComponent<ScreenCapture>().flashColor;
+            BackGround.SetActive(true);
+        }
     }
 
     public void CaptureEndCamera()
