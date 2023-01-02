@@ -1661,4 +1661,5 @@ public class GameManager : ContentsInfo
             namsanMode.timeflow.CloseTF();
         }
     }
+
 }
