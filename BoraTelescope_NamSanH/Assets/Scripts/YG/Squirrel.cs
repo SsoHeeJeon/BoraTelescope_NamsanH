@@ -19,6 +19,9 @@ public class Squirrel : MonoBehaviour
     State state = 0;
 
     Animator anim;
+
+    public GameObject shadow;
+
     // Start is called before the first frame update
     [SerializeField] Button btn;
     [SerializeField] GameObject Peanut;
@@ -28,20 +31,16 @@ public class Squirrel : MonoBehaviour
         Invoke("PauseAnimator", 1f);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void PauseAnimator()
     {
+        shadow.SetActive(true);
         anim.enabled = false;
         btn.enabled = true;
     }
 
     public void OnClickBtn()
     {
+        shadow.SetActive(false);
         anim.enabled = true;
         btn.enabled= false;
     }

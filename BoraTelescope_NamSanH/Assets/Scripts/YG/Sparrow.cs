@@ -29,6 +29,8 @@ public class Sparrow : MonoBehaviour
     public Vector3 Pos1;
     public Vector3 Pos2;
 
+    public GameObject shadow;
+
     [SerializeField]
     private Button btn;
     private void Start()
@@ -41,7 +43,7 @@ public class Sparrow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        switch(state)
+        switch (state)
         {
             case State.Idle:
                 UpdateIdle();
@@ -101,6 +103,7 @@ public class Sparrow : MonoBehaviour
             anim.CrossFade("IdleEat", 1f);
             Invoke("GoIdle", 10f);
             state = State.Eat;
+            shadow.SetActive(true);
         }
     }
 
@@ -133,6 +136,7 @@ public class Sparrow : MonoBehaviour
 
     public void OnClickBtn()
     {
+        shadow.SetActive(false);
         btn.enabled = false;
         anim.CrossFade("IdlePickWing", 1f);
         state = State.PickWing;
@@ -167,6 +171,6 @@ public class Sparrow : MonoBehaviour
         anim.CrossFade("IdleLookAround", 0.2f);
         btn.enabled = true;
         state = State.Idle;
-
+        shadow.SetActive(true);
     }
 }

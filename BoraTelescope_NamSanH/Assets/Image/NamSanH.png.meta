@@ -161,6 +161,21 @@ TextureImporter:
   - first:
       213: 6479702370167859539
     second: NamSanH_85
+  - first:
+      213: 3169740424744042131
+    second: NamSanH_86
+  - first:
+      213: -7160296466218010253
+    second: NamSanH_87
+  - first:
+      213: -451023672020039813
+    second: NamSanH_88
+  - first:
+      213: -2652176008110546524
+    second: NamSanH_89
+  - first:
+      213: -7120413398986430451
+    second: NamSanH_90
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -1970,6 +1985,111 @@ TextureImporter:
       bones: []
       spriteID: 4ba5dd4f180e5ee70800000000000000
       internalID: 9143961467209210548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NamSanH_79
+      rect:
+        serializedVersion: 2
+        x: 1384
+        y: 972
+        width: 92
+        height: 89
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98628476dfbcddc40800000000000000
+      internalID: 5538807405955524233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NamSanH_84
+      rect:
+        serializedVersion: 2
+        x: 1516
+        y: 972
+        width: 92
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9477f1cfae6a5e380800000000000000
+      internalID: -8942557956891773111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NamSanH_86
+      rect:
+        serializedVersion: 2
+        x: 1270
+        y: 776
+        width: 516
+        height: 132
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39e701f4f1e2dfb20800000000000000
+      internalID: 3169740424744042131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NamSanH_87
+      rect:
+        serializedVersion: 2
+        x: 1874
+        y: 776
+        width: 516
+        height: 132
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37937940d4481ac90800000000000000
+      internalID: -7160296466218010253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NamSanH_88
+      rect:
+        serializedVersion: 2
+        x: 2478
+        y: 844
+        width: 252
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7704f32c54adb9f0800000000000000
+      internalID: -451023672020039813
       vertices: []
       indices: 
       edges: []

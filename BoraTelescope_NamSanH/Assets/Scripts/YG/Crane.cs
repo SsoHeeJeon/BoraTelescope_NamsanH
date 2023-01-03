@@ -31,6 +31,9 @@ public class Crane : MonoBehaviour
     public State state = 0;
 
     public Vector3 StartPos;
+
+    public GameObject shadow;
+
     [SerializeField] Button btnl;
     // Start is called before the first frame update
     private void Start()
@@ -232,10 +235,12 @@ public class Crane : MonoBehaviour
         anim.CrossFade("SitDown", 1f);
         state = State.Seat;
         btnl.enabled = true;
+        shadow.SetActive(true);
     }
 
     public void OnClickBtn()
     {
+        shadow.SetActive(false);
         btnl.enabled = false;
         anim.CrossFade("Rebirth", 1f);
     }
