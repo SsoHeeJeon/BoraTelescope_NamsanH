@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
+using Image = UnityEngine.UI.Image;
 
 public class Sparrow : MonoBehaviour
 {
@@ -29,7 +30,7 @@ public class Sparrow : MonoBehaviour
     public Vector3 Pos1;
     public Vector3 Pos2;
 
-    public GameObject shadow;
+    public Image shadow;
 
     [SerializeField]
     private Button btn;
@@ -43,6 +44,7 @@ public class Sparrow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log("state " + state);
         switch (state)
         {
             case State.Idle:
@@ -87,6 +89,14 @@ public class Sparrow : MonoBehaviour
         {
             state = State.Back;
         }
+        
+        if(dist > 2300)
+        {
+            shadow.color = new Color(1, 1, 1, (dist - 2200)/174);
+        } else if(dist <= 2300)
+        {
+            shadow.color = new Color(1, 1, 1, 0);
+        }
     }
 
     private void UpdateBack()
@@ -96,15 +106,24 @@ public class Sparrow : MonoBehaviour
         float dist = Vector3.Distance(transform.position, Pos2);
         transform.position = new Vector3(transform.position.x, transform.position.y, 500);
         print(dist);
-        if (dist<90)
+        if (dist<100)
         {
             transform.position = Pos2;
             transform.rotation = Quaternion.Euler(new Vector3(0, 90, 0));
             anim.CrossFade("IdleEat", 1f);
             Invoke("GoIdle", 10f);
             state = State.Eat;
-            shadow.SetActive(true);
         }
+
+
+        if (dist < 500 && dist > 100)
+        {
+            shadow.color = new Color(1,1,1,400/(200+dist)*(1/dist)*100);
+        }
+        else if (dist <= 100)
+        {
+            shadow.color = new Color(1, 1, 1, 1);
+        } 
     }
 
 
@@ -136,7 +155,7 @@ public class Sparrow : MonoBehaviour
 
     public void OnClickBtn()
     {
-        shadow.SetActive(false);
+        //shadow.SetActive(false);
         btn.enabled = false;
         anim.CrossFade("IdlePickWing", 1f);
         state = State.PickWing;
@@ -171,6 +190,6 @@ public class Sparrow : MonoBehaviour
         anim.CrossFade("IdleLookAround", 0.2f);
         btn.enabled = true;
         state = State.Idle;
-        shadow.SetActive(true);
+        //shadow.SetActive(true);
     }
 }

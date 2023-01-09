@@ -33,14 +33,14 @@ public class Squirrel : MonoBehaviour
 
     private void PauseAnimator()
     {
-        shadow.SetActive(true);
+        //shadow.SetActive(true);
         anim.enabled = false;
         btn.enabled = true;
     }
 
     public void OnClickBtn()
     {
-        shadow.SetActive(false);
+        //shadow.SetActive(false);
         anim.enabled = true;
         btn.enabled= false;
     }
