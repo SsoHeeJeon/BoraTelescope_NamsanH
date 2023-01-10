@@ -1034,9 +1034,15 @@ public class GameManager : ContentsInfo
         }
     }
 
+    bool internetCon = false;
+
     public void CaptureCamera()
     {
-        if (Application.internetReachability != NetworkReachability.NotReachable)
+        BackGround.SetActive(true);
+
+        internetCon = IsInternetConnected();
+
+        if (internetCon == true)
         {
             CaptueObject.gameObject.SetActive(true);
             CaptueObject.gameObject.GetComponent<ScreenCapture>().customMark.gameObject.SetActive(true);
@@ -1047,11 +1053,19 @@ public class GameManager : ContentsInfo
             CaptueObject.gameObject.GetComponent<ScreenCapture>().flasheffect.SetActive(true);
             CaptueObject.gameObject.GetComponent<ScreenCapture>().flasheffect.GetComponent<Image>().color = CaptueObject.gameObject.GetComponent<ScreenCapture>().flashColor;
             BackGround.SetActive(true);
+        } else if(internetCon == false)
+        {
+            BackGround.SetActive(false);
+
+            ErrorMessage.SetActive(true);
+            CaptureEndCamera();
         }
     }
 
     public void CaptureEndCamera()
     {
+        internetCon = false;
+        CaptueObject.gameObject.GetComponent<ScreenCapture>().QRCodeImage.texture = null;
         BackGround.SetActive(false);
         CaptueObject.gameObject.SetActive(false);
     }

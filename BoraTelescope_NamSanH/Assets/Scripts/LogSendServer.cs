@@ -4,6 +4,8 @@ using UnityEngine;
 using System;
 using UnityEditor;
 using System.IO;
+using System.Net;
+using System.Linq;
 
 public class LogData
 {
@@ -219,5 +221,57 @@ public class LogSendServer : ErrorLog
         }
 
         File.WriteAllText(Application.dataPath + ("/LogData_" + ContentsInfo.ContentsName + "_" + DateTime.Now.ToString("yyyyMMdd") + ".txt"), allLog);
+    }
+
+    public bool IsInternetConnected()
+    {
+        const string NCSI_TEST_URL = "http://www.msftncsi.com/ncsi.txt";
+        const string NCSI_TEST_RESULT = "Microsoft NCSI";
+        const string NCSI_DNS = "dns.msftncsi.com";
+        const string NCSI_DNS_IP_ADDRESS = "131.107.255.255";
+
+        try
+        {
+            // Check NCSI test link
+            var webClient = new WebClient();
+            //string result = webClient.DownloadString(NCSI_TEST_URL);
+            string result = new TimedWebClient { Timeout = 500 }.DownloadString(NCSI_TEST_URL);
+            if (result != NCSI_TEST_RESULT)
+            {
+                return false;
+            }
+
+            // Check NCSI DNS IP
+            var dnsHost = Dns.GetHostEntry(NCSI_DNS);
+            if (dnsHost.AddressList.Count() < 0 || dnsHost.AddressList[0].ToString() != NCSI_DNS_IP_ADDRESS)
+            {
+                return false;
+            }
+        }
+        catch (Exception ex)
+        {
+            Debug.Log(ex);
+            return false;
+        }
+
+        return true;
+    }
+
+    public class TimedWebClient : WebClient
+    {
+        // Timeout in milliseconds, default = 600,000 msec
+        public int Timeout { get; set; }
+
+        public TimedWebClient()
+        {
+            this.Timeout = 100;
+        }
+
+        protected override WebRequest GetWebRequest(Uri address)
+        {
+            var objWebRequest = base.GetWebRequest(address);
+            objWebRequest.Timeout = this.Timeout;
+            return objWebRequest;
+        }
     }
 }
