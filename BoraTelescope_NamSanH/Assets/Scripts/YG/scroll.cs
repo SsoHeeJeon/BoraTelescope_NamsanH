@@ -1,4 +1,4 @@
-using System.Collections;
+Ôªøusing System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Video;
@@ -12,27 +12,31 @@ public class scroll : MonoBehaviour
     // Start is called before the first frame update
     [SerializeField]
     VideoClip FINAL;
-    [SerializeField]
-    VideoClip Fold;
-    [SerializeField]
-    VideoClip Unfoldimg;
-    [SerializeField]
-    VideoClip Unfold;
 
+    [SerializeField]
+    Button DocentBtn;
 
+    public GameObject TitleText_KE;
+    [SerializeField]
+    GameObject Title_KE;
+    [SerializeField]
+    GameObject SubText_KE;
 
-    public GameObject TitleText;
+    public GameObject TitleText_C;
     [SerializeField]
-    GameObject Title;
+    GameObject Title_C;
     [SerializeField]
-    GameObject SubText;
+    GameObject SubText_C;
+
+    public GameObject TitleText_J;
     [SerializeField]
-    GameObject Exit;
+    GameObject Title_J;
+    [SerializeField]
+    GameObject SubText_J;
+
     [SerializeField]
     NamSanHMode namsan;
-    [SerializeField]
-    Button Coment;
-
+    public GameObject ChromaVideo;
     VideoPlayer Video;
     Intelligentinfo info;
     public AudioSource ad;
@@ -44,7 +48,7 @@ public class scroll : MonoBehaviour
     {
         ad = GetComponent<AudioSource>();
         info = GetComponent<Intelligentinfo>();
-        Video = GetComponent<VideoPlayer>();
+        Video = ChromaVideo.GetComponent<VideoPlayer>();
         Video.clip= FINAL;
         Video.Pause();
     }
@@ -53,19 +57,57 @@ public class scroll : MonoBehaviour
     {
         if(DisText)
         {
-            Title.transform.parent.GetComponent<Image>().fillAmount -= Time.deltaTime * 0.5f;
+            switch(namsan.gamemanager.curlang)
+            {
+                case GameManager.Language_enum.Korea:
+                    Title_KE.transform.parent.parent.GetComponent<Image>().fillAmount -= Time.deltaTime * 0.3f;
+                    break;
+                case GameManager.Language_enum.English:
+                    Title_KE.transform.parent.parent.GetComponent<Image>().fillAmount -= Time.deltaTime * 0.3f;
+                    break;
+                case GameManager.Language_enum.Chinese:
+                    Title_C.transform.parent.parent.GetComponent<Image>().fillAmount -= Time.deltaTime * 0.3f;
+                    break;
+                case GameManager.Language_enum.Japan:
+                    Title_J.transform.parent.parent.GetComponent<Image>().fillAmount -= Time.deltaTime * 0.3f;
+                    break;
+
+            }
         }
     }
+    
+    void OnRenderer()
+    {
+        ChromaVideo.GetComponent<MeshRenderer>().enabled = true;
+    }
+
 
     public void Intelligence()
     {
-        Coment.enabled = false;
+        Title_KE.transform.parent.parent.gameObject.SetActive(true);
         ad.enabled = true;
         namsan.Narration.clip = null;
         Video.clip = FINAL;
         Video.Play();
-        Title.transform.parent.GetComponent<Image>().fillAmount = 1;
+        switch (namsan.gamemanager.curlang)
+        {
+            case GameManager.Language_enum.Korea:
+                Title_KE.transform.parent.parent.GetComponent<Image>().fillAmount = 1;
+                break;
+            case GameManager.Language_enum.English:
+                Title_KE.transform.parent.parent.GetComponent<Image>().fillAmount = 1;
+                break;
+            case GameManager.Language_enum.Chinese:
+                Title_C.transform.parent.parent.GetComponent<Image>().fillAmount = 1;
+                break;
+            case GameManager.Language_enum.Japan:
+                Title_J.transform.parent.parent.GetComponent<Image>().fillAmount = 1;
+                break;
+
+        }
+        
         Invoke("VideoStop", 3f);
+        Invoke("OnRenderer", 0.5f);
 
         int index = -1;
         int index1 = -1;
@@ -107,54 +149,119 @@ public class scroll : MonoBehaviour
 
         if(GameManager.currentLang == GameManager.Language_enum.Korea)
         {
-            TitleText.GetComponent<TMP_Text>().text = "<" + info.intellicontent[index] + ">";
+            TitleText_KE.GetComponent<TMP_Text>().text = "<" + info.intellicontent[index] + ">";
             if (info.ganzi[index]!="")
             {
-                Title.GetComponent<TMP_Text>().text = info.intellititle[index] + " (" + info.ganzi[index]+")";
+                Title_KE.GetComponent<TMP_Text>().text = " " +info.intellititle[index] +"\n"+ "(" + info.ganzi[index]+")";
             }
             else
             {
-                Title.GetComponent<TMP_Text>().text = info.intellititle[index];
+                Title_KE.GetComponent<TMP_Text>().text = info.intellititle[index];
             }
-            SubText.GetComponent<TMP_Text>().text = info.intellitext[index];
+            SubText_KE.GetComponent<TMP_Text>().text = info.intellitext[index];
             ad.clip = info.Narration[index];
         }
         else if(GameManager.currentLang == GameManager.Language_enum.English)
         {
-            TitleText.GetComponent<TMP_Text>().text = "<" + info.intellicontent_E[index] + ">";
+            TitleText_KE.GetComponent<TMP_Text>().text = "<" + info.intellicontent_E[index] + ">";
             if (info.ganzi[index]!="")
             {
                 if(index == 2)
                 {
-                    Title.GetComponent<TMP_Text>().text = "Seon-Haeng-Ki-Eon (‡ª˙º–ÏÂÎ)\nYi-Hu-Zhong-Ji (Ïª˝≠ÙÒ˝)";
+                    Title_KE.GetComponent<TMP_Text>().text = "Seon-Haeng-KiEon(ÂÖàË°åÂÖ∂Ë®Ä)\nYi-Hu-Zhong-Ji (ËÄåÂæåÂæû‰πã)";
                 }
                 else if(index ==3)
                 {
-                    Title.GetComponent<TMP_Text>().text = "Ki-Shin-Bu-Jeong (–Ï„Û›’Ô·)\nSu-Ryeong-Bu-Jong (‚Ã÷µ›’Ù)";
+                    Title_KE.GetComponent<TMP_Text>().text = "Ki-Shin-Bu-Jeong (ÂÖ∂Ë∫´Ô•ßÊ≠£)\nSu-Ryeong-BuJong(Èõñ‰ª§Ô•ßÂæû)";
+                }
+                else if (index == 12)
+                {
+                    Title_KE.GetComponent<TMP_Text>().text = "Paek-Ron-Bul-Ryeo-Il-Haeng (ÁôæË´ñÔ•ßÂ¶Ç‰∏ÄË°å)";
                 }
                 else if(index ==13)
                 {
-                    Title.GetComponent<TMP_Text>().text = "Jeok-Seon-Ji-Ka (Ó›‡ºÒ˝ ´)\nPil-You-Yeo-Kyoung (˘±ÍÛÊÆÃ‘)";
+                    Title_KE.GetComponent<TMP_Text>().text = "Jeok-Seon-Ji-Ka (Á©çÂñÑ‰πãÂÆ∂)\nPilYou-Yeo-Kyoung(ÂøÖÊúâÈ§òÊÖ∂)";
                 }
                 else if(index ==14)
                 {
-                    Title.GetComponent<TMP_Text>().text = "Myeon-Il-Si-Ji-Bun (Ï€ÏÈ„¡Ò˝›»)\nMyeon-Paek-Il-Ji-Woo (ÿÛ€›ÏÌÒ˝Èÿ)";
+                    Title_KE.GetComponent<TMP_Text>().text = "Myeon-Il-Si-Ji-Bun(Âøç‰∏ÄÊôÇ‰πãÂøø)\nMyeonPaek-Il-JiWoo(ÂÖçÁôæÊó•‰πãÊÜÇ)";
+                    Title_KE.GetComponent<TMP_Text>().fontSize = 32;
                 }
                 else if(index ==18)
                 {
-                    Title.GetComponent<TMP_Text>().text = "Ye-Sok-Sang-Kyo (÷…·‘ﬂ”Œﬂ)\nHwan-Nan-Sang-Hyul (¸¥—Òﬂ”˝—)";
+                    Title_KE.GetComponent<TMP_Text>().text = "Ye-Sok-Sang-Kyo (Á¶Æ‰øóÁõ∏‰∫§)\nHwan-Nan-Sang-Hyul (ÊÇ£Èõ£Áõ∏ÊÅ§)";
                 }
                 else
                 {
-                    Title.GetComponent<TMP_Text>().text = info.intellititle_E[index] + "\n(" + info.ganzi[index] + ")";
+                    Title_KE.GetComponent<TMP_Text>().text = info.intellititle_E[index] + "\n(" + info.ganzi[index] + ")";
                 }
             }
             else
             {
-                Title.GetComponent<TMP_Text>().text = info.intellititle_E[index];
+                Title_KE.GetComponent<TMP_Text>().text = info.intellititle_E[index];
             }
-            SubText.GetComponent<TMP_Text>().text = info.intellitext_E[index];
+            SubText_KE.GetComponent<TMP_Text>().text = info.intellitext_E[index];
             ad.clip = info.Narration_E[index];
+        }
+        else if(GameManager.currentLang == GameManager.Language_enum.Chinese)
+        {
+            if(index==4)
+            {
+                info.ganzi[index] = "‰∫ãÂøÖÂΩíÊ≠£";
+            }
+            if(index == 16)
+            {
+                info.ganzi[index] = "È´ÄËÇâ‰πãÂòÜ";
+            }
+            TitleText_C.GetComponent<TMP_Text>().text = "<" + info.intellicontent_C[index] + ">";
+            if (info.ganzi[index] != "")
+            {
+                Title_C.GetComponent<TMP_Text>().text = info.ganzi[index];
+            }
+            else
+            {
+                Title_C.GetComponent<TMP_Text>().text = info.ganzi[index];
+            }
+            SubText_C.GetComponent<TMP_Text>().text = info.intellitext_C[index];
+            ad.clip = info.Narration_C[index];
+            if (index == 4)
+            {
+                info.ganzi[index] = "‰∫ãÂøÖÊ≠∏Ê≠£";
+            }
+            if (index == 16)
+            {
+                info.ganzi[index] = "";
+            }
+        }
+        else if(GameManager.currentLang == GameManager.Language_enum.Japan)
+        {
+            if (index == 4)
+            {
+                info.ganzi[index] = "‰∫ãÂøÖÂ∏∞Ê≠£";
+            }
+            if (index == 16)
+            {
+                info.ganzi[index] = "È´ÄËÇâ‰πãÂòÜ";
+            }
+            TitleText_J.GetComponent<TMP_Text>().text = "<" + info.intellicontent_J[index] + ">";
+            if (info.ganzi[index] != "")
+            {
+                Title_J.GetComponent<TMP_Text>().text = info.ganzi[index];
+            }
+            else
+            {
+                Title_J.GetComponent<TMP_Text>().text = info.ganzi[index];
+            }
+            SubText_J.GetComponent<TMP_Text>().text = info.intellitext_J[index];
+            ad.clip = info.Narration_J[index];
+            if (index == 4)
+            {
+                info.ganzi[index] = "‰∫ãÂøÖÊ≠∏Ê≠£";
+            }
+            if (index == 16)
+            {
+                info.ganzi[index] = "";
+            }
         }
     }
 
@@ -162,21 +269,62 @@ public class scroll : MonoBehaviour
     // Update is called once per frame
     void VideoStop()
     {
-        print("Cancel");
-        Title.SetActive(true);
-        TitleText.SetActive(true);
-        SubText.SetActive(true);
-        Exit.SetActive(true);
-        Exit.GetComponent<Button>().enabled = true;
+        DocentBtn.enabled = true;
+        switch (namsan.gamemanager.curlang)
+        {
+            case GameManager.Language_enum.Korea:
+                Title_KE.SetActive(true);
+                TitleText_KE.SetActive(true);
+                SubText_KE.SetActive(true);
+                Title_C.SetActive(false);
+                TitleText_C.SetActive(false);
+                SubText_C.SetActive(false);
+                Title_J.SetActive(false);
+                TitleText_J.SetActive(false);
+                SubText_J.SetActive(false);
+                break;
+            case GameManager.Language_enum.English:
+                Title_KE.SetActive(true);
+                TitleText_KE.SetActive(true);
+                SubText_KE.SetActive(true);
+                Title_C.SetActive(false);
+                TitleText_C.SetActive(false);
+                SubText_C.SetActive(false);
+                Title_J.SetActive(false);
+                TitleText_J.SetActive(false);
+                SubText_J.SetActive(false);
+                break;
+            case GameManager.Language_enum.Chinese:
+                Title_C.SetActive(true);
+                TitleText_C.SetActive(true);
+                SubText_C.SetActive(true);
+                Title_J.SetActive(false);
+                TitleText_J.SetActive(false);
+                SubText_J.SetActive(false);
+                Title_KE.SetActive(false);
+                TitleText_KE.SetActive(false);
+                SubText_KE.SetActive(false);
+                break;
+            case GameManager.Language_enum.Japan:
+                Title_J.SetActive(true);
+                TitleText_J.SetActive(true);
+                SubText_J.SetActive(true);
+                Title_KE.SetActive(false);
+                TitleText_KE.SetActive(false);
+                SubText_KE.SetActive(false);
+                Title_C.SetActive(false);
+                TitleText_C.SetActive(false);
+                SubText_C.SetActive(false);
+                break;
+
+        }
         Video.Pause();
         ad.Play();
     }
 
     public void VideoPlay()
     {
-        Exit.GetComponent<Button>().enabled = false;
         Video.Play();
-        Exit.SetActive(false);
         Invoke("DisObject", 3.5f);
         Invoke("Distrue", 0.6f);
         ad.Stop();
@@ -189,32 +337,95 @@ public class scroll : MonoBehaviour
     
     public void DisObject()
     {
-        Coment.enabled = true;
-        TitleText.GetComponent<TMP_Text>().text = "";
-        Title.GetComponent<TMP_Text>().text = "";
-        SubText.GetComponent<TMP_Text>().text = "";
-        Title.SetActive(false);
-        TitleText.SetActive(false);
-        SubText.SetActive(false);
+        ChromaVideo.GetComponent<MeshRenderer>().enabled = false;
+        switch (namsan.gamemanager.curlang)
+        {
+            case GameManager.Language_enum.Korea:
+                TitleText_KE.GetComponent<TMP_Text>().text = "";
+                Title_KE.GetComponent<TMP_Text>().text = "";
+                SubText_KE.GetComponent<TMP_Text>().text = "";
+                Title_KE.SetActive(false);
+                TitleText_KE.SetActive(false);
+                SubText_KE.SetActive(false);
+                break;
+            case GameManager.Language_enum.English:
+                TitleText_KE.GetComponent<TMP_Text>().text = "";
+                Title_KE.GetComponent<TMP_Text>().text = "";
+                SubText_KE.GetComponent<TMP_Text>().text = "";
+                Title_KE.SetActive(false);
+                TitleText_KE.SetActive(false);
+                SubText_KE.SetActive(false);
+                break;
+            case GameManager.Language_enum.Chinese:
+                TitleText_C.GetComponent<TMP_Text>().text = "";
+                Title_C.GetComponent<TMP_Text>().text = "";
+                SubText_C.GetComponent<TMP_Text>().text = "";
+                Title_C.SetActive(false);
+                TitleText_C.SetActive(false);
+                SubText_C.SetActive(false);
+                break;
+            case GameManager.Language_enum.Japan:
+                TitleText_J.GetComponent<TMP_Text>().text = "";
+                Title_J.GetComponent<TMP_Text>().text = "";
+                SubText_J.GetComponent<TMP_Text>().text = "";
+                Title_J.SetActive(false);
+                TitleText_J.SetActive(false);
+                SubText_J.SetActive(false);
+                break;
+
+        }
         DisText = false;
-        TitleText.transform.parent.parent.gameObject.SetActive(false);
+        Title_KE.GetComponent<TMP_Text>().fontSize = 35;
+        ChromaVideo.gameObject.SetActive(false);
     }
 
     public void ScrollHome()
     {
         CancelInvoke("DisObject");
         Video.clip = null;
-        Exit.SetActive(false);
         DisText = true;
         ad.Stop();
-        TitleText.GetComponent<TMP_Text>().text = "";
-        Title.GetComponent<TMP_Text>().text = "";
-        SubText.GetComponent<TMP_Text>().text = "";
-        Title.SetActive(false);
-        TitleText.SetActive(false);
-        SubText.SetActive(false);
+        switch (namsan.gamemanager.curlang)
+        {
+            case GameManager.Language_enum.Korea:
+                TitleText_KE.GetComponent<TMP_Text>().text = "";
+                Title_KE.GetComponent<TMP_Text>().text = "";
+                SubText_KE.GetComponent<TMP_Text>().text = "";
+                Title_KE.SetActive(false);
+                TitleText_KE.SetActive(false);
+                SubText_KE.SetActive(false);
+                TitleText_KE.transform.parent.parent.gameObject.SetActive(false);
+                break;
+            case GameManager.Language_enum.English:
+                TitleText_KE.GetComponent<TMP_Text>().text = "";
+                Title_KE.GetComponent<TMP_Text>().text = "";
+                SubText_KE.GetComponent<TMP_Text>().text = "";
+                Title_KE.SetActive(false);
+                TitleText_KE.SetActive(false);
+                SubText_KE.SetActive(false);
+                TitleText_KE.transform.parent.parent.gameObject.SetActive(false);
+                break;
+            case GameManager.Language_enum.Chinese:
+                TitleText_C.GetComponent<TMP_Text>().text = "";
+                Title_C.GetComponent<TMP_Text>().text = "";
+                SubText_C.GetComponent<TMP_Text>().text = "";
+                Title_C.SetActive(false);
+                TitleText_C.SetActive(false);
+                SubText_C.SetActive(false);
+                TitleText_C.transform.parent.parent.gameObject.SetActive(false);
+                break;
+            case GameManager.Language_enum.Japan:
+                TitleText_J.GetComponent<TMP_Text>().text = "";
+                Title_J.GetComponent<TMP_Text>().text = "";
+                SubText_J.GetComponent<TMP_Text>().text = "";
+                Title_J.SetActive(false);
+                TitleText_J.SetActive(false);
+                SubText_J.SetActive(false);
+                TitleText_J.transform.parent.parent.gameObject.SetActive(false);
+                break;
+
+        }
         DisText = false;
-        TitleText.transform.parent.parent.gameObject.SetActive(false);
     }
 
     public void InvokeCancel()

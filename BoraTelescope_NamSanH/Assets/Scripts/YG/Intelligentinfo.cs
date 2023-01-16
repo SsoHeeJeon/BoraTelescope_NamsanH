@@ -16,6 +16,19 @@ public class Intelligentinfo : MonoBehaviour
     public List<string> intellitext_E = new List<string>();
     public List<AudioClip> Narration_E = new List<AudioClip>();
 
+    public List<string> intelliname_C = new List<string>();
+    public List<string> intellicontent_C = new List<string>();
+    public List<string> intellititle_C = new List<string>();
+    public List<string> intellitext_C = new List<string>();
+    public List<AudioClip> Narration_C = new List<AudioClip>();
+
+    public List<string> intelliname_J = new List<string>();
+    public List<string> intellicontent_J = new List<string>();
+    public List<string> intellititle_J = new List<string>();
+    public List<string> intellitext_J = new List<string>();
+    public List<AudioClip> Narration_J = new List<AudioClip>();
+
+
     public List<string> ganzi = new List<string>();
     private void Start()
     {
@@ -119,6 +132,46 @@ public class Intelligentinfo : MonoBehaviour
         intelliname_E.Add("Yun Taek-yeong's Jaesil in Jegi-dong");
         intelliname_E.Add("Observatory");
 
+        intelliname_C.Add("庭院");
+        intelliname_C.Add("庭院");
+        intelliname_C.Add("泉雨阁");
+        intelliname_C.Add("泉雨阁");
+        intelliname_C.Add("青鹤池");
+        intelliname_C.Add("青鹤池");
+        intelliname_C.Add("国乐堂(户外庭院)");
+        intelliname_C.Add("国乐堂(户外庭院)");
+        intelliname_C.Add("三角洞木匠李程业故居");
+        intelliname_C.Add("三角洞木匠李程业故居");
+        intelliname_C.Add("玉仁洞尹氏故居");
+        intelliname_C.Add("玉仁洞尹氏故居");
+        intelliname_C.Add("三清洞五卫将金春永故居");
+        intelliname_C.Add("三清洞五卫将金春永故居");
+        intelliname_C.Add("宽勋洞闵氏故居");
+        intelliname_C.Add("宽勋洞闵氏故居");
+        intelliname_C.Add("祭基洞海丰府院君尹泽荣斋室");
+        intelliname_C.Add("祭基洞海丰府院君尹泽荣斋室");
+        intelliname_C.Add("展望台");
+
+        intelliname_J.Add("庭");
+        intelliname_J.Add("庭");
+        intelliname_J.Add("天羽閣");
+        intelliname_J.Add("天羽閣");
+        intelliname_J.Add("青学紙");
+        intelliname_J.Add("青学紙");
+        intelliname_J.Add("国楽堂(屋外の庭)");
+        intelliname_J.Add("国楽堂(屋外の庭)");
+        intelliname_J.Add("三角洞都片手イ·スンオプ家屋");
+        intelliname_J.Add("三角洞都片手イ·スンオプ家屋");
+        intelliname_J.Add("指痛惜光阴虚度，思欲有所作为。");
+        intelliname_J.Add("指痛惜光阴虚度，思欲有所作为。");
+        intelliname_J.Add("三清洞5位長・金春栄家屋");
+        intelliname_J.Add("三清洞5位長・金春栄家屋");
+        intelliname_J.Add("寛勲洞閔氏の家屋");
+        intelliname_J.Add("寛勲洞閔氏の家屋");
+        intelliname_J.Add("祭基洞 海豊府院君ユン·テクヨン斎室");
+        intelliname_J.Add("祭基洞 海豊府院君ユン·テクヨン斎室");
+        intelliname_J.Add("展望台");
+
         intellicontent_E.Add("The Wisdom of Human Relationships");
         intellicontent_E.Add("The Wisdom of Human Relationships");
         intellicontent_E.Add("The Wisdom of Human Relationships");
@@ -139,10 +192,50 @@ public class Intelligentinfo : MonoBehaviour
         intellicontent_E.Add("Wisdom in Finding Good Friends");
         intellicontent_E.Add("Wisdom in Finding Good Friends");
 
+        intellicontent_C.Add("人际关系的智慧");
+        intellicontent_C.Add("人际关系的智慧");
+        intellicontent_C.Add("人际关系的智慧");
+        intellicontent_C.Add("人际关系的智慧");
+        intellicontent_C.Add("人生智慧");
+        intellicontent_C.Add("人生智慧");
+        intellicontent_C.Add("人生智慧");
+        intellicontent_C.Add("人生智慧");
+        intellicontent_C.Add("人生智慧");
+        intellicontent_C.Add("人生智慧");
+        intellicontent_C.Add("人生智慧");
+        intellicontent_C.Add("人生智慧");
+        intellicontent_C.Add("人生智慧");
+        intellicontent_C.Add("人生智慧");
+        intellicontent_C.Add("人生智慧");
+        intellicontent_C.Add("人生智慧");
+        intellicontent_C.Add("人生智慧");
+        intellicontent_C.Add("结交良友的智慧");
+        intellicontent_C.Add("结交良友的智慧");
+
+        intellicontent_J.Add("人間関係の知恵");
+        intellicontent_J.Add("人間関係の知恵");
+        intellicontent_J.Add("人間関係の知恵");
+        intellicontent_J.Add("人間関係の知恵");
+        intellicontent_J.Add("生の知恵");
+        intellicontent_J.Add("生の知恵");
+        intellicontent_J.Add("生の知恵");
+        intellicontent_J.Add("生の知恵");
+        intellicontent_J.Add("生の知恵");
+        intellicontent_J.Add("生の知恵");
+        intellicontent_J.Add("生の知恵");
+        intellicontent_J.Add("生の知恵");
+        intellicontent_J.Add("生の知恵");
+        intellicontent_J.Add("生の知恵");
+        intellicontent_J.Add("生の知恵");
+        intellicontent_J.Add("生の知恵");
+        intellicontent_J.Add("生の知恵");
+        intellicontent_J.Add("良き友達を得る知恵");
+        intellicontent_J.Add("良き友達を得る知恵");
+
         intellititle_E.Add("Jeob-Yin-Chun-Pung");
         intellititle_E.Add("Kyo-hak-sang-jang ");
         intellititle_E.Add("Seon-Haeng-Ki-Eon Yi-Hu-Zhong-Ji");
-        intellititle_E.Add("Ki-Shin-Bu-Jeong  Su-Ryeong-Bu-Jong");
+        intellititle_E.Add("Ki-Shin-Bu-Jeong  SuRyeong-Bu-Jong");
         intellititle_E.Add("Sa-Pil-Gui-Jeong");
         intellititle_E.Add("Mu-Kai-A-Sim");
         intellititle_E.Add("Shim-Cheong-Sa-Dal");
@@ -178,6 +271,46 @@ public class Intelligentinfo : MonoBehaviour
         intellitext_E.Add("Bemoaning the lack of rewarding work and the wasted years");
         intellitext_E.Add("Be careful with what you say, do your actions right");
         intellitext_E.Add("They walk around in etiquette and customs, helping each other in difficulties");
+
+        intellitext_C.Add("对待它人要如春风般和煦。");
+        intellitext_C.Add("教与学互相增长。");
+        intellitext_C.Add("只有先做后说，才可以取信于人。");
+        intellitext_C.Add("如果自身不端正，即使发命令也没有人听从。");
+        intellitext_C.Add("不管什么事，最后都要归结到正路上来。");
+        intellitext_C.Add("不愧对自己的内心");
+        intellitext_C.Add("心如明镜，诸事亨通。");
+        intellitext_C.Add("办事公平，没有私心。");
+        intellitext_C.Add("不合符礼教的事不做。");
+        intellitext_C.Add("一笑解千愁");
+        intellitext_C.Add("家庭和睦是治家之本。");
+        intellitext_C.Add("富能修饰房屋，得能修养品性。");
+        intellitext_C.Add("讨论百次不如行动一次。");
+        intellitext_C.Add("修善积德的家庭，必然有更多的吉庆。");
+        intellitext_C.Add("容忍一时的气愤就会避免很长时间的忧虑。");
+        intellitext_C.Add("能帮助自己改正缺点的人或意见。");
+        intellitext_C.Add("指痛惜光阴虚度，思欲有所作为。");
+        intellitext_C.Add("指说话谨慎，办事敏捷。");
+        intellitext_C.Add("以礼仪和习俗相交，遇到患难彼此互相救助。");
+
+        intellitext_J.Add("人に接するときは春風のように優しくしなさい。");
+        intellitext_J.Add("教えて学び、互いに成長する。");
+        intellitext_J.Add("自分の言ったことを行えば人は従うようになる。");
+        intellitext_J.Add("自分自身が正しくさえあれば、命令などしなくとも人々は行動する。");
+        intellitext_J.Add("すべてのことは必ず正しい道理に帰する。");
+        intellitext_J.Add("私の心に恥じないようにしなさい。");
+        intellitext_J.Add("心が晴れたらすべてがうまくいく。");
+        intellitext_J.Add("公平で私事がない。");
+        intellitext_J.Add("礼儀正しくないものなら行動しない。");
+        intellitext_J.Add("一度笑ってすべての憂いを吹き飛ばす。");
+        intellitext_J.Add("和順が家の中を整える根本だ。");
+        intellitext_J.Add("富は家を豊かにし、徳は自分を豊かにする。");
+        intellitext_J.Add("百回考えても、自分で行動しなければ意味がない。");
+        intellitext_J.Add("善行を多く積み重ねた家には、必ず良いことが起こる。");
+        intellitext_J.Add("一時の悔しさを堪えれば百日の憂いを免れるだろう。");
+        intellitext_J.Add("役に立たないものでも使い方によっては役に立つものになりうる。");
+        intellitext_J.Add("やりがいのある仕事が出来ず無駄に歳月を過ごすことを嘆く。");
+        intellitext_J.Add("言葉は気をつけ、行動は正しくすること。");
+        intellitext_J.Add("礼儀と風俗に通い、困難を助け合う。");
 
         ganzi.Add("接人春風");
         ganzi.Add("敎學相長");

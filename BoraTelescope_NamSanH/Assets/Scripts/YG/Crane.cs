@@ -33,6 +33,7 @@ public class Crane : MonoBehaviour
     public Vector3 StartPos;
 
     [SerializeField] Button btnl;
+    [SerializeField] Image shadow;
     // Start is called before the first frame update
     private void Start()
     {
@@ -109,6 +110,19 @@ public class Crane : MonoBehaviour
     private void UpdateGlideDown()
     {
         speed -= Time.deltaTime;
+        a += Time.deltaTime;
+        if (a < 0.7f)
+        {
+            Color color = new Vector4(1, 1, 1, a);
+            color.a = a;
+            shadow.color = color;
+        }
+        else
+        {
+            Color color = new Vector4(1, 1, 1, 1);
+            color.a = a;
+            shadow.color = color;
+        }
         transform.position = Vector3.Lerp(transform.position, StartPos, Time.deltaTime);
         transform.position = new Vector3(transform.position.x, transform.position.y, 500);
     }
@@ -118,9 +132,23 @@ public class Crane : MonoBehaviour
 
     }
 
+    float a;
     private void UpdateGlideUp()
     {
         speed += Time.deltaTime;
+        if(a>0.3f)
+        {
+            a-=Time.deltaTime;
+            print(a);
+            Color color = new Vector4(1,1,1,a);
+            color.a = a;
+            shadow.color = color;
+        }
+        else
+        {
+            Color color = new Vector4(1, 1, 1, 0);
+            shadow.color = color;
+        }
         Vector3 dir = new Vector3(0, 1, 1);
         transform.position += dir * speed * Time.deltaTime;
         transform.position = new Vector3(transform.position.x, transform.position.y, 500);
@@ -198,8 +226,12 @@ public class Crane : MonoBehaviour
     private void GlideUp()
     {
         speed = 150;
-        anim.CrossFade("Flap1Up", 1f);
-        state = State.GlideUp;
+        if(state != State.GlideUp)
+        {
+            a = 1;
+            anim.CrossFade("Flap1Up", 1f);
+            state = State.GlideUp;
+        }
     }
 
     private void GlideFoward()
@@ -218,8 +250,12 @@ public class Crane : MonoBehaviour
     private void GlideDown()
     {
         speed =300;
-        anim.CrossFade("Flap1Down", 2f);
-        state = State.GlideDown;
+        if(state != State.GlideDown)
+        {
+            a = 0;
+            anim.CrossFade("Flap1Down", 2f);
+            state = State.GlideDown;
+        }
     }
 
     private void Land()

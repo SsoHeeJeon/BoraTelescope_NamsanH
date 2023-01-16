@@ -25,13 +25,23 @@ public class ContentsInfo : LogSendServer
 
     public Sprite[] NaviLabel_K = new Sprite[15];
     public Sprite[] NaviLabel_E = new Sprite[15];
+    public Sprite[] NaviLabel_C = new Sprite[15];
+    public Sprite[] NaviLabel_J = new Sprite[15];
+
     public Sprite[] DetailImage_K;
     public Sprite[] DetailImage_E;
+    public Sprite[] DetailImage_C;
+    public Sprite[] DetailImage_J;
 
     public Sprite Tip_XR_K;
     public Sprite Tip_XR_E;
+    public Sprite Tip_XR_C;
+    public Sprite Tip_XR_J;
+
     public Sprite Tip_Nam_K;
     public Sprite Tip_Nam_E;
+    public Sprite Tip_Nam_C;
+    public Sprite Tip_Nam_J;
 
     public AudioClip[] Narration_Docent_K;
     public AudioClip[] Narration_Wisdom_K;
@@ -40,6 +50,14 @@ public class ContentsInfo : LogSendServer
     public AudioClip[] Narration_Docent_E;
     public AudioClip[] Narration_Wisdom_E;
     public AudioClip[] Narration_Flow_E;
+
+    public AudioClip[] Narration_Docent_C;
+    public AudioClip[] Narration_Wisdom_C;
+    public AudioClip[] Narration_Flow_C;
+
+    public AudioClip[] Narration_Docent_J;
+    public AudioClip[] Narration_Wisdom_J;
+    public AudioClip[] Narration_Flow_J;
 
     public VideoClip[] WaitingVideo;
     public string[] WaitingVideo_path;
@@ -94,29 +112,54 @@ public class ContentsInfo : LogSendServer
         //NaviLabel_E = new Sprite[Resources.LoadAll<Sprite>("Sprite/NavigationLabel_E").Length];
         DetailImage_K = new Sprite[Resources.LoadAll<Sprite>("Sprite/DetailImage_K").Length];
         DetailImage_E = new Sprite[Resources.LoadAll<Sprite>("Sprite/DetailImage_E").Length];
-        
+        DetailImage_C = new Sprite[Resources.LoadAll<Sprite>("Sprite/DetailImage_K").Length];
+        DetailImage_J = new Sprite[Resources.LoadAll<Sprite>("Sprite/DetailImage_K").Length];
+
         Narration_Docent_K = new AudioClip[Resources.LoadAll<AudioClip>("Narration/Korea/Docent").Length];
         Narration_Wisdom_K = new AudioClip[Resources.LoadAll<AudioClip>("Narration/Korea/Wisdom").Length];
         Narration_Flow_K = new AudioClip[Resources.LoadAll<AudioClip>("Narration/Korea/Flow").Length];
+
         Narration_Docent_E = new AudioClip[Resources.LoadAll<AudioClip>("Narration/English/Docent").Length];
         Narration_Wisdom_E = new AudioClip[Resources.LoadAll<AudioClip>("Narration/English/Wisdom").Length];
         Narration_Flow_E = new AudioClip[Resources.LoadAll<AudioClip>("Narration/English/FLow").Length];
+
+        Narration_Docent_C = new AudioClip[Resources.LoadAll<AudioClip>("Narration/Chinese/Docent").Length];
+        Narration_Wisdom_C = new AudioClip[Resources.LoadAll<AudioClip>("Narration/Chinese/Wisdom").Length];
+        Narration_Flow_C = new AudioClip[Resources.LoadAll<AudioClip>("Narration/Chinese/Flow").Length];
+
+        Narration_Docent_J = new AudioClip[Resources.LoadAll<AudioClip>("Narration/Japan/Docent").Length];
+        Narration_Wisdom_J = new AudioClip[Resources.LoadAll<AudioClip>("Narration/Japan/Wisdom").Length];
+        Narration_Flow_J = new AudioClip[Resources.LoadAll<AudioClip>("Narration/Japan/Flow").Length];
 
         //NaviLabel_K = Resources.LoadAll<Sprite>("Sprite/NavigationLabel_K");
         //NaviLabel_E = Resources.LoadAll<Sprite>("Sprite/NavigationLabel_E");
         DetailImage_K = Resources.LoadAll<Sprite>("Sprite/DetailImage_K");
         DetailImage_E = Resources.LoadAll<Sprite>("Sprite/DetailImage_E");
+        DetailImage_C = Resources.LoadAll<Sprite>("Sprite/DetailImage_K");
+        DetailImage_J = Resources.LoadAll<Sprite>("Sprite/DetailImage_K");
+
         Narration_Docent_K = Resources.LoadAll<AudioClip>("Narration/Korea/Docent");
         Narration_Wisdom_K = Resources.LoadAll<AudioClip>("Narration/Korea/Wisdom");
         Narration_Flow_K = Resources.LoadAll<AudioClip>("Narration/Korea/Flow");
         Narration_Docent_E = Resources.LoadAll<AudioClip>("Narration/English/Docent");
         Narration_Wisdom_E = Resources.LoadAll<AudioClip>("Narration/English/Wisdom");
         Narration_Flow_E = Resources.LoadAll<AudioClip>("Narration/English/FLow");
+        Narration_Docent_C = Resources.LoadAll<AudioClip>("Narration/Chinese/Docent");
+        Narration_Wisdom_C = Resources.LoadAll<AudioClip>("Narration/Chinese/Wisdom");
+        Narration_Flow_C = Resources.LoadAll<AudioClip>("Narration/Chinese/FLow");
+        Narration_Docent_J = Resources.LoadAll<AudioClip>("Narration/Japan/Docent");
+        Narration_Wisdom_J = Resources.LoadAll<AudioClip>("Narration/Japan/Wisdom");
+        Narration_Flow_J = Resources.LoadAll<AudioClip>("Narration/Japan/FLow");
 
         Tip_XR_K = Resources.Load<Sprite>("Sprite/Tip_XR_K");
         Tip_XR_E = Resources.Load<Sprite>("Sprite/Tip_XR_E");
+        Tip_XR_C = Resources.Load<Sprite>("Sprite/Tip_XR_K");
+        Tip_XR_J = Resources.Load<Sprite>("Sprite/Tip_XR_K");
+
         Tip_Nam_K = Resources.Load<Sprite>("Sprite/Tip_Nam_K");
         Tip_Nam_E = Resources.Load<Sprite>("Sprite/Tip_Nam_E");
+        Tip_Nam_C = Resources.Load<Sprite>("Sprite/Tip_Nam_K");
+        Tip_Nam_J = Resources.Load<Sprite>("Sprite/Tip_Nam_K");
 
         WaitingVideo_path = Directory.GetFiles(Application.dataPath + "/Resources/Video", "*.mp4");
 

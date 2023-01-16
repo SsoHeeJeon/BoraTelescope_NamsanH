@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -54,7 +54,7 @@ public class NamSanHMode : MonoBehaviour
     
     public void NaviLabel(GameObject Label)
     {
-        if (gamemanager.Label_Cate_1.Contains(Label.name))      // ½Ã´ëº°º¯Ãµ
+        if (gamemanager.Label_Cate_1.Contains(Label.name))      // ì‹œëŒ€ë³„ë³€ì²œ
         {
             if (obj360.activeSelf)
             {
@@ -75,7 +75,7 @@ public class NamSanHMode : MonoBehaviour
             {
                 timeflow.ReadytoStart(Label);
             }
-        } else if (gamemanager.Label_Cate_2.Contains(Label.name))       // µµ½¼Æ®
+        } else if (gamemanager.Label_Cate_2.Contains(Label.name))       // ë„ìŠ¨íŠ¸
         {
             if (timeflow.TFBackground.activeSelf)
             {
@@ -153,6 +153,18 @@ public class NamSanHMode : MonoBehaviour
             Docent_avartar.transform.GetChild(0).GetComponent<DocentAni>().NarrtionLen = Narration.clip.length;
             //labeldetail.Detail_Background.GetComponent<Image>().sprite = gamemanager.DetailImage_E[num - 1];
         }
+        else if(GameManager.currentLang == GameManager.Language_enum.Chinese)
+        {
+            labeldetail.InfoHeight.GetComponent<UIText>().text = ReadJsonFile.DetailText_C[num + 4];
+            Narration.clip = gamemanager.Narration_Docent_C[num - 1];
+            Docent_avartar.transform.GetChild(0).GetComponent<DocentAni>().NarrtionLen = Narration.clip.length;
+        }
+        else if(GameManager.currentLang == GameManager.Language_enum.Japan)
+        {
+            labeldetail.InfoHeight.GetComponent<UIText>().text = ReadJsonFile.DetailText_J[num + 4];
+            Narration.clip = gamemanager.Narration_Docent_J[num - 1];
+            Docent_avartar.transform.GetChild(0).GetComponent<DocentAni>().NarrtionLen = Narration.clip.length;
+        }
         //Narration.Play();
         Narration.Pause();
 
@@ -177,34 +189,34 @@ public class NamSanHMode : MonoBehaviour
             switch (num)
             {
                 case 0:
-                    Detail_Name.text = "¸¶´ç";
+                    Detail_Name.text = "ë§ˆë‹¹";
                     break;
                 case 1:
-                    Detail_Name.text = "Ãµ¿ì°¢";
+                    Detail_Name.text = "ì²œìš°ê°";
                     break;
                 case 2:
-                    Detail_Name.text = "Ã»ÇĞÁö";
+                    Detail_Name.text = "ì²­í•™ì§€";
                     break;
                 case 3:
-                    Detail_Name.text = "¼­¿ï³²»ê±¹¾Ç´ç";
+                    Detail_Name.text = "ì„œìš¸ë‚¨ì‚°êµ­ì•…ë‹¹";
                     break;
                 case 4:
-                    Detail_Name.text = "»ï°¢µ¿ µµÆí¼ö\r\nÀÌ½Â¾÷ °¡¿Á";
+                    Detail_Name.text = "ì‚¼ê°ë™ ë„í¸ìˆ˜\r\nì´ìŠ¹ì—… ê°€ì˜¥";
                     break;
                 case 5:
-                    Detail_Name.text = "¿ÁÀÎµ¿ À±¾¾ °¡¿Á";
+                    Detail_Name.text = "ì˜¥ì¸ë™ ìœ¤ì”¨ ê°€ì˜¥";
                     break;
                 case 6:
-                    Detail_Name.text = "»ïÃ»µ¿ ¿ÀÀ§Àå\r\n±èÃá¿µ °¡¿Á";
+                    Detail_Name.text = "ì‚¼ì²­ë™ ì˜¤ìœ„ì¥\r\nê¹€ì¶˜ì˜ ê°€ì˜¥";
                     break;
                 case 7:
-                    Detail_Name.text = "°üÈÆµ¿ ¹Î¾¾ °¡¿Á";
+                    Detail_Name.text = "ê´€í›ˆë™ ë¯¼ì”¨ ê°€ì˜¥";
                     break;
                 case 8:
-                    Detail_Name.text = "Á¦±âµ¿ ÇØÇ³ºÎ¿ø±º\r\nÀ±ÅÃ¿µ Àç½Ç";
+                    Detail_Name.text = "ì œê¸°ë™ í•´í’ë¶€ì›êµ°\r\nìœ¤íƒì˜ ì¬ì‹¤";
                     break;
                 case 9:
-                    Detail_Name.text = "Àü¸Á´ë";
+                    Detail_Name.text = "ì „ë§ëŒ€";
                     break;
             }
         } else if(GameManager.currentLang == GameManager.Language_enum.English)
@@ -243,6 +255,78 @@ public class NamSanHMode : MonoBehaviour
                     break;
             }
         }
+        else if (GameManager.currentLang == GameManager.Language_enum.Chinese)
+        {
+            switch (num)
+            {
+                case 0:
+                    Detail_Name.text = "åº­é™¢";
+                    break;
+                case 1:
+                    Detail_Name.text = "æ³‰é›¨é˜";
+                    break;
+                case 2:
+                    Detail_Name.text = "é’é¹¤æ± ";
+                    break;
+                case 3:
+                    Detail_Name.text = "å›½ä¹å ‚(æˆ·å¤–åº­é™¢)";
+                    break;
+                case 4:
+                    Detail_Name.text = "ä¸‰è§’æ´æœ¨åŒ æç¨‹ä¸šæ•…å±…";
+                    break;
+                case 5:
+                    Detail_Name.text = "ç‰ä»æ´å°¹æ°æ•…å±…";
+                    break;
+                case 6:
+                    Detail_Name.text = "ä¸‰æ¸…æ´äº”å«å°†é‡‘æ˜¥æ°¸æ•…å±…";
+                    break;
+                case 7:
+                    Detail_Name.text = "å®½å‹‹æ´é—µæ°æ•…å±…";
+                    break;
+                case 8:
+                    Detail_Name.text = "ç¥­åŸºæ´æµ·ä¸°åºœé™¢å›å°¹æ³½è£æ–‹å®¤";
+                    break;
+                case 9:
+                    Detail_Name.text = "å±•æœ›å°";
+                    break;
+            }
+        }
+        else if (GameManager.currentLang == GameManager.Language_enum.Japan)
+        {
+            switch (num)
+            {
+                case 0:
+                    Detail_Name.text = "åº­";
+                    break;
+                case 1:
+                    Detail_Name.text = "å¤©ç¾½é–£";
+                    break;
+                case 2:
+                    Detail_Name.text = "é’å­¦ç´™";
+                    break;
+                case 3:
+                    Detail_Name.text = "å›½æ¥½å ‚(å±‹å¤–ã®åº­)";
+                    break;
+                case 4:
+                    Detail_Name.text = "ä¸‰è§’æ´éƒ½ç‰‡æ‰‹ã‚¤Â·ã‚¹ãƒ³ã‚ªãƒ—å®¶å±‹";
+                    break;
+                case 5:
+                    Detail_Name.text = "æŒ‡ç—›æƒœå…‰é˜´è™šåº¦ï¼Œæ€æ¬²æœ‰æ‰€ä½œä¸ºã€‚";
+                    break;
+                case 6:
+                    Detail_Name.text = "ä¸‰æ¸…æ´5ä½é•·ãƒ»é‡‘æ˜¥æ „å®¶å±‹";
+                    break;
+                case 7:
+                    Detail_Name.text = "å¯›å‹²æ´é–”æ°ã®å®¶å±‹";
+                    break;
+                case 8:
+                    Detail_Name.text = "ç¥­åŸºæ´ æµ·è±Šåºœé™¢å›ãƒ¦ãƒ³Â·ãƒ†ã‚¯ãƒ¨ãƒ³æ–å®¤";
+                    break;
+                case 9:
+                    Detail_Name.text = "å±•æœ›å°";
+                    break;
+            }
+        }
     }
 
     public void Close360()
@@ -269,7 +353,7 @@ public class NamSanHMode : MonoBehaviour
         Docent_AllUI.SetActive(false);
         AllUI.SetActive(true);
         scroll.CancelInvoke();
-        Docent_Finish();        // »ó¼¼¼³¸í, ¾Æ¹ÙÅ¸ ¾ø¾îÁö±â
+        Docent_Finish();        // ìƒì„¸ì„¤ëª…, ì•„ë°”íƒ€ ì—†ì–´ì§€ê¸°
     }
 
     public void Docent_OnOff()
@@ -298,7 +382,7 @@ public class NamSanHMode : MonoBehaviour
         labeldetail.DetailOpen();
     }
 
-    public void Docent_Finish()     // »ó¼¼¼³¸í ¾ø¾îÁö±â
+    public void Docent_Finish()     // ìƒì„¸ì„¤ëª… ì—†ì–´ì§€ê¸°
     {
         Docent_guide.SetActive(false);
         labeldetail.CloseDetailWindow();
@@ -312,61 +396,74 @@ public class NamSanHMode : MonoBehaviour
         Narration.Stop();
     }
 
-    // µµ½¼Æ®¿¡¼­ ¼±Á¶µéÀÇ ÁöÇı¼±ÅÃÇÏ¸é ½ÇÇàµÉ ÇÔ¼öÀÔ´Ï´Ù.
-    // µµ½¼Æ®¿¡¼­ ¼±ÅÃÇÑ °¡¿ÁÀº SelectLabel·Î ºÒ·¯¿À½Ã¸é µË´Ï´Ù.
-    // Close360¿¡¼­µµ ¼±Á¶µéÀÇ ÁöÇı°¡ ²¨Á³´ÂÁö È®ÀÎÇÏ°í ¾È²¨Á³À¸¸é ²ø ¼ö ÀÖ°Ô ÇØÁÖ¼¼¿ä.
+    // ë„ìŠ¨íŠ¸ì—ì„œ ì„ ì¡°ë“¤ì˜ ì§€í˜œì„ íƒí•˜ë©´ ì‹¤í–‰ë  í•¨ìˆ˜ì…ë‹ˆë‹¤.
+    // ë„ìŠ¨íŠ¸ì—ì„œ ì„ íƒí•œ ê°€ì˜¥ì€ SelectLabelë¡œ ë¶ˆëŸ¬ì˜¤ì‹œë©´ ë©ë‹ˆë‹¤.
+    // Close360ì—ì„œë„ ì„ ì¡°ë“¤ì˜ ì§€í˜œê°€ êº¼ì¡ŒëŠ”ì§€ í™•ì¸í•˜ê³  ì•ˆêº¼ì¡Œìœ¼ë©´ ëŒ ìˆ˜ ìˆê²Œ í•´ì£¼ì„¸ìš”.
     public void Wisdom()
     {
-        // ³×ºñ°ÔÀÌ¼Ç Ã¢ ºñÈ°¼ºÈ­(¿ª»ç¸ğµå¿¡¼­´Â ³×ºñ°ÔÀÌ¼ÇÃ¢ »ç¿ëÇÏÁö ¾ÊÀ½)
-        if (gamemanager.NaviRect.sizeDelta.x > GameManager.barClose)
+        // ë„¤ë¹„ê²Œì´ì…˜ ì°½ ë¹„í™œì„±í™”(ì—­ì‚¬ëª¨ë“œì—ì„œëŠ” ë„¤ë¹„ê²Œì´ì…˜ì°½ ì‚¬ìš©í•˜ì§€ ì•ŠìŒ)
+
+        if(!scroll.ChromaVideo.activeSelf)
         {
-            gamemanager.navi_t = 0;
-            gamemanager.NaviOn = true;
-            gamemanager.moveNavi = true;
-        }
+            if (gamemanager.NaviRect.sizeDelta.x > GameManager.barClose)
+            {
+                gamemanager.navi_t = 0;
+                gamemanager.NaviOn = true;
+                gamemanager.moveNavi = true;
+            }
 
-        string name = SelectLabel.name;
-        name = name.Replace("House", "");
-        float num = int.Parse(name);
-        switch(num)
+            string name = SelectLabel.name;
+            name = name.Replace("House", "");
+            float num = int.Parse(name);
+            switch(num)
+            {
+                case 1:
+                    scroll.ContentName = "ë©”ì¸ê´‘ì¥";
+                    break;
+                case 2:
+                    scroll.ContentName = "ì²œìš°ê°";
+                    break;
+                case 3:
+                    scroll.ContentName = "ì²­í•™ì§€";
+                    break;
+                case 4:
+                    scroll.ContentName = "ë‚¨ì‚°êµ­ì•…ë‹¹";
+                    break;
+                case 5:
+                    scroll.ContentName = "ì´ìŠ¹ì—…ê°€ì˜¥";
+                    break;
+                case 6:
+                    scroll.ContentName = "ìœ¤ì”¨ê°€ì˜¥";
+                    break;
+                case 7:
+                    scroll.ContentName = "ê¹€ì¶˜ì˜ê°€ì˜¥";
+                    break;
+                case 8:
+                    scroll.ContentName = "ë¯¼ì”¨ê°€ì˜¥";
+                    break;
+                case 9:
+                    scroll.ContentName = "ìœ¤íƒì˜ì¬ì‹¤";
+                    break;
+                case 10:
+                    scroll.ContentName = "ì „ë§ëŒ€";
+                    break;
+            }
+
+            scroll.ChromaVideo.SetActive(true);
+            scroll.Intelligence();
+            Narration.Stop();
+        }
+        else
         {
-            case 1:
-                scroll.ContentName = "¸ŞÀÎ±¤Àå";
-                break;
-            case 2:
-                scroll.ContentName = "Ãµ¿ì°¢";
-                break;
-            case 3:
-                scroll.ContentName = "Ã»ÇĞÁö";
-                break;
-            case 4:
-                scroll.ContentName = "³²»ê±¹¾Ç´ç";
-                break;
-            case 5:
-                scroll.ContentName = "ÀÌ½Â¾÷°¡¿Á";
-                break;
-            case 6:
-                scroll.ContentName = "À±¾¾°¡¿Á";
-                break;
-            case 7:
-                scroll.ContentName = "±èÃá¿µ°¡¿Á";
-                break;
-            case 8:
-                scroll.ContentName = "¹Î¾¾°¡¿Á";
-                break;
-            case 9:
-                scroll.ContentName = "À±ÅÃ¿µÀç½Ç";
-                break;
-            case 10:
-                scroll.ContentName = "Àü¸Á´ë";
-                break;
+            scroll.VideoPlay();
+            Invoke("OnDocent_guideBtn", 3.5f);
         }
+        Docent_guide.GetComponent<Button>().enabled= false;
+    }
 
-        scroll.TitleText.transform.parent.parent.gameObject.SetActive(true);
-        scroll.Intelligence();
-
-        Narration.Stop();
-
+    void OnDocent_guideBtn()
+    {
+        Docent_guide.GetComponent<Button>().enabled = true;
     }
 
     public void NarrStopPlay()

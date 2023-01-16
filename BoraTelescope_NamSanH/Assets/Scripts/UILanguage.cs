@@ -48,15 +48,51 @@ public class UILanguage : MonoBehaviour
     public Sprite Tip_idle_E;
     public Sprite Tip_Select_E;
 
+    public Sprite Home_idle_C;
+    public Sprite Live_idle_C;
+    public Sprite Live_Select_C;
+    public Sprite XR_idle_C;
+    public Sprite XR_Select_C;
+    public Sprite NamSanH_idle_C;
+    public Sprite NamSanH_Select_C;
+    public Sprite Language_idle_C;
+    public Sprite Language_Select_C;
+    public Sprite Capture_idle_C;
+    public Sprite Capture_Select_C;
+    public Sprite Tip_idle_C;
+    public Sprite Tip_Select_C;
+
+    public Sprite Home_idle_J;
+    public Sprite Live_idle_J;
+    public Sprite Live_Select_J;
+    public Sprite XR_idle_J;
+    public Sprite XR_Select_J;
+    public Sprite NamSanH_idle_J;
+    public Sprite NamSanH_Select_J;
+    public Sprite Language_idle_J;
+    public Sprite Language_Select_J;
+    public Sprite Capture_idle_J;
+    public Sprite Capture_Select_J;
+    public Sprite Tip_idle_J;
+    public Sprite Tip_Select_J;
+
     private void Start()
     {
         if (GameManager.currentLang == GameManager.Language_enum.Korea)
         {
             SelectKorea();
         }
-        else if (GameManager.currentLang != GameManager.Language_enum.Korea)
+        else if (GameManager.currentLang == GameManager.Language_enum.English)
         {
-            NotSelectKorea();
+            SelectEnglish();
+        }
+        else if(GameManager.currentLang == GameManager.Language_enum.Chinese)
+        {
+            SelectChinese();
+        }
+        else if (GameManager.currentLang == GameManager.Language_enum.Japan)
+        {
+            SelectJapan();
         }
     }
 
@@ -79,7 +115,7 @@ public class UILanguage : MonoBehaviour
         SetSize();
     }
 
-    public void NotSelectKorea()
+    public void SelectEnglish()
     {
         Home_Btn.sprite = Home_idle_E;
         Live_Btn.sprite = Live_idle_E;
@@ -94,6 +130,42 @@ public class UILanguage : MonoBehaviour
         Capture_Btn_1.sprite = Capture_Select_E;
         Tip_Btn.sprite = Tip_idle_E;
         Tip_Btn_1.sprite = Tip_Select_E;
+        SetSize();
+    }
+
+    public void SelectChinese()
+    {
+        Home_Btn.sprite = Home_idle_C;
+        Live_Btn.sprite = Live_idle_C;
+        Live_Btn_1.sprite = Live_Select_C;
+        XR_Btn.sprite = XR_idle_C;
+        XR_Btn_1.sprite = XR_Select_C;
+        NamSanH_Btn.sprite = NamSanH_idle_C;
+        NamSanH_Btn_1.sprite = NamSanH_Select_C;
+        Language_Btn.sprite = Language_idle_C;
+        Language_Btn_1.sprite = Language_Select_C;
+        Capture_Btn.sprite = Capture_idle_C;
+        Capture_Btn_1.sprite = Capture_Select_C;
+        Tip_Btn.sprite = Tip_idle_C;
+        Tip_Btn_1.sprite = Tip_Select_C;
+        SetSize();
+    }
+
+    public void SelectJapan()
+    {
+        Home_Btn.sprite = Home_idle_J;
+        Live_Btn.sprite = Live_idle_J;
+        Live_Btn_1.sprite = Live_Select_J;
+        XR_Btn.sprite = XR_idle_J;
+        XR_Btn_1.sprite = XR_Select_J;
+        NamSanH_Btn.sprite = NamSanH_idle_J;
+        NamSanH_Btn_1.sprite = NamSanH_Select_J;
+        Language_Btn.sprite = Language_idle_J;
+        Language_Btn_1.sprite = Language_Select_J;
+        Capture_Btn.sprite = Capture_idle_J;
+        Capture_Btn_1.sprite = Capture_Select_J;
+        Tip_Btn.sprite = Tip_idle_J;
+        Tip_Btn_1.sprite = Tip_Select_J;
         SetSize();
     }
 
@@ -127,6 +199,14 @@ public class UILanguage : MonoBehaviour
                 {
                     btn.GetComponent<Image>().sprite = Live_Select_E;
                 }
+                else if (GameManager.currentLang == GameManager.Language_enum.Chinese)
+                {
+                    btn.GetComponent<Image>().sprite = Live_Select_C;
+                }
+                else if (GameManager.currentLang == GameManager.Language_enum.Japan)
+                {
+                    btn.GetComponent<Image>().sprite = Live_Select_J;
+                }
                 break;
             case "XRMode":
                 if (GameManager.currentLang == GameManager.Language_enum.Korea)
@@ -136,6 +216,14 @@ public class UILanguage : MonoBehaviour
                 else if (GameManager.currentLang != GameManager.Language_enum.Korea)
                 {
                     btn.GetComponent<Image>().sprite = XR_Select_E;
+                }
+                else if (GameManager.currentLang == GameManager.Language_enum.Chinese)
+                {
+                    btn.GetComponent<Image>().sprite = XR_Select_C;
+                }
+                else if (GameManager.currentLang == GameManager.Language_enum.Japan)
+                {
+                    btn.GetComponent<Image>().sprite = XR_Select_J;
                 }
                 break;
             case "NamSanHMode":
@@ -147,6 +235,14 @@ public class UILanguage : MonoBehaviour
                 {
                     btn.GetComponent<Image>().sprite = NamSanH_Select_E;
                 }
+                else if (GameManager.currentLang == GameManager.Language_enum.Chinese)
+                {
+                    btn.GetComponent<Image>().sprite = NamSanH_Select_C;
+                }
+                else if (GameManager.currentLang == GameManager.Language_enum.Japan)
+                {
+                    btn.GetComponent<Image>().sprite = NamSanH_Select_J;
+                }
                 break;
             case "Capture":
                 if (GameManager.currentLang == GameManager.Language_enum.Korea)
@@ -156,6 +252,14 @@ public class UILanguage : MonoBehaviour
                 else if (GameManager.currentLang != GameManager.Language_enum.Korea)
                 {
                     btn.GetComponent<Image>().sprite = Capture_Select_E;
+                }
+                else if (GameManager.currentLang == GameManager.Language_enum.Chinese)
+                {
+                    btn.GetComponent<Image>().sprite = Capture_Select_C;
+                }
+                else if (GameManager.currentLang == GameManager.Language_enum.Japan)
+                {
+                    btn.GetComponent<Image>().sprite = Capture_Select_J;
                 }
                 break;
             case "Language":
@@ -167,6 +271,14 @@ public class UILanguage : MonoBehaviour
                 {
                     btn.GetComponent<Image>().sprite = Language_Select_E;
                 }
+                else if (GameManager.currentLang == GameManager.Language_enum.Chinese)
+                {
+                    btn.GetComponent<Image>().sprite = Language_Select_C;
+                }
+                else if (GameManager.currentLang == GameManager.Language_enum.Japan)
+                {
+                    btn.GetComponent<Image>().sprite = Language_Select_J;
+                }
                 break;
             case "Tip":
                 if (GameManager.currentLang == GameManager.Language_enum.Korea)
@@ -176,6 +288,14 @@ public class UILanguage : MonoBehaviour
                 else if (GameManager.currentLang != GameManager.Language_enum.Korea)
                 {
                     btn.GetComponent<Image>().sprite = Tip_Select_E;
+                }
+                else if (GameManager.currentLang == GameManager.Language_enum.Chinese)
+                {
+                    btn.GetComponent<Image>().sprite = Tip_Select_C;
+                }
+                else if (GameManager.currentLang == GameManager.Language_enum.Japan)
+                {
+                    btn.GetComponent<Image>().sprite = Tip_Select_J;
                 }
                 break;
         }
@@ -194,6 +314,14 @@ public class UILanguage : MonoBehaviour
                 {
                     btn.GetComponent<Image>().sprite = Live_idle_E;
                 }
+                else if (GameManager.currentLang == GameManager.Language_enum.Chinese)
+                {
+                    btn.GetComponent<Image>().sprite = Live_idle_C;
+                }
+                else if (GameManager.currentLang == GameManager.Language_enum.Japan)
+                {
+                    btn.GetComponent<Image>().sprite = Live_idle_J;
+                }
                 break;
             case "XRMode":
                 if (GameManager.currentLang == GameManager.Language_enum.Korea)
@@ -203,6 +331,14 @@ public class UILanguage : MonoBehaviour
                 else if (GameManager.currentLang != GameManager.Language_enum.Korea)
                 {
                     btn.GetComponent<Image>().sprite = XR_idle_E;
+                }
+                else if (GameManager.currentLang == GameManager.Language_enum.Chinese)
+                {
+                    btn.GetComponent<Image>().sprite = XR_idle_C;
+                }
+                else if (GameManager.currentLang == GameManager.Language_enum.Japan)
+                {
+                    btn.GetComponent<Image>().sprite = XR_idle_J;
                 }
                 break;
             case "NamSanHMode":
@@ -214,6 +350,14 @@ public class UILanguage : MonoBehaviour
                 {
                     btn.GetComponent<Image>().sprite = NamSanH_idle_E;
                 }
+                else if (GameManager.currentLang == GameManager.Language_enum.Chinese)
+                {
+                    btn.GetComponent<Image>().sprite = NamSanH_idle_C;
+                }
+                else if (GameManager.currentLang == GameManager.Language_enum.Japan)
+                {
+                    btn.GetComponent<Image>().sprite = NamSanH_idle_J;
+                }
                 break;
             case "Capture":
                 if (GameManager.currentLang == GameManager.Language_enum.Korea)
@@ -223,6 +367,14 @@ public class UILanguage : MonoBehaviour
                 else if (GameManager.currentLang != GameManager.Language_enum.Korea)
                 {
                     btn.GetComponent<Image>().sprite = Capture_idle_E;
+                }
+                else if (GameManager.currentLang == GameManager.Language_enum.Chinese)
+                {
+                    btn.GetComponent<Image>().sprite = Capture_idle_C;
+                }
+                else if (GameManager.currentLang == GameManager.Language_enum.Japan)
+                {
+                    btn.GetComponent<Image>().sprite = Capture_idle_J;
                 }
                 break;
             case "Language":
@@ -234,6 +386,14 @@ public class UILanguage : MonoBehaviour
                 {
                     btn.GetComponent<Image>().sprite = Language_idle_E;
                 }
+                else if (GameManager.currentLang == GameManager.Language_enum.Chinese)
+                {
+                    btn.GetComponent<Image>().sprite = Language_idle_C;
+                }
+                else if (GameManager.currentLang == GameManager.Language_enum.Japan)
+                {
+                    btn.GetComponent<Image>().sprite = Language_idle_J;
+                }
                 break;
             case "Tip":
                 if (GameManager.currentLang == GameManager.Language_enum.Korea)
@@ -243,6 +403,14 @@ public class UILanguage : MonoBehaviour
                 else if (GameManager.currentLang != GameManager.Language_enum.Korea)
                 {
                     btn.GetComponent<Image>().sprite = Tip_idle_E;
+                }
+                else if (GameManager.currentLang == GameManager.Language_enum.Chinese)
+                {
+                    btn.GetComponent<Image>().sprite = Tip_idle_C;
+                }
+                else if (GameManager.currentLang == GameManager.Language_enum.Japan)
+                {
+                    btn.GetComponent<Image>().sprite = Tip_idle_J;
                 }
                 break;
         }
@@ -259,7 +427,17 @@ public class UILanguage : MonoBehaviour
         else if (GameManager.currentLang != GameManager.Language_enum.Korea)
         {
             GameManager.currentLang = GameManager.Language_enum.English;
-            NotSelectKorea();
+            SelectEnglish();
+        }
+        else if (GameManager.currentLang == GameManager.Language_enum.Chinese)
+        {
+            GameManager.currentLang = GameManager.Language_enum.Chinese;
+            SelectChinese();
+        }
+        else if (GameManager.currentLang == GameManager.Language_enum.Japan)
+        {
+            GameManager.currentLang = GameManager.Language_enum.Japan;
+            SelectJapan();
         }
     }
 }

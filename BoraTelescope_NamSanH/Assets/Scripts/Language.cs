@@ -31,6 +31,12 @@ public class Language : MonoBehaviour
             case GameManager.Language_enum.English:
                 objImg.sprite = Lang_s[1];
                 break;
+            case GameManager.Language_enum.Chinese:
+                objImg.sprite = Lang_s[2];
+                break;
+            case GameManager.Language_enum.Japan:
+                objImg.sprite = Lang_s[3];
+                break;
         }
 
         objImg.SetNativeSize();

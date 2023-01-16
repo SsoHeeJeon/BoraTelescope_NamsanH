@@ -18,8 +18,8 @@ public class ReadJsonFile : MonoBehaviour
 
     public static List<string> DetailText_K = new List<string>();
     public static List<string> DetailText_E = new List<string>();
-    //public static List<string> DetailText_C = new List<string>();
-    //public static List<string> DetailText_J = new List<string>();
+    public static List<string> DetailText_C = new List<string>();
+    public static List<string> DetailText_J = new List<string>();
 
     public void Readfile()
     {
@@ -51,6 +51,8 @@ public class ReadJsonFile : MonoBehaviour
                 LabelText pantilt = JsonUtility.FromJson<LabelText>(GOTEXT_arr[index]);
                 DetailText_K.Add(pantilt.Korean);
                 DetailText_E.Add(pantilt.English);
+                DetailText_C.Add(pantilt.Chinese);
+                DetailText_J.Add(pantilt.Japan);
             }
         }
 

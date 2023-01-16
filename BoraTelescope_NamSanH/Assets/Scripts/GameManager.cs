@@ -30,12 +30,16 @@ public class LabelText
     public string LabelName;
     public string Korean;
     public string English;
+    public string Chinese;
+    public string Japan;
 
-    public LabelText(string labelname, string kor, string eng)
+    public LabelText(string labelname, string kor, string eng, string chinese, string japan)
     {
         LabelName = labelname;
         Korean = kor;
         English = eng;
+        Chinese = chinese;
+        Japan = japan;
     }
 }
 
@@ -72,7 +76,7 @@ public class GameManager : ContentsInfo
 {
     public enum Language_enum
     {
-        Korea, English
+        Korea, English, Chinese, Japan
     }
     public static Language_enum currentLang;
     public Language_enum curlang;
@@ -1427,10 +1431,26 @@ public class GameManager : ContentsInfo
                 break;
             case "English":
                 currentLang = Language_enum.English;
-                uilang.NotSelectKorea();
+                uilang.SelectEnglish();
                 for (int index = 0; index < NaviLabel.transform.childCount; index++)
                 {
                     NaviLabel.transform.GetChild(index).gameObject.GetComponent<Image>().sprite = NaviLabel_E[index];
+                }
+                break;
+            case "Chinese":
+                currentLang = Language_enum.Chinese;
+                uilang.SelectChinese();
+                for (int index = 0; index < NaviLabel.transform.childCount; index++)
+                {
+                    NaviLabel.transform.GetChild(index).gameObject.GetComponent<Image>().sprite = NaviLabel_C[index];
+                }
+                break;
+            case "Japan":
+                currentLang = Language_enum.Japan;
+                uilang.SelectJapan();
+                for (int index = 0; index < NaviLabel.transform.childCount; index++)
+                {
+                    NaviLabel.transform.GetChild(index).gameObject.GetComponent<Image>().sprite = NaviLabel_J[index];
                 }
                 break;
         }

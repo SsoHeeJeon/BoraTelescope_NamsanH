@@ -17,10 +17,18 @@ public class CategoryContents : MonoBehaviour
     public Sprite Flow_K_sel;
     public Sprite Flow_E;
     public Sprite Flow_E_sel;
+    public Sprite Flow_C;
+    public Sprite Flow_C_sel;
+    public Sprite Flow_J;
+    public Sprite Flow_J_sel;
     public Sprite Docent_K;
     public Sprite Docent_K_sel;
+    public Sprite Docent_C;
+    public Sprite Docent_C_sel;
     public Sprite Docent_E;
     public Sprite Docent_E_sel;
+    public Sprite Docent_J;
+    public Sprite Docent_J_sel;
 
     float Flow_val = 1;
     float Docent_val = 0.02f;
@@ -39,6 +47,16 @@ public class CategoryContents : MonoBehaviour
         {
             GameManager.currentLang = GameManager.Language_enum.English;
             ChangeCategory_lang("English");
+        }
+        else if (GameManager.currentLang == GameManager.Language_enum.Chinese)
+        {
+            GameManager.currentLang = GameManager.Language_enum.Japan;
+            ChangeCategory_lang("Chinese");
+        }
+        else if (GameManager.currentLang == GameManager.Language_enum.Japan)
+        {
+            GameManager.currentLang = GameManager.Language_enum.Chinese;
+            ChangeCategory_lang("Japan");
         }
         SelectCategory_Flow();
     }
@@ -102,6 +120,20 @@ public class CategoryContents : MonoBehaviour
             Flow_btn_Sel.sprite = Flow_E_sel;
             Docent_btn.sprite = Docent_E;
             Docent_btn_Sel.sprite = Docent_E_sel;
+        }
+        else if (lang == "Chinese")
+        {
+            Flow_btn.sprite = Flow_C;
+            Flow_btn_Sel.sprite = Flow_C_sel;
+            Docent_btn.sprite = Docent_C;
+            Docent_btn_Sel.sprite = Docent_C_sel;
+        }
+        else if (lang == "Japan")
+        {
+            Flow_btn.sprite = Flow_J;
+            Flow_btn_Sel.sprite = Flow_J_sel;
+            Docent_btn.sprite = Docent_J;
+            Docent_btn_Sel.sprite = Docent_J_sel;
         }
 
         Flow_btn.SetNativeSize();

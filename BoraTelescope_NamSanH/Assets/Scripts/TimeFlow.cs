@@ -11,6 +11,8 @@ public class TimeFlow : MonoBehaviour
     public GameObject TFImage;
     public GameObject TFText_k;
     public GameObject TFText_e;
+    public GameObject TFText_C;
+    public GameObject TFText_J;
     [SerializeField] Text YearText;
 
     public Sprite Y1991;
@@ -106,6 +108,8 @@ public class TimeFlow : MonoBehaviour
             }
             TFText_k.SetActive(true);
             TFText_e.SetActive(false);
+            TFText_C.SetActive(false);
+            TFText_J.SetActive(false);
         }
         else if (GameManager.currentLang == GameManager.Language_enum.English)
         {
@@ -115,6 +119,31 @@ public class TimeFlow : MonoBehaviour
             }
             TFText_k.SetActive(false);
             TFText_e.SetActive(true);
+            TFText_C.SetActive(false);
+            TFText_J.SetActive(false);
+
+        }
+        else if (GameManager.currentLang == GameManager.Language_enum.Chinese)
+        {
+            if (YearText.text.Contains("³â"))
+            {
+                YearText.text = namsanH.SelectLabel.name;
+            }
+            TFText_k.SetActive(false);
+            TFText_C.SetActive(true);
+            TFText_e.SetActive(false);
+            TFText_J.SetActive(false);
+        }
+        else if (GameManager.currentLang == GameManager.Language_enum.Japan)
+        {
+            if (YearText.text.Contains("³â"))
+            {
+                YearText.text = namsanH.SelectLabel.name;
+            }
+            TFText_k.SetActive(false);
+            TFText_J.SetActive(true);
+            TFText_C.SetActive(false);
+            TFText_e.SetActive(false);
         }
     }
 
@@ -128,14 +157,34 @@ public class TimeFlow : MonoBehaviour
             YearText.text = Label.name + "³â";
             TFText_k.SetActive(true);
             TFText_e.SetActive(false);
+            TFText_C.SetActive(false);
+            TFText_J.SetActive(false);
         }
         else if(GameManager.currentLang == GameManager.Language_enum.English)
         {
             YearText.text = Label.name;
             TFText_k.SetActive(false);
             TFText_e.SetActive(true);
+            TFText_C.SetActive(false);
+            TFText_J.SetActive(false);
         }
-        
+        else if (GameManager.currentLang == GameManager.Language_enum.Chinese)
+        {
+            YearText.text = Label.name;
+            TFText_k.SetActive(false);
+            TFText_C.SetActive(true);
+            TFText_e.SetActive(false);
+            TFText_J.SetActive(false);
+        }
+        else if (GameManager.currentLang == GameManager.Language_enum.Japan)
+        {
+            YearText.text = Label.name;
+            TFText_k.SetActive(false);
+            TFText_J.SetActive(true);
+            TFText_C.SetActive(false);
+            TFText_e.SetActive(false);
+        }
+
         switch (Label.name)
         {
             case "1991":
