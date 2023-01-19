@@ -601,6 +601,7 @@ PlayerSettings:
   webGLDecompressionFallback: 0
   scriptingDefineSymbols:
     1: BAKERY_INCLUDED
+    7: BAKERY_INCLUDED
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend: {}

@@ -76,7 +76,8 @@ public class LabelDetail : MonoBehaviour
             if(SeeDetail_Open == true)
             {
                 DetailWindow_Open();
-            } else if(SeeDetail_Open == false)
+            } 
+            else if(SeeDetail_Open == false)
             {
                 DetailWindow_Close();
             }
@@ -92,7 +93,7 @@ public class LabelDetail : MonoBehaviour
                 {
                     //namsanH.SelectLabel = null;
                     //namsanH.gamemanager.Home_Btn_NamSanH();
-                    CloseDetailWindow();
+                    //CloseDetailWindow();
                 }
                 CheckDetailTime = false;
             }

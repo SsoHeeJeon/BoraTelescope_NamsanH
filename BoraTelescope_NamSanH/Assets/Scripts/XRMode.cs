@@ -246,7 +246,7 @@ public class XRMode : MonoBehaviour
                 gamemanager.MiniMap_CameraGuide.gameObject.SetActive(true);
                 valueminimapx = ((Input.GetTouch(0).position.x - 540) / 910 * totalminimap) - mapX.rect.width / 2 + mapCamX.rect.width / 2;
                 //gamemanager.MiniMap_Camera.transform.localPosition = new Vector3(gamemanager.minimapCamera_x, gamemanager.MiniMap_Camera.transform.localPosition.y, gamemanager.MiniMap_Camera.transform.localPosition.z);
-                gamemanager.MiniMap_CameraGuide.transform.localPosition = new Vector3(valueminimapx, gamemanager.MiniMap_Camera.transform.localPosition.y, gamemanager.MiniMap_Camera.transform.localPosition.z);
+                gamemanager.MiniMap_CameraGuide.transform.localPosition = new Vector3(valueminimapx, gamemanager.MiniMap_CameraGuide.transform.localPosition.y, gamemanager.MiniMap_Camera.transform.localPosition.z);
 
                 xpulse = ((valueminimapx - mapCamX.rect.width / 2 + mapX.rect.width / 2) / totalminimap * (XRMode_Manager.MaxPan - XRMode_Manager.MinPan)) + XRMode_Manager.MinPan;
                 ypulse = currentMotor_y;
@@ -266,7 +266,7 @@ public class XRMode : MonoBehaviour
                         alreadyminimap = true;
                     }
                     //gamemanager.MiniMap_Camera.transform.localPosition = new Vector3(gamemanager.minimapCamera_x, gamemanager.MiniMap_Camera.transform.localPosition.y, gamemanager.MiniMap_Camera.transform.localPosition.z);
-                    gamemanager.MiniMap_CameraGuide.transform.localPosition = new Vector3(valueminimapx, gamemanager.MiniMap_Camera.transform.localPosition.y, gamemanager.MiniMap_Camera.transform.localPosition.z);
+                    gamemanager.MiniMap_CameraGuide.transform.localPosition = new Vector3(valueminimapx, gamemanager.MiniMap_CameraGuide.transform.localPosition.y, gamemanager.MiniMap_Camera.transform.localPosition.z);
 
                     xpulse = ((valueminimapx - mapCamX.rect.width / 2 + mapX.rect.width / 2) / totalminimap * (XRMode_Manager.MaxPan - XRMode_Manager.MinPan)) + XRMode_Manager.MinPan;
                     ypulse = currentMotor_y;

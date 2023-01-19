@@ -39,6 +39,9 @@ public class Language : MonoBehaviour
                 break;
         }
 
-        objImg.SetNativeSize();
+        if(!objImg.gameObject.name.Contains("(none)"))
+        {
+            objImg.SetNativeSize();
+        }
     }
 }

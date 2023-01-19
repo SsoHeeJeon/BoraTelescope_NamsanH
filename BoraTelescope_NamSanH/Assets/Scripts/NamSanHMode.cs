@@ -368,6 +368,13 @@ public class NamSanHMode : MonoBehaviour
             OnOff_Btn.SetActive(true);
             Docent_Finish();
         }
+        if(scroll.ChromaVideo.activeSelf)
+        {
+            scroll.ChromaVideo.GetComponent<MeshRenderer>().enabled = false;
+            scroll.ChromaVideo.gameObject.SetActive(false);
+            scroll.ScrollHome();
+            Invoke("OnDocent_guideBtn", 3.5f);
+        }
     }
 
     public void Docent_Start()
@@ -455,10 +462,15 @@ public class NamSanHMode : MonoBehaviour
         }
         else
         {
-            scroll.VideoPlay();
-            Invoke("OnDocent_guideBtn", 3.5f);
+            CloseWisdom();
         }
         Docent_guide.GetComponent<Button>().enabled= false;
+    }
+
+    public void CloseWisdom()
+    {
+        scroll.VideoPlay();
+        Invoke("OnDocent_guideBtn", 3.5f);
     }
 
     void OnDocent_guideBtn()

@@ -36,6 +36,8 @@ public class scroll : MonoBehaviour
 
     [SerializeField]
     NamSanHMode namsan;
+    [SerializeField]
+    Button Close;
     public GameObject ChromaVideo;
     VideoPlayer Video;
     Intelligentinfo info;
@@ -43,7 +45,7 @@ public class scroll : MonoBehaviour
 
     public string ContentName;
     bool DisText;
-
+    bool OnText;
     void Start()
     {
         ad = GetComponent<AudioSource>();
@@ -71,9 +73,28 @@ public class scroll : MonoBehaviour
                 case GameManager.Language_enum.Japan:
                     Title_J.transform.parent.parent.GetComponent<Image>().fillAmount -= Time.deltaTime * 0.3f;
                     break;
-
             }
         }
+
+        if(OnText)
+        {
+            switch (namsan.gamemanager.curlang)
+            {
+                case GameManager.Language_enum.Korea:
+                    Title_KE.transform.parent.parent.GetComponent<Image>().fillAmount += Time.deltaTime * 0.4f;
+                    break;
+                case GameManager.Language_enum.English:
+                    Title_KE.transform.parent.parent.GetComponent<Image>().fillAmount += Time.deltaTime * 0.4f;
+                    break;
+                case GameManager.Language_enum.Chinese:
+                    Title_C.transform.parent.parent.GetComponent<Image>().fillAmount += Time.deltaTime * 0.4f;
+                    break;
+                case GameManager.Language_enum.Japan:
+                    Title_J.transform.parent.parent.GetComponent<Image>().fillAmount += Time.deltaTime * 0.4f;
+                    break;
+            }
+        }
+
     }
     
     void OnRenderer()
@@ -92,20 +113,32 @@ public class scroll : MonoBehaviour
         switch (namsan.gamemanager.curlang)
         {
             case GameManager.Language_enum.Korea:
-                Title_KE.transform.parent.parent.GetComponent<Image>().fillAmount = 1;
+                Title_KE.transform.parent.parent.GetComponent<Image>().fillAmount = 0.3f;
+                Title_KE.SetActive(true);
+                TitleText_KE.SetActive(true);
+                SubText_KE.SetActive(true);
                 break;
             case GameManager.Language_enum.English:
-                Title_KE.transform.parent.parent.GetComponent<Image>().fillAmount = 1;
+                Title_KE.transform.parent.parent.GetComponent<Image>().fillAmount = 0.3f;
+                Title_KE.SetActive(true);
+                TitleText_KE.SetActive(true);
+                SubText_KE.SetActive(true);
                 break;
             case GameManager.Language_enum.Chinese:
-                Title_C.transform.parent.parent.GetComponent<Image>().fillAmount = 1;
+                Title_C.transform.parent.parent.GetComponent<Image>().fillAmount = 0.3f;
+                Title_C.SetActive(true);
+                TitleText_C.SetActive(true);
+                SubText_C.SetActive(true);
                 break;
             case GameManager.Language_enum.Japan:
-                Title_J.transform.parent.parent.GetComponent<Image>().fillAmount = 1;
+                Title_J.transform.parent.parent.GetComponent<Image>().fillAmount = 0.3f;
+                Title_J.SetActive(true);
+                TitleText_J.SetActive(true);
+                SubText_J.SetActive(true);
                 break;
 
         }
-        
+        OnText = true;
         Invoke("VideoStop", 3f);
         Invoke("OnRenderer", 0.5f);
 
@@ -269,7 +302,9 @@ public class scroll : MonoBehaviour
     // Update is called once per frame
     void VideoStop()
     {
+        OnText=false;
         DocentBtn.enabled = true;
+        Close.gameObject.SetActive(true);
         switch (namsan.gamemanager.curlang)
         {
             case GameManager.Language_enum.Korea:
@@ -337,6 +372,7 @@ public class scroll : MonoBehaviour
     
     public void DisObject()
     {
+        Close.gameObject.SetActive(false);
         ChromaVideo.GetComponent<MeshRenderer>().enabled = false;
         switch (namsan.gamemanager.curlang)
         {
@@ -394,7 +430,7 @@ public class scroll : MonoBehaviour
                 Title_KE.SetActive(false);
                 TitleText_KE.SetActive(false);
                 SubText_KE.SetActive(false);
-                TitleText_KE.transform.parent.parent.gameObject.SetActive(false);
+                //TitleText_KE.transform.parent.parent.gameObject.SetActive(false);
                 break;
             case GameManager.Language_enum.English:
                 TitleText_KE.GetComponent<TMP_Text>().text = "";
@@ -403,7 +439,7 @@ public class scroll : MonoBehaviour
                 Title_KE.SetActive(false);
                 TitleText_KE.SetActive(false);
                 SubText_KE.SetActive(false);
-                TitleText_KE.transform.parent.parent.gameObject.SetActive(false);
+                //TitleText_KE.transform.parent.parent.gameObject.SetActive(false);
                 break;
             case GameManager.Language_enum.Chinese:
                 TitleText_C.GetComponent<TMP_Text>().text = "";
@@ -412,7 +448,7 @@ public class scroll : MonoBehaviour
                 Title_C.SetActive(false);
                 TitleText_C.SetActive(false);
                 SubText_C.SetActive(false);
-                TitleText_C.transform.parent.parent.gameObject.SetActive(false);
+                //TitleText_C.transform.parent.parent.gameObject.SetActive(false);
                 break;
             case GameManager.Language_enum.Japan:
                 TitleText_J.GetComponent<TMP_Text>().text = "";
@@ -421,11 +457,12 @@ public class scroll : MonoBehaviour
                 Title_J.SetActive(false);
                 TitleText_J.SetActive(false);
                 SubText_J.SetActive(false);
-                TitleText_J.transform.parent.parent.gameObject.SetActive(false);
+                //TitleText_J.transform.parent.parent.gameObject.SetActive(false);
                 break;
 
         }
         DisText = false;
+        DocentBtn.enabled = true;
     }
 
     public void InvokeCancel()
