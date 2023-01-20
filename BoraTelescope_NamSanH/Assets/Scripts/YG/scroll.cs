@@ -39,8 +39,7 @@ public class scroll : MonoBehaviour
 
     [SerializeField]
     NamSanHMode namsan;
-    [SerializeField]
-    Button Close;
+    public Button Close;
     public GameObject ChromaVideo;
     VideoPlayer Video;
     Intelligentinfo info;

@@ -223,6 +223,7 @@ public class GameManager : ContentsInfo
     void Update()
     {
         curlang = currentLang;
+        print(curlang);
         // 네비게이션 창, 상세설명창 속도 조절 
         navi_t += Time.deltaTime * 0.1f;
         langnavi_t += Time.deltaTime * 0.1f;
@@ -806,6 +807,21 @@ public class GameManager : ContentsInfo
         }
     }
 
+    public void OnClickMerry()
+    {
+        if(NaviRect.sizeDelta.x > barClose)
+        {
+            navi_t = 0;
+            moveNavi = true;
+        }
+        if(LangRect.sizeDelta.x > barClose)
+        {
+            langnavi_t = 0;
+            movelangNavi = true;
+            MenuBar.transform.GetChild(3).gameObject.transform.GetChild(0).gameObject.SetActive(false);
+        }
+    }
+
     /// <summary>
     /// 네비게이션 창 활성화/비활성화
     /// </summary>
@@ -897,6 +913,7 @@ public class GameManager : ContentsInfo
     {
         if (SceneManager.GetActiveScene().name == "NamSanHMode")
         {
+            namsanMode.Merry.SetActive(false);
             namsanMode.NaviLabel(label);
         }
     }
@@ -1583,6 +1600,14 @@ public class GameManager : ContentsInfo
             {
                 Tip_Obj.GetComponent<Image>().sprite = Tip_XR_E;
             }
+            else if (currentLang == Language_enum.Chinese)
+            {
+                Tip_Obj.GetComponent<Image>().sprite = Tip_XR_C;
+            }
+            else if (currentLang == Language_enum.Japan)
+            {
+                Tip_Obj.GetComponent<Image>().sprite = Tip_XR_J;
+            }
         }
         else if (SceneManager.GetActiveScene().name == "NamSanHMode")
         {
@@ -1593,6 +1618,14 @@ public class GameManager : ContentsInfo
             else if (currentLang == Language_enum.English)
             {
                 Tip_Obj.GetComponent<Image>().sprite = Tip_Nam_E;
+            }
+            else if (currentLang == Language_enum.Chinese)
+            {
+                Tip_Obj.GetComponent<Image>().sprite = Tip_Nam_C;
+            }
+            else if (currentLang == Language_enum.Japan)
+            {
+                Tip_Obj.GetComponent<Image>().sprite = Tip_Nam_J;
             }
         }
 
@@ -1694,6 +1727,7 @@ public class GameManager : ContentsInfo
         {
             namsanMode.timeflow.CloseTF();
         }
+        namsanMode.Merry.SetActive(false);
     }
 
 }

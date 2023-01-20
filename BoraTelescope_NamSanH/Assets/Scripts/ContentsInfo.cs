@@ -153,13 +153,13 @@ public class ContentsInfo : LogSendServer
 
         Tip_XR_K = Resources.Load<Sprite>("Sprite/Tip_XR_K");
         Tip_XR_E = Resources.Load<Sprite>("Sprite/Tip_XR_E");
-        Tip_XR_C = Resources.Load<Sprite>("Sprite/Tip_XR_K");
-        Tip_XR_J = Resources.Load<Sprite>("Sprite/Tip_XR_K");
+        Tip_XR_C = Resources.Load<Sprite>("Sprite/Tip_XR_C");
+        Tip_XR_J = Resources.Load<Sprite>("Sprite/Tip_XR_J");
 
         Tip_Nam_K = Resources.Load<Sprite>("Sprite/Tip_Nam_K");
         Tip_Nam_E = Resources.Load<Sprite>("Sprite/Tip_Nam_E");
-        Tip_Nam_C = Resources.Load<Sprite>("Sprite/Tip_Nam_K");
-        Tip_Nam_J = Resources.Load<Sprite>("Sprite/Tip_Nam_K");
+        Tip_Nam_C = Resources.Load<Sprite>("Sprite/Tip_Nam_C");
+        Tip_Nam_J = Resources.Load<Sprite>("Sprite/Tip_Nam_J");
 
         WaitingVideo_path = Directory.GetFiles(Application.dataPath + "/Resources/Video", "*.mp4");
 

@@ -10219,10 +10219,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisObject: {fileID: 1628245292}
   Lang_s:
-  - {fileID: 21300000, guid: 743285fc55aa45d4cae2ceea29430b1d, type: 3}
-  - {fileID: 21300000, guid: d046684cff09684449860e68b2d170cf, type: 3}
-  - {fileID: 21300000, guid: d046684cff09684449860e68b2d170cf, type: 3}
-  - {fileID: 21300000, guid: d046684cff09684449860e68b2d170cf, type: 3}
+  - {fileID: 21300000, guid: d05e9b9c4b5d0a24baf11ae086f92e8c, type: 3}
+  - {fileID: 21300000, guid: 82b05e8d27fcf4f4197057af33705abf, type: 3}
+  - {fileID: 21300000, guid: 07ff47cb1e856d24f8540fca8ac0d9cf, type: 3}
+  - {fileID: 21300000, guid: fc3b390bea12e3745bff4532e576fb24, type: 3}
 --- !u!114 &1628245297
 MonoBehaviour:
   m_ObjectHideFlags: 0

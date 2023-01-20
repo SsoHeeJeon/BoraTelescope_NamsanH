@@ -39,6 +39,7 @@ public class NamSanHMode : MonoBehaviour
     scroll scroll;
     [SerializeField]
     GameObject Notice360;
+    public GameObject Merry;
 
     // Start is called before the first frame update
     void Start()
@@ -468,6 +469,7 @@ public class NamSanHMode : MonoBehaviour
         }
         else
         {
+            scroll.Close.gameObject.SetActive(false);
             CloseWisdom();
         }
         Docent_guide.GetComponent<Button>().enabled= false;
@@ -525,5 +527,10 @@ public class NamSanHMode : MonoBehaviour
     public void ButtonClick()
     {
         gamemanager.ButtonClickSound();
+    }
+
+    public void OnClickMerryBtn()
+    {
+        gamemanager.OnClickMerry();
     }
 }
