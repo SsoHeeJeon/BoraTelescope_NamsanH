@@ -50,12 +50,12 @@ public class CategoryContents : MonoBehaviour
         }
         else if (GameManager.currentLang == GameManager.Language_enum.Chinese)
         {
-            GameManager.currentLang = GameManager.Language_enum.Japan;
+            GameManager.currentLang = GameManager.Language_enum.Chinese;
             ChangeCategory_lang("Chinese");
         }
         else if (GameManager.currentLang == GameManager.Language_enum.Japan)
         {
-            GameManager.currentLang = GameManager.Language_enum.Chinese;
+            GameManager.currentLang = GameManager.Language_enum.Japan;
             ChangeCategory_lang("Japan");
         }
         SelectCategory_Flow();

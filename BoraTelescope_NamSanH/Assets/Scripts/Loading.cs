@@ -34,6 +34,7 @@ public class Loading : MonoBehaviour
         gamemanager = GameObject.Find("GameManager").GetComponent<GameManager>();
         gamemanager.UISetting();
 
+
         if (GameManager.PrevMode != "WaitingMode")
         {
             GameManager.Readpulse = false;
@@ -74,6 +75,7 @@ public class Loading : MonoBehaviour
 #endif
         //Debug.Log("today " + GameManager.AnyError);
         ConnectCamera();
+        print(GameManager.currentLang+"111");
     }
 
     public void waitPantilt()
@@ -89,12 +91,18 @@ public class Loading : MonoBehaviour
             currentTilt = (uint)PanTiltControl.NowTiltPulse;
             //Debug.Log("today " + currentPan + " / " + currentTilt);
         }
+        print(GameManager.currentLang + "111");
+        print(00);
         //Debug.Log(currentPan + " / " + currentPan);
         gamemanager.UISetting();
+        print(GameManager.currentLang + "111");
+        print(11);
         if (setMotor == true)
         {
             truetrue();
         }
+        print(GameManager.currentLang + "111");
+        print(22);
         //Debug.Log(GameManager.PrevMode);
         if (GameManager.PrevMode == "WaitingMode")
         {
@@ -104,6 +112,8 @@ public class Loading : MonoBehaviour
                 //SetmotorFreq = false;
             }
         }
+        print(GameManager.currentLang + "111");
+        print(33);
     }
 
     float count;

@@ -195,7 +195,7 @@ public class UILanguage : MonoBehaviour
                 {
                     btn.GetComponent<Image>().sprite = Live_Select_K;
                 }
-                else if (GameManager.currentLang != GameManager.Language_enum.Korea)
+                else if (GameManager.currentLang == GameManager.Language_enum.English)
                 {
                     btn.GetComponent<Image>().sprite = Live_Select_E;
                 }
@@ -213,7 +213,7 @@ public class UILanguage : MonoBehaviour
                 {
                     btn.GetComponent<Image>().sprite = XR_Select_K;
                 }
-                else if (GameManager.currentLang != GameManager.Language_enum.Korea)
+                else if (GameManager.currentLang == GameManager.Language_enum.English)
                 {
                     btn.GetComponent<Image>().sprite = XR_Select_E;
                 }
@@ -231,7 +231,7 @@ public class UILanguage : MonoBehaviour
                 {
                     btn.GetComponent<Image>().sprite = NamSanH_Select_K;
                 }
-                else if (GameManager.currentLang != GameManager.Language_enum.Korea)
+                else if (GameManager.currentLang == GameManager.Language_enum.English)
                 {
                     btn.GetComponent<Image>().sprite = NamSanH_Select_E;
                 }
@@ -249,7 +249,7 @@ public class UILanguage : MonoBehaviour
                 {
                     btn.GetComponent<Image>().sprite = Capture_Select_K;
                 }
-                else if (GameManager.currentLang != GameManager.Language_enum.Korea)
+                else if (GameManager.currentLang == GameManager.Language_enum.English)
                 {
                     btn.GetComponent<Image>().sprite = Capture_Select_E;
                 }
@@ -267,7 +267,7 @@ public class UILanguage : MonoBehaviour
                 {
                     btn.GetComponent<Image>().sprite = Language_Select_K;
                 }
-                else if (GameManager.currentLang != GameManager.Language_enum.Korea)
+                else if (GameManager.currentLang == GameManager.Language_enum.English)
                 {
                     btn.GetComponent<Image>().sprite = Language_Select_E;
                 }
@@ -285,7 +285,7 @@ public class UILanguage : MonoBehaviour
                 {
                     btn.GetComponent<Image>().sprite = Tip_Select_K;
                 }
-                else if (GameManager.currentLang != GameManager.Language_enum.Korea)
+                else if (GameManager.currentLang == GameManager.Language_enum.English)
                 {
                     btn.GetComponent<Image>().sprite = Tip_Select_E;
                 }
@@ -310,7 +310,7 @@ public class UILanguage : MonoBehaviour
                 {
                     btn.GetComponent<Image>().sprite = Live_idle_K;
                 }
-                else if (GameManager.currentLang != GameManager.Language_enum.Korea)
+                else if (GameManager.currentLang == GameManager.Language_enum.English)
                 {
                     btn.GetComponent<Image>().sprite = Live_idle_E;
                 }
@@ -328,7 +328,7 @@ public class UILanguage : MonoBehaviour
                 {
                     btn.GetComponent<Image>().sprite = XR_idle_K;
                 }
-                else if (GameManager.currentLang != GameManager.Language_enum.Korea)
+                else if (GameManager.currentLang == GameManager.Language_enum.English)
                 {
                     btn.GetComponent<Image>().sprite = XR_idle_E;
                 }
@@ -346,7 +346,7 @@ public class UILanguage : MonoBehaviour
                 {
                     btn.GetComponent<Image>().sprite = NamSanH_idle_K;
                 }
-                else if (GameManager.currentLang != GameManager.Language_enum.Korea)
+                else if (GameManager.currentLang == GameManager.Language_enum.English)
                 {
                     btn.GetComponent<Image>().sprite = NamSanH_idle_E;
                 }
@@ -364,7 +364,7 @@ public class UILanguage : MonoBehaviour
                 {
                     btn.GetComponent<Image>().sprite = Capture_idle_K;
                 }
-                else if (GameManager.currentLang != GameManager.Language_enum.Korea)
+                else if (GameManager.currentLang == GameManager.Language_enum.English)
                 {
                     btn.GetComponent<Image>().sprite = Capture_idle_E;
                 }
@@ -382,7 +382,7 @@ public class UILanguage : MonoBehaviour
                 {
                     btn.GetComponent<Image>().sprite = Language_idle_K;
                 }
-                else if (GameManager.currentLang != GameManager.Language_enum.Korea)
+                else if (GameManager.currentLang == GameManager.Language_enum.English)
                 {
                     btn.GetComponent<Image>().sprite = Language_idle_E;
                 }
@@ -400,7 +400,7 @@ public class UILanguage : MonoBehaviour
                 {
                     btn.GetComponent<Image>().sprite = Tip_idle_K;
                 }
-                else if (GameManager.currentLang != GameManager.Language_enum.Korea)
+                else if (GameManager.currentLang == GameManager.Language_enum.English)
                 {
                     btn.GetComponent<Image>().sprite = Tip_idle_E;
                 }
@@ -424,7 +424,7 @@ public class UILanguage : MonoBehaviour
             GameManager.currentLang = GameManager.Language_enum.Korea;
             SelectKorea();
         }
-        else if (GameManager.currentLang != GameManager.Language_enum.Korea)
+        else if (GameManager.currentLang == GameManager.Language_enum.English)
         {
             GameManager.currentLang = GameManager.Language_enum.English;
             SelectEnglish();
