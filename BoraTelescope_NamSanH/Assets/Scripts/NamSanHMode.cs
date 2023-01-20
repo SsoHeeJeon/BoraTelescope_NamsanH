@@ -51,7 +51,12 @@ public class NamSanHMode : MonoBehaviour
         }
         Close360();
     }
-    
+
+    private void Update()
+    {
+        print(Narration.isPlaying);
+    }
+
     public void NaviLabel(GameObject Label)
     {
         if (gamemanager.Label_Cate_1.Contains(Label.name))      // 시대별변천
@@ -137,36 +142,37 @@ public class NamSanHMode : MonoBehaviour
                 break;
         }
         Detailname(num - 1);
-        print(1);
         if (GameManager.currentLang == GameManager.Language_enum.Korea)
         {
-            print(2);
             labeldetail.InfoHeight.GetComponent<UIText>().text = ReadJsonFile.DetailText_K[num + 4];
             Narration.clip = gamemanager.Narration_Docent_K[num - 1];
-            print("Nar");
-            Docent_avartar.transform.GetChild(0).GetComponent<DocentAni>().NarrtionLen = Narration.clip.length;
+            Docent_avartar.transform.GetComponent<DocentAni>().NarrtionLen = Narration.clip.length;
+            Docent_avartar.transform.GetComponent<DocentAni>().AdClip = Narration.clip;
             //labeldetail.Detail_Background.GetComponent<Image>().sprite = gamemanager.DetailImage_K[num - 1];
         } else if(GameManager.currentLang == GameManager.Language_enum.English)
         {
             labeldetail.InfoHeight.GetComponent<UIText>().text = ReadJsonFile.DetailText_E[num + 4];
             Narration.clip = gamemanager.Narration_Docent_E[num - 1];
-            Docent_avartar.transform.GetChild(0).GetComponent<DocentAni>().NarrtionLen = Narration.clip.length;
+            Docent_avartar.transform.GetComponent<DocentAni>().NarrtionLen = Narration.clip.length;
+            Docent_avartar.transform.GetComponent<DocentAni>().AdClip = Narration.clip;
             //labeldetail.Detail_Background.GetComponent<Image>().sprite = gamemanager.DetailImage_E[num - 1];
         }
         else if(GameManager.currentLang == GameManager.Language_enum.Chinese)
         {
             labeldetail.InfoHeight.GetComponent<UIText>().text = ReadJsonFile.DetailText_C[num + 4];
             Narration.clip = gamemanager.Narration_Docent_C[num - 1];
-            Docent_avartar.transform.GetChild(0).GetComponent<DocentAni>().NarrtionLen = Narration.clip.length;
+            Docent_avartar.transform.GetComponent<DocentAni>().NarrtionLen = Narration.clip.length;
+            Docent_avartar.transform.GetComponent<DocentAni>().AdClip = Narration.clip;
         }
         else if(GameManager.currentLang == GameManager.Language_enum.Japan)
         {
             labeldetail.InfoHeight.GetComponent<UIText>().text = ReadJsonFile.DetailText_J[num + 4];
             Narration.clip = gamemanager.Narration_Docent_J[num - 1];
-            Docent_avartar.transform.GetChild(0).GetComponent<DocentAni>().NarrtionLen = Narration.clip.length;
+            Docent_avartar.transform.GetComponent<DocentAni>().NarrtionLen = Narration.clip.length;
+            Docent_avartar.transform.GetComponent<DocentAni>().AdClip = Narration.clip;
         }
-        //Narration.Play();
-        Narration.Pause();
+        Docent_avartar.transform.GetComponent<DocentAni>().Talk();
+        Narration.Play();
 
         if (gamemanager.NaviRect.sizeDelta.x > GameManager.barClose)
         {
@@ -178,8 +184,8 @@ public class NamSanHMode : MonoBehaviour
         AllUI.SetActive(false);
 
         labeldetail.ChangeDetailLanguage();
-        Docent_avartar.transform.GetChild(0).GetComponent<DocentAni>().AniHi();
         scroll.DisObject();
+        print("Play");
     }
 
     public void Detailname(int num)
@@ -480,18 +486,22 @@ public class NamSanHMode : MonoBehaviour
 
     public void NarrStopPlay()
     {
-        if (PlayNarr == true)
+        if(!scroll.ChromaVideo.activeSelf)
         {
-            Narration.Stop();
-            Docent_avartar.transform.GetChild(0).GetComponent<DocentAni>().CancelTalk();
-            //Invoke("WaitStopPlay", 0.5f);
+            Narration.clip = Docent_avartar.transform.GetComponent<DocentAni>().AdClip;
+            if (PlayNarr == true)
+            {
+                Narration.Stop();
+                Docent_avartar.transform.GetComponent<DocentAni>().CancelTalk();
+                //Invoke("WaitStopPlay", 0.5f);
+            }
+            else if (PlayNarr == false)
+            {
+                Narration.Play();
+                Docent_avartar.transform.GetComponent<DocentAni>().Talk();
+            }
+            Invoke("WaitStopPlay", 0.5f);
         }
-        else if (PlayNarr == false)
-        {
-            Narration.Play();
-            Docent_avartar.transform.GetChild(0).GetComponent<DocentAni>().Talk();
-        }
-        Invoke("WaitStopPlay", 0.5f);
     }
 
     public void WaitStopPlay()

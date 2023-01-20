@@ -57,7 +57,7 @@ public class LabelDetail : MonoBehaviour
 
         //namsanH.Narration.clip = null;
         namsanH.PlayNarr = true;
-        namsanH.Narration.Stop();
+        //namsanH.Narration.Stop();
 
         Detail_Background.transform.localPosition = new Vector3(Detail_Close_x, Detail_y, 0);
         DetailOpen();

@@ -11,6 +11,9 @@ public class scroll : MonoBehaviour
 
     // Start is called before the first frame update
     [SerializeField]
+    DocentAni docentani;
+
+    [SerializeField]
     VideoClip FINAL;
 
     [SerializeField]
@@ -193,6 +196,7 @@ public class scroll : MonoBehaviour
             }
             SubText_KE.GetComponent<TMP_Text>().text = info.intellitext[index];
             ad.clip = info.Narration[index];
+            docentani.NarrtionLen = ad.clip.length;
         }
         else if(GameManager.currentLang == GameManager.Language_enum.English)
         {
@@ -235,6 +239,7 @@ public class scroll : MonoBehaviour
             }
             SubText_KE.GetComponent<TMP_Text>().text = info.intellitext_E[index];
             ad.clip = info.Narration_E[index];
+            docentani.NarrtionLen = ad.clip.length;
         }
         else if(GameManager.currentLang == GameManager.Language_enum.Chinese)
         {
@@ -257,6 +262,7 @@ public class scroll : MonoBehaviour
             }
             SubText_C.GetComponent<TMP_Text>().text = info.intellitext_C[index];
             ad.clip = info.Narration_C[index];
+            docentani.NarrtionLen = ad.clip.length;
             if (index == 4)
             {
                 info.ganzi[index] = "事必歸正";
@@ -287,6 +293,7 @@ public class scroll : MonoBehaviour
             }
             SubText_J.GetComponent<TMP_Text>().text = info.intellitext_J[index];
             ad.clip = info.Narration_J[index];
+            docentani.NarrtionLen = ad.clip.length;
             if (index == 4)
             {
                 info.ganzi[index] = "事必歸正";
@@ -354,6 +361,7 @@ public class scroll : MonoBehaviour
 
         }
         Video.Pause();
+        docentani.Talk();
         ad.Play();
     }
 
@@ -362,6 +370,7 @@ public class scroll : MonoBehaviour
         Video.Play();
         Invoke("DisObject", 3.5f);
         Invoke("Distrue", 0.6f);
+        docentani.CancelTalk();
         ad.Stop();
     }
 

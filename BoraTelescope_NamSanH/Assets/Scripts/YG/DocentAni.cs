@@ -8,30 +8,25 @@ public class DocentAni : MonoBehaviour
     Animator Anim;
 
     public float NarrtionLen;
-
+    public AudioClip AdClip;
     [SerializeField]
     NamSanHMode namsan;
 
+
+    private void Start()
+    {
+        Anim = GetComponent<Animator>();
+    }
+
     public void AniHi()
     {
-        if(Anim==null)
-        {
-            Anim = GetComponent<Animator>();
-        }
         CancelInvoke("InvokeAnimation");
         Anim.CrossFade("Ani_Emotion_Hi_02", 0f);
     }
 
-    public void HitoTalk()
-    {
-        namsan.Narration.Play();
-        Anim.CrossFade("Ani_Talk_01", 0);
-        Invoke("InvokeAnimation", NarrtionLen-0.5f);
-    }
-
     void InvokeAnimation()
     {
-        Anim.CrossFade("Ani_Idle_01", 0.2f);
+        Anim.CrossFade("SinBu_Cloth_Ani_Idle_Talk_v2022_re-noMouse", 0.2f);
     }
 
     public void CancelTalk()
@@ -42,7 +37,7 @@ public class DocentAni : MonoBehaviour
 
     public void Talk()
     {
-        Anim.CrossFade("Ani_Talk_01", 0);
+        Anim.CrossFade("SinBu_Cloth_Ani_Idle_Talk_v2022", 0.2f);
         Invoke("InvokeAnimation", NarrtionLen - 0.5f);
     }
 }
