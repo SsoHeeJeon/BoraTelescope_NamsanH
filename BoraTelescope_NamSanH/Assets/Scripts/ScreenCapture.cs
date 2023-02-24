@@ -93,7 +93,15 @@ public class ScreenCapture : UploadImage
         {
             gamemanager.WriteLog(LogSendServer.NormalLogCode.NamSanH_Capture, "NamSanH_Capture", GetType().ToString());
         }
-        PutImageObject(name, filename);
+
+        if (GameManager.internetCon == true)
+        {
+            PutImageObject(name, filename);
+        } else if(GameManager.internetCon == false)
+        {
+            gamemanager.CaptureEndCamera();
+            gamemanager.ErrorMessage.SetActive(true);
+        }
         camera.targetTexture = null;
 
         Destroy(screenShot);

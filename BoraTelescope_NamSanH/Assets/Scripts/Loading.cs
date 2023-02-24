@@ -95,7 +95,7 @@ public class Loading : MonoBehaviour
         {
             truetrue();
         }
-        //Debug.Log(GameManager.PrevMode);
+        Debug.Log("today " + SetmotorFreq);
         if (GameManager.PrevMode == "WaitingMode")
         {
             if (SetmotorFreq == true)

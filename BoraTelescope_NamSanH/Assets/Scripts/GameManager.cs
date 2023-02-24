@@ -222,8 +222,18 @@ public class GameManager : ContentsInfo
     // Update is called once per frame
     void Update()
     {
+        if(InternetStateCheck == true)
+        {
+            internetCon = IsInternetConnected();
+
+            if (startCapture == true)
+            {
+                CheckInternet();
+                startCapture = false;
+            }
+        }
         curlang = currentLang;
-        print(curlang);
+
         // 네비게이션 창, 상세설명창 속도 조절 
         navi_t += Time.deltaTime * 0.1f;
         langnavi_t += Time.deltaTime * 0.1f;
@@ -684,6 +694,7 @@ public class GameManager : ContentsInfo
                     MenuBar.transform.GetChild(0).gameObject.transform.GetChild(1).gameObject.transform.GetChild(0).gameObject.SetActive(true);
 
                     WantNoLabel = false;
+
                     MenuBar.GetComponent<UILanguage>().SceneChagneSetOrigin();
 
                     Loading.nextScene = "XRMode";
@@ -1055,14 +1066,20 @@ public class GameManager : ContentsInfo
         }
     }
 
-    bool internetCon = false;
+    public static bool internetCon = false;
+    bool InternetStateCheck = false;
+    bool startCapture = false;
 
     public void CaptureCamera()
     {
         BackGround.SetActive(true);
 
-        internetCon = IsInternetConnected();
+        InternetStateCheck = true;
+        startCapture = true;
+    }
 
+    public void CheckInternet()
+    {
         if (internetCon == true)
         {
             CaptueObject.gameObject.SetActive(true);
@@ -1074,7 +1091,8 @@ public class GameManager : ContentsInfo
             CaptueObject.gameObject.GetComponent<ScreenCapture>().flasheffect.SetActive(true);
             CaptueObject.gameObject.GetComponent<ScreenCapture>().flasheffect.GetComponent<Image>().color = CaptueObject.gameObject.GetComponent<ScreenCapture>().flashColor;
             BackGround.SetActive(true);
-        } else if(internetCon == false)
+        }
+        else if (internetCon == false)
         {
             BackGround.SetActive(false);
 
@@ -1085,10 +1103,23 @@ public class GameManager : ContentsInfo
 
     public void CaptureEndCamera()
     {
-        internetCon = false;
+        if (SceneManager.GetActiveScene().name == "XRMode")
+        {
+            CaptueObject.gameObject.GetComponent<ScreenCapture>().customMark.transform.parent = CaptueObject.gameObject.GetComponent<ScreenCapture>().flasheffect.transform.parent.gameObject.transform;
+        }
+        else if (SceneManager.GetActiveScene().name.Contains("NamSanHMode"))
+        {
+            CaptueObject.gameObject.GetComponent<ScreenCapture>().customMark.transform.parent = CaptueObject.gameObject.GetComponent<ScreenCapture>().flasheffect.transform.parent.gameObject.transform;
+        }
+
+        CaptueObject.gameObject.GetComponent<ScreenCapture>().customMark.transform.localPosition = originPos;
+        CaptueObject.gameObject.GetComponent<ScreenCapture>().customMark.gameObject.SetActive(false);
+
         CaptueObject.gameObject.GetComponent<ScreenCapture>().QRCodeImage.texture = null;
         BackGround.SetActive(false);
         CaptueObject.gameObject.SetActive(false);
+        internetCon = false;
+        InternetStateCheck = false;
     }
 
     public void WaitStartCap()

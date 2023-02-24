@@ -39,12 +39,19 @@ public class QRMaker : MonoBehaviour
     }
     public void MakeQRCode()
     {
-        //url = "http://211.104.146.87:78/info/boraphotodownload/be890630-088e-4760-8cc7-905c6a91bdf1-1-2022-07-07-18-27-27-661.png";
-        //string url = "https://borabucket.s3.ap-northeast-2.amazonaws.com/" + filename;
-        Texture2D QRImage = CreateQR(url);
+        if (GameManager.internetCon == true)
+        {
+            //url = "http://211.104.146.87:78/info/boraphotodownload/be890630-088e-4760-8cc7-905c6a91bdf1-1-2022-07-07-18-27-27-661.png";
+            //string url = "https://borabucket.s3.ap-northeast-2.amazonaws.com/" + filename;
+            Texture2D QRImage = CreateQR(url);
 
-        QRCodeImage.texture = QRImage;
-        Invoke("waitQRcode", 1f);
+            QRCodeImage.texture = QRImage;
+            Invoke("waitQRcode", 1f);
+        } else if (GameManager.internetCon == false)
+        {
+            gamemanager.CaptureEndCamera();
+            gamemanager.ErrorMessage.SetActive(true);
+        }
     }
     /*
     public void MakeQRCode(string filename)
@@ -58,32 +65,41 @@ public class QRMaker : MonoBehaviour
     }
     */
     public void waitQRcode() {
-        QRCodeImage.transform.parent.gameObject.SetActive(true);
-        QRCodeImage.gameObject.SetActive(true);
-        if(SceneManager.GetActiveScene().name == "XRMode")
+        if (GameManager.internetCon == true)
         {
-            gamemanager.WriteLog(LogSendServer.NormalLogCode.AR_QRCode, "AR_QRCode:On", GetType().ToString());
-        } else if (SceneManager.GetActiveScene().name == "NamSanHMode")
+            QRCodeImage.transform.parent.gameObject.SetActive(true);
+            QRCodeImage.gameObject.SetActive(true);
+            if (SceneManager.GetActiveScene().name == "XRMode")
+            {
+                gamemanager.WriteLog(LogSendServer.NormalLogCode.AR_QRCode, "AR_QRCode:On", GetType().ToString());
+            }
+            else if (SceneManager.GetActiveScene().name == "NamSanHMode")
+            {
+                gamemanager.WriteLog(LogSendServer.NormalLogCode.NamSanH_QRCode, "NamSanH_QRCode:On", GetType().ToString());
+            }
+            ScreenCapture.counttime = false;
+            QRCodeImage.transform.parent.gameObject.transform.GetChild(1).gameObject.transform.GetChild(0).GetComponent<Image>().fillAmount = 0;
+            QRCodeImage.transform.parent.gameObject.transform.GetChild(1).gameObject.SetActive(false);
+
+            if (SceneManager.GetActiveScene().name == "XRMode")
+            {
+                gamemanager.CaptueObject.gameObject.GetComponent<ScreenCapture>().customMark.transform.parent = gamemanager.CaptueObject.gameObject.GetComponent<ScreenCapture>().flasheffect.transform.parent.gameObject.transform;
+            }
+            else if (SceneManager.GetActiveScene().name.Contains("NamSanHMode"))
+            {
+                gamemanager.CaptueObject.gameObject.GetComponent<ScreenCapture>().customMark.transform.parent = gamemanager.CaptueObject.gameObject.GetComponent<ScreenCapture>().flasheffect.transform.parent.gameObject.transform;
+            }
+
+            gamemanager.CaptueObject.gameObject.GetComponent<ScreenCapture>().customMark.transform.localPosition = GameManager.originPos;
+
+            gamemanager.CaptueObject.gameObject.GetComponent<ScreenCapture>().customMark.gameObject.SetActive(false);
+            Invoke("SetCloseBut", 1f);
+            Invoke("CloseQRCode", 30f);
+        } else if(GameManager.internetCon == false)
         {
-            gamemanager.WriteLog(LogSendServer.NormalLogCode.NamSanH_QRCode, "NamSanH_QRCode:On", GetType().ToString());
+            gamemanager.CaptureEndCamera();
+            gamemanager.ErrorMessage.SetActive(true);
         }
-        ScreenCapture.counttime = false;
-        QRCodeImage.transform.parent.gameObject.transform.GetChild(1).gameObject.transform.GetChild(0).GetComponent<Image>().fillAmount = 0;
-        QRCodeImage.transform.parent.gameObject.transform.GetChild(1).gameObject.SetActive(false);
-
-        if (SceneManager.GetActiveScene().name == "XRMode")
-        {
-            gamemanager.CaptueObject.gameObject.GetComponent<ScreenCapture>().customMark.transform.parent = gamemanager.CaptueObject.gameObject.GetComponent<ScreenCapture>().flasheffect.transform.parent.gameObject.transform;
-        } else if (SceneManager.GetActiveScene().name.Contains("NamSanHMode"))
-        {
-            gamemanager.CaptueObject.gameObject.GetComponent<ScreenCapture>().customMark.transform.parent = gamemanager.CaptueObject.gameObject.GetComponent<ScreenCapture>().flasheffect.transform.parent.gameObject.transform;
-        }
-
-        gamemanager.CaptueObject.gameObject.GetComponent<ScreenCapture>().customMark.transform.localPosition = GameManager.originPos;
-
-        gamemanager.CaptueObject.gameObject.GetComponent<ScreenCapture>().customMark.gameObject.SetActive(false);
-        Invoke("SetCloseBut", 1f);
-        Invoke("CloseQRCode", 30f);
     }
 
     public void SetCloseBut()

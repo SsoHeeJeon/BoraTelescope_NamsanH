@@ -117,11 +117,20 @@ public class UploadImage : QRMaker
                 Debug.Log("no");
                 return;
             }
-            MakeQRCode();
+            if (GameManager.internetCon == true)
+            {
+                MakeQRCode();
+            } else if(GameManager.internetCon == false)
+            {
+                gamemanager.CaptureEndCamera();
+                gamemanager.ErrorMessage.SetActive(true);
+            }
         }
         catch (Exception e)
         {
             Console.WriteLine(e);
+            gamemanager.CaptureEndCamera();
+            gamemanager.ErrorMessage.SetActive(true);
         }
     }
 

@@ -130,7 +130,7 @@ public class ChangeWaitingMode : MonoBehaviour
                     //Debug.Log("today today");
                     if (SetmotorFreq == true)
                     {
-                        //Debug.Log("today today");
+                        Debug.Log("today today");
                         Invoke("setpantiltFreq", 0.5f);
                         SetmotorFreq = false;
                     }
