@@ -2,6 +2,7 @@ using PanTiltControl_v2;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -198,7 +199,6 @@ public class GameManager : ContentsInfo
         DontDestroyOnLoad(GM);
 
         UISetting();
-
         // 시간 초기화
         touchCount = 0;
         touchfinish = false;
@@ -758,7 +758,6 @@ public class GameManager : ContentsInfo
                         langNaviOn = true;
                         movelangNavi = true;
                     }
-
                     Loading.nextScene = "NamSanHMode";
                     SceneManager.LoadScene("Loading");
                 }

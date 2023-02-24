@@ -34,6 +34,7 @@ public class Loading : MonoBehaviour
         gamemanager = GameObject.Find("GameManager").GetComponent<GameManager>();
         gamemanager.UISetting();
 
+
         if (GameManager.PrevMode != "WaitingMode")
         {
             GameManager.Readpulse = false;
@@ -74,6 +75,7 @@ public class Loading : MonoBehaviour
 #endif
         //Debug.Log("today " + GameManager.AnyError);
         ConnectCamera();
+        print(GameManager.currentLang+"111");
     }
 
     public void waitPantilt()
@@ -95,7 +97,7 @@ public class Loading : MonoBehaviour
         {
             truetrue();
         }
-        Debug.Log("today " + SetmotorFreq);
+        //Debug.Log(GameManager.PrevMode);
         if (GameManager.PrevMode == "WaitingMode")
         {
             if (SetmotorFreq == true)
